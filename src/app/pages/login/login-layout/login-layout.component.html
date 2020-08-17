@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="wrap">
+        <div class="top">
+            <div class="head">
+                <span class="title">{{sysName}}</span>
+            </div>
+            <div class="desc">{{sysNamePinYin}}</div>
+        </div>
+        <div class="login-wrap">
+            <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
+                <nz-form-item>
+                    <span>用户登录</span>
+                </nz-form-item>
+                <nz-form-item>
+                    <nz-form-control nzErrorTip="请输入用户名!">
+                        <nz-input-group>
+                            <i class="icon-name"><img src="../../../../assets/imgs/logo_imgsrc/yonghu.png"></i>
+                            <input type="text" nz-input formControlName="account" placeholder="请输入用户名" maxlength="20"/>
+                        </nz-input-group>
+                    </nz-form-control>
+                </nz-form-item>
+                <nz-form-item>
+                    <nz-form-control nzErrorTip="请输入密码!">
+                        <nz-input-group>
+                            <i class="icon-name"><img src="../../../../assets/imgs/logo_imgsrc/mima.png"></i>
+                            <input type="password" nz-input formControlName="password" placeholder="请输入密码"
+                                   maxlength="20"/>
+                        </nz-input-group>
+                    </nz-form-control>
+                </nz-form-item>
+                <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'">登 录</button>
+            </form>
+        </div>
+    </div>
+</div>
