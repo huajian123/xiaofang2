@@ -1,1 +1,177 @@
-<p>home works!</p>
+<main>
+  <header>分级应对决策辅助系统</header>
+
+  <section class="file-wrap">
+    <nz-form-label>灾害类型</nz-form-label>
+    <nz-select (ngModelChange)="changeAccidentIdValue($event)" [(ngModel)]="accidentType" nzPlaceHolder="灾害类型">
+      <nz-option *ngFor="let item of accidentTypeOptions" [nzLabel]="item.label"
+                 [nzValue]="item.value"></nz-option>
+    </nz-select>
+    <nz-select nzPlaceHolder="灾害名称" [(ngModel)]="accidentId">
+      <nz-option *ngFor="let item of temporaryNameOptions" [nzLabel]="item.label"
+                 [nzValue]="item.value"></nz-option>
+    </nz-select>
+    <button nz-button nzType="primary" class="marginRight btn-bg-sure" (click)="goSure()">确定</button>
+    <button nz-button nzGhost nzType="default" class="btn-bg-rest" (click)="goRest()">重置</button>
+  </section>
+
+  <section class="judgment-wrap">
+    <!--汛旱-->
+    <ng-container *ngIf="currentPage===numVariable.one"></ng-container>
+    <!--地震-->
+    <ng-container *ngIf="currentPage===numVariable.two">
+    </ng-container>
+    <!--气象-->
+    <ng-container *ngIf="currentPage===numVariable.three">
+    </ng-container>
+    <!--自然灾害救助-->
+    <ng-container *ngIf="currentPage===numVariable.four">
+    </ng-container>
+    <!--地质-->
+    <ng-container *ngIf="currentPage===5">
+    </ng-container>
+    <!--台风-->
+    <ng-container *ngIf="currentPage===6">
+    </ng-container>
+    <!--交通-->
+    <ng-container *ngIf="currentPage===7">
+
+    </ng-container>
+    <!--环境-->
+    <ng-container *ngIf="currentPage===8">
+
+    </ng-container>
+    <!--辐射-->
+    <ng-container *ngIf="currentPage===9">
+
+    </ng-container>
+    <!--蓝藻-->
+    <ng-container *ngIf="currentPage===10">
+
+    </ng-container>
+    <!--湖泛-->
+    <ng-container *ngIf="currentPage===11">
+
+    </ng-container>
+    <!--天气-->
+    <ng-container *ngIf="currentPage===12">
+
+    </ng-container>
+    <!--核应急-->
+    <ng-container *ngIf="currentPage===13">
+
+    </ng-container>
+    <!--设备-->
+    <ng-container *ngIf="currentPage===14">
+
+    </ng-container>
+    <!--铁路-->
+    <ng-container *ngIf="currentPage===15">
+
+    </ng-container>
+    <!--港口-->
+    <ng-container *ngIf="currentPage===16">
+
+    </ng-container>
+    <!--停电-->
+    <ng-container *ngIf="currentPage===17">
+
+    </ng-container>
+    <!--火灾-->
+    <ng-container *ngIf="currentPage===18">
+
+    </ng-container>
+    <!--通信-->
+    <ng-container *ngIf="currentPage===19">
+
+    </ng-container>
+    <!--危化品-->
+    <ng-container *ngIf="currentPage===numVariable.twenty">
+      <app-hazardous></app-hazardous>
+    </ng-container>
+    <!--生产-->
+    <ng-container *ngIf="currentPage===21">
+
+    </ng-container>
+    <!--森林-->
+    <ng-container *ngIf="currentPage===22">
+
+    </ng-container>
+    <!--水上-->
+    <ng-container *ngIf="currentPage===23">
+
+    </ng-container>
+    <!--轨道-->
+    <ng-container *ngIf="currentPage===24">
+
+    </ng-container>
+    <!--食品-->
+    <ng-container *ngIf="currentPage===25">
+
+    </ng-container>
+    <!--卫生-->
+    <ng-container *ngIf="currentPage===26">
+
+    </ng-container>
+    <!--医疗-->
+    <ng-container *ngIf="currentPage===27">
+
+    </ng-container>
+    <!--鼠疫-->
+    <ng-container *ngIf="currentPage===28">
+
+    </ng-container>
+    <!--流感-->
+    <ng-container *ngIf="currentPage===29">
+
+    </ng-container>
+    <!--疫情-->
+    <ng-container *ngIf="currentPage===30">
+
+    </ng-container>
+    <!--器械-->
+    <ng-container *ngIf="currentPage===31">
+
+    </ng-container>
+    <!--袭击-->
+    <ng-container *ngIf="currentPage===32">
+
+    </ng-container>
+    <!--群体-->
+    <ng-container *ngIf="currentPage===33">
+
+    </ng-container>
+    <!--价格-->
+    <ng-container *ngIf="currentPage===34">
+
+    </ng-container>
+    <!--粮食-->
+    <ng-container *ngIf="currentPage===35">
+
+    </ng-container>
+    <!--网络-->
+    <ng-container *ngIf="currentPage===36">
+
+    </ng-container>
+    <!--涉外-->
+    <ng-container *ngIf="currentPage===37">
+
+    </ng-container>
+    <!--金融-->
+    <ng-container *ngIf="currentPage===38">
+
+    </ng-container>
+    <!--政府-->
+    <ng-container *ngIf="currentPage===39">
+
+    </ng-container>
+    <!--军粮-->
+    <ng-container *ngIf="currentPage===40">
+
+    </ng-container>
+    <!--救灾-->
+    <ng-container *ngIf="currentPage===41">
+
+    </ng-container>
+  </section>
+</main>
