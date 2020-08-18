@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, SimpleChanges} from '@angular/core';
 import {
   CitiesNameModel, CitiesNameService,
   DepartInfoModel,
@@ -9,6 +9,7 @@ import {FormBuilder, FormGroup} from "@angular/forms";
 import {AccidentDisastersListService} from "../../../../../services/biz-services/accident-disasters-list.service";
 import {NzMessageService} from "ng-zorro-antd";
 import {debounceTime, distinctUntilChanged} from "rxjs/operators";
+import {MapPipe, MapSet} from "../../../../../share/directives/pipe/map.pipe";
 interface OptionsInterface {
   value: number;
   label: string;
@@ -34,6 +35,7 @@ export class EarthquakeComponent implements OnInit {
   validateForm: FormGroup;
   provinceData: OptionsInterface[];
   cityData: OptionsInterface[];
+  earthquakeEconomicLevelOptions: OptionsInterface[];
   selected: SelectedInterface;
   dataInfo: CitiesNameModel[];
   responsibilityEntities: DepartInfoModel[];
@@ -52,6 +54,7 @@ export class EarthquakeComponent implements OnInit {
     this.plnId = 0;
     this.responsibilityEntities = [];
     this.cityName = '';
+    this.earthquakeEconomicLevelOptions = [];
   }
 
 
@@ -96,9 +99,22 @@ export class EarthquakeComponent implements OnInit {
     });
   }
   ngOnInit(): void {
-    this.initForm();
-    this.getEarthquakeWarningList();
-    this.subForm();
+    // 管理员登陆
+    if (!this.selAlarm) {
+      this.initForm();
+      this.getEarthquakeWarningList();
+      this.subForm();
+    } else {
+      this.currentPage = this.selAlarm.accidentGrade;
+      this.cityName = this.selAlarm.accidentAddress;
+    }
+    this.earthquakeEconomicLevelOptions = [...MapPipe.transformMapToArray(MapSet.earthquakeEconomicLevel)];
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (!changes['selAlarm'].firstChange) {
+      this.currentPage = changes['selAlarm'].currentValue.accidentGrade;
+    }
   }
 
 }

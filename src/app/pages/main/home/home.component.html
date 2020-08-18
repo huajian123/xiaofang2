@@ -20,7 +20,7 @@
     <ng-container *ngIf="currentPage===numVariable.one"></ng-container>
     <!--地震-->
     <ng-container *ngIf="currentPage===numVariable.two">
-      <app-earthquake></app-earthquake>
+      <app-earthquake [selAlarm]="selAlarm"  [id]="accidentId"></app-earthquake>
     </ng-container>
     <!--气象-->
     <ng-container *ngIf="currentPage===numVariable.three">
