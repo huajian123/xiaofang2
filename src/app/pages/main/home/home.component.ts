@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {PublishAlarmModel} from "../../../services/biz-services/earthquake-warning-list.service";
+import {CitiesNameService, PublishAlarmModel} from "../../../services/biz-services/earthquake-warning-list.service";
 import {UserRole} from "../../../VO/types";
 import {MapPipe, MapSet} from "../../../share/directives/pipe/map.pipe";
+import {EVENT_KEY} from "../../../../environments/staticVariable";
 export enum VariableEnum {
   zero = 0,
   one = 1,
@@ -41,7 +42,7 @@ export class HomeComponent implements OnInit {
   publicHealthNameOptions: OptionsInterface[];
   /*社会安全下拉*/
   socialSecurityNameOptions: OptionsInterface[];
-  constructor() { }
+  constructor(private dataService: CitiesNameService) { }
 
 
   changeAccidentIdValue(index) {
@@ -78,12 +79,29 @@ export class HomeComponent implements OnInit {
     this.currentPage = this.accidentId;
   }
 
+  getPublishAlarm() {
+    this.dataService.getPublishAlarm().subscribe(res => {
+      if (res[0].accidentPublish) {
+        this.selAlarm = res[0];
+        this.currentPage = res[0].accidentId;
+        this.accidentId = this.currentPage;
+      }
+    });
+  }
+
   ngOnInit(): void {
     this.accidentTypeOptions = [...MapPipe.transformMapToArray(MapSet.accidentType)];
     this.naturalNameOptions = [...MapPipe.transformMapToArray(MapSet.naturalDisastersType)];
     this.accidentNameOptions = [...MapPipe.transformMapToArray(MapSet.accidentDisastersType)];
     this.publicHealthNameOptions = [...MapPipe.transformMapToArray(MapSet.publicHealthType)];
     this.socialSecurityNameOptions = [...MapPipe.transformMapToArray(MapSet.socialSecurityType)];
+    this.userRole = JSON.parse(window.sessionStorage.getItem(EVENT_KEY.loginInfo)).role;
+    if (this.userRole === this.userRoleEnum.User) {
+      this.getPublishAlarm();
+      setInterval(() => {
+        this.getPublishAlarm();
+      }, 1000);
+    }
   }
 
 }
