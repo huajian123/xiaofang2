@@ -10,7 +10,7 @@ import {AccidentDisastersListService} from '../../../../../services/biz-services
 import {NzMessageService} from 'ng-zorro-antd';
 import {debounceTime, distinctUntilChanged} from 'rxjs/operators';
 import {MapPipe, MapSet} from '../../../../../share/directives/pipe/map.pipe';
-import {fromEvent} from "rxjs";
+import {fromEvent} from 'rxjs';
 
 interface OptionsInterface {
   value: number;
@@ -43,9 +43,33 @@ export class EarthquakeComponent implements OnInit, OnChanges {
   responsibilityEntities: DepartInfoModel[];
   cityName: string;
   plnId: number;
+  tabId: number;
+  tabs = [
+    {
+      id: 1,
+      name: '应急管理厅'
+    },
+    {
+      id: 2,
+      name: '专业处置组'
+    },
+    {
+      id: 3,
+      name: '警戒疏散组'
+    },
+    {
+      id: 4,
+      name: '交通管制组'
+    }
+  ];
+
+  chooseTab(type) {
+    this.tabId = type;
+  }
 
   constructor(private fb: FormBuilder, private dataService: CitiesNameService, private dataServicers: AccidentDisastersListService,
               public message: NzMessageService, public element: ElementRef, private renderer2: Renderer2) {
+    this.tabId = 1;
     this.provinceData = [];
     this.cityData = [];
     this.selected = {
@@ -116,7 +140,6 @@ export class EarthquakeComponent implements OnInit, OnChanges {
       this.cityName = this.selAlarm.accidentAddress;
     }
     this.earthquakeEconomicLevelOptions = [...MapPipe.transformMapToArray(MapSet.earthquakeEconomicLevel)];
-
     const temp = this.element.nativeElement.querySelectorAll('.column-left div');
     // tslint:disable-next-line:prefer-for-of
     for (let i = 0; i < temp.length; i++) {
@@ -128,9 +151,9 @@ export class EarthquakeComponent implements OnInit, OnChanges {
           this.renderer2.removeClass(temp[j], 'column-div-left-clicked');
           this.renderer2.removeClass(temp[j], 'column-div-right-clicked');
         }
-        if(odd===0){
+        if (odd === 0) {
           this.renderer2.addClass(temp[i], 'column-div-left-clicked');
-        }else{
+        } else {
           this.renderer2.addClass(temp[i], 'column-div-right-clicked');
         }
       });

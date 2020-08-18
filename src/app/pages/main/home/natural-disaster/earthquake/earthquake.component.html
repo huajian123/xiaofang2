@@ -83,12 +83,35 @@
          (click)="isShowStandard=!isShowStandard"></div>
   </div>
 </ng-container>
-<div class="column-left">
-  <div class="sub-left"><p>启动应急响应</p></div>
-  <div class="sub-right displacement"><p>分组开展<br/>应急救援工作</p></div>
-  <div class="sub-left move"><p>保障方案</p></div>
-  <div class="sub-right displacement"><p>现场信息采集</p></div>
-  <div class="sub-left move"><p>辅助指挥<br/>决策信息</p></div>
-  <div class="sub-right displacement"><p>事态控制</p></div>
-  <div class="sub-left move"><p>善后处理<br/>与事故调查</p></div>
+<div class="column-lay">
+  <div class="column-left">
+    <div class="sub-left"><p>启动应急响应</p></div>
+    <div class="sub-right displacement"><p>分组开展<br/>应急救援工作</p></div>
+    <div class="sub-left move"><p>保障方案</p></div>
+    <div class="sub-right displacement"><p>现场信息采集</p></div>
+    <div class="sub-left move"><p>辅助指挥<br/>决策信息</p></div>
+    <div class="sub-right displacement"><p>事态控制</p></div>
+    <div class="sub-left move"><p>善后处理<br/>与事故调查</p></div>
+  </div>
+  <div class="column-right">
+    <div class="r-cnt">
+      <ul class="r-ul clearfix">
+        <li *ngFor="let tab of tabs" (click)="chooseTab(tab.id)" [ngClass]="{'active':tabId==tab.id}">{{tab.name}}</li>
+      </ul>
+      <div *ngIf="tabId==1">
+           <ul class="second-tabs clearfix">
+             <li *ngFor="let tab of tabs" (click)="chooseTab(tab.id)" [ngClass]="{'actives':tabId==tab.id}">{{tab.name}}</li>
+           </ul>
+      </div>
+      <div *ngIf="tabId==2">
+        专业处置组
+      </div>
+      <div *ngIf="tabId==3">
+        警戒疏散组
+      </div>
+      <div *ngIf="tabId==4">
+        交通管制组
+      </div>
+    </div>
+  </div>
 </div>
