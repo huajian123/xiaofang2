@@ -33,7 +33,7 @@ export class LoginLayoutComponent implements OnInit {
         await this.dataService.UserLogin(params).subscribe((res) => {
             window.sessionStorage.setItem(EVENT_KEY.loginInfo, JSON.stringify(res));
             // this.router.navigate(['/login-page']);
-            this.router.navigate(['/hazard-decision-support']);
+            this.router.navigate(['/home']);
         });
 
     }
