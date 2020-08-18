@@ -1,4 +1,4 @@
-import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {Component, ElementRef, Input, OnChanges, OnInit, Renderer2, SimpleChanges} from '@angular/core';
 import {
   CitiesNameModel, CitiesNameService,
   DepartInfoModel,
@@ -10,6 +10,7 @@ import {AccidentDisastersListService} from '../../../../../services/biz-services
 import {NzMessageService} from 'ng-zorro-antd';
 import {debounceTime, distinctUntilChanged} from 'rxjs/operators';
 import {MapPipe, MapSet} from '../../../../../share/directives/pipe/map.pipe';
+import {fromEvent} from "rxjs";
 
 interface OptionsInterface {
   value: number;
@@ -44,7 +45,7 @@ export class EarthquakeComponent implements OnInit, OnChanges {
   plnId: number;
 
   constructor(private fb: FormBuilder, private dataService: CitiesNameService, private dataServicers: AccidentDisastersListService,
-              public message: NzMessageService) {
+              public message: NzMessageService, public element: ElementRef, private renderer2: Renderer2) {
     this.provinceData = [];
     this.cityData = [];
     this.selected = {
@@ -115,6 +116,25 @@ export class EarthquakeComponent implements OnInit, OnChanges {
       this.cityName = this.selAlarm.accidentAddress;
     }
     this.earthquakeEconomicLevelOptions = [...MapPipe.transformMapToArray(MapSet.earthquakeEconomicLevel)];
+
+    const temp = this.element.nativeElement.querySelectorAll('.column-left div');
+    // tslint:disable-next-line:prefer-for-of
+    for (let i = 0; i < temp.length; i++) {
+      const odd = i % 2;
+      const mouseClick = fromEvent(temp[i], 'click');
+      const subscription = mouseClick.subscribe(() => {
+        // tslint:disable-next-line:prefer-for-of
+        for (let j = 0; j < temp.length; j++) {
+          this.renderer2.removeClass(temp[j], 'column-div-left-clicked');
+          this.renderer2.removeClass(temp[j], 'column-div-right-clicked');
+        }
+        if(odd===0){
+          this.renderer2.addClass(temp[i], 'column-div-left-clicked');
+        }else{
+          this.renderer2.addClass(temp[i], 'column-div-right-clicked');
+        }
+      });
+    }
   }
 
   ngOnChanges(changes: SimpleChanges): void {

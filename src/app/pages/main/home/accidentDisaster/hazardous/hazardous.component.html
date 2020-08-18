@@ -43,7 +43,7 @@
             <nz-form-label [nzSpan]="12">毒性气体储量（吨）</nz-form-label>
             <nz-form-control [nzSpan]="12">
               <nz-input-number nzPlaceHolder="毒性气体储量（吨）" formControlName="toxicGas"
-                               [nzMin]="1"></nz-input-number>
+                             [nzMax]="9999" nzPrecision="5"  [nzMin]="1"></nz-input-number>
             </nz-form-control>
           </nz-form-item>
         </div>
