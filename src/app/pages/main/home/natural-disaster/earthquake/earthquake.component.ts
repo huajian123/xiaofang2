@@ -1,15 +1,16 @@
-import {Component, Input, OnInit, SimpleChanges} from '@angular/core';
+import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {
   CitiesNameModel, CitiesNameService,
   DepartInfoModel,
   PublishAlarmModel
-} from "../../../../../services/biz-services/earthquake-warning-list.service";
-import {VariableEnum} from "../../home.component";
-import {FormBuilder, FormGroup} from "@angular/forms";
-import {AccidentDisastersListService} from "../../../../../services/biz-services/accident-disasters-list.service";
-import {NzMessageService} from "ng-zorro-antd";
-import {debounceTime, distinctUntilChanged} from "rxjs/operators";
-import {MapPipe, MapSet} from "../../../../../share/directives/pipe/map.pipe";
+} from '../../../../../services/biz-services/earthquake-warning-list.service';
+import {VariableEnum} from '../../home.component';
+import {FormBuilder, FormGroup} from '@angular/forms';
+import {AccidentDisastersListService} from '../../../../../services/biz-services/accident-disasters-list.service';
+import {NzMessageService} from 'ng-zorro-antd';
+import {debounceTime, distinctUntilChanged} from 'rxjs/operators';
+import {MapPipe, MapSet} from '../../../../../share/directives/pipe/map.pipe';
+
 interface OptionsInterface {
   value: number;
   label: string;
@@ -25,7 +26,7 @@ export interface SelectedInterface {
   templateUrl: './earthquake.component.html',
   styleUrls: ['./earthquake.component.less']
 })
-export class EarthquakeComponent implements OnInit {
+export class EarthquakeComponent implements OnInit, OnChanges {
 
   isShowStandard: boolean; // 是否展开标准
   @Input() id: number;
@@ -41,6 +42,7 @@ export class EarthquakeComponent implements OnInit {
   responsibilityEntities: DepartInfoModel[];
   cityName: string;
   plnId: number;
+
   constructor(private fb: FormBuilder, private dataService: CitiesNameService, private dataServicers: AccidentDisastersListService,
               public message: NzMessageService) {
     this.provinceData = [];
@@ -65,6 +67,7 @@ export class EarthquakeComponent implements OnInit {
       this.cityData.push({value: item.id, label: item.countName});
     });
   }
+
   async getEarthquakeWarningList() {
     await this.dataService.getCitiesNameList().subscribe(res => {
       this.dataInfo = res;
@@ -73,6 +76,7 @@ export class EarthquakeComponent implements OnInit {
       });
     });
   }
+
   initForm() {
     this.validateForm = this.fb.group({
       peopleDie: [null],
@@ -84,6 +88,7 @@ export class EarthquakeComponent implements OnInit {
       areaId: [null],
     });
   }
+
   async subForm() {
     this.validateForm.valueChanges.pipe(debounceTime(1000), distinctUntilChanged()).subscribe(res => {
       res.accidentId = this.id;
@@ -98,6 +103,7 @@ export class EarthquakeComponent implements OnInit {
       });
     });
   }
+
   ngOnInit(): void {
     // 管理员登陆
     if (!this.selAlarm) {
