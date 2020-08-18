@@ -1,5 +1,5 @@
-<ng-container *ngIf="!selAlarm">
-  <section class="layout-content" *ngIf="isShowStandard">
+<ng-container *ngIf="!selAlarm&&false">
+  <section class="layout-content" *ngIf="isShowStandard||false">
     <form [formGroup]="validateForm">
       <div nz-row>
         <div nz-col [nzSpan]="8">
@@ -83,3 +83,4 @@
          (click)="isShowStandard=!isShowStandard"></div>
   </div>
 </ng-container>
+地政
