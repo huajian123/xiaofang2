@@ -59,10 +59,10 @@ export class EarthquakeComponent implements OnInit, OnChanges {
   constructor(private fb: FormBuilder, private dataService: CitiesNameService, private dataServicers: AccidentDisastersListService,
               public message: NzMessageService, public element: ElementRef, private renderer2: Renderer2) {
     this.tabId = 1;
-    this.secondaryOneId = 1;
-    this.secondaryTwoId = 1;
-    this.secondaryThreeId = 1;
-    this.secondaryFourId = 1;
+    /*this.secondaryOneId = 1;*/
+   /* this.secondaryTwoId = 1;*/
+   /* this.secondaryThreeId = 1;
+    this.secondaryFourId = 1;*/
     this.tabs = [
       {
         id: 1,

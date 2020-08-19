@@ -118,8 +118,8 @@
           <div>综合协调组2</div>
           <div>综合协调组2</div>
         </div>-->
-        <div *ngIf="secondaryOneId==1">
-        <!--  <div class="show-box">
+        <div *ngIf="secondaryOneId==1" class="absolution">
+          <div class="show-box">
             <div>综合协调组</div>
             <div>专业处置组</div>
             <div>警戒疏散组</div>
@@ -128,15 +128,18 @@
             <div>综合保障组</div>
             <div>综合协调组</div>
             <div>专业处置组</div>
-          </div>-->
+          </div>
         </div>
-        <div *ngIf="secondaryOneId==2">
-          二级警戒疏散组1
+        <div *ngIf="secondaryOneId==2" class="absolution">
+          <div class="show-box">
+            <div>综合协调组</div>
+            <div>专业处置组</div>
+          </div>
         </div>
-        <div *ngIf="secondaryOneId==3">
+        <div *ngIf="secondaryOneId==3" class="absolution">
           二级专业处置组1
         </div>
-        <div *ngIf="secondaryOneId==4">
+        <div *ngIf="secondaryOneId==4" class="absolution">
           二级交通管制组1
         </div>
       </div>
@@ -145,16 +148,25 @@
           <li *ngFor="let secondaryTwo of secondaryTabTwo" (click)="chooseTabTwo(secondaryTwo.id)"
               [ngClass]="{'actives':secondaryTwoId==secondaryTwo.id}">{{secondaryTwo.name}}</li>
         </ul>
-        <div *ngIf="secondaryTwoId==1">
-          二级应急管理厅2
+        <div *ngIf="secondaryTwoId==1" class="absolution">
+          <div class="show-box">
+            <div>综合协调组</div>
+            <div>专业处置组</div>
+            <div>警戒疏散组</div>
+            <div>交通管制组</div>
+            <div>医疗救护组</div>
+            <div>综合保障组</div>
+            <div>综合协调组</div>
+            <div>专业处置组</div>
+          </div>
         </div>
-        <div *ngIf="secondaryTwoId==2">
+        <div *ngIf="secondaryTwoId==2" class="absolution">
           二级警戒疏散组2
         </div>
-        <div *ngIf="secondaryTwoId==3">
+        <div *ngIf="secondaryTwoId==3" class="absolution">
           二级专业处置组2
         </div>
-        <div *ngIf="secondaryTwoId==4">
+        <div *ngIf="secondaryTwoId==4" class="absolution">
           二级交通管制组2
         </div>
       </div>
@@ -163,16 +175,25 @@
           <li *ngFor="let secondaryThree of secondaryTabThree" (click)="chooseTabThree(secondaryThree.id)"
               [ngClass]="{'actives':secondaryThreeId==secondaryThree.id}">{{secondaryThree.name}}</li>
         </ul>
-        <div *ngIf="secondaryThreeId==1">
-          二级应急管理厅3
+        <div *ngIf="secondaryThreeId==1" class="absolution">
+          <div class="show-box">
+            <div>综合协调组</div>
+            <div>专业处置组</div>
+            <div>警戒疏散组</div>
+            <div>交通管制组</div>
+            <div>医疗救护组</div>
+            <div>综合保障组</div>
+            <div>综合协调组</div>
+            <div>专业处置组</div>
+          </div>
         </div>
-        <div *ngIf="secondaryThreeId==2">
+        <div *ngIf="secondaryThreeId==2" class="absolution">
           二级警戒疏散组3
         </div>
-        <div *ngIf="secondaryThreeId==3">
+        <div *ngIf="secondaryThreeId==3" class="absolution">
           二级专业处置组3
         </div>
-        <div *ngIf="secondaryThreeId==4">
+        <div *ngIf="secondaryThreeId==4" class="absolution">
           二级交通管制组3
         </div>
       </div>
@@ -181,25 +202,42 @@
           <li *ngFor="let secondaryFour of secondaryTabFour" (click)="chooseTabFour(secondaryFour.id)"
               [ngClass]="{'actives':secondaryFourId==secondaryFour.id}">{{secondaryFour.name}}</li>
         </ul>
-        <div *ngIf="secondaryFourId==1">
+        <div *ngIf="secondaryFourId==1" class="absolution">
           二级应急管理厅4
         </div>
-        <div *ngIf="secondaryFourId==2">
+        <div *ngIf="secondaryFourId==2" class="absolution">
           二级警戒疏散组4
         </div>
-        <div *ngIf="secondaryFourId==3">
+        <div *ngIf="secondaryFourId==3" class="absolution">
           二级专业处置组4
         </div>
-        <div *ngIf="secondaryFourId==4">
+        <div *ngIf="secondaryFourId==4" class="absolution">
           二级交通管制组4
         </div>
       </div>
-      <!--一级下拉tab大于4个的扩展content内容-->
       <div *ngIf="tabId==5">
         省交通运输厅5
       </div>
       <div *ngIf="tabId==6">
         省交通运输厅6
+      </div>
+      <div *ngIf="tabId==7">
+        省交通运输厅7
+      </div>
+      <div *ngIf="tabId==8">
+        省交通运输厅8
+      </div>
+      <div *ngIf="tabId==9">
+        省交通运输厅9
+      </div>
+      <div *ngIf="tabId==10">
+        省交通运输厅10
+      </div>
+      <div *ngIf="tabId==11">
+        省交通运输厅11
+      </div>
+      <div *ngIf="tabId==12">
+        省交通运输厅12
       </div>
     </div>
     <div class="dataShow">

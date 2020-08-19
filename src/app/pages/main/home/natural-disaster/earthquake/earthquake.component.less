@@ -161,6 +161,10 @@ footer {
   cursor: pointer;
 }
 
+.absolution {
+  position: relative;
+}
+
 .second-tabs li:first-child {
   margin-left: 64px;
 }
@@ -209,11 +213,14 @@ footer {
 }
 
 .show-box {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
   font-family: PangMenZhengDao;
   font-size: 26px;
   color: #FFFFFF;
   letter-spacing: 0;
-  text-align: center;
   z-index: 2;
   width: 1378px;
   height: 122px;
@@ -221,12 +228,14 @@ footer {
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
-  padding: 0 10px;
-  justify-content: space-around;
+  padding: 0 15px;
+  justify-content: flex-start;
   background: url("../../../../../../assets/imgs/new-img/oneline.png") no-repeat;
   background-size: 100% 100%;
 }
-
+.show-box div{
+  margin: 0 10px;
+}
 .extend-color {
   color: #5CFFEC;
 }
