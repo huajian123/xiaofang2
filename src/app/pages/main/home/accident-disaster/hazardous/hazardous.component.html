@@ -43,7 +43,7 @@
             <nz-form-label [nzSpan]="12">毒性气体储量（吨）</nz-form-label>
             <nz-form-control [nzSpan]="12">
               <nz-input-number nzPlaceHolder="毒性气体储量（吨）" formControlName="toxicGas"
-                             [nzMax]="9999" nzPrecision="5"  [nzMin]="1"></nz-input-number>
+                               [nzMax]="9999" nzPrecision="5" [nzMin]="1"></nz-input-number>
             </nz-form-control>
           </nz-form-item>
         </div>
@@ -82,4 +82,10 @@
     <div [ngClass]="{'show-btn':isShowStandard,'hide-btn':!isShowStandard}"
          (click)="isShowStandard=!isShowStandard"></div>
   </div>
+</ng-container>
+<ng-container *ngIf="currentPage===1||currentPage===2">
+  <app-hazardous-one></app-hazardous-one>
+</ng-container>
+<ng-container *ngIf="currentPage===3||currentPage===4">
+  <app-hazardous-three></app-hazardous-three>
 </ng-container>
