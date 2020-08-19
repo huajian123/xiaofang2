@@ -271,6 +271,8 @@ export class EarthquakeComponent implements OnInit, OnChanges {
   }
 
   ngOnInit(): void {
+    const temp = this.element.nativeElement.getElementsByClassName('show-box');
+    console.log(temp);
     // 管理员登陆
     if (!this.selAlarm) {
       this.initForm();
