@@ -1,0 +1,63 @@
+.column-left {
+  flex-direction: column;
+  width: 300px;
+}
+
+.column-left div {
+  position: relative;
+  width: 134px;
+  height: 146px;
+  font-family: PangMenZhengDao;
+  font-size: 18px;
+  color: #FFFFFF;
+  letter-spacing: 0;
+  text-align: center;
+  background-size: cover;
+  cursor: pointer;
+}
+
+.column-left div p {
+  width: 108px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.column-left .sub-left {
+  background: url("../../../../assets/imgs/new-img/un-left.png") no-repeat;
+  background-size: cover;
+}
+
+.column-left .sub-right {
+  background: url("../../../../assets/imgs/new-img/un-right.png") no-repeat;
+  background-size: cover;
+}
+
+.displacement {
+  margin-left: 66px;
+  margin-top: -42px;
+}
+
+.move {
+  margin-top: -42px;
+}
+
+.column-left div {
+  transition: transform .3s ease-out;
+}
+
+.column-div-left-clicked {
+  background: url("../../../../assets/imgs/new-img/left.png") no-repeat !important;
+  background-size: 100% 100% !important;
+  z-index: 999;
+  transform: scale(1.2);
+}
+
+.column-div-right-clicked {
+  background: url("../../../../assets/imgs/new-img/right.png") no-repeat !important;
+  background-size: 100% 100% !important;
+  z-index: 999;
+  transform: scale(1.2);
+}

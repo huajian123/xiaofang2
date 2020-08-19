@@ -45,7 +45,6 @@ export class HomeComponent implements OnInit {
   socialSecurityNameOptions: OptionsInterface[];
 
   constructor(private dataService: CitiesNameService) {
-     this.currentPage = this.numVariable.two;
   }
 
 

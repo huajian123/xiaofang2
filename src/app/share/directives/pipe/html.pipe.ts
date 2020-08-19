@@ -1,6 +1,8 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import {DomSanitizer} from '@angular/platform-browser';
-
+@Pipe({
+  name: 'htmlTra',
+})
 export class HtmlPipe implements PipeTransform {
   constructor(private domSanitizer: DomSanitizer) {}
 

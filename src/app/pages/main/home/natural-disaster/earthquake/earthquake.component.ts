@@ -54,6 +54,7 @@ export class EarthquakeComponent implements OnInit, OnChanges {
   secondaryTabTwo = [];
   secondaryTabThree = [];
   secondaryTabFour = [];
+  nameArray = ['启动应急响应','分组开展<br/>应急救援工作','保障方案','现场信息采集','辅助指挥<br/>决策信息','事态控制','善后处理<br/>与事故调查'];
 
   constructor(private fb: FormBuilder, private dataService: CitiesNameService, private dataServicers: AccidentDisastersListService,
               public message: NzMessageService, public element: ElementRef, private renderer2: Renderer2) {
@@ -168,6 +169,11 @@ export class EarthquakeComponent implements OnInit, OnChanges {
     this.earthquakeEconomicLevelOptions = [];
   }
 
+  // 点击左侧六边形获取当前名字
+  getCurrentLeftName(event){
+    console.log(event);
+  }
+
   chooseTab(type) {
     this.tabId = type;
   }
@@ -243,24 +249,7 @@ export class EarthquakeComponent implements OnInit, OnChanges {
       this.cityName = this.selAlarm.accidentAddress;
     }
     this.earthquakeEconomicLevelOptions = [...MapPipe.transformMapToArray(MapSet.earthquakeEconomicLevel)];
-    const temp = this.element.nativeElement.querySelectorAll('.column-left div');
-    // tslint:disable-next-line:prefer-for-of
-    for (let i = 0; i < temp.length; i++) {
-      const odd = i % 2;
-      const mouseClick = fromEvent(temp[i], 'click');
-      const subscription = mouseClick.subscribe(() => {
-        // tslint:disable-next-line:prefer-for-of
-        for (let j = 0; j < temp.length; j++) {
-          this.renderer2.removeClass(temp[j], 'column-div-left-clicked');
-          this.renderer2.removeClass(temp[j], 'column-div-right-clicked');
-        }
-        if (odd === 0) {
-          this.renderer2.addClass(temp[i], 'column-div-left-clicked');
-        } else {
-          this.renderer2.addClass(temp[i], 'column-div-right-clicked');
-        }
-      });
-    }
+
   }
 
   ngOnChanges(changes: SimpleChanges): void {
