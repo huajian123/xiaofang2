@@ -79,24 +79,56 @@ export class EarthquakeComponent implements OnInit, OnChanges {
       {
         id: 4,
         name: '交通管制组'
+      },
+      {
+        id: 5,
+        name: '省财政厅'
+      },
+      {
+        id: 6,
+        name: '省交通运输厅'
+      },
+      {
+        id: 7,
+        name: '省水利厅'
+      },
+      {
+        id: 8,
+        name: '省人民政府'
+      },
+      {
+        id: 9,
+        name: '省指挥部'
+      },
+      {
+        id: 10,
+        name: '省水利厅'
+      },
+      {
+        id: 11,
+        name: '省人民政府'
+      },
+      {
+        id: 12,
+        name: '省指挥部'
       }
     ];
     this.secondaryTabOne = [
       {
         id: 1,
-        name: '省财政厅1'
+        name: '应急指挥中心'
       },
       {
         id: 2,
-        name: '省交通运输厅1'
+        name: '办公室'
       },
       {
         id: 3,
-        name: '省水利厅1'
+        name: '区域合作处'
       },
       {
         id: 4,
-        name: '省人民政府1'
+        name: '省地震局'
       }
     ];
     this.secondaryTabTwo = [
