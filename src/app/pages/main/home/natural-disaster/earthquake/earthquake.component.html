@@ -98,19 +98,96 @@
       <ul class="r-ul clearfix">
         <li *ngFor="let tab of tabs" (click)="chooseTab(tab.id)" [ngClass]="{'active':tabId==tab.id}">{{tab.name}}</li>
       </ul>
+      <div (click)="isToggle=!isToggle" [ngClass]="{'down-arrow-show':isToggle,'down-arrow-hide':!isToggle}"></div>
+      <div class="show-box" *ngIf="!isToggle">
+        <div cl>省交通运输厅</div>
+        <div>省交通运输厅</div>
+        <div>省交通运输厅</div>
+        <div>省交通运输厅</div>
+        <div>省交通运输厅</div>
+        <div>省交通运输厅</div>
+      </div>
       <div *ngIf="tabId==1">
-           <ul class="second-tabs clearfix">
-             <li *ngFor="let tab of tabs" (click)="chooseTab(tab.id)" [ngClass]="{'actives':tabId==tab.id}">{{tab.name}}</li>
-           </ul>
+        <ul class="second-tabs clearfix">
+          <li *ngFor="let secondaryOne of secondaryTabOne" (click)="chooseTabOne(secondaryOne.id)"
+              [ngClass]="{'actives':secondaryOneId==secondaryOne.id}">{{secondaryOne.name}}</li>
+        </ul>
+        <div (click)="isToggles=!isToggles"
+             [ngClass]="{'down-arrow-shows':isToggles,'down-arrow-hides':!isToggles}"></div>
+        <div class="show-boxs" *ngIf="!isToggles">
+          <div>综合协调组2</div>
+          <div>综合协调组2</div>
+          <div>综合协调组2</div>
+          <div>综合协调组2</div>
+          <div>综合协调组2</div>
+          <div>综合协调组2</div>
+        </div>
+        <div *ngIf="secondaryOneId==1">
+          二级应急管理厅1
+        </div>
+        <div *ngIf="secondaryOneId==2">
+          二级警戒疏散组1
+        </div>
+        <div *ngIf="secondaryOneId==3">
+          二级专业处置组1
+        </div>
+        <div *ngIf="secondaryOneId==4">
+          二级交通管制组1
+        </div>
       </div>
       <div *ngIf="tabId==2">
-        专业处置组
+        <ul class="second-tabs clearfix">
+          <li *ngFor="let secondaryTwo of secondaryTabTwo" (click)="chooseTabTwo(secondaryTwo.id)"
+              [ngClass]="{'actives':secondaryTwoId==secondaryTwo.id}">{{secondaryTwo.name}}</li>
+        </ul>
+        <div *ngIf="secondaryTwoId==1">
+          二级应急管理厅2
+        </div>
+        <div *ngIf="secondaryTwoId==2">
+          二级警戒疏散组2
+        </div>
+        <div *ngIf="secondaryTwoId==3">
+          二级专业处置组2
+        </div>
+        <div *ngIf="secondaryTwoId==4">
+          二级交通管制组2
+        </div>
       </div>
       <div *ngIf="tabId==3">
-        警戒疏散组
+        <ul class="second-tabs clearfix">
+          <li *ngFor="let secondaryThree of secondaryTabThree" (click)="chooseTabThree(secondaryThree.id)"
+              [ngClass]="{'actives':secondaryThreeId==secondaryThree.id}">{{secondaryThree.name}}</li>
+        </ul>
+        <div *ngIf="secondaryThreeId==1">
+          二级应急管理厅3
+        </div>
+        <div *ngIf="secondaryThreeId==2">
+          二级警戒疏散组3
+        </div>
+        <div *ngIf="secondaryThreeId==3">
+          二级专业处置组3
+        </div>
+        <div *ngIf="secondaryThreeId==4">
+          二级交通管制组3
+        </div>
       </div>
       <div *ngIf="tabId==4">
-        交通管制组
+        <ul class="second-tabs clearfix">
+          <li *ngFor="let secondaryFour of secondaryTabFour" (click)="chooseTabFour(secondaryFour.id)"
+              [ngClass]="{'actives':secondaryFourId==secondaryFour.id}">{{secondaryFour.name}}</li>
+        </ul>
+        <div *ngIf="secondaryFourId==1">
+          二级应急管理厅4
+        </div>
+        <div *ngIf="secondaryFourId==2">
+          二级警戒疏散组4
+        </div>
+        <div *ngIf="secondaryFourId==3">
+          二级专业处置组4
+        </div>
+        <div *ngIf="secondaryFourId==4">
+          二级交通管制组4
+        </div>
       </div>
     </div>
   </div>

@@ -28,8 +28,9 @@ export interface SelectedInterface {
   styleUrls: ['./earthquake.component.less']
 })
 export class EarthquakeComponent implements OnInit, OnChanges {
-
   isShowStandard: boolean; // 是否展开标准
+  isToggle: boolean;
+  isToggles: boolean;
   @Input() id: number;
   @Input() selAlarm: PublishAlarmModel; // 厅长界面直接传入的选中的预案
   currentPage: number;
@@ -44,32 +45,113 @@ export class EarthquakeComponent implements OnInit, OnChanges {
   cityName: string;
   plnId: number;
   tabId: number;
-  tabs = [
-    {
-      id: 1,
-      name: '应急管理厅'
-    },
-    {
-      id: 2,
-      name: '专业处置组'
-    },
-    {
-      id: 3,
-      name: '警戒疏散组'
-    },
-    {
-      id: 4,
-      name: '交通管制组'
-    }
-  ];
-
-  chooseTab(type) {
-    this.tabId = type;
-  }
+  secondaryOneId: number;
+  secondaryTwoId: number;
+  secondaryThreeId: number;
+  secondaryFourId: number;
+  tabs = [];
+  secondaryTabOne = [];
+  secondaryTabTwo = [];
+  secondaryTabThree = [];
+  secondaryTabFour = [];
 
   constructor(private fb: FormBuilder, private dataService: CitiesNameService, private dataServicers: AccidentDisastersListService,
               public message: NzMessageService, public element: ElementRef, private renderer2: Renderer2) {
     this.tabId = 1;
+    this.secondaryOneId = 1;
+    this.secondaryTwoId = 1;
+    this.secondaryThreeId = 1;
+    this.secondaryFourId = 1;
+    this.tabs = [
+      {
+        id: 1,
+        name: '应急管理厅'
+      },
+      {
+        id: 2,
+        name: '专业处置组'
+      },
+      {
+        id: 3,
+        name: '警戒疏散组'
+      },
+      {
+        id: 4,
+        name: '交通管制组'
+      }
+    ];
+    this.secondaryTabOne = [
+      {
+        id: 1,
+        name: '省财政厅1'
+      },
+      {
+        id: 2,
+        name: '省交通运输厅1'
+      },
+      {
+        id: 3,
+        name: '省水利厅1'
+      },
+      {
+        id: 4,
+        name: '省人民政府1'
+      }
+    ];
+    this.secondaryTabTwo = [
+      {
+        id: 1,
+        name: '省财政厅2'
+      },
+      {
+        id: 2,
+        name: '省交通运输厅2'
+      },
+      {
+        id: 3,
+        name: '省水利厅2'
+      },
+      {
+        id: 4,
+        name: '省人民政府2'
+      }
+    ];
+    this.secondaryTabThree = [
+      {
+        id: 1,
+        name: '省财政厅3'
+      },
+      {
+        id: 2,
+        name: '省交通运输厅3'
+      },
+      {
+        id: 3,
+        name: '省水利厅3'
+      },
+      {
+        id: 4,
+        name: '省人民政府3'
+      }
+    ];
+    this.secondaryTabFour = [
+      {
+        id: 1,
+        name: '省财政厅4'
+      },
+      {
+        id: 2,
+        name: '省交通运输厅4'
+      },
+      {
+        id: 3,
+        name: '省水利厅4'
+      },
+      {
+        id: 4,
+        name: '省人民政府4'
+      }
+    ];
     this.provinceData = [];
     this.cityData = [];
     this.selected = {
@@ -77,6 +159,8 @@ export class EarthquakeComponent implements OnInit, OnChanges {
       city: ''
     };
     this.isShowStandard = true;
+    this.isToggle = true;
+    this.isToggles = true;
     this.currentPage = 0;
     this.plnId = 0;
     this.responsibilityEntities = [];
@@ -84,6 +168,25 @@ export class EarthquakeComponent implements OnInit, OnChanges {
     this.earthquakeEconomicLevelOptions = [];
   }
 
+  chooseTab(type) {
+    this.tabId = type;
+  }
+
+  chooseTabOne(types) {
+    this.secondaryOneId = types;
+  }
+
+  chooseTabTwo(types) {
+    this.secondaryTwoId = types;
+  }
+
+  chooseTabThree(types) {
+    this.secondaryThreeId = types;
+  }
+
+  chooseTabFour(types) {
+    this.secondaryFourId = types;
+  }
 
   changeProvince(eve) {
     this.cityData = [];
