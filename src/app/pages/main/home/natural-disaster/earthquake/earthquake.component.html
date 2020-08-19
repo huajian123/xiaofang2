@@ -95,23 +95,28 @@
   </div>
   <div class="column-right">
     <div class="r-cnt">
+      <!--一级tab头部标签-->
       <ul class="r-ul clearfix">
         <li *ngFor="let tab of tabs" (click)="chooseTab(tab.id)" [ngClass]="{'active':tabId==tab.id}">{{tab.name}}</li>
       </ul>
+      <!--一级扩展下拉部分-->
       <div (click)="isToggle=!isToggle" [ngClass]="{'down-arrow-show':isToggle,'down-arrow-hide':!isToggle}"></div>
       <div class="show-box" *ngIf="!isToggle">
-        <div cl>省交通运输厅</div>
-        <div>省交通运输厅</div>
+        <div (click)="chooseTab(5)" [ngClass]="{'extend-color':tabId==5}">省交通运输厅5</div>
+        <div (click)="chooseTab(6)" [ngClass]="{'extend-color':tabId==6}">省交通运输厅6</div>
         <div>省交通运输厅</div>
         <div>省交通运输厅</div>
         <div>省交通运输厅</div>
         <div>省交通运输厅</div>
       </div>
+      <!--一级tabContent-->
       <div *ngIf="tabId==1">
+        <!--二级tab头部标签-->
         <ul class="second-tabs clearfix">
           <li *ngFor="let secondaryOne of secondaryTabOne" (click)="chooseTabOne(secondaryOne.id)"
               [ngClass]="{'actives':secondaryOneId==secondaryOne.id}">{{secondaryOne.name}}</li>
         </ul>
+        <!--二级下拉部分-->
         <div (click)="isToggles=!isToggles"
              [ngClass]="{'down-arrow-shows':isToggles,'down-arrow-hides':!isToggles}"></div>
         <div class="show-boxs" *ngIf="!isToggles">
@@ -120,10 +125,9 @@
           <div>综合协调组2</div>
           <div>综合协调组2</div>
           <div>综合协调组2</div>
-          <div>综合协调组2</div>
         </div>
         <div *ngIf="secondaryOneId==1">
-          二级应急管理厅1
+          事发地人民政府
         </div>
         <div *ngIf="secondaryOneId==2">
           二级警戒疏散组1
@@ -189,6 +193,17 @@
           二级交通管制组4
         </div>
       </div>
+      <!--一级下拉tab大于4个的扩展content内容-->
+      <div *ngIf="tabId==5">
+        省交通运输厅5
+      </div>
+      <div *ngIf="tabId==6">
+        省交通运输厅6
+      </div>
     </div>
+   <!-- <div class="dataShow">
+      <p>岗位职责：<span>1、研究提出后方指挥部建立建议方案<br/>
+2、提出先期工作组人员组成建议名单</span></p>
+    </div>-->
   </div>
 </div>
