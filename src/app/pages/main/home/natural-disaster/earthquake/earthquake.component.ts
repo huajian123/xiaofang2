@@ -54,7 +54,7 @@ export class EarthquakeComponent implements OnInit, OnChanges {
   secondaryTabTwo = [];
   secondaryTabThree = [];
   secondaryTabFour = [];
-  nameArray = ['启动应急响应','分组开展<br/>应急救援工作','保障方案','现场信息采集','辅助指挥<br/>决策信息','事态控制','善后处理<br/>与事故调查'];
+  nameArray = ['启动应急响应', '分组开展<br/>应急救援工作', '保障方案', '现场信息采集', '辅助指挥<br/>决策信息', '事态控制', '善后处理<br/>与事故调查'];
 
   constructor(private fb: FormBuilder, private dataService: CitiesNameService, private dataServicers: AccidentDisastersListService,
               public message: NzMessageService, public element: ElementRef, private renderer2: Renderer2) {
@@ -170,7 +170,7 @@ export class EarthquakeComponent implements OnInit, OnChanges {
   }
 
   // 点击左侧六边形获取当前名字
-  getCurrentLeftName(event){
+  getCurrentLeftName(event) {
     console.log(event);
   }
 

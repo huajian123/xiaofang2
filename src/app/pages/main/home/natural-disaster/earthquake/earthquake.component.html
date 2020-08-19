@@ -92,7 +92,7 @@
         <li *ngFor="let tab of tabs" (click)="chooseTab(tab.id)" [ngClass]="{'active':tabId==tab.id}">{{tab.name}}</li>
       </ul>
       <!--一级扩展下拉部分-->
-      <div (click)="isToggle=!isToggle" [ngClass]="{'down-arrow-show':isToggle,'down-arrow-hide':!isToggle}"></div>
+      <!--<div (click)="isToggle=!isToggle" [ngClass]="{'down-arrow-show':isToggle,'down-arrow-hide':!isToggle}"></div>
       <div class="show-box" *ngIf="!isToggle">
         <div (click)="chooseTab(5)" [ngClass]="{'extend-color':tabId==5}">省交通运输厅5</div>
         <div (click)="chooseTab(6)" [ngClass]="{'extend-color':tabId==6}">省交通运输厅6</div>
@@ -100,7 +100,7 @@
         <div>省交通运输厅</div>
         <div>省交通运输厅</div>
         <div>省交通运输厅</div>
-      </div>
+      </div>-->
       <!--一级tabContent-->
       <div *ngIf="tabId==1">
         <!--二级tab头部标签-->
@@ -109,7 +109,7 @@
               [ngClass]="{'actives':secondaryOneId==secondaryOne.id}">{{secondaryOne.name}}</li>
         </ul>
         <!--二级下拉部分-->
-        <div (click)="isToggles=!isToggles"
+        <!--<div (click)="isToggles=!isToggles"
              [ngClass]="{'down-arrow-shows':isToggles,'down-arrow-hides':!isToggles}"></div>
         <div class="show-boxs" *ngIf="!isToggles">
           <div>综合协调组2</div>
@@ -117,7 +117,7 @@
           <div>综合协调组2</div>
           <div>综合协调组2</div>
           <div>综合协调组2</div>
-        </div>
+        </div>-->
         <div *ngIf="secondaryOneId==1">
           事发地人民政府
         </div>
@@ -193,9 +193,19 @@
         省交通运输厅6
       </div>
     </div>
-   <!-- <div class="dataShow">
-      <p>岗位职责：<span>1、研究提出后方指挥部建立建议方案<br/>
-2、提出先期工作组人员组成建议名单</span></p>
-    </div>-->
+    <div class="dataShow">
+      <div class="dataMide">
+        <div class="clearfix">
+          <span>岗位职责</span>：
+          <div style="float: right;width: 473px;">
+            1、研究提出后方指挥部建立建议方案<br/>
+            2、提出先期工作组人员组成建议名单
+          </div>
+        </div>
+        <div><span>&emsp;联系人</span>：李小萌</div>
+        <div><span>联系方式</span>：15784324567</div>
+      </div>
+
+    </div>
   </div>
 </div>
