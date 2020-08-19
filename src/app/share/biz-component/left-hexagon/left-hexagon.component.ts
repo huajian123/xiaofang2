@@ -36,12 +36,10 @@ export class LeftHexagonComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     const temp = this.element.nativeElement.querySelectorAll('.column-left div');
-    // tslint:disable-next-line:prefer-for-of
     for (let i = 0; i < temp.length; i++) {
       const odd = i % 2;
       const mouseClick = fromEvent(temp[i], 'click');
       const subscription = mouseClick.subscribe(() => {
-        // tslint:disable-next-line:prefer-for-of
         for (let j = 0; j < temp.length; j++) {
           this.renderer2.removeClass(temp[j], 'column-div-left-clicked');
           this.renderer2.removeClass(temp[j], 'column-div-right-clicked');
