@@ -72,7 +72,6 @@ export class HazardousOneComponent implements OnInit {
         '分组开展<br/>应急救援工作',
         '现场信息采集',
         '应急保障',
-        '辅助指挥<br/>决策信息',
         '事态控制',
         '善后处理<br/>与事故调查'
       ];
