@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {DataShowModel} from "../../../../../../share/biz-component/data-show/data-show.component";
-import {LoginInfoModel} from "../../../../../../core/vo-common/BusinessEnum";
-import {TabObjModel} from "../../../../../../share/biz-component/biz-tabs/biz-tabs.component";
-import {UserRole} from "../../../../../../VO/types";
-import {EVENT_KEY} from "../../../../../../../environments/staticVariable";
+import {DataShowModel} from '../../../../../../share/biz-component/data-show/data-show.component';
+import {LoginInfoModel} from '../../../../../../core/vo-common/BusinessEnum';
+import {TabObjModel} from '../../../../../../share/biz-component/biz-tabs/biz-tabs.component';
+import {UserRole} from '../../../../../../VO/types';
+import {EVENT_KEY} from '../../../../../../../environments/staticVariable';
 
 @Component({
   selector: 'app-hazardous-three',
@@ -14,10 +14,10 @@ export class HazardousThreeComponent implements OnInit {
   loginInfo: LoginInfoModel;
   nameArray: string[];
   showInfo: DataShowModel = {
-    linkPhone: "1131313131",
+    linkPhone: '1131313131',
     linkPeople: '张三',
-    duty: ["先做第一步", '再做第二部']
-  }
+    duty: ['先做第一步', '再做第二部']
+  };
   tabObj: TabObjModel[];
 
   constructor() {
@@ -27,10 +27,10 @@ export class HazardousThreeComponent implements OnInit {
 
   // 点击左侧六边形获取当前名字
   getCurrentLeftName(event) {
-    if (event === "启动应急响应") {
+    if (event === '启动应急响应') {
       this.tabObj = [
         {
-          name: "应急管理厅1", id: 1,
+          name: '应急管理厅1', id: 1,
           children: [
             {name: '救灾处1', id: 7},
             {
@@ -41,21 +41,21 @@ export class HazardousThreeComponent implements OnInit {
               ]
             }]
         },
-        {name: "应急管理厅1", id: 2},
-        {name: "应急管理厅2", id: 3},
-        {name: "应急管理厅3", id: 4},
-        {name: "应急管理厅4", id: 5},
-        {name: "应急管理厅5", id: 6},
-        {name: "应急管理厅5", id: 11},
-        {name: "应急管理厅5", id: 12},
-        {name: "应急管理厅5", id: 13},
-        {name: "应急管理厅5", id: 14},
-        {name: "应急管理厅5", id: 15},
-      ]
-    } else if (event === "保障方案") {
+        {name: '应急管理厅1', id: 2},
+        {name: '应急管理厅2', id: 3},
+        {name: '应急管理厅3', id: 4},
+        {name: '应急管理厅4', id: 5},
+        {name: '应急管理厅5', id: 6},
+        {name: '应急管理厅5', id: 11},
+        {name: '应急管理厅5', id: 12},
+        {name: '应急管理厅5', id: 13},
+        {name: '应急管理厅5', id: 14},
+        {name: '应急管理厅5', id: 15},
+      ];
+    } else if (event === '保障方案') {
       this.tabObj = [
         {
-          name: "应急管理厅1", id: 1,
+          name: '应急管理厅1', id: 1,
           children: [
             {name: '救灾处1', id: 7},
             {
@@ -66,14 +66,14 @@ export class HazardousThreeComponent implements OnInit {
               ]
             }]
         },
-      ]
+      ];
     }
-    console.log("当前点击的六边形的名字是：" + event);
+    console.log('当前点击的六边形的名字是：' + event);
   }
 
   // 获取当前选中的tabid
   getSelId(event) {
-    console.log("当前点击的tab的id是：" + event);
+    console.log('当前点击的tab的id是：' + event);
   }
 
   judgRole() {
@@ -86,7 +86,7 @@ export class HazardousThreeComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginInfo = JSON.parse(window.sessionStorage.getItem(EVENT_KEY.loginInfo));
-    this.judgRole()
+    this.judgRole();
   }
 
 }
