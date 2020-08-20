@@ -1,7 +1,7 @@
 <div class="column-lay">
   <app-left-hexagon (clickReturn)="getCurrentLeftName($event)" [nameArray]="nameArray"></app-left-hexagon>
   <div class="column-right">
-    <app-biz-tabs (selId)="getSelId($event)"></app-biz-tabs>
+    <app-biz-tabs [tabObj]="" (selId)="getSelId($event)"></app-biz-tabs>
     <app-data-show [dataInfo]="showInfo"></app-data-show>
   </div>
 </div>
