@@ -13,7 +13,7 @@ import {
 export interface TabObjModel {
   name: string;
   id: number;
-  children?: TabObjModel[]
+  children?: TabObjModel[];
 }
 
 @Component({
@@ -47,9 +47,9 @@ export class BizTabsComponent implements OnInit, OnChanges {
     if (level === 1) {
       this.currentSelFirstTabId = tabItem.id;
       if (tabItem.children) {
-        this.currentSelSecondTabId = tabItem.children[0].id
+        this.currentSelSecondTabId = tabItem.children[0].id;
         // 存放2级tab数组
-        this.secondLevelTabArray = tabItem.children
+        this.secondLevelTabArray = tabItem.children;
         if (tabItem.children[0].children) {
           this.currentSelThirdTabId = tabItem.children[0].children[0].id;
           // 存放3级tab数组
@@ -67,8 +67,8 @@ export class BizTabsComponent implements OnInit, OnChanges {
     } else if (level === 2) {
       this.currentSelSecondTabId = tabItem.id;
       if (tabItem.children) {
-        this.currentSelThirdTabId = tabItem.children[0].id
-        this.thirdLevelTabArray = tabItem.children
+        this.currentSelThirdTabId = tabItem.children[0].id;
+        this.thirdLevelTabArray = tabItem.children;
       } else {
         this.thirdLevelTabArray = [];
         this.currentSelThirdTabId = null;
@@ -76,7 +76,7 @@ export class BizTabsComponent implements OnInit, OnChanges {
     } else {
       this.currentSelThirdTabId = tabItem.id;
     }
-    const selId = this.findId(tabItem)
+    const selId = this.findId(tabItem);
     this.selId.emit(selId);
   }
 
@@ -87,7 +87,7 @@ export class BizTabsComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     if (!changes['tabObj'].firstChange) {
       this.tabObj = changes['tabObj'].currentValue;
-      this.chooseTab(this.tabObj[0], 1)
+      this.chooseTab(this.tabObj[0], 1);
       this.cdr.markForCheck();
     }
 

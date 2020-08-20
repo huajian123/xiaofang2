@@ -66,10 +66,34 @@ export class HazardousOneComponent implements OnInit {
   // 判断角色
   judgRole() {
     if (this.loginInfo.role === UserRole.User) {
-      this.nameArray = ['启动应急响应', '组建现场指挥部', '分组开展<br/>应急救援工作', '现场信息采集', '应急保障', '辅助指挥<br/>决策信息', '事态控制', '善后处理<br/>与事故调查'];
+      this.nameArray = [
+        '启动应急响应',
+        '组建现场<br/>指挥部',
+        '分组开展<br/>应急救援工作',
+        '现场信息采集',
+        '应急保障',
+        '辅助指挥<br/>决策信息',
+        '事态控制',
+        '善后处理<br/>与事故调查'
+      ];
       this.getCurrentLeftName('启动应急响应');
     } else if (this.loginInfo.role === UserRole.Manage) {
-      this.nameArray = ['省级接警', '预警监测', '信息研判', '信息上报', '先期处置', '启动应急响应', '分组开展<br/>应急救援工作', '保障方案', '现场信息采集', '辅助指挥<br/>决策信息', '事态控制', '善后处理<br/>与事故调查'];
+      this.nameArray = [
+        '省级接警',
+        '预警监测',
+        '信息研判',
+        '信息上报',
+        '先期处置',
+        '启动应急响应',
+        '分组开展<br/>应急救援工作',
+        '救援力量<br/>调度及保障',
+        '应急物资<br/>调度及保障',
+        '通信电力<br/>保障方案',
+        '现场信息采集',
+        '辅助指挥<br/>决策信息',
+        '事态控制',
+        '善后处理<br/>与事故调查'
+      ];
       this.getCurrentLeftName('省级接警');
     }
     // 页面初始化时获取的岗位职责信息
