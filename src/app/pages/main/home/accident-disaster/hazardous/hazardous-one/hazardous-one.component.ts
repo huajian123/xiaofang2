@@ -4,7 +4,7 @@ import {LoginInfoModel} from 'src/app/core/vo-common/BusinessEnum';
 import {EVENT_KEY} from '../../../../../../../environments/staticVariable';
 import {UserRole} from '../../../../../../VO/types';
 import {TabObjModel} from '../../../../../../share/biz-component/biz-tabs/biz-tabs.component';
-import {getHazardousTabObj} from './tabObj';
+import {getHazardousOneTabObj} from './hazardous-one-tab-obj';
 
 @Component({
   selector: 'app-hazardous-one',
@@ -36,7 +36,7 @@ export class HazardousOneComponent implements OnInit {
   // 点击左侧六边形获取当前名字
   getCurrentLeftName(event) {
     //获取对应左侧六变形的tab页签
-    this.tabObj = getHazardousTabObj(event);
+    this.tabObj = getHazardousOneTabObj(event);
     this.firstSelTabOneLevelId = this.tabObj[0].id;
     if (this.tabObj[0].children) {
       this.firstSelTabTwoLevelId = this.tabObj[0].children[0].id;

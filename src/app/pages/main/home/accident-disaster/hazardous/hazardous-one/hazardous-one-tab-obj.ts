@@ -1,4 +1,4 @@
-export function getHazardousTabObj(leftDivName) {
+export function getHazardousOneTabObj(leftDivName) {
   if (leftDivName === '启动应急响应') {
     return [
       {
