@@ -3,7 +3,7 @@ import {Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation} from 
 export interface TabObjModel {
   name: string;
   id: number;
-  children?: TabObjModel[];
+  children?: TabObjModel[]
 }
 
 @Component({
@@ -25,10 +25,11 @@ export class BizTabsComponent implements OnInit {
     this.selId = new EventEmitter<number>();
   }
 
-  findId(tabArray, id) {
-    const tabItem = tabArray.find((item) => item.id === id);
-    if (!tabItem.children) {
-      return id;
+  findId(tabObj) {
+    if (tabObj.children) {
+      return this.findId(tabObj.children[0]);
+    } else {
+      return tabObj.id;
     }
   }
 
@@ -42,17 +43,13 @@ export class BizTabsComponent implements OnInit {
     } else {
       this.currentSelThirdTabId = tabItem.id;
     }
+    const selId = this.findId(tabItem)
+    console.log(this.tabObj);
+    console.log(selId);
     this.selId.emit(tabItem.id);
   }
 
-  /*  initId() {
-      this.currentSelFirstTabId = 1;
-      this.currentSelSecondTabId = 18;
-      this.currentSelThirdTabId = 9;
-    }*/
-
   ngOnInit(): void {
-    // this.initId()
     this.secondLevelTabArray = this.tabObj[0]?.children || [];
   }
 

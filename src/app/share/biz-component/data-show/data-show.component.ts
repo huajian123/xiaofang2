@@ -17,10 +17,10 @@ export class DataShowComponent implements OnInit {
 
   constructor() {
     this.dataInfo = {
-      linkPeople: '',
+      linkPeople: "",
       linkPhone: '',
       duty: []
-    };
+    }
   }
 
   ngOnInit(): void {

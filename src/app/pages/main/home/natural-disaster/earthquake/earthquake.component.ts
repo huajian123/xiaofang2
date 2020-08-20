@@ -11,7 +11,7 @@ import {NzMessageService} from 'ng-zorro-antd';
 import {debounceTime, distinctUntilChanged} from 'rxjs/operators';
 import {MapPipe, MapSet} from '../../../../../share/directives/pipe/map.pipe';
 import {fromEvent} from 'rxjs';
-import {DataShowModel} from '../../../../../share/biz-component/data-show/data-show.component';
+import {DataShowModel} from "../../../../../share/biz-component/data-show/data-show.component";
 
 interface OptionsInterface {
   value: number;
@@ -48,10 +48,10 @@ export class EarthquakeComponent implements OnInit, OnChanges {
   tabId: number;
   nameArray = ['启动应急响应', '分组开展<br/>应急救援工作', '保障方案', '现场信息采集', '辅助指挥<br/>决策信息', '事态控制', '善后处理<br/>与事故调查'];
   showInfo: DataShowModel = {
-    linkPhone: '1131313131',
+    linkPhone: "1131313131",
     linkPeople: '张三',
-    duty: ['先做第一步', '再做第二部']
-  };
+    duty: ["先做第一步", '再做第二部']
+  }
 
   constructor(private fb: FormBuilder, private dataService: CitiesNameService, private dataServicers: AccidentDisastersListService,
               public message: NzMessageService, public element: ElementRef, private renderer2: Renderer2) {
@@ -74,16 +74,12 @@ export class EarthquakeComponent implements OnInit, OnChanges {
 
   // 点击左侧六边形获取当前名字
   getCurrentLeftName(event) {
-    console.log('当前点击的六边形的名字是：' + event);
-    if (event === '启动应急响应') {
-      console.log('默认第一个tab内容');
-    }
-
+    console.log("当前点击的六边形的名字是：" + event);
   }
 
   // 获取当前选中的tabid
   getSelId(event) {
-    console.log('当前点击的tab的id是：' + event);
+    console.log("当前点击的tab的id是：" + event);
   }
 
 

@@ -14,6 +14,10 @@ import {getHazardousTabObj} from './tabObj';
 export class HazardousOneComponent implements OnInit {
   loginInfo: LoginInfoModel;
   nameArray: string[];
+  firstSelTabOneLevelId: number;
+  firstSelTabTwoLevelId: number;
+  firstSelTabThreeLevelId: number;
+
   showInfo: DataShowModel = {
     linkPhone: '1131313131',
     linkPeople: '张三',
@@ -24,17 +28,32 @@ export class HazardousOneComponent implements OnInit {
   constructor() {
     this.nameArray = [];
     this.tabObj = [];
+    this.firstSelTabOneLevelId = null;
+    this.firstSelTabTwoLevelId = null;
+    this.firstSelTabThreeLevelId = null;
   }
 
   // 点击左侧六边形获取当前名字
   getCurrentLeftName(event) {
     //获取对应左侧六变形的tab页签
-    this.tabObj = getHazardousTabObj(event)
+    this.tabObj = getHazardousTabObj(event);
+    this.firstSelTabOneLevelId = this.tabObj[0].id;
+    if (this.tabObj[0].children) {
+      this.firstSelTabTwoLevelId = this.tabObj[0].children[0].id;
+      if (this.tabObj[0].children[0].children) {
+        this.firstSelTabThreeLevelId = this.tabObj[0].children[0].children[0].id;
+      } else {
+        this.firstSelTabThreeLevelId = null;
+      }
+    } else {
+      this.firstSelTabTwoLevelId = null;
+      this.firstSelTabThreeLevelId = null;
+    }
   }
 
-  // 获取当前选中的tabid
+  // 获取当前选中的tabId
   getSelId(event) {
-    console.log('当前点击的tab的id是：' + event);
+    // event就是选中的tabId
     // 调用接口后获得
     this.showInfo = {
       linkPhone: '1131313131',
@@ -48,14 +67,12 @@ export class HazardousOneComponent implements OnInit {
     if (this.loginInfo.role === UserRole.User) {
       this.nameArray = ['善后处理<br/>与事故调查'];
       this.getCurrentLeftName('善后处理与事故调查');
-      // 页面初始化时获取的岗位职责信息
-      this.getSelId(7);
     } else if (this.loginInfo.role === UserRole.Manage) {
       this.nameArray = ['启动应急响应', '分组开展<br/>应急救援工作', '保障方案', '现场信息采集', '辅助指挥<br/>决策信息', '事态控制', '善后处理<br/>与事故调查'];
       this.getCurrentLeftName('启动应急响应');
-      // 页面初始化时获取的岗位职责信息
-      this.getSelId(18);
     }
+    // 页面初始化时获取的岗位职责信息
+    this.getSelId(this.firstSelTabThreeLevelId || this.firstSelTabTwoLevelId || this.firstSelTabOneLevelId);
   }
 
   ngOnInit(): void {
