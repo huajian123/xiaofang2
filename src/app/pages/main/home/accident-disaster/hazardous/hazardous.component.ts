@@ -96,9 +96,15 @@ export class HazardousComponent implements OnInit {
     });
   }
   ngOnInit(): void {
-    this.initForm();
-    this.getEarthquakeWarningList();
-    this.subForm();
+    // 管理员登陆
+    if (!this.selAlarm) {
+      this.initForm();
+      this.getEarthquakeWarningList();
+      this.subForm();
+    } else {
+      this.currentPage = this.selAlarm.accidentGrade;
+      this.cityName = this.selAlarm.accidentAddress;
+    }
   }
 
 }

@@ -55,6 +55,7 @@ export class HazardousOneComponent implements OnInit {
   getSelId(event) {
     // event就是选中的tabId
     // 调用接口后获得
+    console.log(event);
     this.showInfo = {
       linkPhone: '1131313131',
       linkPeople: '张三',
