@@ -12,7 +12,7 @@ export class BizTabsComponent implements OnInit {
   currentSelThirdTabId: number;
   tabObj = [
     {
-      name: "应急管理厅", id: 1,
+      name: '应急管理厅', id: 1,
       children: [
         {name: '救灾处', id: 7},
         {
@@ -23,20 +23,19 @@ export class BizTabsComponent implements OnInit {
           ]
         }]
     },
-    {name: "应急管理厅1", id: 2},
-    {name: "应急管理厅2", id: 3},
-    {name: "应急管理厅3", id: 4},
-    {name: "应急管理厅4", id: 5},
-    {name: "应急管理厅5", id: 6},
-    {name: "应急管理厅5", id: 11},
-    {name: "应急管理厅5", id: 12},
-    {name: "应急管理厅5", id: 13},
-    {name: "应急管理厅5", id: 14},
-    {name: "应急管理厅5", id: 15},
-  ]
+    {name: '应急管理厅1', id: 2},
+    {name: '应急管理厅2', id: 3},
+    {name: '应急管理厅3', id: 4},
+    {name: '应急管理厅4', id: 5},
+    {name: '应急管理厅5', id: 6},
+    {name: '应急管理厅6', id: 11},
+    {name: '应急管理厅7', id: 12},
+  ];
   secondLevelTabArray = [];
   thirdLevelTabArray = [];
   @Output() selId: EventEmitter<number>;
+
+ /* @Input() tabArray;*/
 
   constructor() {
     this.selId = new EventEmitter<number>();
@@ -46,7 +45,7 @@ export class BizTabsComponent implements OnInit {
   findId(tabArray, id) {
     const tabItem = tabArray.find((item) => item.id === id);
     if (!tabItem.children) {
-      return id
+      return id;
     }
   }
 
@@ -70,7 +69,7 @@ export class BizTabsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.initId()
+    this.initId();
   }
 
 }

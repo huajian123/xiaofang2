@@ -9,7 +9,7 @@ import {
   Renderer2,
   ViewEncapsulation
 } from '@angular/core';
-import {fromEvent} from "rxjs";
+import {fromEvent} from 'rxjs';
 
 @Component({
   selector: 'app-left-hexagon',
@@ -49,7 +49,7 @@ export class LeftHexagonComponent implements OnInit, AfterViewInit {
         } else {
           this.renderer2.addClass(temp[i], 'column-div-right-clicked');
         }
-        const returnStr=temp[i].querySelector('p').innerHTML.replace('<br>','');
+        const returnStr = temp[i].querySelector('p').innerHTML.replace('<br>', '');
         this.clickReturn.emit(returnStr);
       });
     }
