@@ -35,7 +35,7 @@ export class HazardousOneComponent implements OnInit {
 
   // 点击左侧六边形获取当前名字
   getCurrentLeftName(event) {
-    //获取对应左侧六变形的tab页签
+    // 获取对应左侧六变形的tab页签
     this.tabObj = getHazardousOneTabObj(event);
     this.firstSelTabOneLevelId = this.tabObj[0].id;
     if (this.tabObj[0].children) {
