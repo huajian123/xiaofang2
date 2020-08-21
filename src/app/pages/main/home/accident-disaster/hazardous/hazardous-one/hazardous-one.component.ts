@@ -1,10 +1,13 @@
 import {Component, OnInit} from '@angular/core';
-import {DataShowModel} from '../../../../../../share/biz-component/data-show/data-show.component';
 import {LoginInfoModel} from 'src/app/core/vo-common/BusinessEnum';
 import {EVENT_KEY} from '../../../../../../../environments/staticVariable';
 import {UserRole} from '../../../../../../VO/types';
 import {TabObjModel} from '../../../../../../share/biz-component/biz-tabs/biz-tabs.component';
 import {getHazardousOneTabObj} from './hazardous-one-tab-obj';
+import {
+  CitiesNameService,
+  ResponsibilityEntitiesModel
+} from '../../../../../../services/biz-services/earthquake-warning-list.service';
 
 @Component({
   selector: 'app-hazardous-one',
@@ -17,14 +20,17 @@ export class HazardousOneComponent implements OnInit {
   firstSelTabOneLevelId: number;
   firstSelTabTwoLevelId: number;
   firstSelTabThreeLevelId: number;
-  showInfo: DataShowModel = {
-    linkPhone: '1131313131',
-    linkPeople: '张三',
-    duty: ['先做第一步', '再做第二部']
-  };
+  showInfo: ResponsibilityEntitiesModel;
   tabObj: TabObjModel[];
+  cityName: string;
 
-  constructor() {
+  constructor(private dataService: CitiesNameService) {
+    this.cityName = '';
+    this.showInfo = {
+      linkman: '',
+      linkPhone: '',
+      responsibilityDetailSort: []
+    };
     this.nameArray = [];
     this.tabObj = [];
     this.firstSelTabOneLevelId = null;
@@ -52,14 +58,11 @@ export class HazardousOneComponent implements OnInit {
 
   // 获取当前选中的tabId
   getSelId(event) {
-    // event就是选中的tabId
-    // 调用接口后获得
-    console.log(event);
-    this.showInfo = {
-      linkPhone: '1131313131',
-      linkPeople: '张三',
-      duty: ['先做第一步', '再做第二部']
-    };
+    // event就是选中的tabId调用接口后获得
+    this.dataService.getGroupInfo({id: event, cityName: this.cityName}).subscribe(res => {
+      this.showInfo = res.responsibilityEntities;
+      /*console.log(this.showInfo);*/
+    });
   }
 
   // 判断角色

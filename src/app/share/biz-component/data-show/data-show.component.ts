@@ -1,10 +1,6 @@
 import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
+import {ResponsibilityEntitiesModel} from '../../../services/biz-services/earthquake-warning-list.service';
 
-export interface DataShowModel {
-  duty: string[];
-  linkPeople: string;
-  linkPhone: string;
-}
 
 @Component({
   selector: 'app-data-show',
@@ -13,13 +9,13 @@ export interface DataShowModel {
   encapsulation: ViewEncapsulation.None
 })
 export class DataShowComponent implements OnInit {
-  @Input() dataInfo: DataShowModel;
+  @Input() dataInfo: ResponsibilityEntitiesModel;
 
   constructor() {
     this.dataInfo = {
-      linkPeople: '',
+      linkman: '',
       linkPhone: '',
-      duty: []
+      responsibilityDetailSort: []
     };
   }
 

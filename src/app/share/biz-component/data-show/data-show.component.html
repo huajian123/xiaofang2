@@ -3,12 +3,13 @@
     <div class="clearfix">
       <span>岗位职责</span>：
       <div style="float: right;width: 473px;">
-        <ng-container *ngFor="let item of dataInfo.duty;let i=index;let l=last">
+        <ng-container
+          *ngFor="let item of dataInfo.responsibilityDetailSort;let i=index;let l=last">
           {{i + 1}}、{{item}}<br *ngIf="!l">
         </ng-container>
       </div>
     </div>
-    <div><span>&emsp;联系人</span>：{{dataInfo.linkPeople}}</div>
+    <div><span>&emsp;联系人</span>：{{dataInfo.linkman}}</div>
     <div><span>联系方式</span>：{{dataInfo.linkPhone}}</div>
   </div>
 </div>
