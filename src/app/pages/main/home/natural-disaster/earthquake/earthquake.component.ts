@@ -4,14 +4,12 @@ import {
   DepartInfoModel,
   PublishAlarmModel
 } from '../../../../../services/biz-services/earthquake-warning-list.service';
-import {VariableEnum} from '../../home.component';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {AccidentDisastersListService} from '../../../../../services/biz-services/accident-disasters-list.service';
 import {NzMessageService} from 'ng-zorro-antd';
 import {debounceTime, distinctUntilChanged} from 'rxjs/operators';
 import {MapPipe, MapSet} from '../../../../../share/directives/pipe/map.pipe';
-import {fromEvent} from 'rxjs';
-import {DataShowModel} from "../../../../../share/biz-component/data-show/data-show.component";
+
 
 interface OptionsInterface {
   value: number;
@@ -28,14 +26,11 @@ export interface SelectedInterface {
   templateUrl: './earthquake.component.html',
   styleUrls: ['./earthquake.component.less']
 })
-export class EarthquakeComponent implements OnInit, OnChanges {
+export class EarthquakeComponent implements OnInit {
   isShowStandard: boolean; // 是否展开标准
-  isToggle: boolean;
-  isToggles: boolean;
   @Input() id: number;
   @Input() selAlarm: PublishAlarmModel; // 厅长界面直接传入的选中的预案
   currentPage: number;
-  numVariable = VariableEnum;
   validateForm: FormGroup;
   provinceData: OptionsInterface[];
   cityData: OptionsInterface[];
@@ -45,17 +40,10 @@ export class EarthquakeComponent implements OnInit, OnChanges {
   responsibilityEntities: DepartInfoModel[];
   cityName: string;
   plnId: number;
-  tabId: number;
-  nameArray = ['启动应急响应', '分组开展<br/>应急救援工作', '保障方案', '现场信息采集', '辅助指挥<br/>决策信息', '事态控制', '善后处理<br/>与事故调查'];
-  showInfo: DataShowModel = {
-    linkPhone: "1131313131",
-    linkPeople: '张三',
-    duty: ["先做第一步", '再做第二部']
-  }
+
 
   constructor(private fb: FormBuilder, private dataService: CitiesNameService, private dataServicers: AccidentDisastersListService,
               public message: NzMessageService, public element: ElementRef, private renderer2: Renderer2) {
-    this.tabId = 1;
     this.provinceData = [];
     this.cityData = [];
     this.selected = {
@@ -63,8 +51,6 @@ export class EarthquakeComponent implements OnInit, OnChanges {
       city: ''
     };
     this.isShowStandard = true;
-    this.isToggle = true;
-    this.isToggles = true;
     this.currentPage = 0;
     this.plnId = 0;
     this.responsibilityEntities = [];
@@ -72,16 +58,12 @@ export class EarthquakeComponent implements OnInit, OnChanges {
     this.earthquakeEconomicLevelOptions = [];
   }
 
-  // 点击左侧六边形获取当前名字
-  getCurrentLeftName(event) {
-    console.log("当前点击的六边形的名字是：" + event);
+  sendMsg() {
+    console.log(this.plnId);
+    this.dataService.getPublish({id: this.plnId, cityName: this.cityName}).subscribe(re => {
+      this.message.success('发布成功');
+    });
   }
-
-  // 获取当前选中的tabid
-  getSelId(event) {
-    console.log("当前点击的tab的id是：" + event);
-  }
-
 
   changeProvince(eve) {
     this.cityData = [];
@@ -102,11 +84,10 @@ export class EarthquakeComponent implements OnInit, OnChanges {
 
   initForm() {
     this.validateForm = this.fb.group({
-      peopleDie: [null],
-      peopleInjury: [null],
-      propertyLoss: [null],
-      peopleLoss: [null],
-      toxicGas: [null],
+      peopleLossAndDie: [null],
+      propertyLossGrade: [null],
+      earthquakeLand: [null],
+      earthquakeSea: [null],
       cityId: [null],
       areaId: [null],
     });
@@ -128,8 +109,6 @@ export class EarthquakeComponent implements OnInit, OnChanges {
   }
 
   ngOnInit(): void {
-    const temp = this.element.nativeElement.getElementsByClassName('show-box');
-    console.log(temp);
     // 管理员登陆
     if (!this.selAlarm) {
       this.initForm();
@@ -142,11 +121,4 @@ export class EarthquakeComponent implements OnInit, OnChanges {
     this.earthquakeEconomicLevelOptions = [...MapPipe.transformMapToArray(MapSet.earthquakeEconomicLevel)];
 
   }
-
-  ngOnChanges(changes: SimpleChanges): void {
-    if (!changes['selAlarm'].firstChange) {
-      this.currentPage = changes['selAlarm'].currentValue.accidentGrade;
-    }
-  }
-
 }

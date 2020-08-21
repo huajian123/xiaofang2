@@ -17,16 +17,16 @@
 
   <section class="judgment-wrap">
     <!--汛旱-->
-    <ng-container *ngIf="currentPage===numVariable.one"></ng-container>
+    <ng-container *ngIf="currentPage===1"></ng-container>
     <!--地震-->
     <ng-container *ngIf="currentPage===numVariable.two">
-      <app-earthquake [selAlarm]="selAlarm"  [id]="accidentId"></app-earthquake>
+      <app-earthquake [selAlarm]="selAlarm" [id]="accidentId"></app-earthquake>
     </ng-container>
     <!--气象-->
-    <ng-container *ngIf="currentPage===numVariable.three">
+    <ng-container *ngIf="currentPage===3">
     </ng-container>
     <!--自然灾害救助-->
-    <ng-container *ngIf="currentPage===numVariable.four">
+    <ng-container *ngIf="currentPage===4">
     </ng-container>
     <!--地质-->
     <ng-container *ngIf="currentPage===5">

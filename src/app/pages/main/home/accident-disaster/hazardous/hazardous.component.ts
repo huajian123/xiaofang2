@@ -4,7 +4,6 @@ import {
   DepartInfoModel,
   PublishAlarmModel
 } from '../../../../../services/biz-services/earthquake-warning-list.service';
-import {VariableEnum} from '../../home.component';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {NzMessageService} from 'ng-zorro-antd';
 import {AccidentDisastersListService} from '../../../../../services/biz-services/accident-disasters-list.service';
@@ -31,7 +30,6 @@ export class HazardousComponent implements OnInit {
   @Input() id: number;
   @Input() selAlarm: PublishAlarmModel; // 厅长界面直接传入的选中的预案
   currentPage: number;
-  numVariable = VariableEnum;
   validateForm: FormGroup;
   provinceData: OptionsInterface[];
   cityData: OptionsInterface[];

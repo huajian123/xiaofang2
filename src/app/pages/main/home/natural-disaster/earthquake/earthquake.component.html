@@ -1,53 +1,45 @@
-<ng-container *ngIf="!selAlarm&&false">
-  <section class="layout-content" *ngIf="isShowStandard||false">
+<ng-container *ngIf="!selAlarm">
+  <section class="layout-content" *ngIf="isShowStandard">
     <form [formGroup]="validateForm">
       <div nz-row>
         <div nz-col [nzSpan]="8">
           <nz-form-item>
-            <nz-form-label [nzSpan]="12">死亡人数</nz-form-label>
+            <nz-form-label [nzSpan]="12">死亡人数（含失踪）</nz-form-label>
             <nz-form-control [nzSpan]="12">
-              <nz-input-number nzPlaceHolder="死亡人数" formControlName="peopleDie"
+              <nz-input-number nzPlaceHolder="死亡人数（含失踪）" formControlName="peopleLossAndDie"
                                [nzMin]="1"></nz-input-number>
             </nz-form-control>
           </nz-form-item>
         </div>
         <div nz-col [nzSpan]="8">
           <nz-form-item>
-            <nz-form-label [nzSpan]="12">重伤及急性工业中毒人数</nz-form-label>
+            <nz-form-label [nzSpan]="12">直接经济损失</nz-form-label>
             <nz-form-control [nzSpan]="12">
-              <nz-input-number nzPlaceHolder="重伤及急性工业中毒人数" formControlName="peopleInjury"
-                               [nzMin]="1"></nz-input-number>
+              <nz-select class="margin-none" nzPlaceHolder="下拉选择" formControlName="propertyLossGrade">
+                <nz-option *ngFor="let item of earthquakeEconomicLevelOptions" [nzValue]="item.value"
+                           [nzLabel]="item.label"></nz-option>
+              </nz-select>
             </nz-form-control>
           </nz-form-item>
         </div>
         <div nz-col [nzSpan]="8">
           <nz-form-item>
-            <nz-form-label [nzSpan]="12">直接经济损失（万元）</nz-form-label>
+            <nz-form-label [nzSpan]="12">省陆地行政区域震级</nz-form-label>
             <nz-form-control [nzSpan]="12">
-              <nz-input-number nzPlaceHolder="直接经济损失（万元）" formControlName="propertyLoss"
+              <nz-input-number nzPlaceHolder="省陆地行政区域震级" formControlName="earthquakeLand"
                                [nzMin]="1"></nz-input-number>
             </nz-form-control>
           </nz-form-item>
         </div>
-        <div nz-col [nzSpan]="8">
+        <div nz-col [nzSpan]="16">
           <nz-form-item>
-            <nz-form-label [nzSpan]="12">现场失踪人数</nz-form-label>
-            <nz-form-control [nzSpan]="12">
-              <nz-input-number nzPlaceHolder="现场失踪人数" formControlName="peopleLoss"
+            <nz-form-label [nzSpan]="12">近海海域50千米震级或我省陆地边界50千米以内的邻省震级</nz-form-label>
+            <nz-form-control [nzSpan]="4">
+              <nz-input-number nzPlaceHolder="近海海域50千米震级" formControlName="earthquakeSea"
                                [nzMin]="1"></nz-input-number>
             </nz-form-control>
           </nz-form-item>
         </div>
-        <div nz-col [nzSpan]="8">
-          <nz-form-item>
-            <nz-form-label [nzSpan]="12">毒性气体储量（吨）</nz-form-label>
-            <nz-form-control [nzSpan]="12">
-              <nz-input-number nzPlaceHolder="毒性气体储量（吨）" formControlName="toxicGas"
-                               [nzMin]="1"></nz-input-number>
-            </nz-form-control>
-          </nz-form-item>
-        </div>
-        <div nz-col [nzSpan]="8"></div>
       </div>
       <div nz-row>
         <div nz-col [nzSpan]="24">
@@ -83,10 +75,12 @@
          (click)="isShowStandard=!isShowStandard"></div>
   </div>
 </ng-container>
-<div class="column-lay">
-  <app-left-hexagon (clickReturn)="getCurrentLeftName($event)" [nameArray]="nameArray"></app-left-hexagon>
-  <div class="column-right">
-    <app-biz-tabs (selId)="getSelId($event)"></app-biz-tabs>
-    <app-data-show [dataInfo]="showInfo"></app-data-show>
-  </div>
-</div>
+<ng-container *ngIf="currentPage===1||currentPage===2">
+  <app-earthquake-one></app-earthquake-one>
+</ng-container>
+<ng-container *ngIf="currentPage===3||currentPage===4">
+  <app-earthquake-three></app-earthquake-three>
+</ng-container>
+<footer *ngIf="currentPage!==0&&!selAlarm">
+  <div class="send-btn" (click)="sendMsg()"><img src="assets/imgs/send-icon.svg" alt="">发 布</div>
+</footer>
