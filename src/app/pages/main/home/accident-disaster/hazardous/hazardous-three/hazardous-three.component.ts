@@ -67,6 +67,9 @@ export class HazardousThreeComponent implements OnInit {
     } else if (this.loginInfo.role === UserRole.Manage) {
       /* this.nameArray = ['事故信息接收', '应急指导'];*/
     }
+    this.getCurrentLeftName('事故信息接收');
+    // 页面初始化时获取的岗位职责信息
+    this.getSelId(this.firstSelTabThreeLevelId || this.firstSelTabTwoLevelId || this.firstSelTabOneLevelId);
   }
 
   ngOnInit(): void {

@@ -24,11 +24,6 @@ export interface ResponsibilityEntitiesModel {
   responsibilityDetailSort: string[];
 }
 
-/*export interface DataShowModel {
-  duty: string[];
-  linkPeople: string;
-  linkPhone: string;
-}*/
 
 export interface CitiesNameModel {
   id: number;
