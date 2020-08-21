@@ -17,7 +17,6 @@ export class HazardousOneComponent implements OnInit {
   firstSelTabOneLevelId: number;
   firstSelTabTwoLevelId: number;
   firstSelTabThreeLevelId: number;
-
   showInfo: DataShowModel = {
     linkPhone: '1131313131',
     linkPeople: '张三',
@@ -98,6 +97,7 @@ export class HazardousOneComponent implements OnInit {
     // 页面初始化时获取的岗位职责信息
     this.getSelId(this.firstSelTabThreeLevelId || this.firstSelTabTwoLevelId || this.firstSelTabOneLevelId);
   }
+
 
   ngOnInit(): void {
     this.loginInfo = JSON.parse(window.sessionStorage.getItem(EVENT_KEY.loginInfo));

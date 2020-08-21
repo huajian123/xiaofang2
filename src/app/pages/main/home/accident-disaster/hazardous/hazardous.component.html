@@ -89,3 +89,6 @@
 <ng-container *ngIf="currentPage===3||currentPage===4">
   <app-hazardous-three></app-hazardous-three>
 </ng-container>
+<footer *ngIf="currentPage!==0&&!selAlarm">
+  <div class="send-btn" (click)="sendMsg()"><img src="assets/imgs/send-icon.svg" alt="">发 布</div>
+</footer>

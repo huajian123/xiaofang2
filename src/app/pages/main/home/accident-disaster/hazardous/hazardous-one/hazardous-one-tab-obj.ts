@@ -57,7 +57,7 @@ export function getHazardousOneTabObj(leftDivName) {
         name: '应急管理厅', id: 0,
         children: [
           {name: '应急指挥中心', id: 13},
-          {name: '办公室', id: 13},
+          {name: '办公室', id: 15},
           {name: '区域合作处', id: 14}]
       },
       {name: '省指挥部', id: 2},
@@ -280,6 +280,50 @@ export function getHazardousOneTabObj(leftDivName) {
       {name: '省指挥部', id: 94},
     ];
   }
+  if (leftDivName === '组建现场指挥部') {
+    return [
+      {name: '省指挥部', id: 318},
+    ];
+  }
+  if (leftDivName === '应急保障') {
+    return [
+      {
+        name: '救援力量调度保障', id: 92,
+        children: [
+          {
+            name: '应急管理厅', id: 0,
+            children: [
+              {name: '应急指挥中心', id: 73},
+              {name: '危化处', id: 74},
+              {name: '区域合作处', id: 75}]
+          },
+        ]
+      },
+      {
+        name: '应急物资调度保障', id: 0,
+        children: [
+          {name: '救灾和物资保障处', id: 76},
+          {name: '办公室', id: 77},
+        ]
+      },
+      {
+        name: '应急管理厅', id: 0,
+        children: [
+          {name: '科技和信息化处', id: 78}
+        ]
+      },
+      {name: '通信管理局', id: 79},
+      {name: '江苏能源监管办', id: 80},
+      {name: '电力公司', id: 81},
+      {
+        name: '应急管理厅', id: 0,
+        children: [
+          {name: '科技和信息化处', id: 90},
+          {name: '应急指挥中心', id: 91},
+        ]
+      },
+    ];
+  }
   if (leftDivName === '善后处理与事故调查') {
     return [
       {name: '事发地人民政府', id: 95},
@@ -292,7 +336,6 @@ export function getHazardousOneTabObj(leftDivName) {
         name: '应急管理厅', id: 0,
         children: [
           {name: '调查评估和统计处', id: 102},
-          {name: '规划财务处', id: 99},
         ]
       },
     ];
