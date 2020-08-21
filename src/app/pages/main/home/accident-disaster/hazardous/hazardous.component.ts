@@ -100,7 +100,6 @@ export class HazardousComponent implements OnInit {
   }
 
   sendMsg() {
-    console.log(this.plnId);
     this.dataService.getPublish({id: this.plnId, cityName: this.cityName}).subscribe(re => {
       this.message.success('发布成功');
     });

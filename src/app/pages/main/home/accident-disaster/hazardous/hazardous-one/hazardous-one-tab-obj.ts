@@ -22,7 +22,18 @@ export function getHazardousOneTabObj(leftDivName) {
       {name: '省气象局', id: 13},
     ];
   }
-  if (leftDivName === '信息研判') {
+  if (leftDivName === '灾情研判分析') {
+    return [
+      {
+        name: '应急管理厅', id: 0,
+        children: [
+          {name: '应急指挥中心', id: 7},
+          {name: '危化处', id: 6},
+        ]
+      }
+    ];
+  }
+  if (leftDivName === '应急响应建议') {
     return [
       {
         name: '应急管理厅', id: 0,
@@ -210,7 +221,7 @@ export function getHazardousOneTabObj(leftDivName) {
       }
     ];
   }
-  if (leftDivName === '救援力量调度及保障') {
+  if (leftDivName === '救援力量投入方案') {
     return [
       {
         name: '应急管理厅', id: 0,
@@ -221,7 +232,7 @@ export function getHazardousOneTabObj(leftDivName) {
       }
     ];
   }
-  if (leftDivName === '应急物资调度及保障') {
+  if (leftDivName === '救灾资金物资支持方案') {
     return [
       {
         name: '应急管理厅', id: 0,
@@ -232,7 +243,18 @@ export function getHazardousOneTabObj(leftDivName) {
       },
     ];
   }
-  if (leftDivName === '通信电力保障方案') {
+  if (leftDivName === '新闻方案') {
+    return [
+      {
+        name: '应急管理厅', id: 0,
+        children: [
+          {name: '救灾和物资保障处', id: 76},
+          {name: '办公室', id: 77},
+        ]
+      },
+    ];
+  }
+  if (leftDivName === '通信保障方案') {
     return [
       {
         name: '应急管理厅', id: 0,
@@ -262,7 +284,7 @@ export function getHazardousOneTabObj(leftDivName) {
       {name: '连云港海事局', id: 89},
     ];
   }
-  if (leftDivName === '辅助指挥决策信息') {
+  if (leftDivName === '辅助指挥决策一张图') {
     return [
       {
         name: '应急管理厅', id: 0,

@@ -1,4 +1,4 @@
-import {Component, ElementRef, Input, OnChanges, OnInit, Renderer2, SimpleChanges} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {
   CitiesNameModel, CitiesNameService,
   DepartInfoModel,
@@ -43,7 +43,7 @@ export class EarthquakeComponent implements OnInit {
 
 
   constructor(private fb: FormBuilder, private dataService: CitiesNameService, private dataServicers: AccidentDisastersListService,
-              public message: NzMessageService, public element: ElementRef, private renderer2: Renderer2) {
+              public message: NzMessageService) {
     this.provinceData = [];
     this.cityData = [];
     this.selected = {
@@ -59,7 +59,6 @@ export class EarthquakeComponent implements OnInit {
   }
 
   sendMsg() {
-    console.log(this.plnId);
     this.dataService.getPublish({id: this.plnId, cityName: this.cityName}).subscribe(re => {
       this.message.success('发布成功');
     });
