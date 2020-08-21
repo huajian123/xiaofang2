@@ -6,5 +6,6 @@
                   [currentSelThirdTabId]="firstSelTabThreeLevelId"
                   [tabObj]="tabObj" (selId)="getSelId($event)"></app-biz-tabs>
     <app-data-show [dataInfo]="showInfo"></app-data-show>
+    <ng-content></ng-content>
   </div>
 </div>

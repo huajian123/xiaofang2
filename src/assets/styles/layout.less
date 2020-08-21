@@ -157,8 +157,58 @@ h1, h2, h3, h4, h5, h6 {
   align-items: flex-start;
 }
 
+.drive {
+  background: url(../../assets/imgs/line.png) no-repeat;
+  background-size: 100% 100%;
+  height: 3px;
+  position: relative;
+
+  .btn {
+    cursor: pointer;
+    width: 42px;
+    height: 17px;
+    position: absolute;
+    left: 50%;
+    top: 10px;
+    transform: translate(-50%, -50%);
+  }
+
+  .show-btn:extend(.drive .btn) {
+    background: url(../../assets/imgs/show-btn.png) no-repeat;
+  }
+
+  .hide-btn:extend(.drive .btn) {
+    background: url(../../assets/imgs/hide-btn.png) no-repeat;
+  }
+
+}
+
+
+.layout-content {
+  width: 100%;
+  background: url(../../assets/imgs/judgment-wrap-bg.png) no-repeat;
+  background-size: 100% 100%;
+
+  form {
+    width: auto;
+    margin: auto;
+    padding: 30px;
+  }
+}
+
+.font-sel {
+  margin-left: 10px;
+  display: inline-flex;
+  justify-content: flex-start;
+  align-items: center;
+  color: white;
+  font-size: 20px;
+  height: 32px;
+}
+
 
 .column-right {
+  position: relative;
   flex-direction: row;
   width: 1400px;
   min-height: 750px;
@@ -166,3 +216,29 @@ h1, h2, h3, h4, h5, h6 {
   background-size: 100% 100%;
 }
 
+footer {
+  margin-top: 100px;
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: -80px;
+
+  .send-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url(../../assets/imgs/send-btn-bg.png) center no-repeat;
+    background-size: 100% 100%;
+    height: 64px;
+    font-family: PingFangSC-Medium;
+    font-size: 24px;
+    color: #5CFFEC;
+
+    img {
+
+      width: 24px;
+      margin-right: 15px;
+    }
+  }
+}
