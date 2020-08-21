@@ -9,11 +9,11 @@
     <!--二级tab头部标签-->
     <ul class="second-tabs clearfix">
       <li *ngFor="let secondaryOne of secondLevelTabArray"
-          (click)="chooseTab(secondaryOne,2)"
+          (click)="chooseTab(secondaryOne,2,$event)"
           [ngClass]="{'actives':currentSelSecondTabId==secondaryOne.id}">{{secondaryOne.name}}</li>
     </ul>
 
-    <div class="absolution" *ngIf="thirdLevelTabArray?.length>0;">
+    <div class="absolution" (click)="selfClick=true" *ngIf="(thirdLevelTabArray?.length>0)&&showPanel">
       <div class="show-box">
         <div (click)="chooseTab(item,3)" [ngClass]="{'actives':currentSelThirdTabId==item.id}"
              *ngFor="let item of thirdLevelTabArray;">{{item.name}}</div>
