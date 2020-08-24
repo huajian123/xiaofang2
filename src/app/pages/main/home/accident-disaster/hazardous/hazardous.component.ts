@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {
   CitiesNameModel, CitiesNameService,
   DepartInfoModel,
@@ -25,7 +25,7 @@ export interface SelectedInterface {
   templateUrl: './hazardous.component.html',
   styleUrls: ['./hazardous.component.less']
 })
-export class HazardousComponent implements OnInit {
+export class HazardousComponent implements OnInit, OnChanges {
   isShowStandard: boolean; // 是否展开标准
   @Input() id: number;
   @Input() selAlarm: PublishAlarmModel; // 厅长界面直接传入的选中的预案
@@ -40,7 +40,7 @@ export class HazardousComponent implements OnInit {
   plnId: number;
 
   constructor(private fb: FormBuilder, private dataService: CitiesNameService, private dataServicers: AccidentDisastersListService,
-              public message: NzMessageService) {
+              public message: NzMessageService, private cdr: ChangeDetectorRef) {
     this.provinceData = [];
     this.cityData = [];
     this.selected = {
@@ -103,6 +103,13 @@ export class HazardousComponent implements OnInit {
     this.dataService.getPublish({id: this.plnId, cityName: this.cityName}).subscribe(re => {
       this.message.success('发布成功');
     });
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (!changes['selAlarm'].firstChange) {
+      this.currentPage = this.selAlarm.accidentGrade;
+      this.cdr.markForCheck();
+    }
   }
 
   ngOnInit(): void {
