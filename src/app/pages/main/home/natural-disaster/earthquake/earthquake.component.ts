@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {
   CitiesNameModel, CitiesNameService,
   DepartInfoModel,
@@ -26,7 +26,7 @@ export interface SelectedInterface {
   templateUrl: './earthquake.component.html',
   styleUrls: ['./earthquake.component.less']
 })
-export class EarthquakeComponent implements OnInit {
+export class EarthquakeComponent implements OnInit, OnChanges {
   isShowStandard: boolean; // 是否展开标准
   @Input() id: number;
   @Input() selAlarm: PublishAlarmModel; // 厅长界面直接传入的选中的预案
@@ -43,7 +43,7 @@ export class EarthquakeComponent implements OnInit {
 
 
   constructor(private fb: FormBuilder, private dataService: CitiesNameService, private dataServicers: AccidentDisastersListService,
-              public message: NzMessageService) {
+              public message: NzMessageService, private cdr: ChangeDetectorRef) {
     this.provinceData = [];
     this.cityData = [];
     this.selected = {
@@ -118,6 +118,12 @@ export class EarthquakeComponent implements OnInit {
       this.cityName = this.selAlarm.accidentAddress;
     }
     this.earthquakeEconomicLevelOptions = [...MapPipe.transformMapToArray(MapSet.earthquakeEconomicLevel)];
+  }
 
+  ngOnChanges(changes: SimpleChanges): void {
+    if (!changes['selAlarm'].firstChange) {
+      this.currentPage = this.selAlarm.accidentGrade;
+      this.cdr.markForCheck();
+    }
   }
 }
