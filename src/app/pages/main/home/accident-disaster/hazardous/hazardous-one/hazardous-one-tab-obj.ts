@@ -362,7 +362,7 @@ export function getHazardousOneTabObj(leftDivName) {
   if (leftDivName === '应急保障') {
     return [
       {
-        name: '救援力量调度及保障', id: 92,
+        name: '救援力量调度及保障', id: 995,
         children: [
           {
             name: '应急管理厅', id: 0,
@@ -374,26 +374,24 @@ export function getHazardousOneTabObj(leftDivName) {
         ]
       },
       {
-        name: '应急物资调度及保障', id: 0,
+        name: '应急物资调度及保障', id: 994,
         children: [
           {name: '救灾和物资保障处', id: 76},
           {name: '办公室', id: 77},
         ]
       },
       {
-        name: '应急管理厅', id: 0,
+        name: '通信电力保障方案', id: 0,
         children: [
-          {name: '科技和信息化处', id: 78}
-        ]
-      },
-      {name: '通信管理局', id: 79},
-      {name: '江苏能源监管办', id: 80},
-      {name: '电力公司', id: 81},
-      {
-        name: '应急管理厅', id: 0,
-        children: [
-          {name: '科技和信息化处', id: 90},
-          {name: '应急指挥中心', id: 91},
+          {
+            name: '应急管理厅', id: 0,
+            children: [
+              {name: '科技和信息化处', id: 78}
+            ]
+          },
+          {name: '省通信管理局', id: 79},
+          {name: '江苏能源监管办', id: 80},
+          {name: '省电力公司', id: 81},
         ]
       },
     ];
