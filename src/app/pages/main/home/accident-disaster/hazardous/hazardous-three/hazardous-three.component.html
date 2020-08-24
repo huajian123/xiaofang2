@@ -1,11 +1,13 @@
 <div class="column-lay">
   <app-left-hexagon (clickReturn)="getCurrentLeftName($event)" [nameArray]="nameArray"></app-left-hexagon>
-  <div class="column-right">
-    <app-biz-tabs [currentSelFirstTabId]="firstSelTabOneLevelId"
-                  [currentSelSecondTabId]="firstSelTabTwoLevelId"
-                  [currentSelThirdTabId]="firstSelTabThreeLevelId"
-                  [tabObj]="tabObj" (selId)="getSelId($event)"></app-biz-tabs>
-    <app-data-show [dataInfo]="showInfo"></app-data-show>
-    <ng-content></ng-content>
+  <div class="column-right-wrap">
+    <div class="column-right">
+      <app-biz-tabs [currentSelFirstTabId]="firstSelTabOneLevelId"
+                    [currentSelSecondTabId]="firstSelTabTwoLevelId"
+                    [currentSelThirdTabId]="firstSelTabThreeLevelId"
+                    [tabObj]="tabObj" (selId)="getSelId($event)"></app-biz-tabs>
+      <app-data-show [dataInfo]="showInfo"></app-data-show>
+      <ng-content></ng-content>
+    </div>
   </div>
 </div>
