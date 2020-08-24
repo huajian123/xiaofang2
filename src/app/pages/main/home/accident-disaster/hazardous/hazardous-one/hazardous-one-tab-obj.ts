@@ -1,4 +1,5 @@
 export function getHazardousOneTabObj(leftDivName) {
+  /*995*/
   if (leftDivName === '省级接警') {
     return [
       {
@@ -381,7 +382,7 @@ export function getHazardousOneTabObj(leftDivName) {
         ]
       },
       {
-        name: '通信电力保障方案', id: 0,
+        name: '通信电力保障方案', id: 993,
         children: [
           {
             name: '应急管理厅', id: 0,
