@@ -148,8 +148,8 @@ export function getHazardousOneTabObj(leftDivName) {
       {
         name: '医疗救护组', id: 34,
         children: [
-          {name: '省卫生健康委员会', id: 34},
-          {name: '省卫生健康委员会', id: 35},
+          {name: '省卫生健康委', id: 34},
+          {name: '省卫生健康委', id: 35},
           {
             name: '配合部门', id: 0,
             children: [
@@ -171,7 +171,7 @@ export function getHazardousOneTabObj(leftDivName) {
               {name: '省交通运输厅', id: 41},
               {name: '省水利厅', id: 42},
               {name: '省农业农村厅', id: 43},
-              {name: '省卫生健康委员会', id: 44},
+              {name: '省卫生健康委', id: 44},
               {name: '省林业局', id: 45},
               {name: '省气象局', id: 46},
               {name: '江苏海事局', id: 47},
@@ -209,7 +209,7 @@ export function getHazardousOneTabObj(leftDivName) {
             name: '配合部门', id: 0,
             children: [
               {name: '省生态环境厅', id: 64},
-              {name: '省卫生健康委员会', id: 65},
+              {name: '省卫生健康委', id: 65},
               {name: '应急管理厅(危化处)', id: 66},
               {name: '省事发地单位', id: 67},
             ]
@@ -400,7 +400,7 @@ export function getHazardousOneTabObj(leftDivName) {
   if (leftDivName === '善后处理与事故调查') {
     return [
       {name: '事发地人民政府', id: 95},
-      {name: '省卫生健康委员会', id: 96},
+      {name: '省卫生健康委', id: 96},
       {name: '省民政厅', id: 97},
       {name: '省生态环境厅', id: 98},
       {name: '保监部门', id: 100},

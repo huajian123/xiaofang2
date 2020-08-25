@@ -131,8 +131,9 @@ export function getEarthquakeOneTabObj(leftDivName) {
           },
         ]
       },
+      // 医疗救治卫生防疫组
       {
-        name: '医疗救治卫生防疫组', id: 242,
+        name: '医疗救治防疫组', id: 242,
         children: [
           {name: '省卫生健康委', id: 243},
           {
@@ -150,8 +151,9 @@ export function getEarthquakeOneTabObj(leftDivName) {
           },
         ]
       },
+      // 基础设施保障生产恢复组
       {
-        name: '基础设施保障生产恢复组', id: 251,
+        name: '基础设施恢复组', id: 251,
         children: [
           {name: '省发展改革委', id: 252},
           {
@@ -174,8 +176,9 @@ export function getEarthquakeOneTabObj(leftDivName) {
           },
         ]
       },
+      // 地震监测趋势研判组
       {
-        name: '地震监测趋势研判组', id: 266,
+        name: '地震趋势研判组', id: 266,
         children: [
           {name: '省地震局', id: 267},
           {
@@ -187,8 +190,9 @@ export function getEarthquakeOneTabObj(leftDivName) {
           },
         ]
       },
+      // 次生灾害防范处置组
       {
-        name: '次生灾害防范处置组', id: 269,
+        name: '次生灾害防范组', id: 269,
         children: [
           {
             name: '应急管理厅', id: 0,
@@ -228,8 +232,9 @@ export function getEarthquakeOneTabObj(leftDivName) {
           },
         ]
       },
+      // 涉外涉港澳台救灾捐赠事务组
       {
-        name: '涉外涉港澳台救灾捐赠事务组', id: 286,
+        name: '涉外捐赠事务组', id: 286,
         children: [
           {name: '省民政厅部门', id: 287},
           {
@@ -246,8 +251,9 @@ export function getEarthquakeOneTabObj(leftDivName) {
           },
         ]
       },
+      // 境外救援队伍协调事务组
       {
-        name: '境外救援队伍协调事务组', id: 295,
+        name: '境外救援协调组', id: 295,
         children: [
           {name: '省外办', id: 296},
           {
@@ -261,8 +267,9 @@ export function getEarthquakeOneTabObj(leftDivName) {
           },
         ]
       },
+      // 地震灾害调查损失评估组
       {
-        name: '地震灾害调查损失评估组', id: 300,
+        name: '地震损失评估组', id: 300,
         children: [
           {name: '应急管理厅', id: 301},
           {
@@ -279,8 +286,9 @@ export function getEarthquakeOneTabObj(leftDivName) {
           },
         ]
       },
+      // 信息发布宣传报道组
       {
-        name: '信息发布宣传报道组', id: 309,
+        name: '信息发布宣传组', id: 309,
         children: [
           {name: '省委宣传部', id: 310},
           {
@@ -463,7 +471,7 @@ export function getEarthquakeOneTabObj(leftDivName) {
   if (leftDivName === '善后处理与事故调查') {
     return [
       {name: '事发地人民政府', id: 323},
-      {name: '省卫生健康委员会', id: 324},
+      {name: '省卫生健康委', id: 324},
       {name: '省民政厅', id: 325},
       {name: '省生态环境厅', id: 326},
       {name: '保监部门', id: 327},
