@@ -195,7 +195,7 @@ export function getEarthquakeOneTabObj(leftDivName) {
         name: '次生灾害防范组', id: 269,
         children: [
           {
-            name: '应急管理厅', id: 0,
+            name: '应急管理厅', id: 8000,
             children: [
               {name: '危化处', id: 270},
               {name: '风险监测和综合减灾处', id: 331}
@@ -307,7 +307,7 @@ export function getEarthquakeOneTabObj(leftDivName) {
       }
     ];
   }
-  if (leftDivName === '救援力量投入方案') {
+  if (leftDivName === '救援投入方案') {
     return [
       {
         name: '应急管理厅', id: 0,
@@ -335,7 +335,8 @@ export function getEarthquakeOneTabObj(leftDivName) {
       }
     ];
   }
-  if (leftDivName === '救灾资金物资支持方案') {
+  // 救灾资金物资支持方案
+  if (leftDivName === '物资支持方案') {
     return [
       {
         name: '应急管理厅', id: 0,
@@ -404,7 +405,8 @@ export function getEarthquakeOneTabObj(leftDivName) {
   if (leftDivName === '应急保障') {
     return [
       {
-        name: '救援力量投入方案', id: 999,
+        // 救援力量投入方案
+        name: '救援投入方案', id: 999,
         children: [
           {
             name: '应急管理厅', id: 0,
@@ -433,8 +435,9 @@ export function getEarthquakeOneTabObj(leftDivName) {
           }
         ]
       },
+      // 救灾资金物资支持方案
       {
-        name: '救灾资金物资支持方案', id: 997,
+        name: '物资支持方案', id: 997,
         children: [
           {
             name: '应急管理厅', id: 0,
@@ -445,7 +448,8 @@ export function getEarthquakeOneTabObj(leftDivName) {
         ]
       },
       {
-        name: '发布救灾捐赠公告', id: 996,
+        // 发布救灾捐赠公告
+        name: '发布捐赠公告', id: 996,
         children: [
           {
             name: '应急管理厅', id: 0,

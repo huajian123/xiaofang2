@@ -233,7 +233,7 @@ export function getHazardousOneTabObj(leftDivName) {
       }
     ];
   }
-  if (leftDivName === '救援力量投入方案') {
+  if (leftDivName === '救援投入方案') {
     return [
       {
         name: '应急管理厅', id: 0,
@@ -244,7 +244,8 @@ export function getHazardousOneTabObj(leftDivName) {
       }
     ];
   }
-  if (leftDivName === '救灾资金物资支持方案') {
+  // 救灾资金物资支持方案
+  if (leftDivName === '物资支持方案') {
     return [
       {
         name: '应急管理厅', id: 0,
@@ -343,6 +344,7 @@ export function getHazardousOneTabObj(leftDivName) {
       }
     ];
   }
+  // 救援力量调度及保障
   if (leftDivName === '救援力量调度及保障') {
     return [
       {
@@ -363,7 +365,8 @@ export function getHazardousOneTabObj(leftDivName) {
   if (leftDivName === '应急保障') {
     return [
       {
-        name: '救援力量调度及保障', id: 995,
+        // 救援力量调度及保障
+        name: '救援调度及保障', id: 995,
         children: [
           {
             name: '应急管理厅', id: 0,
@@ -375,14 +378,16 @@ export function getHazardousOneTabObj(leftDivName) {
         ]
       },
       {
-        name: '应急物资调度及保障', id: 994,
+        // 应急物资调度及保障
+        name: '物资调度及保障', id: 994,
         children: [
           {name: '救灾和物资保障处', id: 76},
           {name: '办公室', id: 77},
         ]
       },
       {
-        name: '通信电力保障方案', id: 993,
+        // 通信电力保障方案
+        name: '通信电力保障', id: 993,
         children: [
           {
             name: '应急管理厅', id: 0,

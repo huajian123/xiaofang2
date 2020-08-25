@@ -1,7 +1,8 @@
 export function getEarthquakeThreeTabObj(leftDivName) {
   if (leftDivName === '先期处置') {
     return [
-      {name: '事发地抗震救灾指挥部', id: 185},
+      // 事发地抗震救灾指挥部
+      {name: '救灾指挥部', id: 185},
     ];
   }
   if (leftDivName === '事故信息接收') {
