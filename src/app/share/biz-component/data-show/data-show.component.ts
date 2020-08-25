@@ -20,6 +20,7 @@ export class DataShowComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log(this.dataInfo);
   }
 
 }

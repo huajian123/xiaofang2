@@ -58,8 +58,7 @@ export class EarthquakeOneComponent implements OnInit {
   getSelId(event) {
     // event就是选中的tabId调用接口后获得
     this.dataService.getGroupInfo({id: event, cityName: this.cityName}).subscribe(res => {
-      this.showInfo = res.responsibilityEntities;
-      /*console.log(this.showInfo);*/
+      this.showInfo = res.selectResponsibilityDTO;
     });
   }
 

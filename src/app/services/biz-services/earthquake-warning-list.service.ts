@@ -9,7 +9,7 @@ import {NzMessageService} from 'ng-zorro-antd';
 export interface DepartInfoModel {
   id?: number;
   accidentName?: number;
-  responsibilityEntities: ResponsibilityEntitiesModel;
+  selectResponsibilityDTO: ResponsibilityEntitiesModel;
 }
 
 export interface ResponsibilityEntitiesModel {

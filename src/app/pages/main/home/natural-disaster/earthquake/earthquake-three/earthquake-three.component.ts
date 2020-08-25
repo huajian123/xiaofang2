@@ -55,8 +55,7 @@ export class EarthquakeThreeComponent implements OnInit {
   // 获取当前选中的tabid
   getSelId(event) {
     this.dataService.getGroupInfo({id: event, cityName: this.cityName}).subscribe(res => {
-      this.showInfo = res.responsibilityEntities;
-      /*console.log(this.showInfo);*/
+      this.showInfo = res.selectResponsibilityDTO;
     });
   }
 
