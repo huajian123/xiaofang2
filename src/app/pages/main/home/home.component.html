@@ -17,7 +17,9 @@
 
   <section class="judgment-wrap">
     <!--汛旱-->
-    <ng-container *ngIf="currentPage===1"></ng-container>
+    <ng-container *ngIf="currentPage===numVariable.one">
+      <app-flood-drought-one [id]="accidentId"></app-flood-drought-one>
+    </ng-container>
     <!--地震-->
     <ng-container *ngIf="currentPage===numVariable.two">
       <app-earthquake [selAlarm]="selAlarm" [id]="accidentId"></app-earthquake>

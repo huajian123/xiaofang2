@@ -10,6 +10,7 @@ import {HazardousOneComponent} from './main/home/accident-disaster/hazardous/haz
 import {HazardousThreeComponent} from './main/home/accident-disaster/hazardous/hazardous-three/hazardous-three.component';
 import {EarthquakeThreeComponent} from './main/home/natural-disaster/earthquake/earthquake-three/earthquake-three.component';
 import {EarthquakeOneComponent} from './main/home/natural-disaster/earthquake/earthquake-one/earthquake-one.component';
+import {FloodDroughtOneComponent} from './main/home/natural-disaster/flood-drought/flood-drought-one/flood-drought-one.component';
 
 
 @NgModule({
@@ -21,7 +22,9 @@ import {EarthquakeOneComponent} from './main/home/natural-disaster/earthquake/ea
     HazardousOneComponent,
     HazardousThreeComponent,
     EarthquakeThreeComponent,
-    EarthquakeOneComponent],
+    EarthquakeOneComponent,
+    FloodDroughtOneComponent,
+  ],
   imports: [
     CommonModule,
     ShareModule,
