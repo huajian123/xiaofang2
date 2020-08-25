@@ -20,7 +20,7 @@ export function getHazardousOneTabObj(leftDivName) {
           {name: '风险监测和综合减灾处', id: 4},
         ]
       },
-      {name: '省气象局', id: 13},
+      {name: '省气象局', id: 5},
     ];
   }
   if (leftDivName === '灾情研判分析') {
@@ -79,9 +79,9 @@ export function getHazardousOneTabObj(leftDivName) {
       {
         name: '应急管理厅', id: 0,
         children: [
-          {name: '应急指挥中心', id: 13},
-          {name: '办公室', id: 15},
-          {name: '区域合作处', id: 14}]
+          {name: '应急指挥中心', id: 16},
+          {name: '办公室', id: 13},
+          {name: '区域合作处', id: 15}]
       },
       {name: '省指挥部', id: 2},
     ];

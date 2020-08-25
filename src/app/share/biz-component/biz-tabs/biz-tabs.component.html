@@ -1,8 +1,10 @@
 <div class="r-cnt">
   <!--一级tab头部标签-->
-  <ul class="r-ul clearfix">
+  <ul class="r-ul clearfix" [ngClass]="{'toggle':!isToggle}">
     <li *ngFor="let tab of tabObj" (click)="chooseTab(tab,1)"
         [ngClass]="{'active':currentSelFirstTabId==tab.id}">{{tab.name}}</li>
+    <div *ngIf="tabObj.length>5" (click)="changeHight()"
+         [ngClass]="{'down-arrow-show':isToggle,'down-arrow-hide':!isToggle}"></div>
   </ul>
   <!--一级tabContent-->
   <div *ngIf="secondLevelTabArray.length>0">

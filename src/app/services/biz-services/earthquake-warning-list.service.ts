@@ -22,6 +22,8 @@ export interface ResponsibilityEntitiesModel {
   coordinate?: number;
   linkPhone: string;
   responsibilityDetailSort: string[];
+  beforeResponsibilityNameSort: string[];
+  responsibilityNameSort: string[];
 }
 
 

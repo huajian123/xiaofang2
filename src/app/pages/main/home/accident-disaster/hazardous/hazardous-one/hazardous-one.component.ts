@@ -29,7 +29,9 @@ export class HazardousOneComponent implements OnInit {
     this.showInfo = {
       linkman: '',
       linkPhone: '',
-      responsibilityDetailSort: []
+      responsibilityDetailSort: [],
+      beforeResponsibilityNameSort: [],
+      responsibilityNameSort: []
     };
     this.nameArray = [];
     this.tabObj = [];

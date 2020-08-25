@@ -3,7 +3,10 @@ import {LoginInfoModel} from '../../../../../../core/vo-common/BusinessEnum';
 import {TabObjModel} from '../../../../../../share/biz-component/biz-tabs/biz-tabs.component';
 import {UserRole} from '../../../../../../VO/types';
 import {EVENT_KEY} from '../../../../../../../environments/staticVariable';
-import {CitiesNameService, ResponsibilityEntitiesModel} from '../../../../../../services/biz-services/earthquake-warning-list.service';
+import {
+  CitiesNameService,
+  ResponsibilityEntitiesModel
+} from '../../../../../../services/biz-services/earthquake-warning-list.service';
 import {getHazardousThreeTabObj} from './hazardous-three-tab-obj';
 
 @Component({
@@ -26,7 +29,9 @@ export class HazardousThreeComponent implements OnInit {
     this.showInfo = {
       linkman: '',
       linkPhone: '',
-      responsibilityDetailSort: []
+      responsibilityDetailSort: [],
+      beforeResponsibilityNameSort: [],
+      responsibilityNameSort: []
     };
     this.nameArray = [];
     this.tabObj = [];

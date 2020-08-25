@@ -1,17 +1,13 @@
 <div class="dataShow">
-  <div class="bread-crumb">
-    <nz-breadcrumb nzSeparator=">">
-      <nz-breadcrumb-item>
-        Home
-      </nz-breadcrumb-item>
-      <nz-breadcrumb-item>
-        Application
-      </nz-breadcrumb-item>
-      <nz-breadcrumb-item>
-        An Application
-      </nz-breadcrumb-item>
-    </nz-breadcrumb>
-  </div>
+  <ng-container *ngIf="userRole===userRoleEnum.Manage">
+    <app-bread-crumb [data]="dataInfo.responsibilityNameSort"></app-bread-crumb>
+    <h1>{{dataInfo.responsibilityNameSort[dataInfo.responsibilityNameSort.length - 1]}}</h1>
+  </ng-container>
+  <ng-container *ngIf="userRole===userRoleEnum.User">
+    <app-bread-crumb [data]="dataInfo.beforeResponsibilityNameSort"></app-bread-crumb>
+    <h1>{{dataInfo.beforeResponsibilityNameSort[dataInfo.beforeResponsibilityNameSort.length - 1]}}</h1>
+  </ng-container>
+
   <div class="dataMide">
     <div class="clearfix">
       <span>应急职责</span>：

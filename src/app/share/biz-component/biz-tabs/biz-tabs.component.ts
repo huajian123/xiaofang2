@@ -32,16 +32,19 @@ export class BizTabsComponent implements OnInit, OnChanges {
   secondLevelTabArray = [];
   thirdLevelTabArray = [];
   @Output() selId: EventEmitter<number>;
+  tempTabObj: TabObjModel[];
   // 关键代码
   showPanel: boolean;
   selfClick: boolean; // 是否点击的是当前配合部门面板本身
   winClick: Subscription; // 绑定window的click事件
-
+  isToggle: boolean;
 
   constructor(private cdr: ChangeDetectorRef, @Inject(DOCUMENT) private doc: Document) {
     this.selId = new EventEmitter<number>();
     this.showPanel = false;
     this.selfClick = false;
+    this.isToggle = true;
+    this.tempTabObj = [];
   }
 
 
@@ -112,6 +115,11 @@ export class BizTabsComponent implements OnInit, OnChanges {
     this.selId.emit(selId);
   }
 
+
+  changeHight() {
+    this.isToggle = !this.isToggle;
+  }
+
   // 关键代码
   unbindDocumentClickListener() {
     if (this.winClick) {
@@ -135,6 +143,7 @@ export class BizTabsComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {
     this.secondLevelTabArray = this.tabObj[0]?.children || [];
+    this.tempTabObj = [...this.tabObj];
   }
 
   ngOnChanges(changes: SimpleChanges): void {

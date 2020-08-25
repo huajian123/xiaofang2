@@ -1,5 +1,7 @@
 import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
 import {ResponsibilityEntitiesModel} from '../../../services/biz-services/earthquake-warning-list.service';
+import {EVENT_KEY} from '../../../../environments/staticVariable';
+import {UserRole} from '../../../VO/types';
 
 
 @Component({
@@ -10,17 +12,21 @@ import {ResponsibilityEntitiesModel} from '../../../services/biz-services/earthq
 })
 export class DataShowComponent implements OnInit {
   @Input() dataInfo: ResponsibilityEntitiesModel;
+  userRole: number;
+  userRoleEnum = UserRole;
 
   constructor() {
     this.dataInfo = {
       linkman: '',
       linkPhone: '',
-      responsibilityDetailSort: []
+      responsibilityDetailSort: [],
+      beforeResponsibilityNameSort: [],
+      responsibilityNameSort: []
     };
   }
 
   ngOnInit(): void {
-    console.log(this.dataInfo);
+    this.userRole = JSON.parse(window.sessionStorage.getItem(EVENT_KEY.loginInfo)).role;
   }
 
 }
