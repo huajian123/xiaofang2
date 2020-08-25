@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {CitiesNameService, PublishAlarmModel} from "../../../services/biz-services/earthquake-warning-list.service";
-import {UserRole} from "../../../VO/types";
-import {MapPipe, MapSet} from "../../../share/directives/pipe/map.pipe";
-import {EVENT_KEY} from "../../../../environments/staticVariable";
+import {CitiesNameService, PublishAlarmModel} from '../../../services/biz-services/earthquake-warning-list.service';
+import {UserRole} from '../../../VO/types';
+import {MapPipe, MapSet} from '../../../share/directives/pipe/map.pipe';
+import {EVENT_KEY} from '../../../../environments/staticVariable';
 
 export enum VariableEnum {
   zero = 0,
@@ -45,6 +45,7 @@ export class HomeComponent implements OnInit {
   socialSecurityNameOptions: OptionsInterface[];
 
   constructor(private dataService: CitiesNameService) {
+    this.currentPage = this.numVariable.one;
   }
 
 
