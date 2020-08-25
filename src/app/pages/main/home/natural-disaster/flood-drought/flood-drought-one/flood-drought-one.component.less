@@ -1,11 +1,9 @@
 .center-layout {
-  margin: 280px auto 0;
-  /*min-width: 1366px;
-  border: 1px solid #f00;
-  height: 300px;*/
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 280px;
   color: #fff;
   font-size: 40px;
-  position: relative;
 }
 
 
@@ -26,6 +24,7 @@
 }
 
 .center-layout li div p {
+  min-width: 260px;
   position: absolute;
   left: 50%;
   top: 50%;
@@ -79,58 +78,57 @@
 
 @media screen and (max-width: 1366px) {
   .center-layout {
-    /* min-width: 1200px;
-   border: 1px solid #f00;
-    height: 300px;*/
-    margin: 130px auto;
-    padding-left: 10%;
+    margin-top: 200px;
+    padding-left: 1%;
   }
 
   .center-layout li > div {
-    font-size: 26px;
-    width: 168px;
-    height: 183px;
+    font-size: 28px;
+    width: 228px;
+    height: 252px;
     background-size: 100% 100%;
   }
 
   .center-layout li div p {
-    width: 110px;
+    min-width: 205px;
+    overflow: hidden;
   }
 
   .top-left {
-    left: 78px;
-    top: -131px;
+    left: 105px;
+    top: -181px;
     background: url("../../../../../../../assets/imgs/new-img/unleft-top.png") no-repeat;
+    z-index: 1;
   }
 
   .top-right {
-    left: 238px;
-    top: -131px;
+    left: 323px;
+    top: -181px;
     background: url("../../../../../../../assets/imgs/new-img/unright-top.png") no-repeat;
   }
 
 
   .bottom-right {
     top: 0;
-    left: 468px;
+    left: 636px;
     background: url("../../../../../../../assets/imgs/new-img/unright-bottom.png") no-repeat;
   }
 
   .middle-left {
     top: 0;
-    left: 308px;
+    left: 418px;
   }
 
   .marginleft {
-    left: 538px;
+    left: 730px;
   }
 
   .marginright {
-    left: 698px;
+    left: 948px;
   }
 
   .leftlast {
-    left: 768px;
+    left: 1043px;
   }
 
 }
