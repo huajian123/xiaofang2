@@ -10,12 +10,16 @@ import {
   ViewEncapsulation
 } from '@angular/core';
 import {fromEvent} from 'rxjs';
+import {lightSpeedInOnEnterAnimation} from 'angular-animations';
 
 @Component({
   selector: 'app-left-hexagon',
   templateUrl: './left-hexagon.component.html',
   styleUrls: ['./left-hexagon.component.less'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
+  animations: [
+    lightSpeedInOnEnterAnimation(),
+  ]
 })
 export class LeftHexagonComponent implements OnInit, AfterViewInit {
   @Input() nameArray: string[];

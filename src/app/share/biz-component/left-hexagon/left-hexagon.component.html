@@ -1,4 +1,4 @@
-<div class="column-left">
+<div class="column-left" [@lightSpeedInOnEnter]>
   <div *ngFor="let item of nameArray;let i=index;let f=first;let l=last;let e=even;let o=odd;trackBy:trackFunc"
        [ngClass]="{'sub-right displacement' : o,'sub-left' : e,'move' : e&&!f,'column-div-left-clicked':f}"><p
     [innerHTML]="item"></p></div>

@@ -5,11 +5,15 @@ import {TabObjModel} from '../../../../../../share/biz-component/biz-tabs/biz-ta
 import {UserRole} from '../../../../../../VO/types';
 import {EVENT_KEY} from '../../../../../../../environments/staticVariable';
 import {getEarthquakeThreeTabObj} from './earthquake-three-tab-obj';
+import {lightSpeedInOnEnterAnimation} from "angular-animations";
 
 @Component({
   selector: 'app-earthquake-three',
   templateUrl: './earthquake-three.component.html',
-  styleUrls: ['./earthquake-three.component.less']
+  styleUrls: ['./earthquake-three.component.less'],
+  animations: [
+    lightSpeedInOnEnterAnimation(),
+  ]
 })
 export class EarthquakeThreeComponent implements OnInit {
   loginInfo: LoginInfoModel;

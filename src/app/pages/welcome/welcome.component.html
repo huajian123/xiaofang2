@@ -3,7 +3,7 @@
     <div [@flash]="flashState" class="font-wrap">
       <div>
         <div class="letter" *ngFor="let letter of text1; let i = index; let last = last"
-             [@enterLetterAnim1]="{value: '', params: { delay: 1500 + i * 100} }"
+             [@enterLetterAnim1]="{value: '', params: { delay: 500 + i * 100} }"
              [@letterAnim1]="{value: animationState, params: { delay: i * 30} }"
              [@hueLetter]="{value: hueState, params: {delay: i * 50}}"
              (@letterAnim1.done)="last ">{{letter}}</div>

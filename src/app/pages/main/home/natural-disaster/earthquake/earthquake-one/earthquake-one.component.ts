@@ -5,12 +5,16 @@ import {TabObjModel} from '../../../../../../share/biz-component/biz-tabs/biz-ta
 import {UserRole} from '../../../../../../VO/types';
 import {EVENT_KEY} from '../../../../../../../environments/staticVariable';
 import {getEarthquakeOneTabObj} from './earthquake-one-tab-obj';
+import {lightSpeedInOnEnterAnimation} from "angular-animations";
 
 
 @Component({
   selector: 'app-earthquake-one',
   templateUrl: './earthquake-one.component.html',
-  styleUrls: ['./earthquake-one.component.less']
+  styleUrls: ['./earthquake-one.component.less'],
+  animations: [
+    lightSpeedInOnEnterAnimation(),
+  ]
 })
 export class EarthquakeOneComponent implements OnInit {
   loginInfo: LoginInfoModel;
