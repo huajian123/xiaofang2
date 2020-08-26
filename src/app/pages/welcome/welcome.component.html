@@ -16,9 +16,9 @@
              [@hueLetter]="{value: hueState, params: {delay: i * 75}}"
              (@enterLetterAnim2.done)="last">{{letter}}</div>
       </div>
-      <button class="insys-btn" [@btnEnter] [@btnEnterFadeIn] (click)="goHome()">
+      <div class="insys-btn" [@btnEnter] [@btnEnterFadeIn] (click)="goHome()">
         <div>进入系统</div>
-      </button>
+      </div>
 
       <div>
         <div class="letter" *ngFor="let letter of text3; let i = index; let last = last; let first = first"
