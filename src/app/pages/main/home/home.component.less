@@ -103,4 +103,137 @@ button {
   color: white;
 }
 
+.center-layout {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 280px;
+  color: #fff;
+  font-size: 40px;
+}
 
+
+.center-layout li {
+  position: absolute;
+  cursor: pointer;
+}
+
+.center-layout li > div {
+  width: 304px;
+  height: 336px;
+  position: relative;
+  font-family: PangMenZhengDao;
+  color: #FFFFFF;
+  letter-spacing: 0;
+  text-align: center;
+  background-size: 100% 100%;
+}
+
+.center-layout li div p {
+  min-width: 260px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.left-bottom {
+  background: url("../../../../assets/imgs/new-img/unleft-bottom.png") no-repeat;
+}
+
+.right-bottom {
+  background: url("../../../../assets/imgs/new-img/unright-bottom.png") no-repeat;
+}
+
+.top-left {
+  left: 138px;
+  top: -242px;
+  background: url("../../../../assets/imgs/new-img/unleft-top.png") no-repeat;
+}
+
+.top-right {
+  left: 428px;
+  top: -242px;
+  background: url("../../../../assets/imgs/new-img/unright-top.png") no-repeat;
+}
+
+
+.bottom-right {
+  top: 0;
+  left: 845px;
+  background: url("../../../../assets/imgs/new-img/unright-bottom.png") no-repeat;
+}
+
+.middle-left {
+  top: 0;
+  left: 555px;
+}
+
+.marginleft {
+  left: 970px;
+}
+
+.marginright {
+  left: 1260px;
+}
+
+.leftlast {
+  left: 1387px;
+}
+
+@media screen and (max-width: 1366px) {
+  .center-layout {
+    margin-top: 200px;
+    padding-left: 1%;
+  }
+
+  .center-layout li > div {
+    font-size: 28px;
+    width: 228px;
+    height: 252px;
+    background-size: 100% 100%;
+  }
+
+  .center-layout li div p {
+    min-width: 205px;
+    overflow: hidden;
+  }
+
+  .top-left {
+    left: 105px;
+    top: -181px;
+    background: url("../../../../assets/imgs/new-img/unleft-top.png") no-repeat;
+    z-index: 1;
+  }
+
+  .top-right {
+    left: 323px;
+    top: -181px;
+    background: url("../../../../assets/imgs/new-img/unright-top.png") no-repeat;
+  }
+
+
+  .bottom-right {
+    top: 0;
+    left: 636px;
+    background: url("../../../../assets/imgs/new-img/unright-bottom.png") no-repeat;
+  }
+
+  .middle-left {
+    top: 0;
+    left: 418px;
+  }
+
+  .marginleft {
+    left: 730px;
+  }
+
+  .marginright {
+    left: 948px;
+  }
+
+  .leftlast {
+    left: 1043px;
+  }
+
+}

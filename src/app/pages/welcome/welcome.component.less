@@ -1,0 +1,106 @@
+main {
+  background: linear-gradient(#174D8A, #010610);
+  width: 100%;
+  min-width: 1200px;
+  min-height: 100%;
+  overflow: hidden;
+
+  header {
+    width: 100%;
+    min-width: 1200px;
+    height: 80px;
+    text-align: center;
+    color: #5CFFEC;
+    font-size: 40px;
+    letter-spacing: 0;
+    line-height: 80px;
+    font-family: PangMenZhengDao;
+    background: url(../../../assets/imgs/title.png) center no-repeat;
+    position: relative;
+
+    &::after:extend(.position-line) {
+      right: 0;
+      background: url(../../../assets/imgs/right-line.png) center no-repeat;
+    }
+
+    &::before:extend(.position-line) {
+      left: 0;
+      background: url(../../../assets/imgs/left-line.png) center no-repeat;
+    }
+
+
+  }
+
+  .file-wrap {
+    padding-top: 40px;
+    padding-bottom: 30px;
+    width: 850px;
+    margin: auto;
+
+    .btn-bg-sure {
+      background-image: linear-gradient(138deg, #05C7FF 0%, #0299FF 100%, #0296FF 100%);
+    }
+
+    .btn-bg-rest {
+      border-color: #05C7FF;
+    }
+
+    nz-select {
+      margin: 0 8px 10px 0;
+      width: 235px;
+    }
+  }
+
+  .judgment-wrap {
+    width: calc(100% - 54px);
+    margin: auto;
+  }
+
+
+}
+
+:host {
+  app-angular-img {
+    display: inline-block;
+    width: 80px;
+  }
+
+  .letter {
+    font-size: 3em;
+    display: inline-block;
+    min-width: 0.2em;
+    color: #ffffff;
+  }
+}
+
+
+.welcome-wrap {
+  text-align: center;
+  height: 90vh;
+
+  .font-wrap {
+    padding: 5vh 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.insys-btn {
+  width: 420px;
+  height: 126px;
+  background: url(../../../assets/imgs/btn-bg.png) no-repeat;
+  background-size: 100% 100%;
+  border: none;
+  color: #5CFFEC;
+  font-size: 46px;
+  letter-spacing: 14px;
+  cursor: pointer;
+
+  div {
+    transform: skew(25deg, 0deg);
+    margin-bottom: 15px;
+  }
+}

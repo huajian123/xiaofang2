@@ -3,6 +3,8 @@ import {CitiesNameService, PublishAlarmModel} from '../../../services/biz-servic
 import {UserRole} from '../../../VO/types';
 import {MapPipe, MapSet} from '../../../share/directives/pipe/map.pipe';
 import {EVENT_KEY} from '../../../../environments/staticVariable';
+import {lightSpeedInOnEnterAnimation} from 'angular-animations';
+
 
 export enum VariableEnum {
   zero = 0,
@@ -21,9 +23,13 @@ interface OptionsInterface {
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.less']
+  styleUrls: ['./home.component.less'],
+  animations: [
+    lightSpeedInOnEnterAnimation(),
+  ]
 })
 export class HomeComponent implements OnInit {
+  showHomePiece: boolean;
   selAlarm: PublishAlarmModel;
   userRole: number;
   userRoleEnum = UserRole;
@@ -44,7 +50,9 @@ export class HomeComponent implements OnInit {
   /*社会安全下拉*/
   socialSecurityNameOptions: OptionsInterface[];
 
+
   constructor(private dataService: CitiesNameService) {
+    this.showHomePiece = true;
   }
 
 
