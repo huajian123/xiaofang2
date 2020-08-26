@@ -1,4 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
+import {DOCUMENT} from '@angular/common';
+import {fromEvent} from 'rxjs';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-flood-drought-one',
@@ -7,10 +10,13 @@ import {Component, OnInit} from '@angular/core';
 })
 export class FloodDroughtOneComponent implements OnInit {
 
-  constructor() {
+  constructor(@Inject(DOCUMENT) private doc: Document, private router: Router) {
   }
 
   ngOnInit(): void {
+    fromEvent(this.doc, 'click').subscribe(() => {
+      this.router.navigate(['/home']);
+    });
   }
 
 }

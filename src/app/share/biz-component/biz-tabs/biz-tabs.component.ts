@@ -147,7 +147,7 @@ export class BizTabsComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (!changes['tabObj'].firstChange) {
+    if (!changes['tabObj']?.firstChange) {
       this.tabObj = changes['tabObj'].currentValue;
       this.chooseTab(this.tabObj[0], 1);
       this.cdr.markForCheck();
