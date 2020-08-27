@@ -121,9 +121,12 @@ export class EarthquakeComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (!changes['selAlarm'].firstChange) {
-      this.currentPage = this.selAlarm.accidentGrade;
-      this.cdr.markForCheck();
+    if (changes['selAlarm']) {
+      if (!changes['selAlarm'].firstChange) {
+        this.currentPage = this.selAlarm.accidentGrade;
+        this.cdr.markForCheck();
+      }
     }
+
   }
 }
