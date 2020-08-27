@@ -397,6 +397,42 @@ export function getEarthquakeOneTabObj(leftDivName) {
       {name: '省指挥部', id: 322},
     ];
   }
+  if (leftDivName === '救灾资金物资支持方案') {
+    return [
+      {
+        name: '物资支持方案', id: 900,
+        children: [
+          {
+            name: '应急管理厅', id: 0,
+            children: [
+              {name: '救灾处', id: 176}
+            ]
+          }
+        ]
+      }
+    ];
+  }
+  if (leftDivName === '救援力量投入方案') {
+    return [
+      {
+        // 救援力量投入方案
+        name: '救援投入方案', id: 990,
+        children: [
+          {
+            name: '应急管理厅', id: 0,
+            children: [
+              {name: '地震地质处', id: 170},
+              {name: '救援协调处', id: 171},
+              {name: '应急指挥中心', id: 173},
+            ]
+          },
+          {
+            name: '省消防总队', id: 172
+          }
+        ]
+      }
+    ];
+  }
   if (leftDivName === '组建现场指挥部') {
     return [
       {name: '省指挥部', id: 319},
