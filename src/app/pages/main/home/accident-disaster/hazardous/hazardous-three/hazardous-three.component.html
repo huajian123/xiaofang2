@@ -1,6 +1,6 @@
-<div class="column-lay" [@lightSpeedInOnEnter]>
+<div class="column-lay">
   <app-left-hexagon (clickReturn)="getCurrentLeftName($event)" [nameArray]="nameArray"></app-left-hexagon>
-  <div class="column-right-wrap" [@lightSpeedInOnEnter]>
+  <div class="column-right-wrap" [@bounceInOnEnter]="{ value: '', params: { duration: 1000 }}">
     <div class="column-right">
       <app-biz-tabs [currentSelFirstTabId]="firstSelTabOneLevelId"
                     [currentSelSecondTabId]="firstSelTabTwoLevelId"

@@ -28,13 +28,13 @@ import {Router} from '@angular/router';
     rubberBandAnimation({anchor: 'letterAnim3'}),
     hueRotateAnimation({anchor: 'hueLetter', duration: 5000}),
     flashAnimation({anchor: 'flash'}),
-    rubberBandOnEnterAnimation({anchor: 'btnEnter', delay: 6000}),
-    fadeInOnEnterAnimation({anchor: 'btnEnterFadeIn', delay: 6000, duration: 500})
+    rubberBandOnEnterAnimation({anchor: 'btnEnter', delay: 500}),
+    fadeInOnEnterAnimation({anchor: 'btnEnterFadeIn', delay: 4500, duration: 500})
   ]
 })
 export class WelcomeComponent implements OnInit {
   text1 = '江苏省应急管理厅'.split('');
-  text2 = '欢迎进入分级应对决策辅助系统!'.split('');
+  text2 = '分级应对决策辅助系统'.split('');
   text3 = '江苏国恒集团技术支持'.split('');
   animationState = false;
   hueState = false;
@@ -63,9 +63,9 @@ export class WelcomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    setTimeout(() => {
-      this.animate();
-    }, 7000);
+    /*  setTimeout(() => {
+        this.animate();
+      }, 7000);*/
   }
 
 }

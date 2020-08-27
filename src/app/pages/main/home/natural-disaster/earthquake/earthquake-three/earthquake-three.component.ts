@@ -5,7 +5,7 @@ import {TabObjModel} from '../../../../../../share/biz-component/biz-tabs/biz-ta
 import {UserRole} from '../../../../../../VO/types';
 import {EVENT_KEY} from '../../../../../../../environments/staticVariable';
 import {getEarthquakeThreeTabObj} from './earthquake-three-tab-obj';
-import {lightSpeedInOnEnterAnimation} from "angular-animations";
+import {bounceInOnEnterAnimation, lightSpeedInOnEnterAnimation} from 'angular-animations';
 
 @Component({
   selector: 'app-earthquake-three',
@@ -13,6 +13,7 @@ import {lightSpeedInOnEnterAnimation} from "angular-animations";
   styleUrls: ['./earthquake-three.component.less'],
   animations: [
     lightSpeedInOnEnterAnimation(),
+    bounceInOnEnterAnimation(),
   ]
 })
 export class EarthquakeThreeComponent implements OnInit {

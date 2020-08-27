@@ -99,6 +99,17 @@ main {
   letter-spacing: 14px;
   cursor: pointer;
 
+  &:focus,
+  &:active:focus,
+  &.active:focus,
+  &.focus,
+  &:active.focus,
+  &.active.focus {
+    outline: none;
+    border-color: transparent; // 若是本身具有 border 请删除此属性
+    box-shadow: none;
+  }
+
   div {
     transform: skew(25deg, 0deg);
     margin-bottom: 15px;

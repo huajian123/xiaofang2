@@ -10,7 +10,7 @@ import {
   ViewEncapsulation
 } from '@angular/core';
 import {fromEvent} from 'rxjs';
-import {lightSpeedInOnEnterAnimation} from 'angular-animations';
+import {bounceInOnEnterAnimation, lightSpeedInOnEnterAnimation} from 'angular-animations';
 
 @Component({
   selector: 'app-left-hexagon',
@@ -19,6 +19,7 @@ import {lightSpeedInOnEnterAnimation} from 'angular-animations';
   encapsulation: ViewEncapsulation.None,
   animations: [
     lightSpeedInOnEnterAnimation(),
+    bounceInOnEnterAnimation(),
   ]
 })
 export class LeftHexagonComponent implements OnInit, AfterViewInit {
@@ -32,7 +33,7 @@ export class LeftHexagonComponent implements OnInit, AfterViewInit {
 
   trackFunc = (index, item) => {
     return index;
-  };
+  }
 
 
   ngOnInit(): void {
@@ -44,6 +45,7 @@ export class LeftHexagonComponent implements OnInit, AfterViewInit {
       const odd = i % 2;
       const mouseClick = fromEvent(temp[i], 'click');
       const subscription = mouseClick.subscribe(() => {
+        // tslint:disable-next-line:prefer-for-of
         for (let j = 0; j < temp.length; j++) {
           this.renderer2.removeClass(temp[j], 'column-div-left-clicked');
           this.renderer2.removeClass(temp[j], 'column-div-right-clicked');

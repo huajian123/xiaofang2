@@ -8,7 +8,7 @@ import {
   ResponsibilityEntitiesModel
 } from '../../../../../../services/biz-services/earthquake-warning-list.service';
 import {getHazardousThreeTabObj} from './hazardous-three-tab-obj';
-import {lightSpeedInOnEnterAnimation} from 'angular-animations';
+import {bounceInOnEnterAnimation, lightSpeedInOnEnterAnimation} from 'angular-animations';
 
 @Component({
   selector: 'app-hazardous-three',
@@ -16,6 +16,7 @@ import {lightSpeedInOnEnterAnimation} from 'angular-animations';
   styleUrls: ['./hazardous-three.component.less'],
   animations: [
     lightSpeedInOnEnterAnimation(),
+    bounceInOnEnterAnimation(),
   ]
 })
 export class HazardousThreeComponent implements OnInit {

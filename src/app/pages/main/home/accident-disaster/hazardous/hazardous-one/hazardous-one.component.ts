@@ -8,7 +8,7 @@ import {
   CitiesNameService,
   ResponsibilityEntitiesModel
 } from '../../../../../../services/biz-services/earthquake-warning-list.service';
-import {lightSpeedInOnEnterAnimation} from 'angular-animations';
+import {bounceInOnEnterAnimation, lightSpeedInOnEnterAnimation} from 'angular-animations';
 
 @Component({
   selector: 'app-hazardous-one',
@@ -16,6 +16,7 @@ import {lightSpeedInOnEnterAnimation} from 'angular-animations';
   styleUrls: ['./hazardous-one.component.less'],
   animations: [
     lightSpeedInOnEnterAnimation(),
+    bounceInOnEnterAnimation(),
   ]
 })
 export class HazardousOneComponent implements OnInit {

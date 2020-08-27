@@ -1,9 +1,9 @@
 <main>
   <div class="welcome-wrap">
     <div [@flash]="flashState" class="font-wrap">
-      <div>
+      <div style="letter-spacing: 5px;">
         <div class="letter" *ngFor="let letter of text1; let i = index; let last = last"
-             [@enterLetterAnim1]="{value: '', params: { delay: 500 + i * 100} }"
+             [@enterLetterAnim2]="{value: '', params: { delay: 500 + i * 100} }"
              [@letterAnim1]="{value: animationState, params: { delay: i * 30} }"
              [@hueLetter]="{value: hueState, params: {delay: i * 50}}"
              (@letterAnim1.done)="last ">{{letter}}</div>
@@ -11,24 +11,22 @@
 
       <div style="font-size: 1.8vw;letter-spacing: 10px">
         <div class="letter" *ngFor="let letter of text2; let i = index; let last = last"
-             [@enterLetterAnim2]="{value: '', params: { delay: 3000 + getDelay(i, text2.length) } }"
+             [@enterLetterAnim2]="{value: '', params: { delay: 2000 + getDelay(i, text2.length) } }"
              [@letterAnim2]="{value: animationState, params: { delay: 500 + i * 30} }"
              [@hueLetter]="{value: hueState, params: {delay: i * 75}}"
              (@enterLetterAnim2.done)="last">{{letter}}</div>
       </div>
-      <div class="insys-btn" [@btnEnter] [@btnEnterFadeIn] (click)="goHome()">
+      <button class="insys-btn" [@btnEnter] [@btnEnterFadeIn] (click)="goHome()">
         <div>进入系统</div>
-      </div>
+      </button>
 
-      <div>
+      <div style="font-size: 0.5vw;letter-spacing: 5px;">
         <div class="letter" *ngFor="let letter of text3; let i = index; let last = last; let first = first"
-             [@enterLetterAnim3]="{value: '', params: { delay: 4000 + text3.length * 100 - i * 100} }"
+             [@enterLetterAnim2]="{value: '', params: { delay: 3000 + text3.length * 100 - i * 100} }"
              [@letterAnim3]="{value: animationState, params: { delay: 1000 + i * 30} }"
              [@hueLetter]="{value: hueState, params: {delay: i * 150}}"
              (@enterLetterAnim3.done)="first">{{letter}}</div>
       </div>
     </div>
-    <!--    <button  mat-stroked-button color="primary" class="animate-btn" (click)="animate()">Animate
-          letters</button>-->
   </div>
 </main>
