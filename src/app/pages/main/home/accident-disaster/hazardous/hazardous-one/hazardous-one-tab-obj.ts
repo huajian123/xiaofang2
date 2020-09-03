@@ -96,8 +96,8 @@ export function getHazardousOneTabObj(leftDivName) {
           {
             name: '配合部门', id: 0,
             children: [
-              {name: '事发地人民政府', id: 18},
-              {name: '省指挥部成员单位', id: 19},
+              {name: '事发地人民政府', id: 19},
+              {name: '省指挥部成员单位', id: 20},
             ]
           },
         ]
@@ -381,8 +381,12 @@ export function getHazardousOneTabObj(leftDivName) {
         // 应急物资调度及保障
         name: '物资调度及保障', id: 994,
         children: [
-          {name: '救灾和物资保障处', id: 76},
-          {name: '办公室', id: 77},
+          {
+            name: '应急管理厅', id: 0, children: [
+              {name: '救灾和物资保障处', id: 76},
+              {name: '办公室', id: 77},
+            ]
+          },
         ]
       },
       {
@@ -404,18 +408,19 @@ export function getHazardousOneTabObj(leftDivName) {
   }
   if (leftDivName === '善后处理与事故调查') {
     return [
-      {name: '事发地人民政府', id: 95},
-      {name: '省卫生健康委', id: 96},
-      {name: '省民政厅', id: 97},
-      {name: '省生态环境厅', id: 98},
-      {name: '保监部门', id: 100},
-      {name: '省人民政府', id: 101},
       {
         name: '应急管理厅', id: 0,
         children: [
           {name: '调查评估和统计处', id: 102},
         ]
       },
+      {name: '事发地人民政府', id: 95},
+      {name: '省卫生健康委', id: 96},
+      {name: '省民政厅', id: 97},
+      {name: '省生态环境厅', id: 98},
+      {name: '保监部门', id: 100},
+      {name: '省人民政府', id: 101},
+
     ];
   }
   /*最后一层*/
