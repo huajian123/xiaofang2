@@ -148,7 +148,7 @@ export function getHazardousOneTabObj(leftDivName) {
       {
         name: '医疗救护组', id: 34,
         children: [
-          {name: '省卫生健康委', id: 34},
+          {name: '医疗救护组', id: 34},
           {name: '省卫生健康委', id: 35},
           {
             name: '配合部门', id: 0,
