@@ -222,7 +222,7 @@ export function getHazardousOneTabObj(leftDivName) {
               {name: '省生态环境厅', id: 64},
               {name: '省卫生健康委', id: 65},
               {name: '应急管理厅(危化处)', id: 66},
-              {name: '省事发地单位', id: 67},
+              {name: '事发地单位', id: 67},
             ]
           },
         ]
