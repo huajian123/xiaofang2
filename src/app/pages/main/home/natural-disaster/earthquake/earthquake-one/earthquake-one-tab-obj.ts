@@ -61,9 +61,9 @@ export function getEarthquakeOneTabObj(leftDivName) {
           {name: '应急指挥中心', id: 209},
           {name: '办公室', id: 206},
           {name: '区域合作处', id: 208},
-          {name: '省抗震救灾指挥部', id: 207},
         ]
-      }
+      },
+      {name: '省抗震救灾指挥部', id: 207},
     ];
   }
   if (leftDivName === '分组开展应急救援工作') {
@@ -145,7 +145,7 @@ export function getEarthquakeOneTabObj(leftDivName) {
           {
             name: '配合部门', id: 0,
             children: [
-              {name: '省发展改革委', id: 39},
+              {name: '省发展改革委', id: 334},
               {name: '省财政厅', id: 244},
               {name: '省应急管理厅救援协调处', id: 245},
               {name: '省交通运输厅', id: 247},
