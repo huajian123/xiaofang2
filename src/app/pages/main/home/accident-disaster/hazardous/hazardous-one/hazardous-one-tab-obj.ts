@@ -83,11 +83,19 @@ export function getHazardousOneTabObj(leftDivName) {
           {name: '办公室', id: 13},
           {name: '区域合作处', id: 15}]
       },
-      {name: '省指挥部', id: 2},
+      {name: '省指挥部', id: 318},
     ];
   }
   if (leftDivName === '分组开展应急救援工作') {
     return [
+      {
+        // todo
+        name: '现场指挥部', id: 336,
+        children: [
+          {name: '省指挥部', id: 336},
+          {name: '现场指挥部', id: 335},
+        ]
+      },
       {
         name: '综合协调组', id: 17,
         children: [
@@ -148,7 +156,7 @@ export function getHazardousOneTabObj(leftDivName) {
       {
         name: '医疗救护组', id: 34,
         children: [
-          {name: '省卫生健康委', id: 34},
+          {name: '医疗救护组', id: 34},
           {name: '省卫生健康委', id: 35},
           {
             name: '配合部门', id: 0,
@@ -196,6 +204,9 @@ export function getHazardousOneTabObj(leftDivName) {
               {name: '省商务厅', id: 56},
               {name: '救灾和物资保障处', id: 57},
               {name: '省粮食物资储备局', id: 58},
+              {name: '江苏能源监管办', id: 59},
+              {name: '省通信管理局', id: 60},
+              {name: '事发地人民政府', id: 61},
             ]
           },
         ]
@@ -226,7 +237,7 @@ export function getHazardousOneTabObj(leftDivName) {
             children: [
               {name: '事发地人民政府', id: 70},
               {name: '应急管理办公室', id: 71},
-              {name: '应急管理厅(办公室)', id: 72},
+              {name: '应急管理厅(办公室、新闻宣传处)', id: 72},
             ]
           },
         ]

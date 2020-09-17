@@ -14,7 +14,7 @@
       <div style="float: right;width: 640px;">
         <ng-container
           *ngFor="let item of dataInfo.responsibilityDetailSort;let i=index;let l=last">
-          <ng-container *ngIf="dataInfo.responsibilityDetailSort.length>2">{{i + 1}}、</ng-container>
+          <ng-container *ngIf="dataInfo.responsibilityDetailSort.length>=2">{{i + 1}}、</ng-container>
           {{item}}<br *ngIf="!l">
         </ng-container>
       </div>
