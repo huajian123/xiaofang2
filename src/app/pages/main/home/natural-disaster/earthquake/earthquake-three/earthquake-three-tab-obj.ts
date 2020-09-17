@@ -36,7 +36,8 @@ export function getEarthquakeThreeTabObj(leftDivName) {
           {name: '地震地质处', id: 193},
         ]
       },
-      {name: '地震局', id: 192}
+      {name: '地震局', id: 192},
+      {name: '省抗震救灾指挥部', id: 337},
     ];
   }
   if (leftDivName === '应急处置') {
@@ -46,6 +47,7 @@ export function getEarthquakeThreeTabObj(leftDivName) {
         children: [
           {name: '地震地质处', id: 196},
           {name: '新闻宣传处', id: 197},
+          {name: '调查评估和统计处', id: 201},
         ]
       },
       {name: '地震局', id: 195},

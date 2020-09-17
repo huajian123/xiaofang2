@@ -71,12 +71,15 @@ export function getEarthquakeOneTabObj(leftDivName) {
       {
         name: '现场指挥部', id: 210,
         children: [{
+          name: '现场指挥部', id: 210,
+        }, {
           name: '省长或分管副省长', id: 211
         }]
       },
       {
         name: '抢险救援组', id: 212,
         children: [
+          {name: '抢险救援组', id: 212},
           {name: '应急管理厅和省军区', id: 213},
           {
             name: '配合部门', id: 0,
@@ -95,6 +98,7 @@ export function getEarthquakeOneTabObj(leftDivName) {
       {
         name: '通信保障组', id: 221,
         children: [
+          {name: '通信保障组', id: 221},
           {name: '省通信管理局', id: 222},
           {
             name: '配合部门', id: 0,
@@ -110,6 +114,7 @@ export function getEarthquakeOneTabObj(leftDivName) {
       {
         name: '群众生活保障组', id: 227,
         children: [
+          {name: '群众生活保障组', id: 227},
           {name: '省应急管理厅救灾处', id: 228},
           {
             name: '配合部门', id: 0,
@@ -135,6 +140,7 @@ export function getEarthquakeOneTabObj(leftDivName) {
       {
         name: '医疗救治防疫组', id: 242,
         children: [
+          {name: '医疗救治防疫组', id: 242},
           {name: '省卫生健康委', id: 243},
           {
             name: '配合部门', id: 0,
@@ -155,6 +161,7 @@ export function getEarthquakeOneTabObj(leftDivName) {
       {
         name: '基础设施恢复组', id: 251,
         children: [
+          {name: '基础设施保障和生产恢复组', id: 251},
           {name: '省发展改革委', id: 252},
           {
             name: '配合部门', id: 0,
@@ -180,6 +187,7 @@ export function getEarthquakeOneTabObj(leftDivName) {
       {
         name: '地震趋势研判组', id: 266,
         children: [
+          {name: '地震趋势研判组', id: 266},
           {name: '省地震局', id: 267},
           {
             name: '配合部门', id: 0,
@@ -194,6 +202,7 @@ export function getEarthquakeOneTabObj(leftDivName) {
       {
         name: '次生灾害防范组', id: 269,
         children: [
+          {name: '次生灾害防范组', id: 269},
           {
             name: '应急管理厅', id: 8000,
             children: [
@@ -222,6 +231,7 @@ export function getEarthquakeOneTabObj(leftDivName) {
       {
         name: '社会治安组', id: 282,
         children: [
+          {name: '社会治安组', id: 282},
           {name: '省公安厅', id: 283},
           {
             name: '配合部门', id: 0,
@@ -236,6 +246,7 @@ export function getEarthquakeOneTabObj(leftDivName) {
       {
         name: '涉外捐赠事务组', id: 286,
         children: [
+          {name: '涉外捐赠事务组', id: 286},
           {name: '省民政厅部门', id: 287},
           {
             name: '配合部门', id: 0,
@@ -255,6 +266,7 @@ export function getEarthquakeOneTabObj(leftDivName) {
       {
         name: '境外救援协调组', id: 295,
         children: [
+          {name: '境外救援协调组', id: 295},
           {name: '省外办', id: 296},
           {
             name: '配合部门', id: 0,
@@ -271,6 +283,7 @@ export function getEarthquakeOneTabObj(leftDivName) {
       {
         name: '地震损失评估组', id: 300,
         children: [
+          {name: '地震灾害调查及灾情损失评估组', id: 300},
           {name: '应急管理厅', id: 301},
           {
             name: '配合部门', id: 0,
@@ -290,6 +303,7 @@ export function getEarthquakeOneTabObj(leftDivName) {
       {
         name: '信息发布宣传组', id: 309,
         children: [
+          {name: '信息发布宣传组', id: 309},
           {name: '省委宣传部', id: 310},
           {
             name: '配合部门', id: 0,
