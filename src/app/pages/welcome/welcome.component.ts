@@ -33,8 +33,8 @@ import {Router} from '@angular/router';
   ]
 })
 export class WelcomeComponent implements OnInit {
-  text1 = '江苏省应急管理厅'.split('');
-  text2 = '分级应对决策辅助系统'.split('');
+  /* text1 = '江苏省应急管理厅'.split('');*/
+  text2 = '欢迎进入分级应对决策辅助系统'.split('');
   text3 = '江苏国恒集团技术支持'.split('');
   animationState = false;
   hueState = false;

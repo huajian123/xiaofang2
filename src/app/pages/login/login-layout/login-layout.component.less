@@ -1,4 +1,10 @@
-@import "../../../../assets/styles/varibles.less";
+@font-face {
+  font-family: 'PingFangSC-Medium';
+  src: url('../../../../assets/fonts/login.ttf') format('ttf'),
+  url('../../../../assets/fonts/login.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
 
 .container {
   height: 100%;
@@ -7,116 +13,87 @@
   background-size: 100% 100%;
 }
 
-.wrap {
-  padding: 8% 0 0;
+.layout-wrap {
+  padding: 3% 0 0;
 }
+
 @media screen and (max-width: 1440px) {
-  .wrap {
+  .layout-wrap {
     padding: 5% 0 0;
   }
 }
 
 .ant-form-item {
-  margin-bottom: 24px;
-  width: 368px;
-}
-
-.top {
-  text-align: center;
-}
-
-.header {
-  height: 50px;
-  line-height: 50px;
-  word-spacing: 5px;
-  a {
-    text-decoration: none;
-  }
-
+  width: 550px;
 }
 
 
 .title {
   position: relative;
-  color: #00F5FF;
-  font-size: 48px;
-  letter-spacing: 5px;
-  line-height: 67px;
-  font-family: PingFangSC-Semibold;
-  vertical-align: middle;
+  font-family: PingFangSC-Medium;
+  font-size: 84px;
+  color: #FFFFFF;
+  letter-spacing: 5.6px;
+  text-align: center;
 }
-.login-wrap{
+
+.login-wrap {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -30%);
-  width: 632px;
-  height: 437px;
+  width: 827px;
+  height: 535px;
   color: #ffffff;
   background: url(../../../../assets/imgs/logo_imgsrc/deglukang.png) no-repeat;
 }
-.login-wrap span{
-  text-align: center;
-  margin: auto;
-  font-size: 20px;
-  color: #00F5FF;
-  font-family: PingFangSC-Medium;
-  opacity: 0.8;
-}
-.login-wrap input{
-  position: relative;
-  text-indent:35px;
+
+
+.login-wrap input {
+  width: 440px;
   outline: none;
   border-radius: 0;
   user-select: none;
-  width: 100%;
-  height: 50px;
-  line-height: 50px;
-  border: 1px solid #1C95DC;
-  color: #fff;
-  background: rgba(28, 149, 220, 0.3);
+  height: 56px;
+  line-height: 56px;
+  border: 1px solid #fff;
+  color: #000;
+  margin-left: 10px;
 }
-.icon-name{
-  width: 32px;;
-  height: 32px;
-  display: inline-block;
-  position: absolute;
-  left: 1%;
-  top: 19%;
-}
-.desc {
-  margin-top: 15px;
-  line-height: 33px;
-  color: #00C8FF;
-  font-size: 24px;
-  text-transform: uppercase;
-  letter-spacing: 12.5px;
-  text-align: center;
-}
+
+
 .login-form {
-  max-width: 368px;
+  max-width: 550px;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 25px;
+  /* border: 1px solid #000;*/
 }
 
-.login-form-margin {
-  margin-bottom: 16px;
+
+.fontStyles {
+  display: inline-block;
+  font-size: 29px;
+  color: #FFFFFF !important;
+  text-align: left;
 }
 
-.login-form-forgot {
-  float: right;
+nz-form-item {
+  margin-bottom: 50px;
 }
 
 .login-form-button {
-  font-family: PingFangSC-Semibold;
-  width: 100%;
-  background: #00F5FF;
-  font-size: 17px;
-  height: 50px;
-  color: #000;
+  font-family: PingFangSC-Medium;
+  width: 440px;
+  background-image: linear-gradient(to right, #1BF2FB 35%, #0299FF 75%, #0296FF 100%);
+  font-size: 30px;
+  height: 68px;
+  line-height: 60px;
+  color: #FFFFFF;
   border-radius: 0;
-  font-size: 20px;
+  letter-spacing: 4px;
+  text-align: center;
+  border: none;
+  margin-left: 10px;
 }

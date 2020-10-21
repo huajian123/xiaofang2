@@ -1,35 +1,26 @@
 <div class="container">
-    <div class="wrap">
-        <div class="top">
-            <div class="head">
-                <span class="title">{{sysName}}</span>
-            </div>
-            <div class="desc">{{sysNamePinYin}}</div>
-        </div>
-        <div class="login-wrap">
-            <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
-                <nz-form-item>
-                    <span>用户登录</span>
-                </nz-form-item>
-                <nz-form-item>
-                    <nz-form-control nzErrorTip="请输入用户名!">
-                        <nz-input-group>
-                            <i class="icon-name"><img src="../../../../assets/imgs/logo_imgsrc/yonghu.png"></i>
-                            <input type="text" nz-input formControlName="account" placeholder="请输入用户名" maxlength="20"/>
-                        </nz-input-group>
-                    </nz-form-control>
-                </nz-form-item>
-                <nz-form-item>
-                    <nz-form-control nzErrorTip="请输入密码!">
-                        <nz-input-group>
-                            <i class="icon-name"><img src="../../../../assets/imgs/logo_imgsrc/mima.png"></i>
-                            <input type="password" nz-input formControlName="password" placeholder="请输入密码"
-                                   maxlength="20"/>
-                        </nz-input-group>
-                    </nz-form-control>
-                </nz-form-item>
-                <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'">登 录</button>
-            </form>
-        </div>
+  <div class="layout-wrap">
+    <div class="title">{{sysName}}</div>
+    <div class="login-wrap">
+      <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
+        <nz-form-item>
+          <nz-form-label nzSpan="4" nzNoColon><span class="fontStyles">用户名</span></nz-form-label>
+          <nz-form-control nzErrorTip="请输入用户名!">
+            <input type="text" nz-input formControlName="account" maxlength="20"/>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-label nzSpan="4" nzNoColon><span class="fontStyles">密&emsp;码</span></nz-form-label>
+          <nz-form-control nzErrorTip="请输入密码!">
+            <input type="password" nz-input formControlName="password" maxlength="20"/>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-label nzSpan="4" nzNoColon>&nbsp;</nz-form-label>
+          <button nz-button class="login-form-button" [nzType]="'primary'">登 录</button>
+        </nz-form-item>
+
+      </form>
     </div>
+  </div>
 </div>

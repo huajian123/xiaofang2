@@ -14,7 +14,8 @@ import {EVENT_KEY} from 'src/environments/staticVariable';
 export class LoginLayoutComponent implements OnInit {
   validateForm: FormGroup;
   sysName = environment.sysName;
-  sysNamePinYin = environment.sysNamePinYin;
+
+  /* sysNamePinYin = environment.sysNamePinYin;*/
 
   constructor(private fb: FormBuilder, private router: Router, private dataService: LoginService) {
   }
