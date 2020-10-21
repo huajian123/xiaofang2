@@ -78,16 +78,8 @@
   </div>
 </ng-container>
 <ng-container *ngIf="currentPage===1||currentPage===2">
-  <app-earthquake-one>
-    <footer *ngIf="!selAlarm">
-      <div class="send-btn" (click)="sendMsg()"><img src="assets/imgs/send-icon.svg" alt="">发 布</div>
-    </footer>
-  </app-earthquake-one>
+  <app-earthquake-one></app-earthquake-one>
 </ng-container>
 <ng-container *ngIf="currentPage===3||currentPage===4">
-  <app-earthquake-three>
-    <footer *ngIf="!selAlarm">
-      <div class="send-btn" (click)="sendMsg()"><img src="assets/imgs/send-icon.svg" alt="">发 布</div>
-    </footer>
-  </app-earthquake-three>
+  <app-earthquake-three></app-earthquake-three>
 </ng-container>

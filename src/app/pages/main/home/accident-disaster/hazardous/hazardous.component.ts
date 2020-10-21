@@ -63,14 +63,14 @@ export class HazardousComponent implements OnInit, OnChanges {
     });
   }
 
-  async getEarthquakeWarningList() {
+/*  async getEarthquakeWarningList() {
     await this.dataService.getCitiesNameList().subscribe(res => {
       this.dataInfo = res;
       res.forEach(item => {
         this.provinceData.push({value: item.id, label: item.cityName});
       });
     });
-  }
+  }*/
 
   initForm() {
     this.validateForm = this.fb.group({
@@ -86,16 +86,17 @@ export class HazardousComponent implements OnInit, OnChanges {
 
   async subForm() {
     this.validateForm.valueChanges.pipe(debounceTime(1000), distinctUntilChanged()).subscribe(res => {
-      res.accidentId = this.id;
-      this.dataServicers.getDecideGrade(res).subscribe(grade => {
-        if (grade != null) {
-          this.plnId = grade.plnId;
-          this.currentPage = grade.grade;
-        }
-        const cityName = this.provinceData.find((item) => item.value === res.cityId)?.label || '';
-        const areaName = this.cityData.find((item) => item.value === res.areaId)?.label || '';
-        this.cityName = `${cityName}${areaName}` || '';
-      });
+      this.currentPage = 2;
+      /* res.accidentId = this.id;
+       this.dataServicers.getDecideGrade(res).subscribe(grade => {
+         if (grade != null) {
+           this.plnId = grade.plnId;
+           this.currentPage = grade.grade;
+         }
+         const cityName = this.provinceData.find((item) => item.value === res.cityId)?.label || '';
+         const areaName = this.cityData.find((item) => item.value === res.areaId)?.label || '';
+         this.cityName = `${cityName}${areaName}` || '';
+       });*/
     });
   }
 
@@ -119,7 +120,7 @@ export class HazardousComponent implements OnInit, OnChanges {
     // 管理员登陆
     if (!this.selAlarm) {
       this.initForm();
-      this.getEarthquakeWarningList();
+      // this.getEarthquakeWarningList();
       this.subForm();
     } else {
       this.currentPage = this.selAlarm.accidentGrade;

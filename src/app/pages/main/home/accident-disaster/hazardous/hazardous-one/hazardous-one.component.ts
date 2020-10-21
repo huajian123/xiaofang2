@@ -64,12 +64,12 @@ export class HazardousOneComponent implements OnInit {
   }
 
   // 获取当前选中的tabId
-  getSelId(event) {
+/*  getSelId(event) {
     // event就是选中的tabId调用接口后获得
     this.dataService.getGroupInfo({id: event, cityName: this.cityName}).subscribe(res => {
       this.showInfo = res.selectResponsibilityDTO;
     });
-  }
+  }*/
 
   // 判断角色
   judgRole() {
@@ -104,7 +104,7 @@ export class HazardousOneComponent implements OnInit {
       this.getCurrentLeftName('省级接警');
     }
     // 页面初始化时获取的岗位职责信息
-    this.getSelId(this.firstSelTabThreeLevelId || this.firstSelTabTwoLevelId || this.firstSelTabOneLevelId);
+    // this.getSelId(this.firstSelTabThreeLevelId || this.firstSelTabTwoLevelId || this.firstSelTabOneLevelId);
   }
 
 

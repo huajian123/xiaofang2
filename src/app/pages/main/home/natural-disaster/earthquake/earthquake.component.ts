@@ -72,14 +72,14 @@ export class EarthquakeComponent implements OnInit, OnChanges {
     });
   }
 
-  async getEarthquakeWarningList() {
+/*  async getEarthquakeWarningList() {
     await this.dataService.getCitiesNameList().subscribe(res => {
       this.dataInfo = res;
       res.forEach(item => {
         this.provinceData.push({value: item.id, label: item.cityName});
       });
     });
-  }
+  }*/
 
   initForm() {
     this.validateForm = this.fb.group({
@@ -111,7 +111,7 @@ export class EarthquakeComponent implements OnInit, OnChanges {
     // 管理员登陆
     if (!this.selAlarm) {
       this.initForm();
-      this.getEarthquakeWarningList();
+      //  this.getEarthquakeWarningList();
       this.subForm();
     } else {
       this.currentPage = this.selAlarm.accidentGrade;

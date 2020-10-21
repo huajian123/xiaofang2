@@ -85,17 +85,9 @@
   </div>
 </ng-container>
 <ng-container *ngIf="currentPage===1||currentPage===2">
-  <app-hazardous-one>
-    <footer *ngIf="!selAlarm">
-      <div class="send-btn" (click)="sendMsg()"><img src="assets/imgs/send-icon.svg" alt="">发 布</div>
-    </footer>
-  </app-hazardous-one>
+  <app-hazardous-one></app-hazardous-one>
 </ng-container>
 <ng-container *ngIf="currentPage===3||currentPage===4">
-  <app-hazardous-three>
-    <footer *ngIf="!selAlarm">
-      <div class="send-btn" (click)="sendMsg()"><img src="assets/imgs/send-icon.svg" alt="">发 布</div>
-    </footer>
-  </app-hazardous-three>
+  <app-hazardous-three></app-hazardous-three>
 </ng-container>
 

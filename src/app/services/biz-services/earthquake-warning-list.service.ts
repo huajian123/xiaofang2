@@ -75,9 +75,9 @@ export class CitiesNameService extends BaseHttp {
   }
 
 
-  public getGroupInfo(param: { id: number, cityName?: string }): Observable<DepartInfoModel> {
+/*  public getGroupInfo(param: { id: number, cityName?: string }): Observable<DepartInfoModel> {
     return this.get('/responsibility/' + param.id, param);
-  }
+  }*/
 
   /*根据小组id查询配合部门*/
   public getGroupIdInfo(param: { id: number, cityName: string }): Observable<ResponsibilityEntitiesModel[]> {

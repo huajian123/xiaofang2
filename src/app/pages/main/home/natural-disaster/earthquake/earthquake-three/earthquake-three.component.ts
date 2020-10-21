@@ -60,11 +60,11 @@ export class EarthquakeThreeComponent implements OnInit {
   }
 
   // 获取当前选中的tabid
-  getSelId(event) {
+/*  getSelId(event) {
     this.dataService.getGroupInfo({id: event, cityName: this.cityName}).subscribe(res => {
       this.showInfo = res.selectResponsibilityDTO;
     });
-  }
+  }*/
 
   judgRole() {
     this.nameArray = ['先期处置', '事故信息接收', '应急指导', '灾情报送', '应急处置'];
@@ -75,7 +75,7 @@ export class EarthquakeThreeComponent implements OnInit {
     }
     this.getCurrentLeftName('先期处置');
     // 页面初始化时获取的岗位职责信息
-    this.getSelId(this.firstSelTabThreeLevelId || this.firstSelTabTwoLevelId || this.firstSelTabOneLevelId);
+    // this.getSelId(this.firstSelTabThreeLevelId || this.firstSelTabTwoLevelId || this.firstSelTabOneLevelId);
   }
 
   ngOnInit(): void {

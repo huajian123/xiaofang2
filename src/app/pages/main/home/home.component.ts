@@ -109,9 +109,9 @@ export class HomeComponent implements OnInit {
     this.userRole = JSON.parse(window.sessionStorage.getItem(EVENT_KEY.loginInfo)).role;
     if (this.userRole === this.userRoleEnum.User) {
       this.getPublishAlarm();
-      setInterval(() => {
+    /*  setInterval(() => {
         this.getPublishAlarm();
-      }, 1000);
+      }, 1000);*/
     }
   }
 
