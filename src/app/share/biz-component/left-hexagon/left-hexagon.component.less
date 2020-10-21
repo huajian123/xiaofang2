@@ -1,47 +1,128 @@
 .column-left {
-  flex-direction: column;
   width: 220px;
-}
-
-.column-left div {
+  padding-top: 36px;
   position: relative;
-  width: 134px;
-  height: 146px;
-  font-family: PangMenZhengDao;
-  font-size: 18px;
-  color: #FFFFFF;
-  letter-spacing: 0;
-  text-align: center;
-  background-size: cover;
-  cursor: pointer;
-}
 
-.column-left div p {
-  width: 108px;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+  .block-wrap {
+    box-shadow: inset 0 0 20px 0 rgba(107, 253, 255, 0.42);
+    border-left: 1px solid #1edaff;
+    border-right: 1px solid #1edaff;
+    border-bottom: 1px solid #1edaff;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 545px;
+    padding-top: 35px;
+
+    div {
+      position: relative;
+      width: 118px;
+      height: 125px;
+      font-family: PangMenZhengDao;
+      font-size: 18px;
+      color: #FFFFFF;
+      letter-spacing: 0;
+      text-align: center;
+      background-size: 100% 100%;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      .block-img {
+        display: block;
+        width: 35px;
+      }
+    }
+
+    .ul-wrap {
+      width: 88%;
+      height: 100%;
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+      min-height: 545px;
+      margin-top: -20px;
+
+      li {
+        background: #0155AD;
+        border-radius: 6px;
+        opacity: 0.6;
+        font-family: lianmengqiyilushuaizhengruiheiti-Regular;
+        font-size: 20px;
+        color: #3BD7FF;
+        letter-spacing: 0;
+        text-align: center;
+        cursor: pointer;
+
+        &:hover {
+          color: white;
+          background: url("../../../../assets/imgs/new-img/left-dept-bg.png") no-repeat;
+          background-size: 100% 100%;
+          opacity: 1;
+        }
+
+        &.active {
+          color: white;
+          background: url("../../../../assets/imgs/new-img/left-dept-bg.png") no-repeat;
+          background-size: 100% 100%;
+          opacity: 1;
+        }
+      }
+    }
+
+  }
+
+  .column-left-tab {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 36px;
+    width: 100%;
+    display: flex;
+    font-size: 20px;
+    align-items: center;
+    justify-content: center;
+
+    .tab {
+      flex: 1;
+      text-align: center;
+      background: #0155AD;
+      color: #3BD7FF;
+      height: 100%;
+      cursor: pointer;
+      user-select: none;
+      font-family: lianmengqiyilushuaizhengruiheiti-Regular;
+      letter-spacing: 2px;
+
+      &.active {
+        background: #00DEB3;
+        color: #FFFFFF;
+      }
+    }
+  }
 }
 
 .column-left .sub-left {
   background: url("../../../../assets/imgs/new-img/un-left.png") no-repeat;
-  background-size: cover;
+  background-size: 100% 100%;
 }
 
 .column-left .sub-right {
   background: url("../../../../assets/imgs/new-img/un-right.png") no-repeat;
-  background-size: cover;
+  background-size: 100% 100%;
 }
 
 .displacement {
-  margin-left: 66px;
-  margin-top: -42px;
+  margin-top: -35px;
+  margin-left: 70px;
 }
 
 .move {
-  margin-top: -42px;
+  margin-left: -50px;
+  margin-top: -35px;
 }
 
 .column-left div {

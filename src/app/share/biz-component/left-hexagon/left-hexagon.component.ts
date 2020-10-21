@@ -25,22 +25,25 @@ import {bounceInOnEnterAnimation, lightSpeedInOnEnterAnimation} from 'angular-an
 export class LeftHexagonComponent implements OnInit, AfterViewInit {
   @Input() nameArray: string[];
   @Output() clickReturn: EventEmitter<string>;
+  isClickLeft: boolean;
 
   constructor(public element: ElementRef, private renderer2: Renderer2) {
     this.nameArray = [];
     this.clickReturn = new EventEmitter<string>();
+    this.isClickLeft = true;
   }
 
   trackFunc = (index, item) => {
     return index;
   }
 
-
-  ngOnInit(): void {
+  changeTab(isProcess = true) {
+    this.isClickLeft = isProcess;
   }
 
-  ngAfterViewInit(): void {
-    const temp = this.element.nativeElement.querySelectorAll('.column-left div');
+  // 应急流程下六边形点击
+  leftBlockClick() {
+    const temp = this.element.nativeElement.querySelectorAll('.column-left .block');
     for (let i = 0; i < temp.length; i++) {
       const odd = i % 2;
       const mouseClick = fromEvent(temp[i], 'click');
@@ -59,6 +62,30 @@ export class LeftHexagonComponent implements OnInit, AfterViewInit {
         this.clickReturn.emit(returnStr);
       });
     }
+  }
+
+  // 应急厅下每个选项卡点击
+  leftDeptClick() {
+    const temp = this.element.nativeElement.querySelectorAll('.ul-item');
+    // tslint:disable-next-line:prefer-for-of
+    for (let i = 0; i < temp.length; i++) {
+      const mouseClick = fromEvent(temp[i], 'click');
+      const subscription = mouseClick.subscribe(() => {
+        // tslint:disable-next-line:prefer-for-of
+        for (let j = 0; j < temp.length; j++) {
+          this.renderer2.removeClass(temp[j], 'active');
+        }
+        this.renderer2.addClass(temp[i], 'active');
+      });
+    }
+  }
+
+  ngOnInit(): void {
+  }
+
+  ngAfterViewInit(): void {
+    this.leftDeptClick();
+    this.leftBlockClick();
   }
 
 }
