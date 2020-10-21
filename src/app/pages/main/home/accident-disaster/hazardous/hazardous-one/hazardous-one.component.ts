@@ -47,9 +47,10 @@ export class HazardousOneComponent implements OnInit {
 
   // 点击左侧六边形获取当前名字
   getCurrentLeftName(event) {
+    console.log(event);
     // 获取对应左侧六变形的tab页签
-    this.tabObj = getHazardousOneTabObj(event);
-    this.firstSelTabOneLevelId = this.tabObj[0].id;
+    // this.tabObj = getHazardousOneTabObj(event);
+    /*this.firstSelTabOneLevelId = this.tabObj[0].id;
     if (this.tabObj[0].children) {
       this.firstSelTabTwoLevelId = this.tabObj[0].children[0].id;
       if (this.tabObj[0].children[0].children) {
@@ -60,7 +61,7 @@ export class HazardousOneComponent implements OnInit {
     } else {
       this.firstSelTabTwoLevelId = null;
       this.firstSelTabThreeLevelId = null;
-    }
+    }*/
   }
 
   // 获取当前选中的tabId
