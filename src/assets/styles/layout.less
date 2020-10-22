@@ -7,18 +7,18 @@
   font-style: normal;
 }
 
-body::-webkit-scrollbar { /*滚动条整体样式*/
+::-webkit-scrollbar { /*滚动条整体样式*/
   width: 9px;
   height: 9px;
   background: #f2f2f2;
 }
 
-body::-webkit-scrollbar-thumb { /*滚动条里面小方块*/
+::-webkit-scrollbar-thumb { /*滚动条里面小方块*/
   background: #b0b0b0;
   border-radius: 4px;
 }
 
-body::-webkit-scrollbar-track { /*滚动条里面轨道*/
+::-webkit-scrollbar-track { /*滚动条里面轨道*/
   -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
 }
@@ -206,20 +206,17 @@ h1, h2, h3, h4, h5, h6 {
   height: 32px;
 }
 
-.column-right-wrap {
-  position: relative;
-  padding-bottom: 80px;
-}
 
 .column-right {
-  flex-direction: row;
+  padding: 1% 0;
   width: 78vw;
-  min-height: 580px;
+  overflow-y: auto;
+  height: 580px;
   background: url("../../assets/imgs/new-img/tab-content.png") no-repeat;
   background-size: 100% 100%;
 }
 
-footer {
+/*footer {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -244,4 +241,4 @@ footer {
       margin-right: 15px;
     }
   }
-}
+}*/

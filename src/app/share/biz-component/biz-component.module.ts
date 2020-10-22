@@ -5,6 +5,7 @@ import {BizTabsComponent} from './biz-tabs/biz-tabs.component';
 import {DataShowComponent} from './data-show/data-show.component';
 import {MyNgZorroModule} from '../my-ng-zorro/my-ng-zorro.module';
 import {BreadCrumbComponent} from './bread-crumb/bread-crumb.component';
+import {NewContentComponent} from './new-content/new-content.component';
 
 
 @NgModule({
@@ -13,6 +14,7 @@ import {BreadCrumbComponent} from './bread-crumb/bread-crumb.component';
     BizTabsComponent,
     DataShowComponent,
     BreadCrumbComponent,
+    NewContentComponent
   ],
   imports: [
     CommonModule,
@@ -21,7 +23,8 @@ import {BreadCrumbComponent} from './bread-crumb/bread-crumb.component';
   exports: [
     LeftHexagonComponent,
     BizTabsComponent,
-    DataShowComponent
+    DataShowComponent,
+    NewContentComponent
   ]
 })
 export class BizComponentModule {

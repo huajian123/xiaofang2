@@ -17,11 +17,6 @@
   padding: 3% 0 0;
 }
 
-@media screen and (max-width: 1440px) {
-  .layout-wrap {
-    padding: 5% 0 0;
-  }
-}
 
 .ant-form-item {
   width: 550px;
@@ -46,6 +41,7 @@
   height: 535px;
   color: #ffffff;
   background: url(../../../../assets/imgs/logo_imgsrc/deglukang.png) no-repeat;
+  background-size: 100% 100%;
 }
 
 
@@ -68,7 +64,6 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  /* border: 1px solid #000;*/
 }
 
 
@@ -96,4 +91,38 @@ nz-form-item {
   text-align: center;
   border: none;
   margin-left: 10px;
+}
+
+@media screen and (max-width: 1440px) {
+  .layout-wrap {
+    padding: 5% 0 0 !important;
+  }
+
+  .ant-form-item {
+    width: 440px !important;
+  }
+
+  .title {
+    font-size: 67px !important;
+  }
+
+  .login-wrap {
+    width: 661px !important;
+    height: 428px !important;
+  }
+
+  .login-wrap input {
+    width: 352px !important;
+  }
+
+  .fontStyles {
+    font-size: 24px;
+  }
+
+  .login-form-button {
+    width: 352px !important;
+    height: 60px;
+    line-height: 52px;
+    font-size: 24px;
+  }
 }
