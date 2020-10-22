@@ -26,6 +26,7 @@ export class LeftHexagonComponent implements OnInit, AfterViewInit {
   @Input() nameArray: string[];
   @Output() clickReturn: EventEmitter<string>;
   isClickLeft: boolean;
+  svgArray = [];
 
   constructor(public element: ElementRef, private renderer2: Renderer2) {
     this.nameArray = [];

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="61px" height="61px" viewBox="0 0 61 61" version="1.1" xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink">
+  <!-- Generator: Sketch 57 (83077) - https://sketch.com -->
+  <title>控制</title>
+  <desc>Created with Sketch.</desc>
+  <defs>
+    <linearGradient x1="5.93590197%" y1="0%" x2="95.6817063%" y2="94.1323348%" id="linearGradient-1">
+      <stop stop-color="#00FFF3" offset="0%"></stop>
+      <stop stop-color="#0299FF" offset="100%"></stop>
+      <stop stop-color="#51B7FF" offset="100%"></stop>
+    </linearGradient>
+    <linearGradient x1="7.93282854%" y1="0%" x2="93.6114719%" y2="94.1323348%" id="linearGradient-2">
+      <stop stop-color="#00FFF3" offset="0%"></stop>
+      <stop stop-color="#0299FF" offset="100%"></stop>
+      <stop stop-color="#51B7FF" offset="100%"></stop>
+    </linearGradient>
+  </defs>
+  <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.900000036">
+    <g id="3备份-7" transform="translate(-235.000000, -919.000000)">
+      <g id="编组-19备份-6" transform="translate(176.000000, 877.000000)">
+        <g id="控制" transform="translate(59.000000, 42.000000)">
+          <path
+            d="M30.08,60.16 C13.466816,60.16 0,46.693184 0,30.08 C0,13.466816 13.466816,0 30.08,0 C46.693184,0 60.16,13.466816 60.16,30.08 C60.16,46.693184 46.693184,60.16 30.08,60.16 Z M30.08,54.144 C43.3701802,54.144 54.144,43.3701802 54.144,30.08 C54.144,16.7898198 43.3701802,6.016 30.08,6.016 C16.7898198,6.016 6.016,16.7898198 6.016,30.08 C6.016,43.3701802 16.7898198,54.144 30.08,54.144 Z"
+            id="形状" fill="url(#linearGradient-1)"></path>
+          <polygon id="形状" fill="url(#linearGradient-2)"
+                   points="19.616979 33.018248 8.350208 9.186432 31.63575 19.4179856"></polygon>
+          <path
+            d="M30.08,18.048 C36.7250901,18.048 42.112,23.4349099 42.112,30.08 C42.112,36.7250901 36.7250901,42.112 30.08,42.112 C23.4349099,42.112 18.048,36.7250901 18.048,30.08 C18.048,23.4349099 23.4349099,18.048 30.08,18.048 Z M36.096,30.08 C36.096,26.8329673 33.5235836,24.1867547 30.3055381,24.0681495 L30.08,24.064 L30.08,24.064 C26.7574549,24.064 24.064,26.7574549 24.064,30.08 C24.064,33.4025451 26.7574549,36.096 30.08,36.096 L30.08,36.096 C33.4025451,36.096 36.096,33.4025451 36.096,30.08 Z"
+            id="形状结合" fill="url(#linearGradient-1)"></path>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
