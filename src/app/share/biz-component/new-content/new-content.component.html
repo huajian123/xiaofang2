@@ -1,89 +1,103 @@
 <!--牵头、配合部门表格布局-->
-<table cellpadding="0" cellspacing="0">
-  <tbody>
-  <tr>
-    <td colspan="2" width="50%" align="center">应急工作流程</td>
-    <td colspan="2" align="center">职能部门</td>
-  </tr>
-  <tr>
-    <td class="height_93">现场指挥部</td>
-    <td class="padding_22">现场指挥部负责危化品生产安全事故应急救援与
-      处置的前沿指挥工作
-    </td>
-    <td align="center" colspan="2">现场总指挥：省指挥部指定</td>
-  </tr>
-  <tr>
-    <td class="height_93" rowspan="2">综合协调组</td>
-    <td class="padding_22" rowspan="2">统筹组织现场应急救援的综合协调、情况汇报等工作</td>
-    <td class="width_72" align="center">牵头部门(单位)</td>
-    <td align="center">省人民政府</td>
-  </tr>
-  <tr>
-    <td class="width_72" align="center">配合部门(单位)</td>
-    <td align="center">事发地人民政府、省指挥部成员单位</td>
-  </tr>
-  <tr>
-    <td class="height_93" rowspan="2">专业处置组</td>
-    <td class="padding_22" rowspan="2">实施危化品事故现场火灾扑救、人员搜救、工程抢险、工程加固和事故现场清理等救援工作</td>
-    <td class="width_72" align="center">牵头部门(单位)</td>
-    <td align="center">省人民政府</td>
-  </tr>
-  <tr>
-    <td class="width_72" align="center">配合部门(单位)</td>
-    <td align="center">事发地人民政府、省指挥部成员单位</td>
-  </tr>
-  <tr>
-    <td class="height_93" rowspan="2">警戒疏散组</td>
-    <td class="padding_22" rowspan="2">负责组织事故可能危及区域有关人员的紧急疏散、撤离工作，维护社会治安</td>
-    <td class="width_72" align="center">牵头部门(单位)</td>
-    <td align="center">省人民政府</td>
-  </tr>
-  <tr>
-    <td class="width_72" align="center">配合部门(单位)</td>
-    <td align="center">事发地人民政府、省指挥部成员单位</td>
-  </tr>
-  <tr>
-    <td class="height_93" rowspan="2">交通管制组</td>
-    <td class="padding_22" rowspan="2">根据实际情况实行交通管制和疏导工作</td>
-    <td class="width_72" align="center">牵头部门(单位)</td>
-    <td align="center">省人民政府</td>
-  </tr>
-  <tr>
-    <td class="width_72" align="center">配合部门(单位)</td>
-    <td align="center">事发地人民政府、省指挥部成员单位</td>
-  </tr>
-  <tr>
-    <td class="height_93" rowspan="2">医疗救护组</td>
-    <td class="padding_22" rowspan="2">调度全省医疗资源和力量，做好对事故受伤人员的救治和康复工作，并做好现场救援区域的防疫消毒</td>
-    <td class="width_72" align="center">牵头部门(单位)</td>
-    <td align="center">省人民政府</td>
-  </tr>
-  <tr>
-    <td class="width_72" align="center">配合部门(单位)</td>
-    <td align="center">事发地人民政府、省指挥部成员单位</td>
-  </tr>
-  <tr>
-    <td class="height_93" rowspan="2">环境气象监测组</td>
-    <td class="padding_22" rowspan="2">对涉事区域进行环境监测工作，承担抢险救援现场的气象监测和预报服务保障工作</td>
-    <td class="width_72" align="center">牵头部门(单位)</td>
-    <td align="center">省人民政府</td>
-  </tr>
-  <tr>
-    <td class="width_72" align="center">配合部门(单位)</td>
-    <td align="center">事发地人民政府、省指挥部成员单位</td>
-  </tr>
-  <tr>
-    <td class="height_93" rowspan="2">综合保障组</td>
-    <td class="padding_22" rowspan="2">根据事故处置工作需求，及时提供资金、物资、装备等各方面的后勤服务和资源保障</td>
-    <td class="width_72" align="center">牵头部门(单位)</td>
-    <td align="center">省人民政府</td>
-  </tr>
-  <tr>
-    <td class="width_72" align="center">配合部门(单位)</td>
-    <td align="center">事发地人民政府、省指挥部成员单位</td>
-  </tr>
-  </tbody>
-</table>
+<ng-container>
+  <table cellpadding="0" cellspacing="0">
+    <tbody>
+    <tr>
+      <td colspan="2" width="50%" align="center">主要任务</td>
+      <td colspan="2" width="50%" align="center">应急工作流程</td>
+      <td colspan="2" align="center">职能部门</td>
+    </tr>
+    <!--   <tr>
+         <td colspan="2" width="50%" align="center">启动应急响应</td>
+         <td colspan="2" width="50%" align="center">{{TableDataModel[0].department}}</td>
+         <td colspan="2" align="center">{{TableDataModel[0].responsibilityDetail}}</td>
+       </tr>
+       <tr>
+         <td colspan="2" width="50%" align="center">启动应急响应</td>
+         <td colspan="2" width="50%" align="center">省指挥部总指挥等主要领导赴指挥中心；组建现场指挥部，协调指挥现场应急救援工作</td>
+         <td colspan="2" align="center">省指挥部：总指挥、副总指挥由省人民政府指定</td>
+       </tr>-->
+    <tr>
+      <td class="height_93">现场指挥部</td>
+      <td class="padding_22">现场指挥部负责危化品生产安全事故应急救援与
+        处置的前沿指挥工作
+      </td>
+      <td align="center" colspan="2">现场总指挥：省指挥部指定</td>
+    </tr>
+    <tr>
+      <td class="height_93" rowspan="2">综合协调组</td>
+      <td class="padding_22" rowspan="2">统筹组织现场应急救援的综合协调、情况汇报等工作</td>
+      <td class="width_72" align="center">牵头部门(单位)</td>
+      <td align="center">省人民政府</td>
+    </tr>
+    <tr>
+      <td class="width_72" align="center">配合部门(单位)</td>
+      <td align="center">事发地人民政府、省指挥部成员单位</td>
+    </tr>
+    <tr>
+      <td class="height_93" rowspan="2">专业处置组</td>
+      <td class="padding_22" rowspan="2">实施危化品事故现场火灾扑救、人员搜救、工程抢险、工程加固和事故现场清理等救援工作</td>
+      <td class="width_72" align="center">牵头部门(单位)</td>
+      <td align="center">省人民政府</td>
+    </tr>
+    <tr>
+      <td class="width_72" align="center">配合部门(单位)</td>
+      <td align="center">事发地人民政府、省指挥部成员单位</td>
+    </tr>
+    <tr>
+      <td class="height_93" rowspan="2">警戒疏散组</td>
+      <td class="padding_22" rowspan="2">负责组织事故可能危及区域有关人员的紧急疏散、撤离工作，维护社会治安</td>
+      <td class="width_72" align="center">牵头部门(单位)</td>
+      <td align="center">省人民政府</td>
+    </tr>
+    <tr>
+      <td class="width_72" align="center">配合部门(单位)</td>
+      <td align="center">事发地人民政府、省指挥部成员单位</td>
+    </tr>
+    <tr>
+      <td class="height_93" rowspan="2">交通管制组</td>
+      <td class="padding_22" rowspan="2">根据实际情况实行交通管制和疏导工作</td>
+      <td class="width_72" align="center">牵头部门(单位)</td>
+      <td align="center">省人民政府</td>
+    </tr>
+    <tr>
+      <td class="width_72" align="center">配合部门(单位)</td>
+      <td align="center">事发地人民政府、省指挥部成员单位</td>
+    </tr>
+    <tr>
+      <td class="height_93" rowspan="2">医疗救护组</td>
+      <td class="padding_22" rowspan="2">调度全省医疗资源和力量，做好对事故受伤人员的救治和康复工作，并做好现场救援区域的防疫消毒</td>
+      <td class="width_72" align="center">牵头部门(单位)</td>
+      <td align="center">省人民政府</td>
+    </tr>
+    <tr>
+      <td class="width_72" align="center">配合部门(单位)</td>
+      <td align="center">事发地人民政府、省指挥部成员单位</td>
+    </tr>
+    <tr>
+      <td class="height_93" rowspan="2">环境气象监测组</td>
+      <td class="padding_22" rowspan="2">对涉事区域进行环境监测工作，承担抢险救援现场的气象监测和预报服务保障工作</td>
+      <td class="width_72" align="center">牵头部门(单位)</td>
+      <td align="center">省人民政府</td>
+    </tr>
+    <tr>
+      <td class="width_72" align="center">配合部门(单位)</td>
+      <td align="center">事发地人民政府、省指挥部成员单位</td>
+    </tr>
+    <tr>
+      <td class="height_93" rowspan="2">综合保障组</td>
+      <td class="padding_22" rowspan="2">根据事故处置工作需求，及时提供资金、物资、装备等各方面的后勤服务和资源保障</td>
+      <td class="width_72" align="center">牵头部门(单位)</td>
+      <td align="center">省人民政府</td>
+    </tr>
+    <tr>
+      <td class="width_72" align="center">配合部门(单位)</td>
+      <td align="center">事发地人民政府、省指挥部成员单位</td>
+    </tr>
+    </tbody>
+  </table>
+</ng-container>
+
 <!--应急厅表格布局-->
 <!--<table cellspacing="0" cellpadding="0">
   <tbody>

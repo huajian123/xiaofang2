@@ -1,4 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+
+export interface TableDataModel {
+  department: string;
+  responsibilityDetail: string[];
+}
 
 @Component({
   selector: 'app-new-content',
@@ -6,11 +11,15 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./new-content.component.less']
 })
 export class NewContentComponent implements OnInit {
+  @Input() TableDataModel: TableDataModel[];
 
+  /* @Input() paramsTemplete: string;*/
   constructor() {
+
   }
 
   ngOnInit(): void {
+    console.log(this.TableDataModel);
   }
 
 }

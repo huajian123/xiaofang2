@@ -1,11 +1,8 @@
 <div class="column-lay">
   <app-left-hexagon (clickReturn)="getCurrentLeftName($event)" [nameArray]="nameArray"></app-left-hexagon>
-  <nz-affix [nzOffsetTop]="0">
-    <div class="column-right-wrap" [@bounceInOnEnter]="{ value: '', params: { duration: 1000 }}">
-      <div class="column-right">
-        内容
-      </div>
-      <ng-content></ng-content>
+  <div [@bounceInOnEnter]="{ value: '', params: { duration: 1000 }}">
+    <div class="column-right">
+      <app-new-content [TableDataModel]="tableObj"></app-new-content>
     </div>
-  </nz-affix>
+  </div>
 </div>
