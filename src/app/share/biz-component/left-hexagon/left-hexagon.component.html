@@ -12,7 +12,8 @@
   </div>
   <div class="block-wrap" [hidden]="isClickLeft">
     <ul class="ul-wrap">
-      <li class="ul-item" *ngFor="let item of emergencyRoomNameArray">{{item}}</li>
+      <li class="ul-item" [ngClass]="{'active':f}"
+          *ngFor="let item of emergencyRoomNameArray;let f=first;">{{item}}</li>
     </ul>
   </div>
 

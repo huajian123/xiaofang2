@@ -27,7 +27,6 @@ export class LeftHexagonComponent implements OnInit, AfterViewInit {
   @Input() emergencyRoomNameArray: string[]; // 应急厅的部门名称集合
   @Output() clickReturn: EventEmitter<string>;
   isClickLeft: boolean;
-  svgArray = [];
 
   constructor(public element: ElementRef, private renderer2: Renderer2) {
     this.nameArray = [];
@@ -41,6 +40,7 @@ export class LeftHexagonComponent implements OnInit, AfterViewInit {
 
   changeTab(isProcess = true) {
     this.isClickLeft = isProcess;
+    isProcess ? this.leftBlockClick() : this.leftDeptClick();
   }
 
   // 应急流程下六边形点击
