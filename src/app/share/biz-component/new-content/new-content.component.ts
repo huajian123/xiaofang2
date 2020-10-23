@@ -1,8 +1,11 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {TeamResponsibilityDTO} from '../../../services/biz-services/accident-disasters-list.service';
 
 export interface TableDataModel {
+  responsibility: string;
   department: string;
   responsibilityDetail: string[];
+  selectTeamResponsibilityDTO: TeamResponsibilityDTO[];
 }
 
 @Component({
@@ -19,7 +22,7 @@ export class NewContentComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.TableDataModel);
+    console.log(this.TableDataModel[2].selectTeamResponsibilityDTO[0].teamName);
   }
 
 }

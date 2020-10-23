@@ -11,21 +11,17 @@ export enum DisasterEnum {
 
 export interface ResponsibilityModel {
   id?: number;
-  responsibility?: string;
+  responsibility: string;
   department: string;
   responsibilityDetail: string[];
-  selectTeamResponsibilityDTO?: any;
+  selectTeamResponsibilityDTO: TeamResponsibilityDTO[];
 }
 
-export interface CommanderInfoModel {
-  id?: number;
-  resyId?: number;
-  deptId?: number;
-  deptName: string;
-  deptPhone: string;
-  resyName: string;
-  resyDetail: string;
-  grade?: number;
+export interface TeamResponsibilityDTO {
+  teamName: string;
+  teamResponsibility: [];
+  mainDepartment: string;
+  coordinateDepartment: null;
 }
 
 /*受灾评判等级指标参数*/
