@@ -78,6 +78,7 @@ export class LeftHexagonComponent implements OnInit, AfterViewInit {
           this.renderer2.removeClass(temp[j], 'active');
         }
         this.renderer2.addClass(temp[i], 'active');
+        this.clickReturn.emit(this.emergencyRoomNameArray[i]);
       });
     }
   }

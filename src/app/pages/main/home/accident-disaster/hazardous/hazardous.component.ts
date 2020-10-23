@@ -9,6 +9,7 @@ import {
   ResponsibilityModel
 } from '../../../../../services/biz-services/accident-disasters-list.service';
 import {debounceTime, distinctUntilChanged} from 'rxjs/operators';
+import {forkJoin} from 'rxjs';
 
 
 @Component({
@@ -58,13 +59,12 @@ export class HazardousComponent implements OnInit {
         if (grade != null) {
           this.plnId = grade.plnId;
         }
-        this.dataServicers.getResponsibility({id: res.accidentId, planGrade: grade.grade}).subscribe(data => {
-          this.responsibilityData = data;
+        const getResponsibility$ = this.dataServicers.getResponsibility({id: res.accidentId, planGrade: grade.grade});
+        const getEmergency$ = this.dataServicers.getEmergency({accidentId: res.accidentId, planGrade: grade.grade});
+        forkJoin(getResponsibility$, getEmergency$).subscribe(result => {
+          this.responsibilityData = result[0];
+          this.emergencyData = result[1];
           this.currentPage = grade.grade;
-        });
-        this.dataServicers.getEmergency({accidentId: res.accidentId, planGrade: grade.grade}).subscribe(data => {
-          this.emergencyData = data;
-          console.log(this.emergencyData);
         });
       });
     });
