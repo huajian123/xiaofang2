@@ -4,7 +4,10 @@ import {
 } from '../../../../../services/biz-services/earthquake-warning-list.service';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {NzMessageService} from 'ng-zorro-antd';
-import {AccidentDisastersListService, ResponsibilityModel} from '../../../../../services/biz-services/accident-disasters-list.service';
+import {
+  AccidentDisastersListService, EmergencyModel,
+  ResponsibilityModel
+} from '../../../../../services/biz-services/accident-disasters-list.service';
 import {debounceTime, distinctUntilChanged} from 'rxjs/operators';
 
 
@@ -22,6 +25,7 @@ export class HazardousComponent implements OnInit {
   cityName: string;
   plnId: number;
   responsibilityData: ResponsibilityModel[];
+  emergencyData: EmergencyModel[];
 
   constructor(private fb: FormBuilder, private dataServicers: AccidentDisastersListService,
               public message: NzMessageService, private cdr: ChangeDetectorRef) {
@@ -31,6 +35,7 @@ export class HazardousComponent implements OnInit {
     this.responsibilityEntities = [];
     this.cityName = '';
     this.responsibilityData = [];
+    this.emergencyData = [];
   }
 
 
@@ -56,6 +61,10 @@ export class HazardousComponent implements OnInit {
         this.dataServicers.getResponsibility({id: res.accidentId, planGrade: grade.grade}).subscribe(data => {
           this.responsibilityData = data;
           this.currentPage = grade.grade;
+        });
+        this.dataServicers.getEmergency({accidentId: res.accidentId, planGrade: grade.grade}).subscribe(data => {
+          this.emergencyData = data;
+          console.log(this.emergencyData);
         });
       });
     });
