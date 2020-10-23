@@ -1,16 +1,16 @@
 <div class="column-left" [@bounceInOnEnter]="{ value: '', params: { duration: 1000 }}">
   <div class="column-left-tab">
-    <div class="tab" (click)="changeTab()" [ngClass]="{'active':isClickLeft}">应急流程</div>
-    <div class="tab" (click)="changeTab(false)" [ngClass]="{'active':!isClickLeft}">应急厅</div>
+    <div class="tab" (click)="changeTab()" [ngClass]="{'active':isClickProess}">应急流程</div>
+    <div class="tab" (click)="changeTab(false)" [ngClass]="{'active':!isClickProess}">应急厅</div>
   </div>
-  <div class="block-wrap" [hidden]="!isClickLeft">
+  <div class="block-wrap" [hidden]="!isClickProess">
     <div class="block"
          *ngFor="let item of nameArray;let i=index;let f=first;let l=last;let e=even;let o=odd;trackBy:trackFunc"
          [ngClass]="{'sub-right displacement' : o,'sub-left' : e,'move' : e,'column-div-left-clicked':f}">
       <img class="block-img" src="{{'../../../../assets/imgs/new-img/left'+(i+1)+'.svg'}}" alt="">
       <p [innerHTML]="item"></p></div>
   </div>
-  <div class="block-wrap" [hidden]="isClickLeft">
+  <div class="block-wrap" [hidden]="isClickProess">
     <ul class="ul-wrap">
       <li class="ul-item" [ngClass]="{'active':f}"
           *ngFor="let item of emergencyRoomNameArray;let f=first;">{{item}}</li>

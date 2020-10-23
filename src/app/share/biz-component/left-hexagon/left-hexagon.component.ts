@@ -26,12 +26,15 @@ export class LeftHexagonComponent implements OnInit, AfterViewInit {
   @Input() nameArray: string[]; // 六边形流程的名称集合
   @Input() emergencyRoomNameArray: string[]; // 应急厅的部门名称集合
   @Output() clickReturn: EventEmitter<string>;
-  isClickLeft: boolean;
+  @Output() isClickLeft: EventEmitter<boolean>;
+  isClickProess: boolean;
 
   constructor(public element: ElementRef, private renderer2: Renderer2) {
     this.nameArray = [];
     this.clickReturn = new EventEmitter<string>();
-    this.isClickLeft = true;
+    this.isClickLeft = new EventEmitter<boolean>();
+    this.isClickLeft.emit(true);
+    this.isClickProess = true;
   }
 
   trackFunc = (index, item) => {
@@ -39,7 +42,8 @@ export class LeftHexagonComponent implements OnInit, AfterViewInit {
   }
 
   changeTab(isProcess = true) {
-    this.isClickLeft = isProcess;
+    this.isClickProess = isProcess;
+    this.isClickLeft.emit(isProcess);
     isProcess ? this.leftBlockClick() : this.leftDeptClick();
   }
 

@@ -18,6 +18,7 @@ import {
 export class HazardousOneComponent implements OnInit {
   @Input() responsibilityData: ResponsibilityModel[];
   @Input() emergencyRoomData: EmergencyModel[];
+  isCurrProcess: boolean;
   nameArray: string[];
   tableObj: ResponsibilityModel[];
   emergencyRoomNameArray: string[];
@@ -27,7 +28,12 @@ export class HazardousOneComponent implements OnInit {
     this.nameArray = [];
     this.tableObj = [];
     this.emergencyRoomNameArray = [];
+    this.isCurrProcess = true;
+  }
 
+  // 左侧tab切换
+  changeTab(event) {
+    this.isCurrProcess = event;
   }
 
   // 点击左侧六边形获取当前名字
