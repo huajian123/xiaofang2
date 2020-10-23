@@ -1,4 +1,14 @@
-import {Component, ElementRef, Input, OnChanges, OnInit, SimpleChanges, ViewChild} from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  Input,
+  OnChanges,
+  OnInit,
+  QueryList,
+  SimpleChanges,
+  ViewChild,
+  ViewChildren
+} from '@angular/core';
 import {TeamResponsibilityDTO} from '../../../services/biz-services/accident-disasters-list.service';
 
 export interface TableDataModel {
@@ -28,22 +38,30 @@ export class NewContentComponent implements OnInit, OnChanges {
   @ViewChild('distannce2') distannce2: ElementRef;
   @ViewChild('distannce3') distannce3: ElementRef;
   @ViewChild('distannce4') distannce4: ElementRef;
+  @ViewChildren('emergencyTable') emergencyTable: QueryList<ElementRef>;
+
 
   constructor() {
   }
 
   goDistance(index): void {
-    this['distannce' + index].nativeElement.scrollIntoView({
+    console.log(index);
+    this['distannce' + index]?.nativeElement.scrollIntoView({
+      behavior: 'smooth', block: 'start', inline: 'start'
+    });
+    this.emergencyTable['_results'][index - 1]?.nativeElement.scrollIntoView({
       behavior: 'smooth', block: 'start', inline: 'start'
     });
   }
 
   ngOnInit(): void {
+
   }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['isCurrProcess']) {
       if (!changes['isCurrProcess'].firstChange) {
+        console.log(this.emergencyTable);
         console.log(changes['isCurrProcess'].currentValue);
       }
     }

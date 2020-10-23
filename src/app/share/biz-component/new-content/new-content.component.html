@@ -68,10 +68,12 @@
       <td width="30%" align="center">部门岗位</td>
       <td class="text-style">职责</td>
     </tr>
-    <tr *ngFor="let item of EmergencyDataModel; let i = index">
-      <td align="center">{{item.officeName}}</td>
-      <td class="text-style">{{item.officeResponsibility}}<br/>{{item.goods}}</td>
-    </tr>
+    <ng-container *ngFor="let item of EmergencyDataModel; let i = index">
+      <tr #emergencyTable>
+        <td align="center">{{item.officeName}}</td>
+        <td class="text-style">{{item.officeResponsibility}}<br/>{{item.goods}}</td>
+      </tr>
+    </ng-container>
     </tbody>
   </table>
 </ng-container>

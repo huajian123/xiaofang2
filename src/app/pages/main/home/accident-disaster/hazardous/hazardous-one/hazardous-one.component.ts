@@ -27,12 +27,21 @@ export class HazardousOneComponent implements OnInit {
   level: number;
   emergencyRoomNameArray: string[];
   @ViewChild(NewContentComponent) tableContent: NewContentComponent;
+  leftNav: { name: string, index: number }[];
+
   constructor() {
     this.responsibilityData = [];
     this.nameArray = [];
     this.tableObj = [];
     this.emergencyObj = [];
     this.emergencyRoomNameArray = [];
+    this.leftNav = [
+      {name: '启动应急响应', index: 1},
+      {name: '成立指挥部', index: 2},
+      {name: '开展应急救援', index: 3},
+      {name: '事态控制', index: 4},
+      {name: '应急结束', index: 5},
+    ];
     this.isCurrProcess = true;
   }
 
@@ -42,33 +51,34 @@ export class HazardousOneComponent implements OnInit {
   }
 
   getCurrentLeftName(event) {
-    switch (event) {
-      case '启动应急响应':
-        console.log('启动应急响应');
-        this.tableContent.goDistance(1);
-        break;
-      case '成立指挥部':
-        console.log('成立指挥部');
-        this.tableContent.goDistance(2);
-        break;
-      case  '开展应急救援':
-        console.log('开展应急救援');
-        this.tableContent.goDistance(3);
-        break;
-      case  '事态控制':
-        console.log('事态控制');
-        this.tableContent.goDistance(4);
-        break;
-      case  '应急结束':
-        console.log('应急结束');
-        break;
-    }
+    console.log(this.leftNav);
+    const index = this.leftNav.find((item) => {
+      return item.name === event;
+    }).index;
+    this.tableContent.goDistance(index);
+    /* switch (event) {
+       case '启动应急响应':
+         this.tableContent.goDistance(1);
+         break;
+       case '成立指挥部':
+         this.tableContent.goDistance(2);
+         break;
+       case  '开展应急救援':
+         this.tableContent.goDistance(3);
+         break;
+       case  '事态控制':
+         this.tableContent.goDistance(4);
+         break;
+       case  '应急结束':
+         break;
+     }*/
   }
 
   getEmergencyRoomNameArray() {
     const temp = [];
-    this.emergencyRoomData.forEach(({officeName}) => {
+    this.emergencyRoomData.forEach(({officeName}, index) => {
       temp.push(officeName);
+      this.leftNav.push({name: officeName, index: index + 1});
     });
     return temp;
   }
