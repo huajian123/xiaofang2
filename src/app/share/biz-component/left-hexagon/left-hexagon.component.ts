@@ -44,7 +44,6 @@ export class LeftHexagonComponent implements OnInit, AfterViewInit {
   changeTab(isProcess = true) {
     this.isClickProess = isProcess;
     this.isClickLeft.emit(isProcess);
-    isProcess ? this.leftBlockClick() : this.leftDeptClick();
   }
 
   // 应急流程下六边形点击
