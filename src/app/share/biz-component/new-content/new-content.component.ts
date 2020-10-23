@@ -38,6 +38,7 @@ export class NewContentComponent implements OnInit, OnChanges {
   @ViewChild('distannce2') distannce2: ElementRef;
   @ViewChild('distannce3') distannce3: ElementRef;
   @ViewChild('distannce4') distannce4: ElementRef;
+  @ViewChild('distannce5') distannce5: ElementRef;
   @ViewChildren('emergencyTable') emergencyTable: QueryList<ElementRef>;
 
 

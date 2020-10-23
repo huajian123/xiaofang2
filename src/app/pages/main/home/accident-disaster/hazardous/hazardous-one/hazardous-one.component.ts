@@ -55,23 +55,8 @@ export class HazardousOneComponent implements OnInit {
     const index = this.leftNav.find((item) => {
       return item.name === event;
     }).index;
+    console.log(index);
     this.tableContent.goDistance(index);
-    /* switch (event) {
-       case '启动应急响应':
-         this.tableContent.goDistance(1);
-         break;
-       case '成立指挥部':
-         this.tableContent.goDistance(2);
-         break;
-       case  '开展应急救援':
-         this.tableContent.goDistance(3);
-         break;
-       case  '事态控制':
-         this.tableContent.goDistance(4);
-         break;
-       case  '应急结束':
-         break;
-     }*/
   }
 
   getEmergencyRoomNameArray() {
