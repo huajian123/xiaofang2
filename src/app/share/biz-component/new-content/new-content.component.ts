@@ -1,4 +1,4 @@
-import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {Component, ElementRef, Input, OnChanges, OnInit, SimpleChanges, ViewChild} from '@angular/core';
 import {TeamResponsibilityDTO} from '../../../services/biz-services/accident-disasters-list.service';
 
 export interface TableDataModel {
@@ -24,10 +24,19 @@ export class NewContentComponent implements OnInit, OnChanges {
   @Input() TableDataModel: TableDataModel[];
   @Input() isCurrProcess: boolean;
   @Input() EmergencyDataModel: EmergencyDataModel[];
+  @ViewChild('distannce1') distannce1: ElementRef;
+  @ViewChild('distannce2') distannce2: ElementRef;
+  @ViewChild('distannce3') distannce3: ElementRef;
+  @ViewChild('distannce4') distannce4: ElementRef;
 
   constructor() {
   }
 
+  goDistance(index): void {
+    this['distannce' + index].nativeElement.scrollIntoView({
+      behavior: 'smooth', block: 'start', inline: 'start'
+    });
+  }
 
   ngOnInit(): void {
   }

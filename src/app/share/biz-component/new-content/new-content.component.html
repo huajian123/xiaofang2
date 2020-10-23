@@ -7,17 +7,17 @@
       <td colspan="2" width="40%" align="center">应急工作内容</td>
       <td colspan="2" align="center">职能部门</td>
     </tr>
-    <tr>
+    <tr #distannce1>
       <td align="center">{{TableDataModel[0].responsibility}}</td>
       <td colspan="2" class="padding_22">{{TableDataModel[0].department}}</td>
       <td colspan="2" class="padding_22">{{TableDataModel[0].responsibilityDetail}}</td>
     </tr>
-    <tr>
+    <tr #distannce2>
       <td align="center">{{TableDataModel[1].responsibility}}</td>
       <td colspan="2" class="padding_22">{{TableDataModel[1].department}}</td>
       <td colspan="2" class="padding_22">{{TableDataModel[1].responsibilityDetail}}</td>
     </tr>
-    <tr>
+    <tr #distannce3>
       <td rowspan="19" align="center">{{TableDataModel[2].responsibility}}</td>
       <td class="height_93">{{TableDataModel[2].selectTeamResponsibilityDTO[0].teamName}}</td>
       <td class="padding_22">{{TableDataModel[2].selectTeamResponsibilityDTO[0].teamResponsibility}}
@@ -36,7 +36,7 @@
         <td align="center">{{item.coordinateDepartment}}</td>
       </tr>
     </ng-container>
-    <tr>
+    <tr #distannce4>
       <td align="center">{{TableDataModel[3].responsibility}}</td>
       <td colspan="2" class="padding_22">
         <ng-container *ngFor="let item of TableDataModel[3].responsibilityDetail;let i= index;">
@@ -47,7 +47,7 @@
         {{TableDataModel[3].department}}
       </td>
     </tr>
-    <tr>
+    <tr #distannce5>
       <td align="center">{{TableDataModel[4].responsibility}}</td>
       <td colspan="2" class="padding_22">
         <ng-container *ngFor="let item of TableDataModel[4].responsibilityDetail;let i= index;">
