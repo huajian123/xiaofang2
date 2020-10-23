@@ -61,7 +61,7 @@
 </ng-container>
 
 <!--应急厅表格布局-->
-<ng-container *ngIf="!isCurrProcess">
+<ng-container *ngIf="(level===1||level===2)&& !isCurrProcess">
   <table cellspacing="0" cellpadding="0">
     <tbody>
     <tr>
