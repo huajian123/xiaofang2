@@ -1,5 +1,5 @@
 <!--牵头、配合部门表格布局-->
-<ng-container>
+<ng-container *ngIf="(level===1||level===2)&& boole">
   <table cellpadding="0" cellspacing="0">
     <tbody>
     <tr>
@@ -61,58 +61,62 @@
 </ng-container>
 
 <!--应急厅表格布局-->
-<!--<table cellspacing="0" cellpadding="0">
-  <tbody>
-  <tr>
-    <td width="30%" align="center">分管危化业务工作副厅长</td>
-    <td class="text-style">带领业务处室相关同志赴事故现场，协助现场指挥开展应急救援工作</td>
-  </tr>
-  <tr>
-    <td align="center">分管应急工作副厅长</td>
-    <td class="text-style">1、向省领导汇报事故情况，请求启动省级应急；<br/>
-      2、赴省应急指挥中心，协助省指挥部总指挥指导应急救援；<br/>
-      3、协调各方应急救援力量参与应急救援
-    </td>
-  </tr>
-  <tr>
-    <td align="center">办公室</td>
-    <td class="text-style">1、发布应急响应启动通知文书；<br/>
-      2、协调省相关领导赴应急指挥中心；<br/>
-      3、做好事故救援过程中的新闻发布及采访组织活动；
-    </td>
-  </tr>
-  <tr>
-    <td align="center">应急指挥中心</td>
-    <td class="text-style">1、接收事故信息、预警预测信息，并向省人民政府汇报；<br/>
-      2、提请、衔接武警部队和解放军参与应急救援；<br/>
-      3、应急处置过程中，保持与现场指挥部、现场监测单位保持联系，并向指挥部汇报
-    </td>
-  </tr>
-  <tr>
-    <td align="center">救援协调和预案管理处（区域合作处）</td>
-    <td class="text-style">掌握社会救援力量情况，视情况动员参与救灾工作</td>
-  </tr>
-  </tbody>
-</table>-->
+<ng-container *ngIf="!boole">
+  <table cellspacing="0" cellpadding="0">
+    <tbody>
+    <tr>
+      <td width="30%" align="center">分管危化业务工作副厅长</td>
+      <td class="text-style">带领业务处室相关同志赴事故现场，协助现场指挥开展应急救援工作</td>
+    </tr>
+    <tr>
+      <td align="center">分管应急工作副厅长</td>
+      <td class="text-style">1、向省领导汇报事故情况，请求启动省级应急；<br/>
+        2、赴省应急指挥中心，协助省指挥部总指挥指导应急救援；<br/>
+        3、协调各方应急救援力量参与应急救援
+      </td>
+    </tr>
+    <tr>
+      <td align="center">办公室</td>
+      <td class="text-style">1、发布应急响应启动通知文书；<br/>
+        2、协调省相关领导赴应急指挥中心；<br/>
+        3、做好事故救援过程中的新闻发布及采访组织活动；
+      </td>
+    </tr>
+    <tr>
+      <td align="center">应急指挥中心</td>
+      <td class="text-style">1、接收事故信息、预警预测信息，并向省人民政府汇报；<br/>
+        2、提请、衔接武警部队和解放军参与应急救援；<br/>
+        3、应急处置过程中，保持与现场指挥部、现场监测单位保持联系，并向指挥部汇报
+      </td>
+    </tr>
+    <tr>
+      <td align="center">救援协调和预案管理处（区域合作处）</td>
+      <td class="text-style">掌握社会救援力量情况，视情况动员参与救灾工作</td>
+    </tr>
+    </tbody>
+  </table>
+</ng-container>
+
 <!--三四级表格布局-->
-<!--<table cellpadding="0" cellspacing="0">
-  <tbody>
-  <tr>
-    <td align="center">应急响应流程</td>
-    <td colspan="2" align="center">应急组织</td>
-    <td align="center">职责</td>
-  </tr>
-  <tr>
-    <td align="center">事故信息接收</td>
-    <td align="center">省应急管理厅</td>
-    <td align="center">应急指挥中心</td>
-    <td align="center"></td>
-  </tr>
-  <tr>
-    <td align="center">应急指导</td>
-    <td align="center">省应急管理厅</td>
-    <td align="center">危险化学品安全监督管理处</td>
-    <td align="center">指导市县应急救援</td>
-  </tr>
-  </tbody>
-</table>-->
+<ng-container *ngIf="level===3||level===4">
+  <table cellpadding="0" cellspacing="0">
+    <tbody>
+    <tr>
+      <td align="center">应急响应流程</td>
+      <td align="center">应急组织</td>
+      <td align="center">职责</td>
+    </tr>
+    <tr>
+      <td align="center">{{TableDataModel[0].responsibility}}</td>
+      <td align="center">{{TableDataModel[0].department}}</td>
+      <td align="center">{{TableDataModel[0].responsibilityDetail}}</td>
+    </tr>
+    <tr>
+      <td align="center">{{TableDataModel[1].responsibility}}</td>
+      <td align="center">{{TableDataModel[1].department}}</td>
+      <td align="center">{{TableDataModel[1].responsibilityDetail}}</td>
+    </tr>
+    </tbody>
+  </table>
+</ng-container>
+

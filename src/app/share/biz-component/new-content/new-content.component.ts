@@ -14,10 +14,14 @@ export interface TableDataModel {
   styleUrls: ['./new-content.component.less']
 })
 export class NewContentComponent implements OnInit, OnChanges {
+  @Input() level: number;
   @Input() TableDataModel: TableDataModel[];
   @Input() isCurrProcess: boolean;
+  boole: boolean;
 
+  /* @Input() paramsTemplete: string;*/
   constructor() {
+    this.boole = true;
 
   }
 

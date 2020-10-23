@@ -17,10 +17,12 @@ import {
 })
 export class HazardousOneComponent implements OnInit {
   @Input() responsibilityData: ResponsibilityModel[];
+  @Input() currentPage: number;
   @Input() emergencyRoomData: EmergencyModel[];
   isCurrProcess: boolean;
   nameArray: string[];
   tableObj: ResponsibilityModel[];
+  level: number;
   emergencyRoomNameArray: string[];
 
   constructor() {
@@ -40,14 +42,19 @@ export class HazardousOneComponent implements OnInit {
   getCurrentLeftName(event) {
     switch (event) {
       case '启动应急响应':
+        console.log('启动应急响应');
         break;
       case '成立指挥部':
+        console.log('成立指挥部');
         break;
       case  '开展应急救援':
+        console.log('开展应急救援');
         break;
       case  '事态控制':
+        console.log('事态控制');
         break;
       case  '应急结束':
+        console.log('应急结束');
         break;
     }
   }
@@ -68,6 +75,7 @@ export class HazardousOneComponent implements OnInit {
       '事态控制',
       '应急结束'
     ];
+    this.level = this.currentPage;
     this.tableObj = this.responsibilityData;
     this.getCurrentLeftName('启动应急响应');
     this.emergencyRoomNameArray = this.getEmergencyRoomNameArray();
