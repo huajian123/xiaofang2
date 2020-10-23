@@ -49,33 +49,6 @@
       </div>
       <div nz-col [nzSpan]="8"></div>
     </div>
-    <!-- <div nz-row>
-       <div nz-col [nzSpan]="24">
-         <nz-form-item>
-           <nz-form-label [nzSpan]="4">发生灾害地区</nz-form-label>
-           <nz-form-control [nzSpan]="20">
-             <div nz-row>
-               <div nz-col [nzSpan]="4">
-                 <nz-select class="margin-none" nzPlaceHolder="下拉选择" formControlName="cityId"
-                            (ngModelChange)="changeProvince($event)">
-                   <nz-option *ngFor="let item of provinceData" [nzValue]="item.value"
-                              [nzLabel]="item.label"></nz-option>
-                 </nz-select>
-               </div>
-               <div nz-col class="font-sel" [nzSpan]="1">市</div>
-               <div nz-col [nzSpan]="4">
-                 <nz-select class="margin-none" nzPlaceHolder="下拉选择" formControlName="areaId"
-                 >
-                   <nz-option *ngFor="let c of cityData" [nzValue]="c.value"
-                              [nzLabel]="c.label"></nz-option>
-                 </nz-select>
-               </div>
-               <div nz-col class="font-sel" [nzSpan]="3"> 区(县)</div>
-             </div>
-           </nz-form-control>
-         </nz-form-item>
-       </div>
-     </div>-->
   </form>
 </section>
 <div class="drive">
@@ -84,9 +57,10 @@
 </div>
 
 <ng-container *ngIf="currentPage===1||currentPage===2">
-  <app-hazardous-one [emergencyRoomData]="emergencyData" [responsibilityData]="responsibilityData"></app-hazardous-one>
+  <app-hazardous-one [emergencyRoomData]="emergencyData" [responsibilityData]="responsibilityData"
+                     [currentPage]="currentPage"></app-hazardous-one>
 </ng-container>
 <ng-container *ngIf="currentPage===3||currentPage===4">
-  <app-hazardous-three></app-hazardous-three>
+  <app-hazardous-three [responsibilityData]="responsibilityData" [currentPage]="currentPage"></app-hazardous-three>
 </ng-container>
 

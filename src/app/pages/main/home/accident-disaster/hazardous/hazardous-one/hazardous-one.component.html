@@ -3,7 +3,7 @@
                     [nameArray]="nameArray"></app-left-hexagon>
   <div [@bounceInOnEnter]="{ value: '', params: { duration: 1000 }}">
     <div class="column-right">
-      <app-new-content [TableDataModel]="tableObj"></app-new-content>
+      <app-new-content [TableDataModel]="tableObj" [level]="currentPage"></app-new-content>
     </div>
   </div>
 </div>

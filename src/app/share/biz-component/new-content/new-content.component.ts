@@ -14,15 +14,17 @@ export interface TableDataModel {
   styleUrls: ['./new-content.component.less']
 })
 export class NewContentComponent implements OnInit {
+  @Input() level: number;
   @Input() TableDataModel: TableDataModel[];
+  boole: boolean;
 
   /* @Input() paramsTemplete: string;*/
   constructor() {
+    this.boole = true;
 
   }
 
   ngOnInit(): void {
-    console.log(this.TableDataModel[2].selectTeamResponsibilityDTO[0].teamName);
   }
 
 }
