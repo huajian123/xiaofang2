@@ -22,6 +22,7 @@ export class HazardousOneComponent implements OnInit {
   isCurrProcess: boolean;
   nameArray: string[];
   tableObj: ResponsibilityModel[];
+  emergencyObj: EmergencyModel[];
   level: number;
   emergencyRoomNameArray: string[];
 
@@ -29,12 +30,13 @@ export class HazardousOneComponent implements OnInit {
     this.responsibilityData = [];
     this.nameArray = [];
     this.tableObj = [];
+    this.emergencyObj = [];
     this.emergencyRoomNameArray = [];
     this.isCurrProcess = true;
   }
 
   // 左侧tab切换
-  changeTab(event) {
+  changeState(event) {
     this.isCurrProcess = event;
   }
 
@@ -76,6 +78,7 @@ export class HazardousOneComponent implements OnInit {
       '应急结束'
     ];
     this.level = this.currentPage;
+    this.emergencyObj = this.emergencyRoomData;
     this.tableObj = this.responsibilityData;
     this.getCurrentLeftName('启动应急响应');
     this.emergencyRoomNameArray = this.getEmergencyRoomNameArray();

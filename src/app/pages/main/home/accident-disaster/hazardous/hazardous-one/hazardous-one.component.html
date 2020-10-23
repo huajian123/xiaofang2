@@ -1,9 +1,11 @@
 <div class="column-lay">
-  <app-left-hexagon [emergencyRoomNameArray]="emergencyRoomNameArray" (clickReturn)="getCurrentLeftName($event)"
+  <app-left-hexagon (isClickLeft)="changeState($event)" [emergencyRoomNameArray]="emergencyRoomNameArray"
+                    (clickReturn)="getCurrentLeftName($event)"
                     [nameArray]="nameArray"></app-left-hexagon>
   <div [@bounceInOnEnter]="{ value: '', params: { duration: 1000 }}">
     <div class="column-right">
-      <app-new-content [isCurrProcess]="isCurrProcess" [level]="currentPage" [TableDataModel]="tableObj"></app-new-content>
+      <app-new-content [isCurrProcess]="isCurrProcess" [level]="currentPage"
+                       [TableDataModel]="tableObj" [EmergencyDataModel]="emergencyObj"></app-new-content>
     </div>
   </div>
 </div>
