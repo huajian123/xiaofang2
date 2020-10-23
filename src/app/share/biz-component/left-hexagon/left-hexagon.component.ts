@@ -23,7 +23,8 @@ import {bounceInOnEnterAnimation, lightSpeedInOnEnterAnimation} from 'angular-an
   ]
 })
 export class LeftHexagonComponent implements OnInit, AfterViewInit {
-  @Input() nameArray: string[];
+  @Input() nameArray: string[]; // 六边形流程的名称集合
+  @Input() emergencyRoomNameArray: string[]; // 应急厅的部门名称集合
   @Output() clickReturn: EventEmitter<string>;
   isClickLeft: boolean;
   svgArray = [];

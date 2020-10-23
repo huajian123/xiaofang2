@@ -12,18 +12,7 @@
   </div>
   <div class="block-wrap" [hidden]="isClickLeft">
     <ul class="ul-wrap">
-      <li class="ul-item">厅长</li>
-      <li class="ul-item">厅长</li>
-      <li class="ul-item">厅长</li>
-      <li class="ul-item">厅长</li>
-      <li class="ul-item">厅长</li>
-      <li class="ul-item">厅长</li>
-      <li class="ul-item">厅长</li>
-      <li class="ul-item">厅长</li>
-      <li class="ul-item">厅长</li>
-      <li class="ul-item">厅长</li>
-      <li class="ul-item">厅长</li>
-      <li class="ul-item">厅长</li>
+      <li class="ul-item" *ngFor="let item of emergencyRoomNameArray">{{item}}</li>
     </ul>
   </div>
 

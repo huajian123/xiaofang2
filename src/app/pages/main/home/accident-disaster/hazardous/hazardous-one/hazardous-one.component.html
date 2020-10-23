@@ -1,5 +1,6 @@
 <div class="column-lay">
-  <app-left-hexagon (clickReturn)="getCurrentLeftName($event)" [nameArray]="nameArray"></app-left-hexagon>
+  <app-left-hexagon [emergencyRoomNameArray]="emergencyRoomNameArray" (clickReturn)="getCurrentLeftName($event)"
+                    [nameArray]="nameArray"></app-left-hexagon>
   <div [@bounceInOnEnter]="{ value: '', params: { duration: 1000 }}">
     <div class="column-right">
       <app-new-content [TableDataModel]="tableObj"></app-new-content>

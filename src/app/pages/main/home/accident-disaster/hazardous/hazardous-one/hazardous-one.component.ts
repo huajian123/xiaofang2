@@ -1,6 +1,9 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {bounceInOnEnterAnimation, lightSpeedInOnEnterAnimation} from 'angular-animations';
-import {ResponsibilityModel} from '../../../../../../services/biz-services/accident-disasters-list.service';
+import {
+  EmergencyModel,
+  ResponsibilityModel
+} from '../../../../../../services/biz-services/accident-disasters-list.service';
 
 
 @Component({
@@ -14,13 +17,16 @@ import {ResponsibilityModel} from '../../../../../../services/biz-services/accid
 })
 export class HazardousOneComponent implements OnInit {
   @Input() responsibilityData: ResponsibilityModel[];
+  @Input() emergencyRoomData: EmergencyModel[];
   nameArray: string[];
   tableObj: ResponsibilityModel[];
+  emergencyRoomNameArray: string[];
 
   constructor() {
     this.responsibilityData = [];
     this.nameArray = [];
     this.tableObj = [];
+    this.emergencyRoomNameArray = [];
 
   }
 
@@ -40,6 +46,14 @@ export class HazardousOneComponent implements OnInit {
     }
   }
 
+  getEmergencyRoomNameArray() {
+    const temp = [];
+    this.emergencyRoomData.forEach(({officeName}) => {
+      temp.push(officeName);
+    });
+    return temp;
+  }
+
   ngOnInit(): void {
     this.nameArray = [
       '启动应急响应',
@@ -50,6 +64,7 @@ export class HazardousOneComponent implements OnInit {
     ];
     this.tableObj = this.responsibilityData;
     this.getCurrentLeftName('启动应急响应');
+    this.emergencyRoomNameArray = this.getEmergencyRoomNameArray();
   }
 
 }

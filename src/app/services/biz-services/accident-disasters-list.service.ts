@@ -40,6 +40,14 @@ export interface EarthquakeModel extends ShowDecideGradeModel {
   earthquakeSea?: number;
 }
 
+/*应急厅管理信息*/
+export interface EmergencyModel {
+  officeName: string;
+  officeResponsibility: string[];
+  goods: string[];
+}
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -52,6 +60,11 @@ export class AccidentDisastersListService extends BaseHttp {
   /*查询部门岗位信息*/
   public getResponsibility(param: { id: number, planGrade: number }): Observable<ResponsibilityModel[]> {
     return this.get('/responsibility/' + param.id + '/' + param.planGrade, {});
+  }
+
+  /*查询应急厅部门岗位*/
+  public getEmergency(param: { accidentId: number, planGrade: number }): Observable<EmergencyModel[]> {
+    return this.get('/office-responsibility/' + param.accidentId + '/' + param.planGrade, {});
   }
 
   public getDecideGrade(params: ShowDecideGradeModel): Observable<{ plnId: number, grade: number; }> {
