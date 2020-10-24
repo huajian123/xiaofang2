@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {LoginInfoModel} from '../../../../../../core/vo-common/BusinessEnum';
 import {CitiesNameService, ResponsibilityEntitiesModel} from '../../../../../../services/biz-services/earthquake-warning-list.service';
 import {TabObjModel} from '../../../../../../share/biz-component/biz-tabs/biz-tabs.component';
@@ -6,6 +6,11 @@ import {UserRole} from '../../../../../../VO/types';
 import {EVENT_KEY} from '../../../../../../../environments/staticVariable';
 import {getEarthquakeOneTabObj} from './earthquake-one-tab-obj';
 import {bounceInOnEnterAnimation, lightSpeedInOnEnterAnimation} from 'angular-animations';
+import {
+  EmergencyModel,
+  ResponsibilityModel
+} from "../../../../../../services/biz-services/accident-disasters-list.service";
+import {NewContentComponent} from "../../../../../../share/biz-component/new-content/new-content.component";
 
 
 @Component({
@@ -18,100 +23,71 @@ import {bounceInOnEnterAnimation, lightSpeedInOnEnterAnimation} from 'angular-an
   ]
 })
 export class EarthquakeOneComponent implements OnInit {
-  loginInfo: LoginInfoModel;
+  @Input() responsibilityData: ResponsibilityModel[];
+  @Input() currentPage: number;
+  @Input() emergencyRoomData: EmergencyModel[];
+  isCurrProcess: boolean;
   nameArray: string[];
-  firstSelTabOneLevelId: number;
-  firstSelTabTwoLevelId: number;
-  firstSelTabThreeLevelId: number;
-  showInfo: ResponsibilityEntitiesModel;
-  tabObj: TabObjModel[];
-  cityName: string;
+  tableObj: ResponsibilityModel[];
+  emergencyObj: EmergencyModel[];
+  level: number;
+  emergencyRoomNameArray: string[];
+  @ViewChild(NewContentComponent) tableContent: NewContentComponent;
+  leftNav: { name: string, index: number }[];
 
-  constructor(private dataService: CitiesNameService) {
-    this.cityName = '';
-    this.showInfo = {
-      linkman: '',
-      linkPhone: '',
-      responsibilityDetailSort: [],
-      beforeResponsibilityNameSort: [],
-      responsibilityNameSort: []
-    };
+  constructor() {
+    this.responsibilityData = [];
     this.nameArray = [];
-    this.tabObj = [];
-    this.firstSelTabOneLevelId = null;
-    this.firstSelTabTwoLevelId = null;
-    this.firstSelTabThreeLevelId = null;
+    this.tableObj = [];
+    this.emergencyObj = [];
+    this.emergencyRoomNameArray = [];
+    this.leftNav = [
+      {name: '启动应急响应', index: 1},
+      {name: '成立指挥部', index: 2},
+      {name: '开展应急救援', index: 3},
+      {name: '事态控制', index: 4},
+      {name: '应急结束', index: 5},
+    ];
+    this.isCurrProcess = true;
   }
 
-  // 点击左侧六边形获取当前名字
+  // 左侧tab切换
+  changeState(event) {
+    this.isCurrProcess = event;
+  }
+
   getCurrentLeftName(event) {
-    // 获取对应左侧六变形的tab页签
-    this.tabObj = getEarthquakeOneTabObj(event);
-    this.firstSelTabOneLevelId = this.tabObj[0].id;
-    if (this.tabObj[0].children) {
-      this.firstSelTabTwoLevelId = this.tabObj[0].children[0].id;
-      if (this.tabObj[0].children[0].children) {
-        this.firstSelTabThreeLevelId = this.tabObj[0].children[0].children[0].id;
-      } else {
-        this.firstSelTabThreeLevelId = null;
-      }
-    } else {
-      this.firstSelTabTwoLevelId = null;
-      this.firstSelTabThreeLevelId = null;
-    }
+    console.log(this.leftNav);
+    const index = this.leftNav.find((item) => {
+      return item.name === event;
+    }).index;
+    console.log(index);
+    this.tableContent.goDistance(index);
   }
 
-  // 获取当前选中的tabId
-/*  getSelId(event) {
-    // event就是选中的tabId调用接口后获得
-    this.dataService.getGroupInfo({id: event, cityName: this.cityName}).subscribe(res => {
-      this.showInfo = res.selectResponsibilityDTO;
-    });
-  }*/
 
-  // 判断角色
-  judgRole() {
-    if (this.loginInfo.role === UserRole.User) {
-      this.nameArray = [
-        '启动应急响应',
-        '组建现场<br/>指挥部',
-        '分组开展<br/>应急救援工作',
-        '应急保障',
-        '辅助指挥<br/>决策一张图',
-        '现场信息采集',
-        '事态控制',
-        '善后处理<br/>与事故调查'
-      ];
-      this.getCurrentLeftName('启动应急响应');
-    } else if (this.loginInfo.role === UserRole.Manage) {
-      this.nameArray = [
-        '省级接警',
-        '预警监测',
-        '灾情研判分析',
-        '应急响应建议',
-        '信息上报',
-        '先期处置',
-        '启动应急响应',
-        '分组开展<br/>应急救援工作',
-        '救援力量<br/>投入方案',
-        '通信保障<br/>方案',
-        '救灾资金<br/>物资支持方案',
-        '发布救灾<br/>捐赠公告',
-        '新闻方案',
-        '辅助指挥<br/>决策一张图',
-        '现场信息采集',
-        '事态控制',
-        '善后处理<br/>与事故调查'
-      ];
-      this.getCurrentLeftName('省级接警');
-    }
-    // 页面初始化时获取的岗位职责信息
-    //  this.getSelId(this.firstSelTabThreeLevelId || this.firstSelTabTwoLevelId || this.firstSelTabOneLevelId);
+  getEmergencyRoomNameArray() {
+    const temp = [];
+    this.emergencyRoomData.forEach(({officeName}, index) => {
+      temp.push(officeName);
+      this.leftNav.push({name: officeName, index: index + 1});
+    });
+    return temp;
   }
 
 
   ngOnInit(): void {
-    this.loginInfo = JSON.parse(window.sessionStorage.getItem(EVENT_KEY.loginInfo));
-    this.judgRole();
+    this.nameArray = [
+      '启动应急响应',
+      '成立指挥部',
+      '开展应急救援',
+      '事态控制',
+      '应急结束'
+    ];
+    this.level = this.currentPage;
+    this.emergencyObj = this.emergencyRoomData;
+    this.tableObj = this.responsibilityData;
+    this.emergencyRoomNameArray = this.getEmergencyRoomNameArray();
+
   }
 }

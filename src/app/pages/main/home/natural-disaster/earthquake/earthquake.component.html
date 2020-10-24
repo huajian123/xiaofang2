@@ -1,85 +1,58 @@
-<ng-container *ngIf="!selAlarm">
-  <section class="layout-content" *ngIf="isShowStandard">
-    <form [formGroup]="validateForm">
-      <div nz-row>
-        <div nz-col [nzSpan]="8">
-          <nz-form-item>
-            <nz-form-label [nzSpan]="12">死亡人数（含失踪）</nz-form-label>
-            <nz-form-control [nzSpan]="12">
-              <nz-input-number [nzMax]="99999999" nzPlaceHolder="死亡人数（含失踪）" formControlName="peopleLossAndDie"
-                               [nzMin]="1"></nz-input-number>
-            </nz-form-control>
-          </nz-form-item>
-        </div>
-        <div nz-col [nzSpan]="8">
-          <nz-form-item>
-            <nz-form-label [nzSpan]="12">直接经济损失</nz-form-label>
-            <nz-form-control [nzSpan]="12">
-              <nz-select class="margin-none" nzPlaceHolder="下拉选择" formControlName="propertyLossGrade">
-                <nz-option *ngFor="let item of earthquakeEconomicLevelOptions" [nzValue]="item.value"
-                           [nzLabel]="item.label"></nz-option>
-              </nz-select>
-            </nz-form-control>
-          </nz-form-item>
-        </div>
-        <div nz-col [nzSpan]="8">
-          <nz-form-item>
-            <nz-form-label [nzSpan]="12">省陆地行政区域震级</nz-form-label>
-            <nz-form-control [nzSpan]="12">
-              <nz-input-number [nzMax]="9.9" nzPrecision="1" nzPlaceHolder="省陆地行政区域震级" formControlName="earthquakeLand"
-                               [nzMin]="1"></nz-input-number>
-            </nz-form-control>
-          </nz-form-item>
-        </div>
-        <div nz-col [nzSpan]="16">
-          <nz-form-item>
-            <nz-form-label [nzSpan]="12">近海海域50千米震级或我省陆地边界50千米以内的邻省震级</nz-form-label>
-            <nz-form-control [nzSpan]="4">
-              <nz-input-number nzPlaceHolder="近海海域50千米震级"
-                               [nzMax]="9.9" nzPrecision="1"
-                               formControlName="earthquakeSea"
-                               [nzMin]="1"></nz-input-number>
-            </nz-form-control>
-          </nz-form-item>
-        </div>
+<section class="layout-content" *ngIf="isShowStandard">
+  <form [formGroup]="validateForm">
+    <div nz-row>
+      <div nz-col [nzSpan]="8">
+        <nz-form-item>
+          <nz-form-label [nzSpan]="12">死亡人数（含失踪）</nz-form-label>
+          <nz-form-control [nzSpan]="12">
+            <nz-input-number [nzMax]="99999999" nzPlaceHolder="死亡人数（含失踪）" formControlName="peopleLossAndDie"
+                             [nzMin]="1"></nz-input-number>
+          </nz-form-control>
+        </nz-form-item>
       </div>
-      <!-- <div nz-row>
-         <div nz-col [nzSpan]="24">
-           <nz-form-item>
-             <nz-form-label [nzSpan]="4">发生灾害地区</nz-form-label>
-             <nz-form-control [nzSpan]="20">
-               <div nz-row>
-                 <div nz-col [nzSpan]="4">
-                   <nz-select class="margin-none" nzPlaceHolder="下拉选择" formControlName="cityId"
-                              (ngModelChange)="changeProvince($event)">
-                     <nz-option *ngFor="let item of provinceData" [nzValue]="item.value"
-                                [nzLabel]="item.label"></nz-option>
-                   </nz-select>
-                 </div>
-                 <div nz-col class="font-sel" [nzSpan]="1">市</div>
-                 <div nz-col [nzSpan]="4">
-                   <nz-select class="margin-none" nzPlaceHolder="下拉选择" formControlName="areaId"
-                   >
-                     <nz-option *ngFor="let c of cityData" [nzValue]="c.value"
-                                [nzLabel]="c.label"></nz-option>
-                   </nz-select>
-                 </div>
-                 <div nz-col class="font-sel" [nzSpan]="3"> 区(县)</div>
-               </div>
-             </nz-form-control>
-           </nz-form-item>
-         </div>
-       </div>-->
-    </form>
-  </section>
-  <div class="drive">
-    <div [ngClass]="{'show-btn':isShowStandard,'hide-btn':!isShowStandard}"
-         (click)="isShowStandard=!isShowStandard"></div>
-  </div>
-</ng-container>
+      <div nz-col [nzSpan]="8">
+        <nz-form-item>
+          <nz-form-label [nzSpan]="12">直接经济损失</nz-form-label>
+          <nz-form-control [nzSpan]="12">
+            <nz-select class="margin-none" nzPlaceHolder="下拉选择" formControlName="propertyLossGrade">
+              <nz-option *ngFor="let item of earthquakeEconomicLevelOptions" [nzValue]="item.value"
+                         [nzLabel]="item.label"></nz-option>
+            </nz-select>
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+      <div nz-col [nzSpan]="8">
+        <nz-form-item>
+          <nz-form-label [nzSpan]="12">省陆地行政区域震级</nz-form-label>
+          <nz-form-control [nzSpan]="12">
+            <nz-input-number [nzMax]="9.9" nzPrecision="1" nzPlaceHolder="省陆地行政区域震级" formControlName="earthquakeLand"
+                             [nzMin]="1"></nz-input-number>
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+      <div nz-col [nzSpan]="16">
+        <nz-form-item>
+          <nz-form-label [nzSpan]="12">近海海域50千米震级或我省陆地边界50千米以内的邻省震级</nz-form-label>
+          <nz-form-control [nzSpan]="4">
+            <nz-input-number nzPlaceHolder="近海海域50千米震级"
+                             [nzMax]="9.9" nzPrecision="1"
+                             formControlName="earthquakeSea"
+                             [nzMin]="1"></nz-input-number>
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+    </div>
+  </form>
+</section>
+<div class="drive">
+  <div [ngClass]="{'show-btn':isShowStandard,'hide-btn':!isShowStandard}"
+       (click)="isShowStandard=!isShowStandard"></div>
+</div>
+
 <ng-container *ngIf="currentPage===1||currentPage===2">
-  <app-earthquake-one></app-earthquake-one>
+  <app-earthquake-one [emergencyRoomData]="emergencyData" [responsibilityData]="responsibilityData"
+                      [currentPage]="currentPage"></app-earthquake-one>
 </ng-container>
 <ng-container *ngIf="currentPage===3||currentPage===4">
-  <app-earthquake-three></app-earthquake-three>
+  <app-earthquake-three [responsibilityData]="responsibilityData" [currentPage]="currentPage"></app-earthquake-three>
 </ng-container>
