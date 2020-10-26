@@ -58,7 +58,7 @@
 
 <ng-container *ngIf="currentPage===1||currentPage===2">
   <app-hazardous-one [emergencyRoomData]="emergencyData" [responsibilityData]="responsibilityData"
-                     [currentPage]="currentPage"></app-hazardous-one>
+                     [currentPage]="currentPage" [rowspanNum]="rowspanNum"></app-hazardous-one>
 </ng-container>
 <ng-container *ngIf="currentPage===3||currentPage===4">
   <app-hazardous-three [responsibilityData]="responsibilityData" [currentPage]="currentPage"></app-hazardous-three>

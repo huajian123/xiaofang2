@@ -51,7 +51,7 @@
 
 <ng-container *ngIf="currentPage===1||currentPage===2">
   <app-earthquake-one [emergencyRoomData]="emergencyData" [responsibilityData]="responsibilityData"
-                      [currentPage]="currentPage"></app-earthquake-one>
+                      [currentPage]="currentPage" [rowspanNum]="rowspanNum"></app-earthquake-one>
 </ng-container>
 <ng-container *ngIf="currentPage===3||currentPage===4">
   <app-earthquake-three [responsibilityData]="responsibilityData" [currentPage]="currentPage"></app-earthquake-three>

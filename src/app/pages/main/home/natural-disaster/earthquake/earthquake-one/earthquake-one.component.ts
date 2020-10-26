@@ -9,8 +9,8 @@ import {bounceInOnEnterAnimation, lightSpeedInOnEnterAnimation} from 'angular-an
 import {
   EmergencyModel,
   ResponsibilityModel
-} from "../../../../../../services/biz-services/accident-disasters-list.service";
-import {NewContentComponent} from "../../../../../../share/biz-component/new-content/new-content.component";
+} from '../../../../../../services/biz-services/accident-disasters-list.service';
+import {NewContentComponent} from '../../../../../../share/biz-component/new-content/new-content.component';
 
 
 @Component({
@@ -26,16 +26,19 @@ export class EarthquakeOneComponent implements OnInit {
   @Input() responsibilityData: ResponsibilityModel[];
   @Input() currentPage: number;
   @Input() emergencyRoomData: EmergencyModel[];
+  @Input() rowspanNum: number;
   isCurrProcess: boolean;
   nameArray: string[];
   tableObj: ResponsibilityModel[];
   emergencyObj: EmergencyModel[];
   level: number;
+  rowspans: number;
   emergencyRoomNameArray: string[];
   @ViewChild(NewContentComponent) tableContent: NewContentComponent;
   leftNav: { name: string, index: number }[];
 
   constructor() {
+    this.rowspans = 0;
     this.responsibilityData = [];
     this.nameArray = [];
     this.tableObj = [];
@@ -84,6 +87,7 @@ export class EarthquakeOneComponent implements OnInit {
       '事态控制',
       '应急结束'
     ];
+    this.rowspans = this.rowspanNum;
     this.level = this.currentPage;
     this.emergencyObj = this.emergencyRoomData;
     this.tableObj = this.responsibilityData;

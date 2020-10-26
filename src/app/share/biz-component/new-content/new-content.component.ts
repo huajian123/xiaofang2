@@ -31,6 +31,7 @@ export interface EmergencyDataModel {
 })
 export class NewContentComponent implements OnInit, OnChanges {
   @Input() level: number;
+  @Input() rowspanNum: number;
   @Input() TableDataModel: TableDataModel[];
   @Input() isCurrProcess: boolean;
   @Input() EmergencyDataModel: EmergencyDataModel[];
@@ -56,13 +57,11 @@ export class NewContentComponent implements OnInit, OnChanges {
   }
 
   ngOnInit(): void {
-
   }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['isCurrProcess']) {
       if (!changes['isCurrProcess'].firstChange) {
-        console.log(this.emergencyTable);
         console.log(changes['isCurrProcess'].currentValue);
       }
     }

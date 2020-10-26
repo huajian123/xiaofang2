@@ -27,6 +27,7 @@ export class HazardousComponent implements OnInit {
   plnId: number;
   responsibilityData: ResponsibilityModel[];
   emergencyData: EmergencyModel[];
+  rowspanNum: number;
 
   constructor(private fb: FormBuilder, private dataServicers: AccidentDisastersListService,
               public message: NzMessageService, private cdr: ChangeDetectorRef) {
@@ -37,6 +38,7 @@ export class HazardousComponent implements OnInit {
     this.cityName = '';
     this.responsibilityData = [];
     this.emergencyData = [];
+    this.rowspanNum = 0;
   }
 
 
@@ -65,6 +67,9 @@ export class HazardousComponent implements OnInit {
           this.responsibilityData = result[0];
           this.emergencyData = result[1];
           this.currentPage = grade.grade;
+          if (this.currentPage === 1 || this.currentPage === 2) {
+            this.rowspanNum = 19;
+          }
         });
       });
     });

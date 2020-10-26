@@ -18,7 +18,7 @@
       <td colspan="2" class="padding_22">{{TableDataModel[1].department}}</td>
     </tr>
     <tr #distannce3>
-      <td rowspan="19" align="center">{{TableDataModel[2].responsibility}}</td>
+      <td [attr.rowspan]="rowspanNum" align="center">{{TableDataModel[2].responsibility}}</td>
       <td class="height_93">{{TableDataModel[2].selectTeamResponsibilityDTO[0].teamName}}</td>
       <td class="padding_22">{{TableDataModel[2].selectTeamResponsibilityDTO[0].teamResponsibility}}
       </td>

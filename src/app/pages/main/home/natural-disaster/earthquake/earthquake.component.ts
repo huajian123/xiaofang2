@@ -12,7 +12,7 @@ import {
 import {NzMessageService} from 'ng-zorro-antd';
 import {debounceTime, distinctUntilChanged} from 'rxjs/operators';
 import {MapPipe, MapSet} from '../../../../../share/directives/pipe/map.pipe';
-import {forkJoin} from "rxjs";
+import {forkJoin} from 'rxjs';
 
 
 interface OptionsInterface {
@@ -36,7 +36,7 @@ export class EarthquakeComponent implements OnInit {
   currentPage: number;
   validateForm: FormGroup;
   earthquakeEconomicLevelOptions: OptionsInterface[];
-  dataInfo: CitiesNameModel[];
+  rowspanNum: number;
   responsibilityEntities: DepartInfoModel[];
   cityName: string;
   plnId: number;
@@ -53,6 +53,7 @@ export class EarthquakeComponent implements OnInit {
     this.earthquakeEconomicLevelOptions = [];
     this.responsibilityData = [];
     this.emergencyData = [];
+    this.rowspanNum = 0;
   }
 
   initForm() {
@@ -80,6 +81,9 @@ export class EarthquakeComponent implements OnInit {
           this.responsibilityData = result[0];
           this.emergencyData = result[1];
           this.currentPage = grade.grade;
+          if (this.currentPage === 1 || this.currentPage === 2) {
+            this.rowspanNum = 25;
+          }
         });
       });
     });
