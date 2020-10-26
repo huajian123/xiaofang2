@@ -68,10 +68,19 @@
       <td width="30%" align="center">部门岗位</td>
       <td class="text-style">职责</td>
     </tr>
-    <ng-container *ngFor="let item of EmergencyDataModel; let i = index">
+    <ng-container *ngFor="let item of EmergencyDataModel; let i = index;let l=last">
       <tr #emergencyTable>
         <td align="center">{{item.officeName}}</td>
-        <td class="text-style">{{item.officeResponsibility}}<br/>{{item.goods}}</td>
+        <td class="text-style">
+          <span *ngFor="let officeResponsibilityItem of item.officeResponsibility;let bi=index;let bl=last">
+          <span *ngIf="item.officeResponsibility.length>1">{{bi + 1}}:
+          </span>{{officeResponsibilityItem}} <br *ngIf="item.officeResponsibility.length>1&&!bl">
+        </span>
+          <ng-container *ngIf="item.goods.length>0">
+            <br> 携带物资：<br>
+            <span *ngFor="let goods of item.goods;let gi=index;let gl=last">{{goods}}<span *ngIf="!gl">、</span></span>
+          </ng-container>
+        </td>
       </tr>
     </ng-container>
     </tbody>
