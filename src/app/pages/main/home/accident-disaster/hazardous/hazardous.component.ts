@@ -11,6 +11,13 @@ import {
 import {debounceTime, distinctUntilChanged} from 'rxjs/operators';
 import {forkJoin} from 'rxjs';
 
+export interface TableDatasModel {
+  name: string;
+  levelOne: string;
+  levelTwo: string;
+  levelThree: string;
+  levelFour: string;
+}
 
 @Component({
   selector: 'app-hazardous',
@@ -28,6 +35,10 @@ export class HazardousComponent implements OnInit {
   responsibilityData: ResponsibilityModel[];
   emergencyData: EmergencyModel[];
   rowspanNum: number;
+  isVisible = false;
+  isOkLoading = false;
+  backImage: any;
+  tableStandard: TableDatasModel[];
 
   constructor(private fb: FormBuilder, private dataServicers: AccidentDisastersListService,
               public message: NzMessageService, private cdr: ChangeDetectorRef) {
@@ -39,8 +50,57 @@ export class HazardousComponent implements OnInit {
     this.responsibilityData = [];
     this.emergencyData = [];
     this.rowspanNum = 0;
+    this.tableStandard = [
+      {
+        name: '死亡/失踪人数',
+        levelOne: '30人（含）以上',
+        levelTwo: '10人（含）以上，30人以下',
+        levelThree: '3人（含）以上，10人以下',
+        levelFour: '3人以下'
+      },
+      {
+        name: '重伤及急性工业中毒人数',
+        levelOne: '100人（含）以上',
+        levelTwo: '50人（含）以上，100人以下',
+        levelThree: '10人（含）以上，50人以下',
+        levelFour: '10人以下'
+      },
+      {
+        name: '直接经济损失',
+        levelOne: '1亿元（含）以上',
+        levelTwo: '5000万元（含）以上，1亿元以下',
+        levelThree: '1000万元（含）以上，5000万元以下',
+        levelFour: '1000万元以下'
+      },
+      {
+        name: '毒性气体储量',
+        levelOne: '10吨及以上',
+        levelTwo: '1吨及以上',
+        levelThree: '小于1吨',
+        levelFour: '/'
+      }
+    ];
+    this.backImage = {
+      backgroundImage: 'url(../../assets/imgs/modal-box.png)',
+      height: '491px',
+    };
   }
 
+  showModal(): void {
+    this.isVisible = true;
+  }
+
+  handleOk(): void {
+    this.isOkLoading = true;
+    setTimeout(() => {
+      this.isVisible = false;
+      this.isOkLoading = false;
+    }, 3000);
+  }
+
+  handleCancel(): void {
+    this.isVisible = false;
+  }
 
   initForm() {
     this.validateForm = this.fb.group({

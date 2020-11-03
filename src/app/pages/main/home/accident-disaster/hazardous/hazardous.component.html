@@ -1,4 +1,12 @@
 <section class="layout-content" *ngIf="isShowStandard">
+  <div class="solute" (mouseover)="showModal()">
+    <img src="../../../../../../assets/imgs/question.svg" alt="应急响应启动标准">
+  </div>
+  <nz-modal [(nzVisible)]="isVisible" [nzTitle]="null" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()"
+            [nzOkLoading]="isOkLoading" [nzFooter]="null"
+            [nzClosable]="false" nzWidth="1201" [nzBodyStyle]="backImage">
+    <app-emergency-standard [tableData]="tableStandard"></app-emergency-standard>
+  </nz-modal>
   <form [formGroup]="validateForm">
     <div nz-row>
       <div nz-col [nzSpan]="8">

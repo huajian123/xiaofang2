@@ -1,8 +1,6 @@
-import {ChangeDetectorRef, Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {
-  CitiesNameModel, CitiesNameService,
   DepartInfoModel,
-  PublishAlarmModel
 } from '../../../../../services/biz-services/earthquake-warning-list.service';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {
@@ -20,9 +18,12 @@ interface OptionsInterface {
   label: string;
 }
 
-export interface SelectedInterface {
-  province: string;
-  city: string;
+export interface TableDatasModel {
+  name: string;
+  levelOne: string;
+  levelTwo: string;
+  levelThree: string;
+  levelFour: string;
 }
 
 @Component({
@@ -45,9 +46,10 @@ export class EarthquakeComponent implements OnInit {
   isVisible = false;
   isOkLoading = false;
   backImage: any;
+  tableStandard: TableDatasModel[];
 
-  constructor(private fb: FormBuilder, private dataService: CitiesNameService, private dataServicers: AccidentDisastersListService,
-              public message: NzMessageService, private cdr: ChangeDetectorRef) {
+  constructor(private fb: FormBuilder, private dataServicers: AccidentDisastersListService,
+              public message: NzMessageService) {
     this.isShowStandard = true;
     this.currentPage = 0;
     this.plnId = 0;
@@ -57,6 +59,29 @@ export class EarthquakeComponent implements OnInit {
     this.responsibilityData = [];
     this.emergencyData = [];
     this.rowspanNum = 0;
+    this.tableStandard = [
+      {
+        name: '死亡/失踪人数',
+        levelOne: '300人以上',
+        levelTwo: '50人以上、300人以下',
+        levelThree: '10人以上、50人以下',
+        levelFour: '10人以下'
+      },
+      {
+        name: '直接经济损失',
+        levelOne: '直接经济损失占我省上半年地区生产总值1%以上',
+        levelTwo: '严重经济损失',
+        levelThree: '较重经济损失',
+        levelFour: '一定经济损失'
+      },
+      {
+        name: '地震级别',
+        levelOne: '1、省陆地行政区域发生6.0级以上；2、近海海域50千米或我省陆地边界50千米以内的邻省（市）7.0级以上地震',
+        levelTwo: '1、省陆地行政区域发生5.0以上、6.0级以下；2、近海海域50千米或我省陆地边界50千米以内的邻省（市）6.0级以上、7.0级以下地震',
+        levelThree: '1、省陆地行政区域发生4.0以上、5.0级以下；2、近海海域50千米或我省陆地边界50千米以内的邻省（市）5.0级以上、6.0级以下地震',
+        levelFour: '省陆地行政区域发生4.0级以下有感地震；'
+      }
+    ];
     this.backImage = {
       backgroundImage: 'url(../../assets/imgs/modal-box.png)',
       height: '491px',
