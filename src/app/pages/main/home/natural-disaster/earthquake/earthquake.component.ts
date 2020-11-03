@@ -42,6 +42,9 @@ export class EarthquakeComponent implements OnInit {
   plnId: number;
   responsibilityData: ResponsibilityModel[];
   emergencyData: EmergencyModel[];
+  isVisible = false;
+  isOkLoading = false;
+  backImage: any;
 
   constructor(private fb: FormBuilder, private dataService: CitiesNameService, private dataServicers: AccidentDisastersListService,
               public message: NzMessageService, private cdr: ChangeDetectorRef) {
@@ -54,6 +57,25 @@ export class EarthquakeComponent implements OnInit {
     this.responsibilityData = [];
     this.emergencyData = [];
     this.rowspanNum = 0;
+    this.backImage = {
+      backgroundColor: '#acacac',
+    };
+  }
+
+  showModal(): void {
+    this.isVisible = true;
+  }
+
+  handleOk(): void {
+    this.isOkLoading = true;
+    setTimeout(() => {
+      this.isVisible = false;
+      this.isOkLoading = false;
+    }, 3000);
+  }
+
+  handleCancel(): void {
+    this.isVisible = false;
   }
 
   initForm() {

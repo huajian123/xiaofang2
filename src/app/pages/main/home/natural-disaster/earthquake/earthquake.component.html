@@ -1,4 +1,21 @@
 <section class="layout-content" *ngIf="isShowStandard">
+  <div class="solute">
+    <i nz-icon nzType="question-circle" nzTheme="twotone" style="font-size: 22px; color: #fff;"
+       (mouseover)="showModal()"></i>
+  </div>
+  <nz-modal
+    [(nzVisible)]="isVisible"
+    [nzTitle]="null"
+    (nzOnCancel)="handleCancel()"
+    (nzOnOk)="handleOk()"
+    [nzOkLoading]="isOkLoading"
+    [nzFooter]="null"
+    [nzClosable]="false"
+    nzWidth="1200"
+    [nzBodyStyle]="backImage"
+  >
+    <app-emergency-standard></app-emergency-standard>
+  </nz-modal>
   <form [formGroup]="validateForm">
     <div nz-row>
       <div nz-col [nzSpan]="8">

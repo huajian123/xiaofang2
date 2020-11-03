@@ -6,6 +6,7 @@ import {DataShowComponent} from './data-show/data-show.component';
 import {MyNgZorroModule} from '../my-ng-zorro/my-ng-zorro.module';
 import {BreadCrumbComponent} from './bread-crumb/bread-crumb.component';
 import {NewContentComponent} from './new-content/new-content.component';
+import {EmergencyStandardComponent} from './emergency-standard/emergency-standard.component';
 
 
 @NgModule({
@@ -14,7 +15,9 @@ import {NewContentComponent} from './new-content/new-content.component';
     BizTabsComponent,
     DataShowComponent,
     BreadCrumbComponent,
-    NewContentComponent
+    NewContentComponent,
+    EmergencyStandardComponent,
+    EmergencyStandardComponent
   ],
   imports: [
     CommonModule,
@@ -24,6 +27,7 @@ import {NewContentComponent} from './new-content/new-content.component';
     LeftHexagonComponent,
     BizTabsComponent,
     DataShowComponent,
+    EmergencyStandardComponent,
     NewContentComponent
   ]
 })
