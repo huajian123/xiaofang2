@@ -5,7 +5,7 @@ import {HomeComponent} from './pages/main/home/home.component';
 import {FloodDroughtOneComponent} from './pages/main/home/natural-disaster/flood-drought/flood-drought-one/flood-drought-one.component';
 import {WelcomeComponent} from './pages/welcome/welcome.component';
 
-const routes: Routes = [
+const routes: Routes  = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
   {path: 'login', component: LoginLayoutComponent},
   {path: 'welcome', component: WelcomeComponent},
