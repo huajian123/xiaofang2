@@ -100,7 +100,7 @@ export class EarthquakeComponent implements OnInit {
         const getResponsibility$ = this.dataServicers.getResponsibility({id: res.accidentId, planGrade: grade.grade});
         const getEmergency$ = this.dataServicers.getEmergency({accidentId: res.accidentId, planGrade: grade.grade});
         forkJoin(getResponsibility$, getEmergency$).subscribe(result => {
-          this.responsibilityData = result[0];
+          this.responsibilityData = result[0].selectResponsibility;
           this.emergencyData = result[1];
           this.currentPage = grade.grade;
           if (this.currentPage === 1 || this.currentPage === 2) {

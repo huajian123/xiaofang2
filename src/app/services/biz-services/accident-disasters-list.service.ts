@@ -9,6 +9,12 @@ export enum DisasterEnum {
   AccidentDisaster = 2
 }
 
+export interface ResponsibilityModelArray {
+  planId: number;
+  downUrl: string;
+  selectResponsibility:ResponsibilityModel[]
+}
+
 export interface ResponsibilityModel {
   id?: number;
   responsibility: string;
@@ -58,7 +64,7 @@ export class AccidentDisastersListService extends BaseHttp {
   }
 
   /*查询部门岗位信息*/
-  public getResponsibility(param: { id: number, planGrade: number }): Observable<ResponsibilityModel[]> {
+  public getResponsibility(param: { id: number, planGrade: number }): Observable<ResponsibilityModelArray> {
     return this.get('/responsibility/' + param.id + '/' + param.planGrade, {});
   }
 
