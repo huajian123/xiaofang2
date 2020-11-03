@@ -7,6 +7,7 @@ import {MyNgZorroModule} from '../my-ng-zorro/my-ng-zorro.module';
 import {BreadCrumbComponent} from './bread-crumb/bread-crumb.component';
 import {NewContentComponent} from './new-content/new-content.component';
 import {EmergencyStandardComponent} from './emergency-standard/emergency-standard.component';
+import { BtnGroupComponent } from './btn-group/btn-group.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import {EmergencyStandardComponent} from './emergency-standard/emergency-standar
     BreadCrumbComponent,
     NewContentComponent,
     EmergencyStandardComponent,
-    EmergencyStandardComponent
+    EmergencyStandardComponent,
+    BtnGroupComponent,
   ],
   imports: [
     CommonModule,
@@ -28,7 +30,8 @@ import {EmergencyStandardComponent} from './emergency-standard/emergency-standar
     BizTabsComponent,
     DataShowComponent,
     EmergencyStandardComponent,
-    NewContentComponent
+    NewContentComponent,
+    BtnGroupComponent
   ]
 })
 export class BizComponentModule {
