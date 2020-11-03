@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="33px" height="32px" viewBox="0 0 33 32" version="1.1" xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink">
+  <!-- Generator: Sketch 57 (83077) - https://sketch.com -->
+  <title>wenhao-2备份</title>
+  <desc>Created with Sketch.</desc>
+  <defs>
+    <radialGradient cx="50%" cy="100%" fx="50%" fy="100%" r="100%" id="radialGradient-1">
+      <stop stop-color="#00FFFC" offset="0%"></stop>
+      <stop stop-color="#136AD5" offset="100%"></stop>
+    </radialGradient>
+    <path
+      d="M11.8840017,-2.17248441e-12 C5.32064374,-2.17248441e-12 -2.17248441e-12,5.32064374 -2.17248441e-12,11.8840018 C-2.17248441e-12,18.4473598 5.32064374,23.7680035 11.8840017,23.7680035 C18.4473597,23.7680035 23.7680035,18.4473597 23.7680035,11.8840018 C23.7680035,5.32064377 18.4473597,-2.17248441e-12 11.8840017,-2.17248441e-12 Z"
+      id="path-2"></path>
+    <filter x="-31.6%" y="-23.1%" width="163.1%" height="163.1%" filterUnits="objectBoundingBox" id="filter-3">
+      <feMorphology radius="0.5" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+      <feOffset dx="0" dy="2" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+      <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+      <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"></feComposite>
+      <feColorMatrix values="0 0 0 0 0.0290276116   0 0 0 0 0.375671097   0 0 0 0 0.797158062  0 0 0 1 0" type="matrix"
+                     in="shadowBlurOuter1"></feColorMatrix>
+    </filter>
+    <filter x="-27.3%" y="-18.9%" width="154.7%" height="154.7%" filterUnits="objectBoundingBox" id="filter-4">
+      <feGaussianBlur stdDeviation="1.5" in="SourceAlpha" result="shadowBlurInner1"></feGaussianBlur>
+      <feOffset dx="0" dy="1" in="shadowBlurInner1" result="shadowOffsetInner1"></feOffset>
+      <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1"
+                   result="shadowInnerInner1"></feComposite>
+      <feColorMatrix values="0 0 0 0 0   0 0 0 0 0.949019608   0 0 0 0 1  0 0 0 1 0" type="matrix"
+                     in="shadowInnerInner1"></feColorMatrix>
+    </filter>
+  </defs>
+  <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <g id="3备份-3" transform="translate(-1843.000000, -180.000000)">
+      <g id="wenhao-2备份" transform="translate(1847.000000, 182.000000)">
+        <g id="形状">
+          <use fill="black" fill-opacity="1" filter="url(#filter-3)" xlink:href="#path-2"></use>
+          <use fill="url(#radialGradient-1)" fill-rule="evenodd" xlink:href="#path-2"></use>
+          <use fill="black" fill-opacity="1" filter="url(#filter-4)" xlink:href="#path-2"></use>
+          <use stroke="#FFFFFF" stroke-width="1" xlink:href="#path-2"></use>
+        </g>
+        <path
+          d="M11.8840017,19.5207565 C11.0322717,19.5207565 10.3417817,18.8302945 10.3417817,17.9785365 C10.3417817,17.1267785 11.0322437,16.4363164 11.8840017,16.4363164 C12.7357318,16.4363164 13.4262218,17.1267785 13.4262218,17.9785365 C13.4262218,18.8302945 12.7357598,19.5207565 11.8840017,19.5207565 Z"
+          id="路径" fill="#FFFFFF"></path>
+        <path
+          d="M14.6152732,12.9451287 L14.6089287,12.9353185 C13.9119265,13.2779502 12.954911,14.2685888 12.954911,15.2548393 L11.0845091,15.2548393 C11.0845091,13.321132 12.706888,11.7983368 13.7603848,11.2682764 C14.7521693,10.6008168 15.045666,10.1336705 15.045666,9.27928521 C15.045666,7.53599719 13.6273736,6.11767685 11.8840576,6.11767685 C10.1407417,6.11767685 8.72244928,7.53602514 8.72244928,9.27928521 L6.85204737,9.27928521 C6.85204737,6.50463632 9.10940876,4.24724699 11.8840856,4.24724699 C14.6587624,4.24724699 16.9161238,6.50460838 16.9161238,9.27928521 C16.9161238,11.2876733 15.728414,12.2246211 14.6152732,12.9451287 Z"
+          id="路径" fill="#FFFFFF"></path>
+      </g>
+    </g>
+  </g>
+</svg>

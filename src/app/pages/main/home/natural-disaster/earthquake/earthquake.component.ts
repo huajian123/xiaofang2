@@ -58,7 +58,8 @@ export class EarthquakeComponent implements OnInit {
     this.emergencyData = [];
     this.rowspanNum = 0;
     this.backImage = {
-      backgroundColor: '#acacac',
+      backgroundImage: 'url(../../assets/imgs/modal-box.png)',
+      height: '491px',
     };
   }
 
