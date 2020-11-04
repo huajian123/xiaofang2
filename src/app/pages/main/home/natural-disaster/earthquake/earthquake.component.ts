@@ -48,11 +48,14 @@ export class EarthquakeComponent implements OnInit {
   backImage: any;
   tableStandard: TableDatasModel[];
   downLoadUrl: string;
+  planId: number;
+
   constructor(private fb: FormBuilder, private dataServicers: AccidentDisastersListService,
               public message: NzMessageService) {
     this.isShowStandard = true;
     this.currentPage = 0;
     this.plnId = 0;
+    this.planId = 0;
     this.responsibilityEntities = [];
     this.cityName = '';
     this.earthquakeEconomicLevelOptions = [];
@@ -120,7 +123,6 @@ export class EarthquakeComponent implements OnInit {
     this.validateForm.valueChanges.pipe(debounceTime(1000), distinctUntilChanged()).subscribe(res => {
       res.accidentId = this.id;
       this.dataServicers.getDecideGrade(res).subscribe(grade => {
-        console.log(grade);
         if (grade != null) {
           this.plnId = grade.plnId;
         }
@@ -128,6 +130,7 @@ export class EarthquakeComponent implements OnInit {
         const getEmergency$ = this.dataServicers.getEmergency({accidentId: res.accidentId, planGrade: grade.grade});
         forkJoin(getResponsibility$, getEmergency$).subscribe(result => {
           this.responsibilityData = result[0].selectResponsibility;
+          this.planId = result[0].planId;
           this.emergencyData = result[1];
           this.downLoadUrl = result[0].downUrl;
           console.log(this.downLoadUrl);

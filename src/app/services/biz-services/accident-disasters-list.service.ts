@@ -53,6 +53,17 @@ export interface EmergencyModel {
   goods: string[];
 }
 
+/*指令手册数据结构对象*/
+export interface EmergencyOrderModel {
+  orderPeople: string;
+  selectEmergencyOrder: SelectEmergencyOrderModel[];
+}
+
+export interface SelectEmergencyOrderModel {
+  department: string;
+  responsibility: string[];
+  unattendedSystem: string;
+}
 
 @Injectable({
   providedIn: 'root'
@@ -77,5 +88,9 @@ export class AccidentDisastersListService extends BaseHttp {
     return this.post('/decide', params);
   }
 
+  /*指令手册接口*/
+  public getEmergencyOrder(param: { planId: number }): Observable<EmergencyOrderModel> {
+    return this.get('/emergency_order/' + param.planId, {});
+  }
 
 }

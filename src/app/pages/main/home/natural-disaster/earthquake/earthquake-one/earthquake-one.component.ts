@@ -19,6 +19,7 @@ import {NewContentComponent} from '../../../../../../share/biz-component/new-con
 export class EarthquakeOneComponent implements OnInit {
   @Input() responsibilityData: ResponsibilityModel[];
   @Input() currentPage: number;
+  @Input() planId: number;
   @Input() emergencyRoomData: EmergencyModel[];
   @Input() rowspanNum: number;
   @Input() downLoadUrl: string;
@@ -27,6 +28,7 @@ export class EarthquakeOneComponent implements OnInit {
   tableObj: ResponsibilityModel[];
   emergencyObj: EmergencyModel[];
   level: number;
+  levels: number;
   rowspans: number;
   emergencyRoomNameArray: string[];
   @ViewChild(NewContentComponent) tableContent: NewContentComponent;
@@ -84,6 +86,7 @@ export class EarthquakeOneComponent implements OnInit {
     ];
     this.rowspans = this.rowspanNum;
     this.level = this.currentPage;
+    this.levels = this.planId;
     this.emergencyObj = this.emergencyRoomData;
     this.tableObj = this.responsibilityData;
     this.emergencyRoomNameArray = this.getEmergencyRoomNameArray();

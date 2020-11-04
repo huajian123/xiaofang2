@@ -75,10 +75,6 @@ export class CitiesNameService extends BaseHttp {
   }
 
 
-  public getEmergencyOrder(param: { planId: number }): Observable<any> {
-    return this.get('/emergency_order/' + param.planId, {});
-  }
-
   /*根据小组id查询配合部门*/
   public getGroupIdInfo(param: { id: number, cityName: string }): Observable<ResponsibilityEntitiesModel[]> {
     return this.get('/coordinate/' + param.id, param);

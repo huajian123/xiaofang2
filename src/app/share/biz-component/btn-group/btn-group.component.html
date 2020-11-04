@@ -1,7 +1,32 @@
 <div class="btn-group">
   <div class="download-btn"><a [href]="downLoadUrl" target="_blank">导出</a></div>
-  <div class="instruction-btn">指令手册</div>
+  <div class="instruction-btn" (click)="showInstruction()">指令手册</div>
 </div>
-
+<nz-modal [(nzVisible)]="isVisible" [nzTitle]="null" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()"
+          [nzOkLoading]="isOkLoading" [nzFooter]="null"
+          [nzClosable]="false" nzWidth="1200" [nzBodyStyle]="backImage">
+  <p>应急指令手册</p>
+  <nz-divider class="table-box"></nz-divider>
+  <div>搜索框位置</div>
+  <br/>
+  <div class="inner-box">
+    <table cellpadding="0" cellspacing="0">
+      <thead>
+      <tr>
+        <td width="25%">主要责任单位</td>
+        <td width="50%">应对措施</td>
+        <td width="25%">值守制度</td>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let item of selectEmergency">
+        <td align="center">{{item.department}}</td>
+        <td>{{item.responsibility}}</td>
+        <td>{{item.unattendedSystem}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</nz-modal>
 
 
