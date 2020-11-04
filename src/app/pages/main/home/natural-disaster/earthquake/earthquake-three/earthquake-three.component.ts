@@ -20,6 +20,7 @@ import {ResponsibilityModel} from "../../../../../../services/biz-services/accid
 export class EarthquakeThreeComponent implements OnInit {
   @Input() responsibilityData: ResponsibilityModel[];
   @Input() currentPage: number;
+  @Input() downLoadUrl: string;
   nameArray: string[];
   tableObj: ResponsibilityModel[];
   level: number;

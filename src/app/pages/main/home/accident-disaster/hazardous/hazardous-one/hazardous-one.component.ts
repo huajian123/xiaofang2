@@ -21,6 +21,7 @@ export class HazardousOneComponent implements OnInit {
   @Input() currentPage: number;
   @Input() emergencyRoomData: EmergencyModel[];
   @Input() rowspanNum: number;
+  @Input() downLoadUrl: string;
   isCurrProcess: boolean;
   nameArray: string[];
   tableObj: ResponsibilityModel[];
@@ -54,11 +55,9 @@ export class HazardousOneComponent implements OnInit {
   }
 
   getCurrentLeftName(event) {
-    console.log(this.leftNav);
     const index = this.leftNav.find((item) => {
       return item.name === event;
     }).index;
-    console.log(index);
     this.tableContent.goDistance(index);
   }
 

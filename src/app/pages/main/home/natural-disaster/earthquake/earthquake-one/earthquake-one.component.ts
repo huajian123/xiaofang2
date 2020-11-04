@@ -27,6 +27,7 @@ export class EarthquakeOneComponent implements OnInit {
   @Input() currentPage: number;
   @Input() emergencyRoomData: EmergencyModel[];
   @Input() rowspanNum: number;
+  @Input() downLoadUrl: string;
   isCurrProcess: boolean;
   nameArray: string[];
   tableObj: ResponsibilityModel[];

@@ -20,6 +20,7 @@ import {EmergencyModel, ResponsibilityModel} from '../../../../../../services/bi
 export class HazardousThreeComponent implements OnInit {
   @Input() responsibilityData: ResponsibilityModel[];
   @Input() currentPage: number;
+  @Input() downLoadUrl: string;
   nameArray: string[];
   tableObj: ResponsibilityModel[];
   level: number;
@@ -38,7 +39,7 @@ export class HazardousThreeComponent implements OnInit {
   ngOnInit(): void {
     this.level = this.currentPage;
     this.tableObj = this.responsibilityData;
-    console.log(this.tableObj);
+    console.log(this.downLoadUrl);
   }
 
 }

@@ -47,7 +47,7 @@ export class EarthquakeComponent implements OnInit {
   isOkLoading = false;
   backImage: any;
   tableStandard: TableDatasModel[];
-
+  downLoadUrl: string;
   constructor(private fb: FormBuilder, private dataServicers: AccidentDisastersListService,
               public message: NzMessageService) {
     this.isShowStandard = true;
@@ -59,6 +59,7 @@ export class EarthquakeComponent implements OnInit {
     this.responsibilityData = [];
     this.emergencyData = [];
     this.rowspanNum = 0;
+    this.downLoadUrl = '';
     this.tableStandard = [
       {
         name: '死亡/失踪人数',
@@ -128,6 +129,8 @@ export class EarthquakeComponent implements OnInit {
         forkJoin(getResponsibility$, getEmergency$).subscribe(result => {
           this.responsibilityData = result[0].selectResponsibility;
           this.emergencyData = result[1];
+          this.downLoadUrl = result[0].downUrl;
+          console.log(this.downLoadUrl);
           this.currentPage = grade.grade;
           if (this.currentPage === 1 || this.currentPage === 2) {
             this.rowspanNum = 25;

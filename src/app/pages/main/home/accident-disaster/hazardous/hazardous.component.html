@@ -64,11 +64,20 @@
        (click)="isShowStandard=!isShowStandard"></div>
 </div>
 
-<ng-container *ngIf="currentPage===1||currentPage===2">
-  <app-hazardous-one [emergencyRoomData]="emergencyData" [responsibilityData]="responsibilityData"
+<ng-container *ngIf="currentPage===1">
+  <app-hazardous-one [downLoadUrl]="downLoadUrl" [emergencyRoomData]="emergencyData" [responsibilityData]="responsibilityData"
                      [currentPage]="currentPage" [rowspanNum]="rowspanNum"></app-hazardous-one>
 </ng-container>
-<ng-container *ngIf="currentPage===3||currentPage===4">
-  <app-hazardous-three [responsibilityData]="responsibilityData" [currentPage]="currentPage"></app-hazardous-three>
+<ng-container *ngIf="currentPage===2">
+  <app-hazardous-one [downLoadUrl]="downLoadUrl" [emergencyRoomData]="emergencyData" [responsibilityData]="responsibilityData"
+                     [currentPage]="currentPage" [rowspanNum]="rowspanNum"></app-hazardous-one>
+</ng-container>
+
+<ng-container *ngIf="currentPage===3">
+  <app-hazardous-three [downLoadUrl]="downLoadUrl" [responsibilityData]="responsibilityData" [currentPage]="currentPage"></app-hazardous-three>
+</ng-container>
+
+<ng-container *ngIf="currentPage===4">
+  <app-hazardous-three [downLoadUrl]="downLoadUrl" [responsibilityData]="responsibilityData" [currentPage]="currentPage"></app-hazardous-three>
 </ng-container>
 

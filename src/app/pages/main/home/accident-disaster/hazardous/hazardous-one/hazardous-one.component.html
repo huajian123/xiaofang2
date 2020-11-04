@@ -1,5 +1,5 @@
 <div class="column-lay">
-  <app-btn-group></app-btn-group>
+  <app-btn-group [downLoadUrl]="downLoadUrl"></app-btn-group>
   <app-left-hexagon (isClickLeft)="changeState($event)" [emergencyRoomNameArray]="emergencyRoomNameArray"
                     (clickReturn)="getCurrentLeftName($event)"
                     [nameArray]="nameArray"></app-left-hexagon>
