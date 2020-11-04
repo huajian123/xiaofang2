@@ -48,7 +48,6 @@ export class NewContentComponent implements OnInit, OnChanges {
   }
 
   goDistance(index): void {
-    console.log(index);
     this['distannce' + index]?.nativeElement.scrollIntoView({
       behavior: 'smooth', block: 'start', inline: 'start'
     });

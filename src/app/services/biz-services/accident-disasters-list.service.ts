@@ -12,7 +12,7 @@ export enum DisasterEnum {
 export interface ResponsibilityModelArray {
   planId: number;
   downUrl: string;
-  selectResponsibility:ResponsibilityModel[]
+  selectResponsibility: ResponsibilityModel[];
 }
 
 export interface ResponsibilityModel {
