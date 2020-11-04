@@ -1,10 +1,4 @@
 import {Component, Input, OnInit, ViewChild} from '@angular/core';
-import {LoginInfoModel} from '../../../../../../core/vo-common/BusinessEnum';
-import {CitiesNameService, ResponsibilityEntitiesModel} from '../../../../../../services/biz-services/earthquake-warning-list.service';
-import {TabObjModel} from '../../../../../../share/biz-component/biz-tabs/biz-tabs.component';
-import {UserRole} from '../../../../../../VO/types';
-import {EVENT_KEY} from '../../../../../../../environments/staticVariable';
-import {getEarthquakeOneTabObj} from './earthquake-one-tab-obj';
 import {bounceInOnEnterAnimation, lightSpeedInOnEnterAnimation} from 'angular-animations';
 import {
   EmergencyModel,
