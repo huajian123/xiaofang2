@@ -66,7 +66,8 @@
     <tbody>
     <tr>
       <td width="30%" align="center">部门/岗位</td>
-      <td class="text-style" style="text-align: center">应对措施</td>
+      <td class="text-style" style="text-align: center">职责</td>
+      <td class="text-style" style="text-align: center">职守制度</td>
     </tr>
     <ng-container *ngFor="let item of EmergencyDataModel; let i = index;let l=last">
       <tr #emergencyTable>
@@ -80,6 +81,11 @@
             <br> 携带物资：<br>
             <span *ngFor="let goods of item.goods;let gi=index;let gl=last">{{goods}}<span *ngIf="!gl">、</span></span>
           </ng-container>
+        </td>
+        <td align="left">
+          <span *ngFor="let unattendedSystemItem of item.unattendedSystem;let bi=index;let bl=last">
+          <span *ngIf="item.unattendedSystem.length>1">{{bi + 1}}:
+          </span>{{unattendedSystemItem}} <br *ngIf="item.unattendedSystem.length>1&&!bl"></span>
         </td>
       </tr>
     </ng-container>

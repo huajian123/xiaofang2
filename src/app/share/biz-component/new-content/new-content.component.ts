@@ -22,6 +22,7 @@ export interface EmergencyDataModel {
   officeName: string;
   officeResponsibility: string[];
   goods: string[];
+  unattendedSystem: string[];
 }
 
 @Component({
