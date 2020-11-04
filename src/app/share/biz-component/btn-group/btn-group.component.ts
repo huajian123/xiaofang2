@@ -1,5 +1,5 @@
 import {Component, Inject, Input, OnInit} from '@angular/core';
-import {DOWNLOAD_CONFIT} from "../../../services/services.module";
+import {DOWNLOAD_CONFIT} from '../../../services/services.module';
 
 @Component({
   selector: 'app-btn-group',
