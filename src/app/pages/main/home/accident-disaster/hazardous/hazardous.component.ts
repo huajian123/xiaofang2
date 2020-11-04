@@ -82,7 +82,7 @@ export class HazardousComponent implements OnInit {
     ];
     this.backImage = {
       backgroundImage: 'url(../../assets/imgs/modal-box.png)',
-      height: '491px',
+      height: '490px',
     };
   }
 
