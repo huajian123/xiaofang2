@@ -88,11 +88,11 @@ export class HazardousComponent implements OnInit {
     };
   }
 
-  showModal(): void {
+  showStandard(): void {
     this.isVisible = true;
   }
 
-  handleOk(): void {
+  standardOk(): void {
     this.isOkLoading = true;
     setTimeout(() => {
       this.isVisible = false;
@@ -100,7 +100,7 @@ export class HazardousComponent implements OnInit {
     }, 3000);
   }
 
-  handleCancel(): void {
+  standardCancel(): void {
     this.isVisible = false;
   }
 
