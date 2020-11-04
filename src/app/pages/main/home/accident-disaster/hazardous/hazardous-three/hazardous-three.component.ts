@@ -1,10 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {TabObjModel} from '../../../../../../share/biz-component/biz-tabs/biz-tabs.component';
 import {
   CitiesNameService,
   ResponsibilityEntitiesModel
 } from '../../../../../../services/biz-services/earthquake-warning-list.service';
-import {getHazardousThreeTabObj} from './hazardous-three-tab-obj';
 import {bounceInOnEnterAnimation, lightSpeedInOnEnterAnimation} from 'angular-animations';
 import {EmergencyModel, ResponsibilityModel} from '../../../../../../services/biz-services/accident-disasters-list.service';
 
@@ -20,11 +18,12 @@ import {EmergencyModel, ResponsibilityModel} from '../../../../../../services/bi
 export class HazardousThreeComponent implements OnInit {
   @Input() responsibilityData: ResponsibilityModel[];
   @Input() currentPage: number;
+  @Input() planId: number;
   @Input() downLoadUrl: string;
   nameArray: string[];
   tableObj: ResponsibilityModel[];
   level: number;
-
+  levels: number;
   constructor(private dataService: CitiesNameService) {
     this.nameArray = [];
     this.tableObj = [];
@@ -38,6 +37,7 @@ export class HazardousThreeComponent implements OnInit {
 
   ngOnInit(): void {
     this.level = this.currentPage;
+    this.levels = this.planId;
     this.tableObj = this.responsibilityData;
     console.log(this.downLoadUrl);
   }

@@ -40,12 +40,14 @@ export class HazardousComponent implements OnInit {
   backImage: any;
   tableStandard: TableDatasModel[];
   downLoadUrl: string;
+  planId: number;
 
   constructor(private fb: FormBuilder, private dataServicers: AccidentDisastersListService,
               public message: NzMessageService, private cdr: ChangeDetectorRef) {
     this.isShowStandard = true;
     this.currentPage = 0;
     this.plnId = 0;
+    this.planId = 0;
     this.responsibilityEntities = [];
     this.cityName = '';
     this.responsibilityData = [];
@@ -127,6 +129,7 @@ export class HazardousComponent implements OnInit {
         const getEmergency$ = this.dataServicers.getEmergency({accidentId: res.accidentId, planGrade: grade.grade});
         forkJoin(getResponsibility$, getEmergency$).subscribe(result => {
           this.responsibilityData = result[0].selectResponsibility;
+          this.planId = result[0].planId;
           this.emergencyData = result[1];
           this.downLoadUrl = result[0].downUrl;
           this.currentPage = grade.grade;
