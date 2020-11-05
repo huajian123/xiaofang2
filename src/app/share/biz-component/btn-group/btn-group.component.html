@@ -1,6 +1,8 @@
 <div class="btn-group">
   <div class="download-btn"><a [href]="downLoadUrl" target="_blank">导出</a></div>
-  <div class="instruction-btn" (click)="showInstruction()">指令手册</div>
+  <ng-container *ngIf="selectEmergency.length>0">
+    <div class="instruction-btn" (click)="showInstruction()">指令手册</div>
+  </ng-container>
 </div>
 <nz-modal [(nzVisible)]="isVisible" [nzTitle]="null" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()"
           [nzOkLoading]="isOkLoading" [nzFooter]="null"
