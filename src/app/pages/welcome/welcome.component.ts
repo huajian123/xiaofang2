@@ -29,7 +29,7 @@ import {Router} from '@angular/router';
     hueRotateAnimation({anchor: 'hueLetter', duration: 5000}),
     flashAnimation({anchor: 'flash'}),
     rubberBandOnEnterAnimation({anchor: 'btnEnter', delay: 500}),
-    fadeInOnEnterAnimation({anchor: 'btnEnterFadeIn', delay: 4500, duration: 500})
+    fadeInOnEnterAnimation({anchor: 'btnEnterFadeIn', delay: 3500, duration: 500})
   ]
 })
 export class WelcomeComponent implements OnInit {
