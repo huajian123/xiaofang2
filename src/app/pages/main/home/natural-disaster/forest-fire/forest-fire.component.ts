@@ -64,25 +64,25 @@ export class ForestFireComponent implements OnInit {
     this.downLoadUrl = '';
     this.tableStandard = [
       {
+        name: '受害森林面积',
+        levelOne: '在1000公顷(含)以上',
+        levelTwo: '100公顷(含)以上,1000公顷以下',
+        levelThree: '1公顷(含)以上，100公顷以下',
+        levelFour: '1公顷以下或者其他林地起火的'
+      },
+      {
         name: '死亡/失踪人数',
-        levelOne: '300人以上',
-        levelTwo: '50人以上、300人以下',
-        levelThree: '10人以上、50人以下',
-        levelFour: '10人以下'
+        levelOne: '30人(含)以上',
+        levelTwo: '10人(含)以上，30人以下',
+        levelThree: '3人(含)以上，10人以下',
+        levelFour: '1人(含)以上，3人以下'
       },
       {
-        name: '直接经济损失',
-        levelOne: '直接经济损失占我省上半年地区生产总值1%以上',
-        levelTwo: '严重经济损失',
-        levelThree: '较重经济损失',
-        levelFour: '一定经济损失'
-      },
-      {
-        name: '地震级别',
-        levelOne: '1、省陆地行政区域发生6.0级以上；2、近海海域50千米或我省陆地边界50千米以内的邻省（市）7.0级以上地震',
-        levelTwo: '1、省陆地行政区域发生5.0以上、6.0级以下；2、近海海域50千米或我省陆地边界50千米以内的邻省（市）6.0级以上、7.0级以下地震',
-        levelThree: '1、省陆地行政区域发生4.0以上、5.0级以下；2、近海海域50千米或我省陆地边界50千米以内的邻省（市）5.0级以上、6.0级以下地震',
-        levelFour: '省陆地行政区域发生4.0级以下有感地震；'
+        name: '重伤人数',
+        levelOne: '100人(含)以上',
+        levelTwo: '50人(含)以上100人以下',
+        levelThree: '10人(含)以上，50人以下',
+        levelFour: '1人(含)以上，10人以下'
       }
     ];
     this.backImage = {
