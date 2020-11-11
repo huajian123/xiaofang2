@@ -11,9 +11,9 @@
     <div nz-row>
       <div nz-col [nzSpan]="8">
         <nz-form-item>
-          <nz-form-label [nzSpan]="12">受害森林面积</nz-form-label>
+          <nz-form-label [nzSpan]="12">受害森林面积(公顷)</nz-form-label>
           <nz-form-control [nzSpan]="12">
-            <nz-input-number [nzMax]="99999999" nzPlaceHolder="受害森林面积" formControlName="peopleLossAndDie"
+            <nz-input-number [nzMax]="99999999" nzPlaceHolder="受害森林面积" formControlName="forestArea"
                              [nzMin]="1"></nz-input-number>
           </nz-form-control>
         </nz-form-item>
@@ -31,7 +31,7 @@
         <nz-form-item>
           <nz-form-label [nzSpan]="12">重伤人数</nz-form-label>
           <nz-form-control [nzSpan]="12">
-            <nz-input-number [nzMax]="99999999" nzPlaceHolder="重伤人数" formControlName="peopleLossAndDie"
+            <nz-input-number [nzMax]="99999999" nzPlaceHolder="重伤人数" formControlName="peopleInjury"
                              [nzMin]="1"></nz-input-number>
           </nz-form-control>
         </nz-form-item>

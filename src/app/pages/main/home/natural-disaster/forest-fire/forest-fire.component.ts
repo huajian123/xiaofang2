@@ -109,12 +109,9 @@ export class ForestFireComponent implements OnInit {
 
   initForm() {
     this.validateForm = this.fb.group({
+      forestArea: [null],
       peopleLossAndDie: [null],
-      propertyLossGrade: [null],
-      earthquakeLand: [null],
-      earthquakeSea: [null],
-      cityId: [null],
-      areaId: [null],
+      peopleInjury: [null],
     });
   }
 
@@ -135,7 +132,7 @@ export class ForestFireComponent implements OnInit {
           console.log(this.downLoadUrl);
           this.currentPage = grade.grade;
           if (this.currentPage === 1 || this.currentPage === 2) {
-            this.rowspanNum = 25;
+            this.rowspanNum = 21;
           }
         });
       });
