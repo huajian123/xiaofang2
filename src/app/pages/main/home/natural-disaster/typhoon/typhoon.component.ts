@@ -98,8 +98,9 @@ export class TyphoonComponent implements OnInit {
     ];
     this.backImage = {
       backgroundImage: 'url(../../assets/imgs/modal-box.png)',
-      height: '490px',
-      overflowY: 'auto'
+      minHeight: '490px',
+      backgroundSize: '100% 100%',
+      backgroundRepeat: 'no-repeat'
     };
   }
 
@@ -145,7 +146,7 @@ export class TyphoonComponent implements OnInit {
           console.log(this.downLoadUrl);
           this.currentPage = grade.grade;
           if (this.currentPage === 1 || this.currentPage === 2) {
-            this.rowspanNum = 17;
+            this.rowspanNum = 8;
           }
         });
       });
