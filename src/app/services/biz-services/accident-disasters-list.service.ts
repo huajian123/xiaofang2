@@ -46,10 +46,10 @@ export interface HazardousModel extends ShowDecideGradeModel {
 
 /*台风*/
 export interface TyphoonModel extends ShowDecideGradeModel {
-  typhoonAlarm: number;
-  rainstormAlarm: number;
-  stormTide: number;
-  countryStartGrade: number;
+  typhoonAlarm?: number;
+  rainstormAlarm?: number;
+  stormTide?: number;
+  countryStartGrade?: number;
 }
 
 /*地震*/
