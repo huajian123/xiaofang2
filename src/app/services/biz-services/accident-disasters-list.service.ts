@@ -33,11 +33,10 @@ export interface TeamResponsibilityDTO {
 /*受灾评判等级指标参数*/
 export interface ShowDecideGradeModel {
   accidentId: number;
-  peopleDie?: number;
-  peopleInjury?: number;
-  peopleLoss?: number;
-  propertyLoss?: number;
-  toxicGas?: number;
+  typhoonAlarm: number;
+  rainstormAlarm: number;
+  stormTide: number;
+  countryStartGrade: number;
 }
 
 /*地震*/

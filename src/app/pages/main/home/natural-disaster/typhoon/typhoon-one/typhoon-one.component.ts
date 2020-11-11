@@ -1,11 +1,16 @@
 import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {EmergencyModel, ResponsibilityModel} from '../../../../../../services/biz-services/accident-disasters-list.service';
 import {NewContentComponent} from '../../../../../../share/biz-component/new-content/new-content.component';
+import {bounceInOnEnterAnimation, lightSpeedInOnEnterAnimation} from 'angular-animations';
 
 @Component({
   selector: 'app-typhoon-one',
   templateUrl: './typhoon-one.component.html',
-  styleUrls: ['./typhoon-one.component.less']
+  styleUrls: ['./typhoon-one.component.less'],
+  animations: [
+    lightSpeedInOnEnterAnimation(),
+    bounceInOnEnterAnimation(),
+  ]
 })
 export class TyphoonOneComponent implements OnInit {
   @Input() responsibilityData: ResponsibilityModel[];
