@@ -114,8 +114,6 @@ export class EarthquakeComponent implements OnInit {
       propertyLossGrade: [null],
       earthquakeLand: [null],
       earthquakeSea: [null],
-      cityId: [null],
-      areaId: [null],
     });
   }
 

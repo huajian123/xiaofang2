@@ -113,8 +113,6 @@ export class HazardousComponent implements OnInit {
       propertyLoss: [null],
       peopleLoss: [null],
       toxicGas: [null],
-      cityId: [null],
-      areaId: [null],
     });
   }
 
