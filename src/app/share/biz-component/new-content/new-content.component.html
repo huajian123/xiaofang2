@@ -66,13 +66,13 @@
     <tbody>
     <tr>
       <td width="18%" align="center">部门/岗位</td>
-      <td class="text-style" style="text-align: center">职责</td>
-      <td class="text-style" style="text-align: center">职守制度</td>
+      <td align="center">职责</td>
+      <td align="center">职守制度</td>
     </tr>
     <ng-container *ngFor="let item of EmergencyDataModel; let i = index;let l=last">
       <tr #emergencyTable>
         <td align="center">{{item.officeName}}</td>
-        <td class="text-style">
+        <td class="padding_22">
           <span *ngFor="let officeResponsibilityItem of item.officeResponsibility;let bi=index;let bl=last">
           <span *ngIf="item.officeResponsibility.length>1">{{bi + 1}}:
           </span>{{officeResponsibilityItem}} <br *ngIf="item.officeResponsibility.length>1&&!bl">
@@ -82,7 +82,7 @@
             <span *ngFor="let goods of item.goods;let gi=index;let gl=last">{{goods}}<span *ngIf="!gl">、</span></span>
           </ng-container>
         </td>
-        <td align="left">
+        <td class="padding_22">
           <span *ngFor="let unattendedSystemItem of item.unattendedSystem;let bi=index;let bl=last">
           <span *ngIf="item.unattendedSystem.length>1">{{bi + 1}}:
           </span>{{unattendedSystemItem}} <br *ngIf="item.unattendedSystem.length>1&&!bl"></span>

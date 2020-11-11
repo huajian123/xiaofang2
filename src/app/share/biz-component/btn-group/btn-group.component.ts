@@ -14,8 +14,8 @@ import {
   AccidentDisastersListService,
   SelectEmergencyOrderModel
 } from '../../../services/biz-services/accident-disasters-list.service';
-import {fromEvent, Observable, Subscription} from "rxjs";
-import {debounceTime, distinctUntilChanged} from "rxjs/operators";
+import {fromEvent, Observable, Subscription} from 'rxjs';
+import {debounceTime, distinctUntilChanged} from 'rxjs/operators';
 
 @Component({
   selector: 'app-btn-group',
@@ -25,7 +25,7 @@ import {debounceTime, distinctUntilChanged} from "rxjs/operators";
 export class BtnGroupComponent implements OnInit, AfterViewInit, OnDestroy {
   @Input() levels: number;
   @Input() downLoadUrl: string;
-  @ViewChild("inputName") inputName: ElementRef;
+  @ViewChild('inputName') inputName: ElementRef;
   inputBlock$: Observable<any>;
   inputBlockSub$: Subscription;
   isVisible = false;
@@ -62,12 +62,12 @@ export class BtnGroupComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   obInput() {
-    this.inputBlock$ = fromEvent(this.inputName.nativeElement, 'input').pipe(debounceTime(1000), distinctUntilChanged())
+    this.inputBlock$ = fromEvent(this.inputName.nativeElement, 'input').pipe(debounceTime(1000), distinctUntilChanged());
     this.inputBlockSub$ = this.inputBlock$.subscribe(res => {
       const name = res.target.value.trim();
       const index = this.checkInput(name);
       this.goDistance(index);
-    })
+    });
   }
 
   clearInput(e) {
@@ -102,7 +102,7 @@ export class BtnGroupComponent implements OnInit, AfterViewInit, OnDestroy {
       this.selectEmergencyDeptNames.length = 0;
       this.selectEmergency.forEach(({department}) => {
         this.selectEmergencyDeptNames.push(department);
-      })
+      });
     });
   }
 
