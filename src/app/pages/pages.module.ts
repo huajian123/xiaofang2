@@ -17,6 +17,9 @@ import {TyphoonThreeComponent} from './main/home/natural-disaster/typhoon/typhoo
 import {FloodDroughtThreeComponent} from './main/home/natural-disaster/flood-drought/flood-drought-three/flood-drought-three.component';
 import {TyphoonComponent} from './main/home/natural-disaster/typhoon/typhoon.component';
 import {FloodDroughtComponent} from './main/home/natural-disaster/flood-drought/flood-drought.component';
+import {ForestFireComponent} from './main/home/natural-disaster/forest-fire/forest-fire.component';
+import {ForestFireOneComponent} from './main/home/natural-disaster/forest-fire/forest-fire-one/forest-fire-one.component';
+import {ForestFireThreeComponent} from './main/home/natural-disaster/forest-fire/forest-fire-three/forest-fire-three.component';
 
 
 @NgModule({
@@ -36,6 +39,9 @@ import {FloodDroughtComponent} from './main/home/natural-disaster/flood-drought/
     FloodDroughtThreeComponent,
     TyphoonComponent,
     FloodDroughtComponent,
+    ForestFireComponent,
+    ForestFireOneComponent,
+    ForestFireThreeComponent,
   ],
   imports: [
     CommonModule,
