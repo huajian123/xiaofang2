@@ -10,6 +10,7 @@ import {NzMessageService} from 'ng-zorro-antd';
 import {debounceTime, distinctUntilChanged} from 'rxjs/operators';
 import {forkJoin} from 'rxjs';
 import {MapPipe, MapSet} from '../../../../../share/directives/pipe/map.pipe';
+
 interface OptionsInterface {
   value: number;
   label: string;
@@ -22,6 +23,7 @@ export interface TableDatasModel {
   levelThree: string;
   levelFour: string;
 }
+
 @Component({
   selector: 'app-pollution-weather',
   templateUrl: './pollution-weather.component.html',
@@ -46,6 +48,7 @@ export class PollutionWeatherComponent implements OnInit {
   tableStandard: TableDatasModel[];
   downLoadUrl: string;
   planId: number;
+
   constructor(private fb: FormBuilder, private dataServicers: AccidentDisastersListService,
               public message: NzMessageService) {
     this.isShowStandard = true;
@@ -61,25 +64,25 @@ export class PollutionWeatherComponent implements OnInit {
     this.downLoadUrl = '';
     this.tableStandard = [
       {
-        name: '受害森林面积',
-        levelOne: '在1000公顷(含)以上',
-        levelTwo: '100公顷(含)以上,1000公顷以下',
-        levelThree: '1公顷(含)以上，100公顷以下',
-        levelFour: '1公顷以下或者其他林地起火的'
+        name: '/',
+        levelOne: '预测未来持续 96 小时设区市空气质量指数 （ AQI ） 均值达到 200以上',
+        levelTwo: '预测未来持续 72 小时设区市空气质量指数 （ AQI ） 均值达到 200以上  ',
+        levelThree: '预测未来持续 48 小时设区市空气质量指数 （ AQI ） 均值达到 200以上',
+        levelFour: '/'
       },
       {
-        name: '死亡/失踪人数',
-        levelOne: '30人(含)以上',
-        levelTwo: '10人(含)以上，30人以下',
-        levelThree: '3人(含)以上，10人以下',
-        levelFour: '1人(含)以上，3人以下'
+        name: '/',
+        levelOne: '预测未来持续 24 小时设区市空气质量指数 （ AQI ） 均值达到 450 以上',
+        levelTwo: '监测到设区市 SO 2 小时浓度达到 650 微克 / 立方米以上',
+        levelThree: '监测到设区市 SO 2 小时浓度达到 500 微克 / 立方米以上',
+        levelFour: '/'
       },
       {
-        name: '重伤人数',
-        levelOne: '100人(含)以上',
-        levelTwo: '50人(含)以上100人以下',
-        levelThree: '10人(含)以上，50人以下',
-        levelFour: '1人(含)以上，10人以下'
+        name: '/',
+        levelOne: '监测到设区市 SO 2 小时浓度达到 800 微克 / 立方米以上',
+        levelTwo: '/',
+        levelThree: '/',
+        levelFour: '/'
       }
     ];
     this.backImage = {
@@ -142,7 +145,8 @@ export class PollutionWeatherComponent implements OnInit {
   ngOnInit(): void {
     this.initForm();
     this.subForm();
-    this.earthquakeEconomicLevelOptions = [...MapPipe.transformMapToArray(MapSet.earthquakeEconomicLevel)];
+    this.earthquakeEconomicLevelOptions = [...MapPipe.transformMapToArray(MapSet.startLevel)];
+    this.earthquakeEconomicLevelOptions.length = 3;
   }
 
 }
