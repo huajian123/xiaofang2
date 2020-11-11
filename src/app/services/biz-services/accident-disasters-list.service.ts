@@ -5,9 +5,6 @@ import {Observable} from 'rxjs';
 import {API_CONFIG} from '../services.module';
 import {NzMessageService} from 'ng-zorro-antd';
 
-export enum DisasterEnum {
-  AccidentDisaster = 2
-}
 
 export interface ResponsibilityModelArray {
   planId: number;
@@ -33,6 +30,22 @@ export interface TeamResponsibilityDTO {
 /*受灾评判等级指标参数*/
 export interface ShowDecideGradeModel {
   accidentId: number;
+  additionalProp1?: HazardousModel;
+  additionalProp2?: EarthquakeModel;
+  additionalProp3?: TyphoonModel;
+}
+
+/*危化品*/
+export interface HazardousModel extends ShowDecideGradeModel {
+  peopleDie?: number;
+  peopleInjury?: number;
+  peopleLoss?: number;
+  propertyLoss?: number;
+  toxicGas?: number;
+}
+
+/*台风*/
+export interface TyphoonModel extends ShowDecideGradeModel {
   typhoonAlarm: number;
   rainstormAlarm: number;
   stormTide: number;
@@ -41,6 +54,8 @@ export interface ShowDecideGradeModel {
 
 /*地震*/
 export interface EarthquakeModel extends ShowDecideGradeModel {
+  peopleLossAndDie?: number;
+  propertyLossGrade?: number;
   earthquakeLand?: number;
   earthquakeSea?: number;
 }

@@ -5,9 +5,7 @@ import {Observable} from 'rxjs';
 import {API_CONFIG} from '../services.module';
 import {NzMessageService} from 'ng-zorro-antd';
 
-export enum DisasterEnum {
-    NaturalDisaster = 1
-}
+
 
 export interface NaturalDisastersModel {
     id?: number;
@@ -39,9 +37,9 @@ export class NaturalDisastersListService extends BaseHttp {
     }
 
     /*预案详情接口*/
-    public getNaturalDisastersList(param: { id: number, planGrade: number }): Observable<NaturalDisastersModel> {
+  /*  public getNaturalDisastersList(param: { id: number, planGrade: number }): Observable<NaturalDisastersModel> {
         return this.get('/plan/' + DisasterEnum.NaturalDisaster + '/' + param.id + '/' + param.planGrade, {});
-    }
+    }*/
 
 
 }

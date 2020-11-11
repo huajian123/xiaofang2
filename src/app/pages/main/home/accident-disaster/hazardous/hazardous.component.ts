@@ -123,6 +123,7 @@ export class HazardousComponent implements OnInit {
         if (grade != null) {
           this.plnId = grade.plnId;
         }
+        console.log(grade);
         const getResponsibility$ = this.dataServicers.getResponsibility({id: res.accidentId, planGrade: grade.grade});
         const getEmergency$ = this.dataServicers.getEmergency({accidentId: res.accidentId, planGrade: grade.grade});
         forkJoin(getResponsibility$, getEmergency$).subscribe(result => {
