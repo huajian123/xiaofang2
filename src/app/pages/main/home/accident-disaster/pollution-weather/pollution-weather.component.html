@@ -1,0 +1,64 @@
+<section class="layout-content" *ngIf="isShowStandard">
+  <div class="solute" (mouseover)="showStandard()">
+    <img src="../../../../../../assets/imgs/question.svg" alt="应急响应启动标准">
+  </div>
+  <nz-modal [(nzVisible)]="isVisible" [nzTitle]="null" (nzOnCancel)="standardCancel()" (nzOnOk)="standardOk()"
+            [nzOkLoading]="isOkLoading" [nzFooter]="null"
+            [nzClosable]="false" nzWidth="1200" [nzBodyStyle]="backImage">
+    <app-emergency-standard [tableData]="tableStandard"></app-emergency-standard>
+  </nz-modal>
+  <form [formGroup]="validateForm">
+    <div nz-row>
+      <div nz-col [nzSpan]="8">
+        <nz-form-item>
+          <nz-form-label [nzSpan]="12">受害森林面积</nz-form-label>
+          <nz-form-control [nzSpan]="12">
+            <nz-input-number [nzMax]="99999999" nzPlaceHolder="受害森林面积" formControlName="peopleLossAndDie"
+                             [nzMin]="1"></nz-input-number>
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+      <div nz-col [nzSpan]="8">
+        <nz-form-item>
+          <nz-form-label [nzSpan]="12">死亡/失踪人数</nz-form-label>
+          <nz-form-control [nzSpan]="12">
+            <nz-input-number [nzMax]="99999999" nzPlaceHolder="死亡/失踪人数" formControlName="peopleLossAndDie"
+                             [nzMin]="1"></nz-input-number>
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+      <div nz-col [nzSpan]="8">
+        <nz-form-item>
+          <nz-form-label [nzSpan]="12">重伤人数</nz-form-label>
+          <nz-form-control [nzSpan]="12">
+            <nz-input-number [nzMax]="99999999" nzPlaceHolder="重伤人数" formControlName="peopleLossAndDie"
+                             [nzMin]="1"></nz-input-number>
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+    </div>
+  </form>
+</section>
+<div class="drive">
+  <div [ngClass]="{'show-btn':isShowStandard,'hide-btn':!isShowStandard}"
+       (click)="isShowStandard=!isShowStandard"></div>
+</div>
+
+<ng-container *ngIf="currentPage===1">
+  <app-pollution-weather-one [downLoadUrl]="downLoadUrl" [emergencyRoomData]="emergencyData"
+                       [responsibilityData]="responsibilityData"
+                       [currentPage]="currentPage" [rowspanNum]="rowspanNum" [planId]="planId"></app-pollution-weather-one>
+</ng-container>
+<ng-container *ngIf="currentPage===2">
+  <app-pollution-weather-one [downLoadUrl]="downLoadUrl" [emergencyRoomData]="emergencyData"
+                       [responsibilityData]="responsibilityData"
+                       [currentPage]="currentPage" [rowspanNum]="rowspanNum" [planId]="planId"></app-pollution-weather-one>
+</ng-container>
+<ng-container *ngIf="currentPage===3">
+  <app-pollution-weather-three [downLoadUrl]="downLoadUrl" [responsibilityData]="responsibilityData"
+                         [currentPage]="currentPage" [planId]="planId"></app-pollution-weather-three>
+</ng-container>
+<ng-container *ngIf="currentPage===4">
+  <app-pollution-weather-three [downLoadUrl]="downLoadUrl" [responsibilityData]="responsibilityData"
+                         [currentPage]="currentPage" [planId]="planId"></app-pollution-weather-three>
+</ng-container>
