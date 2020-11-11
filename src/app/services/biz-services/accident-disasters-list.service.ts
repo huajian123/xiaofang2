@@ -36,7 +36,7 @@ export interface ShowDecideGradeModel {
 }
 
 /*危化品*/
-export interface HazardousModel extends ShowDecideGradeModel {
+export interface HazardousModel {
   peopleDie?: number;
   peopleInjury?: number;
   peopleLoss?: number;
@@ -45,7 +45,7 @@ export interface HazardousModel extends ShowDecideGradeModel {
 }
 
 /*台风*/
-export interface TyphoonModel extends ShowDecideGradeModel {
+export interface TyphoonModel {
   typhoonAlarm?: number;
   rainstormAlarm?: number;
   stormTide?: number;
@@ -53,7 +53,7 @@ export interface TyphoonModel extends ShowDecideGradeModel {
 }
 
 /*地震*/
-export interface EarthquakeModel extends ShowDecideGradeModel {
+export interface EarthquakeModel {
   peopleLossAndDie?: number;
   propertyLossGrade?: number;
   earthquakeLand?: number;
