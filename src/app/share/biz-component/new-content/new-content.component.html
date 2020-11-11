@@ -17,25 +17,31 @@
       <td colspan="2" class="padding_22">{{TableDataModel[1].responsibilityDetail}}</td>
       <td colspan="2" class="padding_22">{{TableDataModel[1].department}}</td>
     </tr>
-    <tr #distannce3>
-      <td [attr.rowspan]="rowspanNum" align="center">{{TableDataModel[2].responsibility}}</td>
-      <td class="height_93">{{TableDataModel[2].selectTeamResponsibilityDTO[0].teamName}}</td>
-      <td class="padding_22">{{TableDataModel[2].selectTeamResponsibilityDTO[0].teamResponsibility}}
-      </td>
-      <td align="center" colspan="2">{{TableDataModel[2].selectTeamResponsibilityDTO[0].mainDepartment}}</td>
-    </tr>
-    <ng-container *ngFor="let item of this.TableDataModel[2].selectTeamResponsibilityDTO;let i= index">
-      <tr *ngIf="i>0">
-        <td class="height_93" rowspan="2">{{item.teamName}}</td>
-        <td class="padding_22" rowspan="2">{{item.teamResponsibility}}</td>
-        <td class="width_72" align="center">牵头部门(单位)</td>
-        <td align="center">{{item.mainDepartment}}</td>
-      </tr>
-      <tr *ngIf="i>0">
-        <td class="width_72" align="center">配合部门(单位)</td>
-        <td align="center">{{item.coordinateDepartment}}</td>
-      </tr>
+    <ng-container *ngFor="let item of this.TableDataModel[2].selectTeamResponsibilityDTO;let f=first;">
+      <ng-container *ngIf="!item.coordinateDepartment">
+        <tr #distannce3>
+          <td *ngIf="f" [attr.rowspan]="rowspanNum" align="center">{{TableDataModel[2].responsibility}}</td>
+          <td class="height_93">{{item.teamName}}</td>
+          <td class="padding_22">{{item.teamResponsibility}}
+          </td>
+          <td align="center" colspan="2">{{item.mainDepartment}}</td>
+        </tr>
+      </ng-container>
+      <ng-container *ngIf="!!item.coordinateDepartment">
+        <tr #distannce3>
+          <td *ngIf="f" [attr.rowspan]="rowspanNum" align="center">{{TableDataModel[2].responsibility}}111{{rowspanNum}}</td>
+          <td class="height_93" rowspan="2">{{item.teamName}}</td>
+          <td class="padding_22" rowspan="2">{{item.teamResponsibility}}</td>
+          <td class="width_72" align="center">牵头部门(单位)</td>
+          <td align="center">{{item.mainDepartment}}</td>
+        </tr>
+        <tr>
+          <td class="width_72" align="center">配合部门(单位)</td>
+          <td align="center">{{item.coordinateDepartment}}</td>
+        </tr>
+      </ng-container>
     </ng-container>
+
     <tr #distannce4>
       <td align="center">{{TableDataModel[3].responsibility}}</td>
       <td colspan="2" class="padding_22">

@@ -132,7 +132,7 @@ export class ForestFireComponent implements OnInit {
           console.log(this.downLoadUrl);
           this.currentPage = grade.grade;
           if (this.currentPage === 1 || this.currentPage === 2) {
-            this.rowspanNum = 21;
+            this.rowspanNum = 9;
           }
         });
       });
