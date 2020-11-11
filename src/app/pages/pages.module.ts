@@ -12,6 +12,9 @@ import {EarthquakeThreeComponent} from './main/home/natural-disaster/earthquake/
 import {EarthquakeOneComponent} from './main/home/natural-disaster/earthquake/earthquake-one/earthquake-one.component';
 import {FloodDroughtOneComponent} from './main/home/natural-disaster/flood-drought/flood-drought-one/flood-drought-one.component';
 import {WelcomeComponent} from './welcome/welcome.component';
+import {TyphoonOneComponent} from './main/home/natural-disaster/typhoon/typhoon-one/typhoon-one.component';
+import {TyphoonThreeComponent} from './main/home/natural-disaster/typhoon/typhoon-three/typhoon-three.component';
+import {FloodDroughtThreeComponent} from './main/home/natural-disaster/flood-drought/flood-drought-three/flood-drought-three.component';
 
 
 @NgModule({
@@ -26,6 +29,9 @@ import {WelcomeComponent} from './welcome/welcome.component';
     EarthquakeOneComponent,
     FloodDroughtOneComponent,
     WelcomeComponent,
+    TyphoonOneComponent,
+    TyphoonThreeComponent,
+    FloodDroughtThreeComponent,
   ],
   imports: [
     CommonModule,
