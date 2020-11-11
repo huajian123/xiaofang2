@@ -26,8 +26,16 @@
       <ng-container *ngFor="let item of selectEmergency">
         <tr #emergencyTable>
           <td align="center">{{item.department}}</td>
-          <td>{{item.responsibility}}</td>
-          <td>{{item.unattendedSystem}}</td>
+          <td>
+            <span *ngFor="let ritem of item.responsibility;let i=index;let bl=last">
+              <span *ngIf="item.responsibility.length>1">{{i+1}}、</span>{{ritem}} <br *ngIf="item.responsibility.length>1&&!bl"/>
+            </span>
+          </td>
+          <td>
+           <span *ngFor="let ritem of item.unattendedSystem;let i=index;let bl=last">
+              <span *ngIf="item.unattendedSystem.length>1">{{i+1}}、</span>{{ritem}} <br *ngIf="item.unattendedSystem.length>1&&!bl"/>
+            </span>
+          </td>
         </tr>
       </ng-container>
 
