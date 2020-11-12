@@ -25,6 +25,7 @@ import {debounceTime, distinctUntilChanged} from 'rxjs/operators';
 export class BtnGroupComponent implements OnInit, AfterViewInit, OnDestroy {
   @Input() levels: number;
   @Input() downLoadUrl: string;
+  @Input() emergencyRoomNameArray: string[]; // 应急厅的部门名称集合
   @ViewChild('inputName') inputName: ElementRef;
   inputBlock$: Observable<any>;
   inputBlockSub$: Subscription;
@@ -46,6 +47,10 @@ export class BtnGroupComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   showInstruction() {
+    this.isVisible = true;
+  }
+
+  showEmergencyRoom() {
     this.isVisible = true;
   }
 

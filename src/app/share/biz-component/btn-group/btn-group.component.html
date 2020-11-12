@@ -1,16 +1,21 @@
 <div class="btn-group">
   <div class="download-btn"><a [href]="downLoadUrl" target="_blank">导出</a></div>
+  <ng-container *ngIf="">
+    <div class="instruction-btn" (click)="showEmergencyRoom()">应急厅</div>
+  </ng-container>
   <ng-container *ngIf="selectEmergency.length>0">
     <div class="instruction-btn" (click)="showInstruction()">指令手册</div>
   </ng-container>
 </div>
+<!--应急指令手册-->
 <nz-modal [(nzVisible)]="isVisible" [nzTitle]="null" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()"
           [nzOkLoading]="isOkLoading" [nzFooter]="null"
           [nzClosable]="false" nzWidth="1200" [nzBodyStyle]="backImage">
   <p>应急指令手册</p>
   <nz-divider class="table-box"></nz-divider>
   <div class="bre-input">
-    <input type="text" #inputName placeholder="输入责任单位"><i class="iconImg" ><img (click)="clearInput($event)" src="../../../../assets/imgs/clear.svg"
+    <input type="text" #inputName placeholder="输入责任单位"><i class="iconImg"><img (click)="clearInput($event)"
+                                                                               src="../../../../assets/imgs/clear.svg"
                                                                                alt=""></i>
   </div>
   <div class="inner-box">
@@ -28,12 +33,14 @@
           <td align="center">{{item.department}}</td>
           <td>
             <span *ngFor="let ritem of item.responsibility;let i=index;let bl=last">
-              <span *ngIf="item.responsibility.length>1">{{i+1}}、</span>{{ritem}} <br *ngIf="item.responsibility.length>1&&!bl"/>
+              <span *ngIf="item.responsibility.length>1">{{i + 1}}、</span>{{ritem}} <br
+              *ngIf="item.responsibility.length>1&&!bl"/>
             </span>
           </td>
           <td>
            <span *ngFor="let ritem of item.unattendedSystem;let i=index;let bl=last">
-              <span *ngIf="item.unattendedSystem.length>1">{{i+1}}、</span>{{ritem}} <br *ngIf="item.unattendedSystem.length>1&&!bl"/>
+              <span *ngIf="item.unattendedSystem.length>1">{{i + 1}}、</span>{{ritem}} <br
+             *ngIf="item.unattendedSystem.length>1&&!bl"/>
             </span>
           </td>
         </tr>
@@ -43,5 +50,46 @@
     </table>
   </div>
 </nz-modal>
+<!--应急厅-->
+<nz-modal [(nzVisible)]="isVisible" [nzTitle]="null" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()"
+          [nzOkLoading]="isOkLoading" [nzFooter]="null"
+          [nzClosable]="false" nzWidth="1200" [nzBodyStyle]="backImage">
+  <p>应急厅</p>
+  <nz-divider class="table-box"></nz-divider>
+  <div class="bre-input">
+    <input type="text" #inputName placeholder="输入责任单位"><i class="iconImg"><img (click)="clearInput($event)"
+                                                                               src="../../../../assets/imgs/clear.svg"
+                                                                               alt=""></i>
+  </div>
+  <div class="inner-box">
+    <table cellpadding="0" cellspacing="0">
+      <thead>
+      <tr>
+        <td width="25%">主要责任单位</td>
+        <td width="50%">应对措施</td>
+        <td width="25%">值守制度</td>
+      </tr>
+      </thead>
+      <tbody>
+      <ng-container *ngFor="let item of selectEmergency">
+        <tr #emergencyTable>
+          <td align="center">{{item.department}}</td>
+          <td>
+            <span *ngFor="let ritem of item.responsibility;let i=index;let bl=last">
+              <span *ngIf="item.responsibility.length>1">{{i + 1}}、</span>{{ritem}} <br
+              *ngIf="item.responsibility.length>1&&!bl"/>
+            </span>
+          </td>
+          <td>
+           <span *ngFor="let ritem of item.unattendedSystem;let i=index;let bl=last">
+              <span *ngIf="item.unattendedSystem.length>1">{{i + 1}}、</span>{{ritem}} <br
+             *ngIf="item.unattendedSystem.length>1&&!bl"/>
+            </span>
+          </td>
+        </tr>
+      </ng-container>
 
-
+      </tbody>
+    </table>
+  </div>
+</nz-modal>
