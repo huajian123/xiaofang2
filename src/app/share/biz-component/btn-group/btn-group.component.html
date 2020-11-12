@@ -1,6 +1,6 @@
 <div class="btn-group">
   <div class="download-btn"><a [href]="downLoadUrl" target="_blank">导出</a></div>
-  <ng-container *ngIf="true">
+  <ng-container *ngIf="shows">
     <div class="instruction-btn" (click)="showEmergencyRoom()">应急厅</div>
   </ng-container>
   <ng-container *ngIf="selectEmergency.length>0">
@@ -51,7 +51,7 @@
   </div>
 </nz-modal>
 <!--应急厅-->
-<nz-modal [(nzVisible)]="isVisible" [nzTitle]="null" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()"
+<nz-modal [(nzVisible)]="isVisibles" [nzTitle]="null" (nzOnCancel)="handleCancels()" (nzOnOk)="handleOks()"
           [nzOkLoading]="isOkLoading" [nzFooter]="null"
           [nzClosable]="false" nzWidth="1200" [nzBodyStyle]="backImage">
   <p>应急厅</p>
@@ -62,33 +62,33 @@
                                                                                alt=""></i>
   </div>
   <div class="inner-box">
-    <table cellpadding="0" cellspacing="0">
-      <thead>
-      <tr>
-        <td width="25%">主要责任单位</td>
-        <td width="50%">应对措施</td>
-        <td width="25%">值守制度</td>
-      </tr>
-      </thead>
+    <table cellspacing="0" cellpadding="0">
       <tbody>
-      <ng-container *ngFor="let item of selectEmergency">
+      <tr>
+        <td width="18%" align="center">部门/岗位</td>
+        <td align="center">职责</td>
+        <td align="center">职守制度</td>
+      </tr>
+      <ng-container *ngFor="let item of EmergencyDataModel; let i = index;let l=last">
         <tr #emergencyTable>
-          <td align="center">{{item.department}}</td>
-          <td>
-            <span *ngFor="let ritem of item.responsibility;let i=index;let bl=last">
-              <span *ngIf="item.responsibility.length>1">{{i + 1}}、</span>{{ritem}} <br
-              *ngIf="item.responsibility.length>1&&!bl"/>
-            </span>
+          <td align="center">{{item.officeName}}</td>
+          <td class="padding_22">
+          <span *ngFor="let officeResponsibilityItem of item.officeResponsibility;let bi=index;let bl=last">
+          <span *ngIf="item.officeResponsibility.length>1">{{bi + 1}}:
+          </span>{{officeResponsibilityItem}} <br *ngIf="item.officeResponsibility.length>1&&!bl">
+        </span>
+            <ng-container *ngIf="item.goods.length>0">
+              <br> 携带物资：<br>
+              <span *ngFor="let goods of item.goods;let gi=index;let gl=last">{{goods}}<span *ngIf="!gl">、</span></span>
+            </ng-container>
           </td>
-          <td>
-           <span *ngFor="let ritem of item.unattendedSystem;let i=index;let bl=last">
-              <span *ngIf="item.unattendedSystem.length>1">{{i + 1}}、</span>{{ritem}} <br
-             *ngIf="item.unattendedSystem.length>1&&!bl"/>
-            </span>
+          <td class="padding_22">
+          <span *ngFor="let unattendedSystemItem of item.unattendedSystem;let bi=index;let bl=last">
+          <span *ngIf="item.unattendedSystem.length>1">{{bi + 1}}:
+          </span>{{unattendedSystemItem}} <br *ngIf="item.unattendedSystem.length>1&&!bl"></span>
           </td>
         </tr>
       </ng-container>
-
       </tbody>
     </table>
   </div>

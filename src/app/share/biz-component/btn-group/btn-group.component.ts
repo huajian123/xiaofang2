@@ -16,6 +16,7 @@ import {
 } from '../../../services/biz-services/accident-disasters-list.service';
 import {fromEvent, Observable, Subscription} from 'rxjs';
 import {debounceTime, distinctUntilChanged} from 'rxjs/operators';
+import {EmergencyDataModel} from '../new-content/new-content.component';
 
 @Component({
   selector: 'app-btn-group',
@@ -24,12 +25,15 @@ import {debounceTime, distinctUntilChanged} from 'rxjs/operators';
 })
 export class BtnGroupComponent implements OnInit, AfterViewInit, OnDestroy {
   @Input() levels: number;
+  @Input() shows: boolean;
   @Input() downLoadUrl: string;
+  @Input() EmergencyDataModel: EmergencyDataModel[];
   @Input() emergencyRoomNameArray: string[]; // 应急厅的部门名称集合
   @ViewChild('inputName') inputName: ElementRef;
   inputBlock$: Observable<any>;
   inputBlockSub$: Subscription;
   isVisible = false;
+  isVisibles = false;
   isOkLoading = false;
   selectEmergency: SelectEmergencyOrderModel[];
   backImage: any;
@@ -38,6 +42,7 @@ export class BtnGroupComponent implements OnInit, AfterViewInit, OnDestroy {
 
 
   constructor(@Inject(DOWNLOAD_CONFIT) public downLoadUri: string, private dataServicers: AccidentDisastersListService) {
+    this.shows = false;
     this.selectEmergency = [];
     this.backImage = {
       backgroundImage: 'url(../../assets/imgs/modal-big.png)',
@@ -51,7 +56,7 @@ export class BtnGroupComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   showEmergencyRoom() {
-    this.isVisible = true;
+    this.isVisibles = true;
   }
 
   handleOk(): void {
@@ -64,6 +69,18 @@ export class BtnGroupComponent implements OnInit, AfterViewInit, OnDestroy {
 
   handleCancel(): void {
     this.isVisible = false;
+  }
+
+  handleOks(): void {
+    this.isOkLoading = true;
+    setTimeout(() => {
+      this.isVisibles = false;
+      this.isOkLoading = false;
+    }, 3000);
+  }
+
+  handleCancels(): void {
+    this.isVisibles = false;
   }
 
   obInput() {

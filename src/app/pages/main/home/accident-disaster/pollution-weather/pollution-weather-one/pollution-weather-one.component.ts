@@ -20,6 +20,7 @@ export class PollutionWeatherOneComponent implements OnInit {
   @Input() rowspanNum: number;
   @Input() downLoadUrl: string;
   isCurrProcess: boolean;
+  isShows: boolean;
   nameArray: string[];
   tableObj: ResponsibilityModel[];
   emergencyObj: EmergencyModel[];
@@ -42,6 +43,7 @@ export class PollutionWeatherOneComponent implements OnInit {
       {name: '应急响应措施', index: 2},
     ];
     this.isCurrProcess = true;
+    this.isShows = true;
   }
 
   // 左侧tab切换
