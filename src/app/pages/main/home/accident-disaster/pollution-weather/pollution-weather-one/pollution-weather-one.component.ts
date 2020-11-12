@@ -13,7 +13,6 @@ import {NewContentComponent} from '../../../../../../share/biz-component/new-con
   ]
 })
 export class PollutionWeatherOneComponent implements OnInit {
-
   @Input() responsibilityData: ResponsibilityModel[];
   @Input() currentPage: number;
   @Input() planId: number;
