@@ -3,9 +3,9 @@
   <table cellpadding="0" cellspacing="0">
     <tbody>
     <tr>
-      <td width="20%" align="center">主要任务</td>
-      <td colspan="2" width="40%" align="center">应急工作内容</td>
-      <td colspan="2" align="center">职能部门</td>
+      <td class="width_100">主要任务</td>
+      <td colspan="2" class="width_content">应急工作内容</td>
+      <td colspan="2" class="width_50">职能部门</td>
     </tr>
     <ng-container *ngFor="let trItem of TableDataModel">
       <ng-container *ngIf="!trItem.isGroup;else grouptpl">
@@ -26,7 +26,7 @@
           <ng-container *ngIf="!groupItem.coordinateDepartment;else groupHasCoorTpl">
             <tr>
               <td #distannceTpl *ngIf="f" [attr.rowspan]="rowspanNum" align="center">{{trItem.responsibility}}</td>
-              <td class="height_93" width="50%">{{groupItem.teamName}}</td>
+              <td class="height_93">{{groupItem.teamName}}</td>
               <td class="padding_22">
                 <span *ngFor="let groupStrItem of groupItem.teamResponsibility;let bi=index;let bl=last">
                 <span *ngIf="groupItem.teamResponsibility.length>1">{{bi + 1}}:</span>{{groupStrItem}}<br *ngIf="!bl&&groupItem.teamResponsibility.length>0">
