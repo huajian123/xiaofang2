@@ -43,12 +43,15 @@ export class NewContentComponent implements OnInit, OnChanges {
   @ViewChild('distannce4') distannce4: ElementRef;
   @ViewChild('distannce5') distannce5: ElementRef;
   @ViewChildren('emergencyTable') emergencyTable: QueryList<ElementRef>;
-
+  @ViewChildren('distannceTpl') distannceTpl: QueryList<ElementRef>;
 
   constructor() {
   }
 
   goDistance(index): void {
+    this.distannceTpl['_results'][index - 1]?.nativeElement.scrollIntoView({
+      behavior: 'smooth', block: 'start', inline: 'start'
+    });
     this['distannce' + index]?.nativeElement.scrollIntoView({
       behavior: 'smooth', block: 'start', inline: 'start'
     });

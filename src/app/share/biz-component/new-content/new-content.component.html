@@ -7,9 +7,9 @@
       <td colspan="2" width="40%" align="center">应急工作内容</td>
       <td colspan="2" align="center">职能部门</td>
     </tr>
-    <ng-container  *ngFor="let trItem of TableDataModel">
+    <ng-container *ngFor="let trItem of TableDataModel">
       <ng-container *ngIf="!trItem.isGroup;else grouptpl">
-        <tr>
+        <tr #distannceTpl>
           <td align="center">{{trItem.responsibility}}</td>
           <td colspan="2" class="padding_22">
             <ng-container *ngFor="let item of trItem.responsibilityDetail;let i= index;">
@@ -24,16 +24,20 @@
         <ng-container *ngFor="let groupItem of trItem.selectTeamResponsibilityDTO;let f=first;">
           <!--重污染天气-->
           <ng-container *ngIf="!groupItem.coordinateDepartment;else groupHasCoorTpl">
-            <tr #distannce3>
-              <td *ngIf="f" [attr.rowspan]="rowspanNum" align="center">{{trItem.responsibility}}</td>
-              <td class="height_93" width="50%">{{groupItem.teamName}}111</td>
-              <td class="padding_22">{{groupItem.teamResponsibility}}</td>
+            <tr>
+              <td #distannceTpl *ngIf="f" [attr.rowspan]="rowspanNum" align="center">{{trItem.responsibility}}</td>
+              <td class="height_93" width="50%">{{groupItem.teamName}}</td>
+              <td class="padding_22">
+                <span *ngFor="let groupStrItem of groupItem.teamResponsibility;let bi=index;let bl=last">
+                <span *ngIf="groupItem.teamResponsibility.length>1">{{bi + 1}}:</span>{{groupStrItem}}<br *ngIf="!bl&&groupItem.teamResponsibility.length>0">
+                </span>
+              </td>
               <td align="center" colspan="2">{{groupItem.mainDepartment}}</td>
             </tr>
           </ng-container>
-          <ng-template #groupHasCoorTpl >
-            <tr #distannce3>
-              <td *ngIf="f" [attr.rowspan]="rowspanNum" align="center">{{trItem.responsibility}}</td>
+          <ng-template #groupHasCoorTpl>
+            <tr>
+              <td #distannceTpl *ngIf="f" [attr.rowspan]="rowspanNum" align="center">{{trItem.responsibility}}</td>
               <td class="height_93" rowspan="2">{{groupItem.teamName}}</td>
               <td class="padding_22" rowspan="2">{{groupItem.teamResponsibility}}</td>
               <td class="width_72" align="center">牵头部门(单位)</td>
