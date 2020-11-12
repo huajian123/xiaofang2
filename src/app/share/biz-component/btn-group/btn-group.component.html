@@ -56,11 +56,6 @@
           [nzClosable]="false" nzWidth="1200" [nzBodyStyle]="backImage">
   <p>应急厅</p>
   <nz-divider class="table-box"></nz-divider>
-  <div class="bre-input">
-    <input type="text" #inputName placeholder="输入责任单位"><i class="iconImg"><img (click)="clearInput($event)"
-                                                                               src="../../../../assets/imgs/clear.svg"
-                                                                               alt=""></i>
-  </div>
   <div class="inner-box">
     <table cellspacing="0" cellpadding="0">
       <tbody>
@@ -70,7 +65,7 @@
         <td align="center">职守制度</td>
       </tr>
       <ng-container *ngFor="let item of EmergencyDataModel; let i = index;let l=last">
-        <tr #emergencyTable>
+        <tr>
           <td align="center">{{item.officeName}}</td>
           <td class="padding_22">
           <span *ngFor="let officeResponsibilityItem of item.officeResponsibility;let bi=index;let bl=last">
