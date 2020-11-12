@@ -40,10 +40,7 @@ export class PollutionWeatherOneComponent implements OnInit {
     this.emergencyRoomNameArray = [];
     this.leftNav = [
       {name: '启动应急响应', index: 1},
-      {name: '成立指挥部', index: 2},
-      {name: '开展应急救援', index: 3},
-      {name: '事态控制', index: 4},
-      {name: '应急结束', index: 5},
+      {name: '应急响应措施', index: 2},
     ];
     this.isCurrProcess = true;
   }
@@ -72,10 +69,7 @@ export class PollutionWeatherOneComponent implements OnInit {
   ngOnInit(): void {
     this.nameArray = [
       '启动应急响应',
-      '成立指挥部',
-      '开展应急救援',
-      '事态控制',
-      '应急结束'
+      '应急响应措施',
     ];
     this.rowspans = this.rowspanNum;
     this.level = this.currentPage;

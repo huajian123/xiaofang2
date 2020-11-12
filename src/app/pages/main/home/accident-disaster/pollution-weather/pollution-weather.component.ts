@@ -65,21 +65,21 @@ export class PollutionWeatherComponent implements OnInit {
     this.tableStandard = [
       {
         name: '/',
-        levelOne: '预测未来持续 96 小时设区市空气质量指数 （ AQI ） 均值达到 200以上',
-        levelTwo: '预测未来持续 72 小时设区市空气质量指数 （ AQI ） 均值达到 200以上  ',
-        levelThree: '预测未来持续 48 小时设区市空气质量指数 （ AQI ） 均值达到 200以上',
+        levelOne: '预测未来持续 96 小时设区市空气质量指数（AQI)均值达到 200以上',
+        levelTwo: '预测未来持续 72 小时设区市空气质量指数（AQI)均值达到 200以上  ',
+        levelThree: '预测未来持续 48 小时设区市空气质量指数（AQI)均值达到 200以上',
         levelFour: '/'
       },
       {
         name: '/',
-        levelOne: '预测未来持续 24 小时设区市空气质量指数 （ AQI ） 均值达到 450 以上',
-        levelTwo: '监测到设区市 SO 2 小时浓度达到 650 微克 / 立方米以上',
-        levelThree: '监测到设区市 SO 2 小时浓度达到 500 微克 / 立方米以上',
+        levelOne: '预测未来持续 24 小时设区市空气质量指数（AQI)均值达到 450 以上',
+        levelTwo: '监测到设区市 SO 2 小时浓度达到 650 微克/立方米以上',
+        levelThree: '监测到设区市 SO 2 小时浓度达到 500 微克/立方米以上',
         levelFour: '/'
       },
       {
         name: '/',
-        levelOne: '监测到设区市 SO 2 小时浓度达到 800 微克 / 立方米以上',
+        levelOne: '监测到设区市 SO 2 小时浓度达到 800 微克/立方米以上',
         levelTwo: '/',
         levelThree: '/',
         levelFour: '/'
@@ -109,35 +109,24 @@ export class PollutionWeatherComponent implements OnInit {
 
   initForm() {
     this.validateForm = this.fb.group({
-      peopleLossAndDie: [null],
-      propertyLossGrade: [null],
-      earthquakeLand: [null],
-      earthquakeSea: [null],
-      cityId: [null],
-      areaId: [null],
+      level: [null],
     });
   }
 
   async subForm() {
     this.validateForm.valueChanges.pipe(debounceTime(1000), distinctUntilChanged()).subscribe(res => {
       res.accidentId = this.id;
-      this.dataServicers.getDecideGrade(res).subscribe(grade => {
-        if (grade != null) {
-          this.plnId = grade.plnId;
+      const getResponsibility$ = this.dataServicers.getResponsibility({id: res.accidentId, planGrade: res.level});
+      const getEmergency$ = this.dataServicers.getEmergency({accidentId: res.accidentId, planGrade: res.level});
+      forkJoin(getResponsibility$, getEmergency$).subscribe(result => {
+        this.responsibilityData = result[0].selectResponsibility;
+        this.planId = result[0].planId;
+        this.emergencyData = result[1];
+        this.downLoadUrl = result[0].downUrl;
+        this.currentPage = res.level;
+        if (this.currentPage === 1 || this.currentPage === 2) {
+          this.rowspanNum = 3;
         }
-        const getResponsibility$ = this.dataServicers.getResponsibility({id: res.accidentId, planGrade: grade.grade});
-        const getEmergency$ = this.dataServicers.getEmergency({accidentId: res.accidentId, planGrade: grade.grade});
-        forkJoin(getResponsibility$, getEmergency$).subscribe(result => {
-          this.responsibilityData = result[0].selectResponsibility;
-          this.planId = result[0].planId;
-          this.emergencyData = result[1];
-          this.downLoadUrl = result[0].downUrl;
-          console.log(this.downLoadUrl);
-          this.currentPage = grade.grade;
-          if (this.currentPage === 1 || this.currentPage === 2) {
-            this.rowspanNum = 25;
-          }
-        });
       });
     });
   }

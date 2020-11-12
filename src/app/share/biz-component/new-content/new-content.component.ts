@@ -16,6 +16,7 @@ export interface TableDataModel {
   department: string;
   responsibilityDetail: string[];
   selectTeamResponsibilityDTO: TeamResponsibilityDTO[];
+  isGroup?: boolean;
 }
 
 export interface EmergencyDataModel {
@@ -57,6 +58,11 @@ export class NewContentComponent implements OnInit, OnChanges {
   }
 
   ngOnInit(): void {
+    this.TableDataModel.forEach(item => {
+      if (item.responsibilityDetail.length === 0 && item.selectTeamResponsibilityDTO !== null) {
+        item.isGroup = true;
+      }
+    });
   }
 
   ngOnChanges(changes: SimpleChanges): void {

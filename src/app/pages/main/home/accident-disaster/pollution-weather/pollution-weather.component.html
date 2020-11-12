@@ -13,7 +13,7 @@
         <nz-form-item>
           <nz-form-label [nzSpan]="12">灾害等级</nz-form-label>
           <nz-form-control [nzSpan]="12">
-            <nz-select class="margin-none" nzPlaceHolder="下拉选择" formControlName="propertyLossGrade">
+            <nz-select class="margin-none" nzPlaceHolder="下拉选择" formControlName="level">
               <nz-option *ngFor="let item of earthquakeEconomicLevelOptions" [nzValue]="item.value"
                          [nzLabel]="item.label"></nz-option>
             </nz-select>
