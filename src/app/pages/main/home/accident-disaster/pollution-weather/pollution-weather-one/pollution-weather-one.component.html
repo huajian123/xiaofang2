@@ -1,9 +1,6 @@
 <div class="column-lay">
   <app-btn-group [downLoadUrl]="downLoadUrl" [levels]="planId" [shows]="isShows"
                  [EmergencyDataModel]="emergencyObj"></app-btn-group>
-  <!--<app-left-hexagon (isClickLeft)="changeState($event)" [emergencyRoomNameArray]="emergencyRoomNameArray"
-                    (clickReturn)="getCurrentLeftName($event)"
-                    [nameArray]="nameArray"></app-left-hexagon>-->
   <div [@bounceInOnEnter]="{ value: '', params: { duration: 1000 }}">
     <div class="column-right">
       <app-new-content #tableContent [isCurrProcess]="isCurrProcess" [level]="currentPage"

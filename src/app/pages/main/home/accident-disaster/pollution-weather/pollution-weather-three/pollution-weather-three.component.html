@@ -2,7 +2,62 @@
   <app-btn-group [downLoadUrl]="downLoadUrl" [levels]="planId"></app-btn-group>
   <div [@bounceInOnEnter]="{ value: '', params: { duration: 1000 }}">
     <div class="column-right">
-      <app-new-content [TableDataModel]="tableObj" [level]="currentPage"></app-new-content>
+      <!-- <app-new-content [TableDataModel]="tableObj" [level]="currentPage"></app-new-content>-->
+      <table cellpadding="0" cellspacing="0">
+        <tbody>
+        <tr>
+          <td class="width_100">主要任务</td>
+          <td colspan="2" class="width_content">应急工作内容</td>
+          <td colspan="2" class="width_50">职能部门</td>
+        </tr>
+        <ng-container *ngFor="let trItem of TableDataModel">
+          <ng-container *ngIf="!trItem.isGroup;else grouptpl">
+            <tr #distannceTpl>
+              <td align="center">{{trItem.responsibility}}</td>
+              <td colspan="2" class="padding_22">
+                <ng-container *ngFor="let item of trItem.responsibilityDetail;let i= index;">
+                  {{i + 1}}.{{item}}<br/>
+                </ng-container>
+              </td>
+              <td colspan="2" class="padding_22">{{trItem.department}}</td>
+            </tr>
+          </ng-container>
+
+          <ng-template #grouptpl>
+            <ng-container *ngFor="let groupItem of trItem.selectTeamResponsibilityDTO;let f=first;">
+              <!--重污染天气-->
+              <ng-container *ngIf="!groupItem.coordinateDepartment;else groupHasCoorTpl">
+                <tr>
+                  <td #distannceTpl *ngIf="f" [attr.rowspan]="rowspanNum" align="center">{{trItem.responsibility}}</td>
+                  <td class="height_93">{{groupItem.teamName}}</td>
+                  <td class="padding_22">
+                <span *ngFor="let groupStrItem of groupItem.teamResponsibility;let bi=index;let bl=last">
+                <span *ngIf="groupItem.teamResponsibility.length>1">{{bi + 1}}:</span>{{groupStrItem}}<br
+                  *ngIf="!bl&&groupItem.teamResponsibility.length>0">
+                </span>
+                  </td>
+                  <td align="center" colspan="2">{{groupItem.mainDepartment}}</td>
+                </tr>
+              </ng-container>
+              <ng-template #groupHasCoorTpl>
+                <tr>
+                  <td #distannceTpl *ngIf="f" [attr.rowspan]="rowspanNum" align="center">{{trItem.responsibility}}</td>
+                  <td class="height_93" rowspan="2">{{groupItem.teamName}}</td>
+                  <td class="padding_22" rowspan="2">{{groupItem.teamResponsibility}}</td>
+                  <td class="width_72" align="center">牵头部门(单位)</td>
+                  <td align="center">{{groupItem.mainDepartment}}</td>
+                </tr>
+                <tr>
+                  <td class="width_72" align="center">配合部门(单位)</td>
+                  <td align="center">{{groupItem.coordinateDepartment}}</td>
+                </tr>
+              </ng-template>
+            </ng-container>
+          </ng-template>
+
+        </ng-container>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>

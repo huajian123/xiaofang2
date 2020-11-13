@@ -124,9 +124,7 @@ export class PollutionWeatherComponent implements OnInit {
         this.emergencyData = result[1];
         this.downLoadUrl = result[0].downUrl;
         this.currentPage = res.level;
-        if (this.currentPage === 1 || this.currentPage === 2) {
-          this.rowspanNum = 3;
-        }
+        this.rowspanNum = 3;
       });
     });
   }
