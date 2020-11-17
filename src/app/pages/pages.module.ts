@@ -10,13 +10,10 @@ import {HazardousOneComponent} from './main/home/accident-disaster/hazardous/haz
 import {HazardousThreeComponent} from './main/home/accident-disaster/hazardous/hazardous-three/hazardous-three.component';
 import {EarthquakeThreeComponent} from './main/home/natural-disaster/earthquake/earthquake-three/earthquake-three.component';
 import {EarthquakeOneComponent} from './main/home/natural-disaster/earthquake/earthquake-one/earthquake-one.component';
-import {FloodDroughtOneComponent} from './main/home/natural-disaster/flood-drought/flood-drought-one/flood-drought-one.component';
 import {WelcomeComponent} from './welcome/welcome.component';
 import {TyphoonOneComponent} from './main/home/natural-disaster/typhoon/typhoon-one/typhoon-one.component';
 import {TyphoonThreeComponent} from './main/home/natural-disaster/typhoon/typhoon-three/typhoon-three.component';
-import {FloodDroughtThreeComponent} from './main/home/natural-disaster/flood-drought/flood-drought-three/flood-drought-three.component';
 import {TyphoonComponent} from './main/home/natural-disaster/typhoon/typhoon.component';
-import {FloodDroughtComponent} from './main/home/natural-disaster/flood-drought/flood-drought.component';
 import {ForestFireComponent} from './main/home/natural-disaster/forest-fire/forest-fire.component';
 import {ForestFireOneComponent} from './main/home/natural-disaster/forest-fire/forest-fire-one/forest-fire-one.component';
 import {ForestFireThreeComponent} from './main/home/natural-disaster/forest-fire/forest-fire-three/forest-fire-three.component';
@@ -35,13 +32,10 @@ import { PollutionWeatherThreeComponent } from './main/home/accident-disaster/po
     HazardousThreeComponent,
     EarthquakeThreeComponent,
     EarthquakeOneComponent,
-    FloodDroughtOneComponent,
     WelcomeComponent,
     TyphoonOneComponent,
     TyphoonThreeComponent,
-    FloodDroughtThreeComponent,
     TyphoonComponent,
-    FloodDroughtComponent,
     ForestFireComponent,
     ForestFireOneComponent,
     ForestFireThreeComponent,

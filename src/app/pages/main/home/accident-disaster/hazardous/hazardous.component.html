@@ -1,6 +1,6 @@
 <section class="layout-content" *ngIf="isShowStandard">
   <div class="solute" (mouseover)="showStandard()">
-    <img src="../../../../../../assets/imgs/question.svg" alt="应急响应启动标准">
+    <div class="standard-btn">标准</div>
   </div>
   <nz-modal [(nzVisible)]="isVisible" [nzTitle]="null" (nzOnCancel)="standardCancel()" (nzOnOk)="standardOk()"
             [nzOkLoading]="isOkLoading" [nzFooter]="null"
