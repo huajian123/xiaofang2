@@ -26,6 +26,13 @@ import {ProductionSafetyComponent} from './main/home/accident-disaster/productio
 import {FloodDroughtComponent} from './main/home/natural-disaster/flood-drought/flood-drought.component';
 import {FloodDroughtOneComponent} from './main/home/natural-disaster/flood-drought/flood-drought-one/flood-drought-one.component';
 import {FloodDroughtThreeComponent} from './main/home/natural-disaster/flood-drought/flood-drought-three/flood-drought-three.component';
+import {MajorFireComponent} from './main/home/accident-disaster/major-fire/major-fire.component';
+import {MajorFireOneComponent} from './main/home/accident-disaster/major-fire/major-fire-one/major-fire-one.component';
+import {MajorFireThreeComponent} from './main/home/accident-disaster/major-fire/major-fire-three/major-fire-three.component';
+import {GeologicalComponent} from './main/home/natural-disaster/geological/geological.component';
+import {GeologicalOneComponent} from './main/home/natural-disaster/geological/geological-one/geological-one.component';
+import {GeologicalThreeComponent} from './main/home/natural-disaster/geological/geological-three/geological-three.component';
+
 
 
 @NgModule({
@@ -54,6 +61,12 @@ import {FloodDroughtThreeComponent} from './main/home/natural-disaster/flood-dro
     FloodDroughtComponent,
     FloodDroughtOneComponent,
     FloodDroughtThreeComponent,
+    MajorFireComponent,
+    MajorFireOneComponent,
+    MajorFireThreeComponent,
+    GeologicalComponent,
+    GeologicalOneComponent,
+    GeologicalThreeComponent,
   ],
   imports: [
     CommonModule,
