@@ -1,1 +1,8 @@
-<p>production-safety-three works!</p>
+<div class="column-lay">
+  <app-btn-group [downLoadUrl]="downLoadUrl" [levels]="planId"></app-btn-group>
+  <div [@bounceInOnEnter]="{ value: '', params: { duration: 1000 }}">
+    <div class="column-right">
+      <app-new-content [TableDataModel]="tableObj" [level]="currentPage"></app-new-content>
+    </div>
+  </div>
+</div>

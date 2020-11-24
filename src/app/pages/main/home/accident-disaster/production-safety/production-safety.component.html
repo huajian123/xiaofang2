@@ -51,19 +51,20 @@
                              [currentPage]="currentPage" [rowspanNum]="rowspanNum"
                              [planId]="planId"></app-production-safety-one>
 </ng-container>
-<!--<ng-container *ngIf="currentPage===2">
-  <app-hazardous-one [downLoadUrl]="downLoadUrl" [emergencyRoomData]="emergencyData"
-                     [responsibilityData]="responsibilityData"
-                     [currentPage]="currentPage" [rowspanNum]="rowspanNum" [planId]="planId"></app-hazardous-one>
+<ng-container *ngIf="currentPage===2">
+  <app-production-safety-one [downLoadUrl]="downLoadUrl" [emergencyRoomData]="emergencyData"
+                             [responsibilityData]="responsibilityData"
+                             [currentPage]="currentPage" [rowspanNum]="rowspanNum"
+                             [planId]="planId"></app-production-safety-one>
 </ng-container>
 
 <ng-container *ngIf="currentPage===3">
-  <app-hazardous-three [downLoadUrl]="downLoadUrl" [responsibilityData]="responsibilityData"
-                       [currentPage]="currentPage" [planId]="planId"></app-hazardous-three>
+  <app-production-safety-three [downLoadUrl]="downLoadUrl" [responsibilityData]="responsibilityData"
+                               [currentPage]="currentPage" [planId]="planId"></app-production-safety-three>
 </ng-container>
 
 <ng-container *ngIf="currentPage===4">
-  <app-hazardous-three [downLoadUrl]="downLoadUrl" [responsibilityData]="responsibilityData"
-                       [currentPage]="currentPage" [planId]="planId"></app-hazardous-three>
-</ng-container>-->
+  <app-production-safety-three [downLoadUrl]="downLoadUrl" [responsibilityData]="responsibilityData"
+                               [currentPage]="currentPage" [planId]="planId"></app-production-safety-three>
+</ng-container>
 
