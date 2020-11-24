@@ -16,7 +16,7 @@
   <section class="judgment-wrap">
     <!--汛旱-->
     <ng-container *ngIf="currentPage===1">
-     <!-- <app-flood-drought [id]="accidentId"></app-flood-drought>-->
+      <app-flood-drought [id]="accidentId"></app-flood-drought>
     </ng-container>
     <!--地震-->
     <ng-container *ngIf="currentPage===2">
@@ -93,7 +93,7 @@
     </ng-container>
     <!--生产-->
     <ng-container *ngIf="currentPage===21">
-
+      <app-production-safety [id]="accidentId"></app-production-safety>
     </ng-container>
     <!--森林-->
     <ng-container *ngIf="currentPage===22">

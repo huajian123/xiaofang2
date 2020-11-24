@@ -20,6 +20,12 @@ import {ForestFireThreeComponent} from './main/home/natural-disaster/forest-fire
 import { PollutionWeatherComponent } from './main/home/accident-disaster/pollution-weather/pollution-weather.component';
 import { PollutionWeatherOneComponent } from './main/home/accident-disaster/pollution-weather/pollution-weather-one/pollution-weather-one.component';
 import { PollutionWeatherThreeComponent } from './main/home/accident-disaster/pollution-weather/pollution-weather-three/pollution-weather-three.component';
+import {ProductionSafetyOneComponent} from './main/home/accident-disaster/production-safety/production-safety-one/production-safety-one.component';
+import {ProductionSafetyThreeComponent} from './main/home/accident-disaster/production-safety/production-safety-three/production-safety-three.component';
+import {ProductionSafetyComponent} from './main/home/accident-disaster/production-safety/production-safety.component';
+import {FloodDroughtComponent} from './main/home/natural-disaster/flood-drought/flood-drought.component';
+import {FloodDroughtOneComponent} from './main/home/natural-disaster/flood-drought/flood-drought-one/flood-drought-one.component';
+import {FloodDroughtThreeComponent} from './main/home/natural-disaster/flood-drought/flood-drought-three/flood-drought-three.component';
 
 
 @NgModule({
@@ -42,6 +48,12 @@ import { PollutionWeatherThreeComponent } from './main/home/accident-disaster/po
     PollutionWeatherComponent,
     PollutionWeatherOneComponent,
     PollutionWeatherThreeComponent,
+    ProductionSafetyOneComponent,
+    ProductionSafetyThreeComponent,
+    ProductionSafetyComponent,
+    FloodDroughtComponent,
+    FloodDroughtOneComponent,
+    FloodDroughtThreeComponent,
   ],
   imports: [
     CommonModule,
