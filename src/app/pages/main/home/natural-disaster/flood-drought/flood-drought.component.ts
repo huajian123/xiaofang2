@@ -48,6 +48,7 @@ export class FloodDroughtComponent implements OnInit {
   tableStandardDrought: TableDatasModel[];
   downLoadUrl: string;
   planId: number;
+  radioValue = 'A';
 
   constructor(private fb: FormBuilder, private dataServicers: AccidentDisastersListService,
               public message: NzMessageService) {

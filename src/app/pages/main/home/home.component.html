@@ -23,70 +23,71 @@
       <app-earthquake [id]="accidentId"></app-earthquake>
     </ng-container>
     <!--气象-->
-    <!-- <ng-container *ngIf="currentPage===3">
-     </ng-container>-->
+    <ng-container *ngIf="currentPage===3">
+    </ng-container>
     <!--自然灾害救助-->
-    <!-- <ng-container *ngIf="currentPage===4">
-     </ng-container>-->
+    <ng-container *ngIf="currentPage===4">
+    </ng-container>
     <!--地质-->
-    <!-- <ng-container *ngIf="currentPage===5">
-     </ng-container>-->
+    <ng-container *ngIf="currentPage===5">
+      <app-geological [id]="accidentId"></app-geological>
+    </ng-container>
     <!--台风-->
     <ng-container *ngIf="currentPage===6">
       <app-typhoon [id]="accidentId"></app-typhoon>
     </ng-container>
     <!--交通-->
-    <!--<ng-container *ngIf="currentPage===7">
+    <ng-container *ngIf="currentPage===7">
 
-    </ng-container>-->
+    </ng-container>
     <!--环境-->
-    <!-- <ng-container *ngIf="currentPage===8">
+    <ng-container *ngIf="currentPage===8">
 
-     </ng-container>-->
+    </ng-container>
     <!--辐射-->
-    <!--<ng-container *ngIf="currentPage===9">
+    <ng-container *ngIf="currentPage===9">
 
-    </ng-container>-->
+    </ng-container>
     <!--蓝藻-->
-    <!--<ng-container *ngIf="currentPage===10">
+    <ng-container *ngIf="currentPage===10">
 
-    </ng-container>-->
+    </ng-container>
     <!--湖泛-->
-    <!--    <ng-container *ngIf="currentPage===11">
+    <ng-container *ngIf="currentPage===11">
 
-        </ng-container>-->
+    </ng-container>
     <!--天气-->
     <ng-container *ngIf="currentPage===12">
       <app-pollution-weather [id]="accidentId"></app-pollution-weather>
     </ng-container>
     <!--核应急-->
-    <!--<ng-container *ngIf="currentPage===13">
+    <ng-container *ngIf="currentPage===13">
 
-    </ng-container>-->
+    </ng-container>
     <!--设备-->
-    <!--<ng-container *ngIf="currentPage===14">
+    <ng-container *ngIf="currentPage===14">
 
-    </ng-container>-->
+    </ng-container>
     <!--铁路-->
-    <!--<ng-container *ngIf="currentPage===15">
+    <ng-container *ngIf="currentPage===15">
 
-    </ng-container>-->
+    </ng-container>
     <!--港口-->
-    <!--  <ng-container *ngIf="currentPage===16">
+    <ng-container *ngIf="currentPage===16">
 
-      </ng-container>-->
+    </ng-container>
     <!--停电-->
-    <!--   <ng-container *ngIf="currentPage===17">
+    <ng-container *ngIf="currentPage===17">
 
-       </ng-container>-->
+    </ng-container>
     <!--火灾-->
-    <!--<ng-container *ngIf="currentPage===18">
+    <ng-container *ngIf="currentPage===18">
 
-    </ng-container>-->
+    </ng-container>
     <!--通信-->
-    <!--  <ng-container *ngIf="currentPage===19">
+    <ng-container *ngIf="currentPage===19">
 
-      </ng-container>-->
+    </ng-container>
     <!--危化品-->
     <ng-container *ngIf="currentPage===20">
       <app-hazardous [id]="accidentId"></app-hazardous>
