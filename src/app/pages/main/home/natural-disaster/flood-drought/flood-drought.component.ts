@@ -44,7 +44,8 @@ export class FloodDroughtComponent implements OnInit {
   isVisible = false;
   isOkLoading = false;
   backImage: any;
-  tableStandard: TableDatasModel[];
+  tableStandardFlood: TableDatasModel[];
+  tableStandardDrought: TableDatasModel[];
   downLoadUrl: string;
   planId: number;
 
@@ -61,32 +62,71 @@ export class FloodDroughtComponent implements OnInit {
     this.emergencyData = [];
     this.rowspanNum = 0;
     this.downLoadUrl = '';
-    this.tableStandard = [
+    this.tableStandardFlood = [
       {
-        name: '死亡/失踪人数',
-        levelOne: '300人以上',
-        levelTwo: '50人以上、300人以下',
-        levelThree: '10人以上、50人以下',
-        levelFour: '10人以下'
+        name: '省水利厅发布洪水预警',
+        levelOne: '红色',
+        levelTwo: '橙色',
+        levelThree: '黄色',
+        levelFour: '蓝色'
       },
       {
-        name: '直接经济损失',
-        levelOne: '直接经济损失占我省上半年地区生产总值1%以上',
-        levelTwo: '严重经济损失',
-        levelThree: '较重经济损失',
-        levelFour: '一定经济损失'
+        name: '省气象局发布暴雨预警',
+        levelOne: '红色',
+        levelTwo: '橙色',
+        levelThree: '黄色',
+        levelFour: '蓝色'
       },
       {
-        name: '地震级别',
-        levelOne: '1、省陆地行政区域发生6.0级以上；2、近海海域50千米或我省陆地边界50千米以内的邻省（市）7.0级以上地震',
-        levelTwo: '1、省陆地行政区域发生5.0以上、6.0级以下；2、近海海域50千米或我省陆地边界50千米以内的邻省（市）6.0级以上、7.0级以下地震',
-        levelThree: '1、省陆地行政区域发生4.0以上、5.0级以下；2、近海海域50千米或我省陆地边界50千米以内的邻省（市）5.0级以上、6.0级以下地震',
-        levelFour: '省陆地行政区域发生4.0级以下有感地震；'
+        name: '长江（含太湖）流域受淹（涝）面积或淮河（含沂沭泗）流域受淹（涝）面积',
+        levelOne: '超过1300万亩或超过2800万亩',
+        levelTwo: '900万亩或超过1900万亩',
+        levelThree: '700万亩或超过1400万亩',
+        levelFour: '超过550万亩或超过950万亩'
+      },
+      {
+        name: '流域性防洪工程、区域性骨干防洪工程、水库大坝出现险情',
+        levelOne: '特别重大险情，大江大河堤防发生决口，河道发生决口，出现垮坝，严重威胁人民生命财产安全',
+        levelTwo: '重大险情或小型水库出现垮坝，威胁人民生命财产安全',
+        levelThree: '较大险情',
+        levelFour: '一般险情'
+      }
+    ];
+    this.tableStandardDrought = [
+      {
+        name: '省水利厅发布水情干旱预警',
+        levelOne: '红色',
+        levelTwo: '橙色',
+        levelThree: '黄色',
+        levelFour: '蓝色'
+      },
+      {
+        name: '省气象局发布干旱预警',
+        levelOne: '红色',
+        levelTwo: '橙色',
+        levelThree: '黄色',
+        levelFour: '蓝色'
+      },
+      {
+        name: '长江（含太湖）流域受旱面积或淮河（含沂沭泗）流域受旱面积',
+        levelOne: '超过1000万亩或超过2800万亩',
+        levelTwo: '超过700万亩或超过1900万亩',
+        levelThree: '超过550万亩或超过1400万亩',
+        levelFour: '超过350万亩或超过950万亩'
+      },
+      {
+        name: '因旱情影响集中饮用水水源地取水',
+        levelOne: '严重影响多个设区市',
+        levelTwo: '影响多个设区市',
+        levelThree: '影响某个设区市',
+        levelFour: '影响多个县级城市'
       }
     ];
     this.backImage = {
       backgroundImage: 'url(../../assets/imgs/modal-box.png)',
+      backgroundSize: '100%,100%',
       height: '490px',
+      overflowY: 'auto'
     };
   }
 

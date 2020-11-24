@@ -5,7 +5,49 @@
   <nz-modal [(nzVisible)]="isVisible" [nzTitle]="null" (nzOnCancel)="standardCancel()" (nzOnOk)="standardOk()"
             [nzOkLoading]="isOkLoading" [nzFooter]="null"
             [nzClosable]="false" nzWidth="1200" [nzBodyStyle]="backImage">
-    <app-emergency-standard [tableData]="tableStandard"></app-emergency-standard>
+    <p>应急响应启动标准</p>
+    <nz-divider class="table-box"></nz-divider>
+    <table cellspacing="0" cellpadding="0">
+      <thead>
+      <tr>
+        <td width="20%">防汛启动标准</td>
+        <td width="20%">一级</td>
+        <td width="20%">二级</td>
+        <td width="20%">三级</td>
+        <td width="20%">四级</td>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let item of tableStandardFlood;">
+        <td align="center">{{item.name}}</td>
+        <td [style]="{'text-align':item.levelOne.length===1?'center':''}">{{item.levelOne}}</td>
+        <td [style]="{'text-align':item.levelTwo.length===1?'center':''}">{{item.levelTwo}}</td>
+        <td [style]="{'text-align':item.levelThree.length===1?'center':''}">{{item.levelThree}}</td>
+        <td [style]="{'text-align':item.levelFour.length===1?'center':''}">{{item.levelFour}}</td>
+      </tr>
+      </tbody>
+    </table>
+    <br/>
+    <table cellspacing="0" cellpadding="0">
+      <thead>
+      <tr>
+        <td width="20%">抗旱启动标准</td>
+        <td width="20%">一级</td>
+        <td width="20%">二级</td>
+        <td width="20%">三级</td>
+        <td width="20%">四级</td>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let item of tableStandardDrought;">
+        <td align="center">{{item.name}}</td>
+        <td [style]="{'text-align':item.levelOne.length===1?'center':''}">{{item.levelOne}}</td>
+        <td [style]="{'text-align':item.levelTwo.length===1?'center':''}">{{item.levelTwo}}</td>
+        <td [style]="{'text-align':item.levelThree.length===1?'center':''}">{{item.levelThree}}</td>
+        <td [style]="{'text-align':item.levelFour.length===1?'center':''}">{{item.levelFour}}</td>
+      </tr>
+      </tbody>
+    </table>
   </nz-modal>
   <form [formGroup]="validateForm">
     <div nz-row>
