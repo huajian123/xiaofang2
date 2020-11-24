@@ -1,1 +1,69 @@
-<p>production-safety works!</p>
+<section class="layout-content" *ngIf="isShowStandard">
+  <div class="solute" (mouseover)="showStandard()">
+    <div class="standard-btn">标准</div>
+  </div>
+  <nz-modal [(nzVisible)]="isVisible" [nzTitle]="null" (nzOnCancel)="standardCancel()" (nzOnOk)="standardOk()"
+            [nzOkLoading]="isOkLoading" [nzFooter]="null"
+            [nzClosable]="false" nzWidth="1200" [nzBodyStyle]="backImage">
+    <app-emergency-standard [tableData]="tableStandard"></app-emergency-standard>
+  </nz-modal>
+  <form [formGroup]="validateForm">
+    <div nz-row>
+      <div nz-col [nzSpan]="8">
+        <nz-form-item>
+          <nz-form-label [nzSpan]="12">死亡人数</nz-form-label>
+          <nz-form-control [nzSpan]="12">
+            <nz-input-number [nzMax]="99999999" nzPlaceHolder="死亡人数" formControlName="peopleLossAndDie"
+                             [nzMin]="1"></nz-input-number>
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+      <div nz-col [nzSpan]="8">
+        <nz-form-item>
+          <nz-form-label [nzSpan]="12">重伤及急性工业中毒人数</nz-form-label>
+          <nz-form-control [nzSpan]="12">
+            <nz-input-number [nzMax]="99999999" nzPlaceHolder="重伤及急性工业中毒人数" formControlName="peopleInjury"
+                             [nzMin]="1"></nz-input-number>
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+      <div nz-col [nzSpan]="8">
+        <nz-form-item>
+          <nz-form-label [nzSpan]="12">直接经济损失(万元)</nz-form-label>
+          <nz-form-control [nzSpan]="12">
+            <nz-input-number [nzPrecision]="6" [nzMax]="9999999999" nzPlaceHolder="直接经济损失(万元)"
+                             formControlName="propertyLoss"
+                             [nzMin]="1"></nz-input-number>
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+    </div>
+  </form>
+</section>
+<div class="drive">
+  <div [ngClass]="{'show-btn':isShowStandard,'hide-btn':!isShowStandard}"
+       (click)="isShowStandard=!isShowStandard"></div>
+</div>
+
+<ng-container *ngIf="currentPage===1">
+  <app-production-safety-one [downLoadUrl]="downLoadUrl" [emergencyRoomData]="emergencyData"
+                             [responsibilityData]="responsibilityData"
+                             [currentPage]="currentPage" [rowspanNum]="rowspanNum"
+                             [planId]="planId"></app-production-safety-one>
+</ng-container>
+<!--<ng-container *ngIf="currentPage===2">
+  <app-hazardous-one [downLoadUrl]="downLoadUrl" [emergencyRoomData]="emergencyData"
+                     [responsibilityData]="responsibilityData"
+                     [currentPage]="currentPage" [rowspanNum]="rowspanNum" [planId]="planId"></app-hazardous-one>
+</ng-container>
+
+<ng-container *ngIf="currentPage===3">
+  <app-hazardous-three [downLoadUrl]="downLoadUrl" [responsibilityData]="responsibilityData"
+                       [currentPage]="currentPage" [planId]="planId"></app-hazardous-three>
+</ng-container>
+
+<ng-container *ngIf="currentPage===4">
+  <app-hazardous-three [downLoadUrl]="downLoadUrl" [responsibilityData]="responsibilityData"
+                       [currentPage]="currentPage" [planId]="planId"></app-hazardous-three>
+</ng-container>-->
+

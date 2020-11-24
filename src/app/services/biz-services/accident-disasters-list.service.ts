@@ -33,6 +33,7 @@ export interface ShowDecideGradeModel {
   additionalProp1?: HazardousModel;
   additionalProp2?: EarthquakeModel;
   additionalProp3?: TyphoonModel;
+  additionalProp4?: ProductionSafetyModel;
 }
 
 /*危化品*/
@@ -42,6 +43,13 @@ export interface HazardousModel {
   peopleLoss?: number;
   propertyLoss?: number;
   toxicGas?: number;
+}
+
+/*生产安全*/
+export interface ProductionSafetyModel {
+  peopleLossAndDie?: number;
+  peopleInjury?: number;
+  propertyLoss?: number;
 }
 
 /*台风*/
