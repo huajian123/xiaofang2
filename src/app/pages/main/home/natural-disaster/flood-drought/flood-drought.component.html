@@ -55,14 +55,14 @@
         <nz-form-item>
           <nz-form-label [nzSpan]="12">灾害类别</nz-form-label>
           <nz-form-control [nzSpan]="12">
-            <nz-radio-group formControlName="floodAndDrought">
+            <nz-radio-group [(ngModel)]="floodAndDrought" (ngModelChange)="changeRadio()" [ngModelOptions]="{standalone: true}">
               <label nz-radio nzValue="0">防汛</label>
               <label nz-radio nzValue="1">抗旱</label>
             </nz-radio-group>
           </nz-form-control>
         </nz-form-item>
       </div>
-      <ng-container *ngIf="validateForm.get('floodAndDrought').value==='0'">
+      <ng-container *ngIf="floodAndDrought==='0'">
         <div nz-col [nzSpan]="8">
           <nz-form-item>
             <nz-form-label [nzSpan]="12">洪水预警</nz-form-label>
@@ -113,7 +113,7 @@
           </nz-form-item>
         </div>
       </ng-container>
-      <ng-container *ngIf="validateForm.get('floodAndDrought').value==='1'">
+      <ng-container *ngIf="floodAndDrought==='1'">
         <div nz-col [nzSpan]="8">
           <nz-form-item>
             <nz-form-label [nzSpan]="12">干旱预警</nz-form-label>

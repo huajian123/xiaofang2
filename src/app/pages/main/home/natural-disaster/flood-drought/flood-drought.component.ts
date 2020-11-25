@@ -8,7 +8,7 @@ import {
 } from '../../../../../services/biz-services/accident-disasters-list.service';
 import {NzMessageService} from 'ng-zorro-antd';
 import {debounceTime, distinctUntilChanged, find, first, switchMap, take} from 'rxjs/operators';
-import {forkJoin} from 'rxjs';
+import {forkJoin, Observable, Subscription} from 'rxjs';
 import {MapPipe, MapSet} from '../../../../../share/directives/pipe/map.pipe';
 
 interface OptionsInterface {
@@ -49,11 +49,15 @@ export class FloodDroughtComponent implements OnInit {
   tableStandardDrought: TableDatasModel[];
   downLoadUrl: string;
   planId: number;
+  floodAndDrought: string | number;
+  formChange$: Observable<any>;
+  formChangeSub$: Subscription;
 
   /* radioValue = '0';*/
 
   constructor(private fb: FormBuilder, private dataServicers: AccidentDisastersListService,
               public message: NzMessageService) {
+    this.floodAndDrought = '0';
     this.isShowStandard = true;
     this.currentPage = 0;
     this.plnId = 0;
@@ -152,7 +156,6 @@ export class FloodDroughtComponent implements OnInit {
 
   initForm() {
     this.validateForm = this.fb.group({
-      floodAndDrought: ['0'],
       flood: [null],
       rainstormFlood: [null],
       damFlood: [null],
@@ -166,40 +169,17 @@ export class FloodDroughtComponent implements OnInit {
     });
   }
 
+  changeRadio() {
+    this.formChangeSub$.unsubscribe();
+    this.validateForm.reset();
+    this.subForm();
+  }
+
   async subForm() {
-    this.validateForm.valueChanges.pipe(debounceTime(1000), distinctUntilChanged()).subscribe(res => {
-      if (this.validateForm.get('floodAndDrought').value === '0') {
-        /* this.validateForm.get('waterDrought').setValue(null);
-         this.validateForm.get('weatherDrought').setValue(null);
-         this.validateForm.get('changjiangDrought').setValue(null);
-         this.validateForm.get('huaiheDrought').setValue(null);
-         this.validateForm.get('area').setValue(null);*/
-        this.validateForm.reset({floodAndDrought: '0'});
-        if (this.validateForm.get('flood').value === null && this.validateForm.get('rainstormFlood').value === null
-          && this.validateForm.get('damFlood').value === null && this.validateForm.get('huaiheFlood').value === null
-          && this.validateForm.get('changjiangFlood').value === null) {
-          return;
-        }
-      } else if (this.validateForm.get('floodAndDrought').value === '1') {
-        /*this.validateForm.get('flood').setValue(null);
-        this.validateForm.get('rainstormFlood').setValue(null);
-        this.validateForm.get('changjiangFlood').setValue(null);
-        this.validateForm.get('huaiheFlood').setValue(null);
-        this.validateForm.get('damFlood').setValue(null);*/
-        this.validateForm.reset({floodAndDrought: '1'});
-        console.log(this.validateForm.get('waterDrought').value === null);
-        console.log(this.validateForm.get('weatherDrought').value === null);
-        console.log(this.validateForm.get('area').value === null);
-        console.log(this.validateForm.get('changjiangDrought').value === null);
-        console.log(this.validateForm.get('huaiheDrought').value === null);
-        if (this.validateForm.get('waterDrought').value === null && this.validateForm.get('weatherDrought').value === null
-          && this.validateForm.get('area').value === null && this.validateForm.get('changjiangDrought').value === null
-          && this.validateForm.get('huaiheDrought').value === null) {
-          console.log(1123123);
-          return;
-        }
-      }
+    this.formChange$ = this.validateForm.valueChanges.pipe(debounceTime(1000), distinctUntilChanged());
+    this.formChangeSub$ = this.formChange$.subscribe(res => {
       res.accidentId = this.id;
+      res.floodAndDrought = this.floodAndDrought;
       this.dataServicers.getDecideGrade(res).subscribe(grade => {
         if (grade != null) {
           this.plnId = grade.plnId;
@@ -211,7 +191,6 @@ export class FloodDroughtComponent implements OnInit {
           this.planId = result[0].planId;
           this.emergencyData = result[1];
           this.downLoadUrl = result[0].downUrl;
-          console.log(this.downLoadUrl);
           this.currentPage = grade.grade;
           if (this.currentPage === 1 || this.currentPage === 2) {
             this.rowspanNum = 25;
