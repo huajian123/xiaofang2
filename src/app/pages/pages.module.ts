@@ -36,6 +36,7 @@ import { EnvironmentalEmergencyComponent } from './main/home/accident-disaster/e
 import { EnvironmentalEmergencyOneComponent } from './main/home/accident-disaster/environmental-emergency/environmental-emergency-one/environmental-emergency-one.component';
 import { EnvironmentalEmergencyThreeComponent } from './main/home/accident-disaster/environmental-emergency/environmental-emergency-three/environmental-emergency-three.component';
 import { EnvironmentalEmergencyTableOneComponent } from './main/home/accident-disaster/environmental-emergency/environmental-emergency-table-one/environmental-emergency-table-one.component';
+import { RailwayComponent } from './main/home/accident-disaster/railway/railway.component';
 
 
 
@@ -75,6 +76,7 @@ import { EnvironmentalEmergencyTableOneComponent } from './main/home/accident-di
     EnvironmentalEmergencyOneComponent,
     EnvironmentalEmergencyThreeComponent,
     EnvironmentalEmergencyTableOneComponent,
+    RailwayComponent,
   ],
   imports: [
     CommonModule,
