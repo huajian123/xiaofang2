@@ -154,7 +154,6 @@ export class EnvironmentalEmergencyComponent implements OnInit {
     this.initForm();
     this.subForm();
     this.earthquakeEconomicLevelOptions = [...MapPipe.transformMapToArray(MapSet.startLevel)];
-    this.earthquakeEconomicLevelOptions.length = 3;
   }
 
 }
