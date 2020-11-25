@@ -5,9 +5,122 @@
                     [nameArray]="nameArray"></app-left-hexagon>
   <div [@bounceInOnEnter]="{ value: '', params: { duration: 1000 }}">
     <div class="column-right">
-      <app-new-content #tableContent [isCurrProcess]="isCurrProcess" [level]="currentPage"
+      <app-new-content *ngIf="!isCurrProcess" #tableContent [isCurrProcess]="isCurrProcess" [level]="currentPage"
                        [TableDataModel]="tableObj" [EmergencyDataModel]="emergencyObj"
                        [rowspanNum]="rowspans"></app-new-content>
+      <table *ngIf="isCurrProcess" cellpadding="0" cellspacing="0">
+        <thead>
+        <tr>
+          <td class="width_100">主要任务</td>
+          <td colspan="2" class="width_50">应急工作内容</td>
+          <td class="width_30">职能部门</td>
+          <td class="width_content">要求</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td align="center">启动应急响应</td>
+          <td colspan="2" class="height_93">1、省指挥部总指挥等相关领导赴指挥中心。<br/>
+            2、组建现场应急指挥部，任命现场总指挥。<br/>
+            3、现场总指挥赴现场指挥协调应急工作。<br/>
+            4、发布应急响应通知。
+          </td>
+          <td class="height_93">国务院指挥部、省指挥部、省应急厅</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td align="center" rowspan="13">分组开展应急救援工作</td>
+          <td colspan="2" class="height_93">成立现场指挥部，下设9个工作组，主要职责如下：<br/>
+            1、负责组织指挥应急处置和救援工作。<br/>
+            2、研判事故发展趋势以及可能造成的危害，组织制订并实施应急救援方案。<br/>
+            3、设立应急救援工作组，决定采取控制、平息事态的应急处置措施。<br/>
+            4、协调、指挥有关单位和人员参加现场应急救援。<br/>
+            5、及时报告应急处置和救援进展情况，根据事故现场情况提出处置建议和支援请求。
+          </td>
+          <td class="height_93">省指挥部、现场指挥部、省应急厅</td>
+          <td class="height_93">现场总指挥由省指挥部任命</td>
+        </tr>
+        <tr>
+          <td class="width_content">综合协调组</td>
+          <td class="height_93">1、承担现场指挥部的综合协调，指令接收转发，信息收集上报，调配应急力量和资源等工作。<br/>
+            2、协调解放军和武警部队参与事故救援工作。<br/>
+            3、协调专业抢险救援队伍和专家的调集工作。<br/>
+            4、承办现场指挥部各类会议，督促落实现场指挥部议定事项。审核把关信息发布。<br/>
+            5、做好应急救援工作文件、影像资料的搜集、整理、保管和归档等工作。
+          </td>
+          <td class="height_93">省发展改革委、省工业和信息化厅、省公安厅、省民政厅、省财政厅、省自然资源厅、省应急厅、事发地人民政府等</td>
+          <td class="height_93">(牵头单位根据事故类别确定)</td>
+        </tr>
+        <tr>
+          <td class="width_content">事故救援组</td>
+          <td class="height_93">1、实施事故处置、人员搜救、工程抢险和事故现场清理等工作。<br/>
+            2、控制危险源，防止次生、衍生事故发生。<br/>
+            3、为事故调查收集有关资料。
+          </td>
+          <td class="height_93">省消防救援总队、省军区、武警江苏省总队、事发地人民政府等</td>
+          <td class="height_93"></td>
+        </tr>
+        <tr>
+          <td class="width_content">交通管制组</td>
+          <td class="height_93">1、负责组织事故可能危及区域有关人员的紧急疏散、撤离，事故现场保护和警戒，维护现场秩序等工作。<br/>
+            2、根据实际情况实行交通管制和疏导，开辟应急通道，保障应急处置人员、车辆和物资装备的应急通行需要。<br/>
+            3、组织协调尽快恢复被毁交通路线。
+          </td>
+          <td class="height_93">省消防救援总队、省军区、武警江苏省总队、事发地人民政府等</td>
+          <td class="height_93"></td>
+        </tr>
+        <tr>
+          <td class="width_content">医疗卫生组</td>
+          <td class="height_93">1、调度全省医疗队伍。<br/>
+            2、设立临时医疗点，协调外部医疗机构，为事故受伤人员、救援人员提供医疗保障服务。<br/>
+            3、做好现场救援区域的防疫消毒。<br/>
+            4、向受伤人员和受灾群众提供心理卫生咨询和帮助。
+          </td>
+          <td class="height_93">省卫生健康委、省工业和信息化厅、省公安厅、省交通运输厅、事发地人民政府等</td>
+          <td class="height_93"></td>
+        </tr>
+        <tr>
+          <td class="width_content">环境监测组</td>
+          <td class="height_93">1、对涉事区域进行环境监测工作，提出控制污染扩散建议，防止发生环境污染次生灾害。
+          </td>
+          <td class="height_93">省生态环境厅、省自然资源厅、省住房城乡建设厅、省交通运输厅、省水利厅、省农业农村厅、省卫生健康委、省气象局、江苏海事局、连云港海事局等</td>
+          <td class="height_93"></td>
+        </tr>
+        <tr>
+          <td class="width_content">处置保障组</td>
+          <td class="height_93">1、根据事故处置工作需求，及时提供物资、装备、食品、交通、供电、供水、供气和通信等方面的后勤服务和资源保障。
+          </td>
+          <td class="height_93">
+            事发地人民政府、省发展改革委、省工业和信息化厅、省民政厅、省财政厅、省住房城乡建设厅、省水利厅、省农业农村厅、省商务厅、省应急厅、省国资委、省市场监管局、省广电局、省粮食和储备局、上海铁路局南京办事处、省通信管理局、省电力公司等
+          </td>
+          <td class="height_93"></td>
+        </tr>
+        <tr>
+          <td class="width_content">新闻发布组</td>
+          <td class="height_93">1、统筹协调媒体的现场管理，做好事件舆论引导工作，组织新闻发布工作。<br/>
+            2、做好新闻应对发布和集体采访活动的组织工作。<br/>
+            3、做好境内外媒体沟通协调和组织联络工作。<br/>
+            4、向省指挥部和事故相关单位、辖区政府通报舆情进展，提出应对建议。
+          </td>
+          <td class="height_93">省委宣传部、省委网信办、省应急厅（新闻宣传处）、事发地人民政府等部门和单位</td>
+          <td class="height_93"></td>
+        </tr>
+        <tr>
+          <td class="width_content">专家组</td>
+          <td class="height_93">对事故发展趋势、抢险救援方案等提出建议，为应急救援行动的决策提供技术支持。
+          </td>
+          <td class="height_93">省应急厅、省生态环境厅、省卫生健康委、省消防救援总队、事发地人民政府等</td>
+          <td class="height_93"></td>
+        </tr>
+        <tr>
+          <td class="width_content">善后处理组</td>
+          <td class="height_93">做好受灾群众、遇难（失联）人员亲属信息登记、食宿接待和安抚疏导等善后工作。做好遇难者遗体处置等善后工作。做好遇难和受灾人员的经济补偿等善后工作。做好灾后恢复重建等工作。
+          </td>
+          <td class="height_93">事发地人民政府、省发展改革委、省民政厅、省财政厅、省人力资源社会保障厅、省生态环境厅、省商务厅、省应急厅、省粮食和储备局、省总工会、江苏银保监局</td>
+          <td class="height_93"></td>
+        </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>
