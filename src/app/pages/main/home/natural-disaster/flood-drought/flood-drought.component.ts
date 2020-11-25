@@ -7,7 +7,7 @@ import {
   ResponsibilityModel
 } from '../../../../../services/biz-services/accident-disasters-list.service';
 import {NzMessageService} from 'ng-zorro-antd';
-import {debounceTime, distinctUntilChanged} from 'rxjs/operators';
+import {debounceTime, distinctUntilChanged, find, first, switchMap, take} from 'rxjs/operators';
 import {forkJoin} from 'rxjs';
 import {MapPipe, MapSet} from '../../../../../share/directives/pipe/map.pipe';
 
@@ -34,7 +34,8 @@ export class FloodDroughtComponent implements OnInit {
   @Input() id: number;
   currentPage: number;
   validateForm: FormGroup;
-  earthquakeEconomicLevelOptions: OptionsInterface[];
+  warningLevelOptions: OptionsInterface[];
+  dangerLevelOptions: OptionsInterface[];
   rowspanNum: number;
   responsibilityEntities: DepartInfoModel[];
   cityName: string;
@@ -48,7 +49,8 @@ export class FloodDroughtComponent implements OnInit {
   tableStandardDrought: TableDatasModel[];
   downLoadUrl: string;
   planId: number;
-  radioValue = 'A';
+
+  /* radioValue = '0';*/
 
   constructor(private fb: FormBuilder, private dataServicers: AccidentDisastersListService,
               public message: NzMessageService) {
@@ -58,7 +60,8 @@ export class FloodDroughtComponent implements OnInit {
     this.planId = 0;
     this.responsibilityEntities = [];
     this.cityName = '';
-    this.earthquakeEconomicLevelOptions = [];
+    this.warningLevelOptions = [];
+    this.dangerLevelOptions = [];
     this.responsibilityData = [];
     this.emergencyData = [];
     this.rowspanNum = 0;
@@ -149,15 +152,53 @@ export class FloodDroughtComponent implements OnInit {
 
   initForm() {
     this.validateForm = this.fb.group({
-      peopleLossAndDie: [null],
-      propertyLossGrade: [null],
-      earthquakeLand: [null],
-      earthquakeSea: [null],
+      floodAndDrought: ['0'],
+      flood: [null],
+      rainstormFlood: [null],
+      damFlood: [null],
+      huaiheFlood: [null],
+      changjiangFlood: [null],
+      waterDrought: [null],
+      weatherDrought: [null],
+      changjiangDrought: [null],
+      huaiheDrought: [null],
+      area: [null],
     });
   }
 
   async subForm() {
     this.validateForm.valueChanges.pipe(debounceTime(1000), distinctUntilChanged()).subscribe(res => {
+      if (this.validateForm.get('floodAndDrought').value === '0') {
+        /* this.validateForm.get('waterDrought').setValue(null);
+         this.validateForm.get('weatherDrought').setValue(null);
+         this.validateForm.get('changjiangDrought').setValue(null);
+         this.validateForm.get('huaiheDrought').setValue(null);
+         this.validateForm.get('area').setValue(null);*/
+        this.validateForm.reset({floodAndDrought: '0'});
+        if (this.validateForm.get('flood').value === null && this.validateForm.get('rainstormFlood').value === null
+          && this.validateForm.get('damFlood').value === null && this.validateForm.get('huaiheFlood').value === null
+          && this.validateForm.get('changjiangFlood').value === null) {
+          return;
+        }
+      } else if (this.validateForm.get('floodAndDrought').value === '1') {
+        /*this.validateForm.get('flood').setValue(null);
+        this.validateForm.get('rainstormFlood').setValue(null);
+        this.validateForm.get('changjiangFlood').setValue(null);
+        this.validateForm.get('huaiheFlood').setValue(null);
+        this.validateForm.get('damFlood').setValue(null);*/
+        this.validateForm.reset({floodAndDrought: '1'});
+        console.log(this.validateForm.get('waterDrought').value === null);
+        console.log(this.validateForm.get('weatherDrought').value === null);
+        console.log(this.validateForm.get('area').value === null);
+        console.log(this.validateForm.get('changjiangDrought').value === null);
+        console.log(this.validateForm.get('huaiheDrought').value === null);
+        if (this.validateForm.get('waterDrought').value === null && this.validateForm.get('weatherDrought').value === null
+          && this.validateForm.get('area').value === null && this.validateForm.get('changjiangDrought').value === null
+          && this.validateForm.get('huaiheDrought').value === null) {
+          console.log(1123123);
+          return;
+        }
+      }
       res.accidentId = this.id;
       this.dataServicers.getDecideGrade(res).subscribe(grade => {
         if (grade != null) {
@@ -183,6 +224,7 @@ export class FloodDroughtComponent implements OnInit {
   ngOnInit(): void {
     this.initForm();
     this.subForm();
-    this.earthquakeEconomicLevelOptions = [...MapPipe.transformMapToArray(MapSet.earthquakeEconomicLevel)];
+    this.warningLevelOptions = [...MapPipe.transformMapToArray(MapSet.warningLevel)];
+    this.dangerLevelOptions = [...MapPipe.transformMapToArray(MapSet.dangerLevel)];
   }
 }

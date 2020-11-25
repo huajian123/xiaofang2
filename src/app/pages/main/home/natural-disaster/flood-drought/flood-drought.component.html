@@ -51,33 +51,24 @@
   </nz-modal>
   <form [formGroup]="validateForm">
     <div nz-row>
-      <div nz-col [nzSpan]="8">
+      <div nz-col [nzSpan]="6">
         <nz-form-item>
           <nz-form-label [nzSpan]="12">灾害类别</nz-form-label>
           <nz-form-control [nzSpan]="12">
-            <nz-radio-group [(ngModel)]="radioValue" formControlName="earthquakeSea">
-              <label nz-radio nzValue="A">防汛</label>
-              <label nz-radio nzValue="B">抗旱</label>
+            <nz-radio-group formControlName="floodAndDrought">
+              <label nz-radio nzValue="0">防汛</label>
+              <label nz-radio nzValue="1">抗旱</label>
             </nz-radio-group>
           </nz-form-control>
         </nz-form-item>
       </div>
-      <ng-container *ngIf="radioValue ==='A'">
+      <ng-container *ngIf="validateForm.get('floodAndDrought').value==='0'">
         <div nz-col [nzSpan]="8">
           <nz-form-item>
-            <nz-form-label [nzSpan]="12">死亡人数（含失踪）</nz-form-label>
+            <nz-form-label [nzSpan]="12">洪水预警</nz-form-label>
             <nz-form-control [nzSpan]="12">
-              <nz-input-number [nzMax]="99999999" nzPlaceHolder="死亡人数（含失踪）" formControlName="peopleLossAndDie"
-                               [nzMin]="1"></nz-input-number>
-            </nz-form-control>
-          </nz-form-item>
-        </div>
-        <div nz-col [nzSpan]="8">
-          <nz-form-item>
-            <nz-form-label [nzSpan]="12">直接经济损失</nz-form-label>
-            <nz-form-control [nzSpan]="12">
-              <nz-select class="margin-none" nzPlaceHolder="下拉选择" formControlName="propertyLossGrade">
-                <nz-option *ngFor="let item of earthquakeEconomicLevelOptions" [nzValue]="item.value"
+              <nz-select class="margin-none" nzPlaceHolder="下拉选择" formControlName="flood">
+                <nz-option *ngFor="let item of warningLevelOptions" [nzValue]="item.value"
                            [nzLabel]="item.label"></nz-option>
               </nz-select>
             </nz-form-control>
@@ -85,27 +76,93 @@
         </div>
         <div nz-col [nzSpan]="8">
           <nz-form-item>
-            <nz-form-label [nzSpan]="12">省陆地行政区域震级</nz-form-label>
+            <nz-form-label [nzSpan]="12">暴雨预警</nz-form-label>
             <nz-form-control [nzSpan]="12">
-              <nz-input-number [nzMax]="9.9" nzPrecision="1" nzPlaceHolder="省陆地行政区域震级" formControlName="earthquakeLand"
-                               [nzMin]="1"></nz-input-number>
+              <nz-select class="margin-none" nzPlaceHolder="下拉选择" formControlName="rainstormFlood">
+                <nz-option *ngFor="let item of warningLevelOptions" [nzValue]="item.value"
+                           [nzLabel]="item.label"></nz-option>
+              </nz-select>
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+        <div nz-col [nzSpan]="12">
+          <nz-form-item>
+            <nz-form-label [nzSpan]="12">长江/太湖流域受淹(涝)面积/万亩</nz-form-label>
+            <nz-form-control [nzSpan]="12">
+              <nz-input-number formControlName="changjiangFlood"></nz-input-number>
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+        <div nz-col [nzSpan]="12">
+          <nz-form-item>
+            <nz-form-label [nzSpan]="12">淮河/沂沭泗流域受淹(涝)面积/万亩</nz-form-label>
+            <nz-form-control [nzSpan]="12">
+              <nz-input-number formControlName="huaiheFlood"></nz-input-number>
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+        <div nz-col [nzSpan]="13">
+          <nz-form-item>
+            <nz-form-label [nzSpan]="18">流域性防洪工程/区域性骨干防洪工程/水库大坝出现险情</nz-form-label>
+            <nz-form-control [nzSpan]="6">
+              <nz-select class="margin-none" nzPlaceHolder="下拉选择" formControlName="damFlood">
+                <nz-option *ngFor="let item of dangerLevelOptions" [nzValue]="item.value"
+                           [nzLabel]="item.label"></nz-option>
+              </nz-select>
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="validateForm.get('floodAndDrought').value==='1'">
+        <div nz-col [nzSpan]="8">
+          <nz-form-item>
+            <nz-form-label [nzSpan]="12">干旱预警</nz-form-label>
+            <nz-form-control [nzSpan]="12">
+              <nz-select class="margin-none" nzPlaceHolder="下拉选择" formControlName="waterDrought">
+                <nz-option *ngFor="let item of warningLevelOptions" [nzValue]="item.value"
+                           [nzLabel]="item.label"></nz-option>
+              </nz-select>
             </nz-form-control>
           </nz-form-item>
         </div>
         <div nz-col [nzSpan]="8">
           <nz-form-item>
-            <nz-form-label [nzSpan]="12">近海海域50千米震级或我省陆地</nz-form-label>
+            <nz-form-label [nzSpan]="12">干旱预警</nz-form-label>
             <nz-form-control [nzSpan]="12">
-              <nz-input-number nzPlaceHolder="近海海域50千米震级"
-                               [nzMax]="9.9" nzPrecision="1"
-                               formControlName="earthquakeSea"
-                               [nzMin]="1"></nz-input-number>
+              <nz-select class="margin-none" nzPlaceHolder="下拉选择" formControlName="weatherDrought">
+                <nz-option *ngFor="let item of warningLevelOptions" [nzValue]="item.value"
+                           [nzLabel]="item.label"></nz-option>
+              </nz-select>
             </nz-form-control>
           </nz-form-item>
         </div>
-      </ng-container>
-      <ng-container *ngIf="radioValue ==='B'">
-        B
+        <div nz-col [nzSpan]="12">
+          <nz-form-item>
+            <nz-form-label [nzSpan]="12">长江/太湖流域受旱面积/万亩</nz-form-label>
+            <nz-form-control [nzSpan]="12">
+              <nz-input-number formControlName="changjiangDrought"></nz-input-number>
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+        <div nz-col [nzSpan]="12">
+          <nz-form-item>
+            <nz-form-label [nzSpan]="12">淮河/沂沭泗流域受旱面积/万亩</nz-form-label>
+            <nz-form-control [nzSpan]="12">
+              <nz-input-number formControlName="huaiheDrought"></nz-input-number>
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+        <div nz-col [nzSpan]="12">
+          <nz-form-item>
+            <nz-form-label [nzSpan]="12">因旱情影响集中饮用水水源地取水</nz-form-label>
+            <nz-form-control [nzSpan]="12">
+              <nz-select class="margin-none" nzPlaceHolder="下拉选择" formControlName="area">
+                <nz-option *ngFor="let item of dangerLevelOptions" [nzValue]="item.value"
+                           [nzLabel]="item.label"></nz-option>
+              </nz-select>
+            </nz-form-control>
+          </nz-form-item>
+        </div>
       </ng-container>
     </div>
   </form>
