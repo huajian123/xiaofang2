@@ -173,6 +173,7 @@ export class FloodDroughtComponent implements OnInit {
     this.formChangeSub$.unsubscribe();
     this.validateForm.reset();
     this.subForm();
+    this.currentPage = 0;
   }
 
   async subForm() {
