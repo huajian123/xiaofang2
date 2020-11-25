@@ -32,6 +32,7 @@ import {MajorFireThreeComponent} from './main/home/accident-disaster/major-fire/
 import {GeologicalComponent} from './main/home/natural-disaster/geological/geological.component';
 import {GeologicalOneComponent} from './main/home/natural-disaster/geological/geological-one/geological-one.component';
 import {GeologicalThreeComponent} from './main/home/natural-disaster/geological/geological-three/geological-three.component';
+import { EnvironmentalEmergencyComponent } from './main/home/accident-disaster/environmental-emergency/environmental-emergency.component';
 
 
 
@@ -67,6 +68,7 @@ import {GeologicalThreeComponent} from './main/home/natural-disaster/geological/
     GeologicalComponent,
     GeologicalOneComponent,
     GeologicalThreeComponent,
+    EnvironmentalEmergencyComponent,
   ],
   imports: [
     CommonModule,
