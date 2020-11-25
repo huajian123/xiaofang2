@@ -98,15 +98,13 @@
       <td align="center" width="50%">应急组织</td>
       <td align="center" width="25%">职责</td>
     </tr>
-    <tr>
-      <td align="center">{{TableDataModel[0].responsibility}}</td>
-      <td align="center">{{TableDataModel[0].department}}</td>
-      <td align="center">{{TableDataModel[0].responsibilityDetail}}</td>
-    </tr>
-    <tr>
-      <td align="center">{{TableDataModel[1].responsibility}}</td>
-      <td align="center">{{TableDataModel[1].department}}</td>
-      <td align="center">{{TableDataModel[1].responsibilityDetail}}</td>
+
+    <tr *ngFor="let item of TableDataModel;let i=index;let l=last;">
+      <td align="center">{{item.responsibility}}</td>
+      <td align="center">{{item.department}}</td>
+      <td align="center"><ng-container *ngFor="let tdItem of item.responsibilityDetail;let ti=index;let tl=last">
+        <span *ngIf="item.responsibilityDetail.length>1">{{ti + 1}}:</span>{{tdItem}}<br *ngIf="item.responsibilityDetail.length>1&&!tl">
+      </ng-container></td>
     </tr>
     </tbody>
   </table>
