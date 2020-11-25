@@ -31,10 +31,10 @@
 </div>
 
 <ng-container *ngIf="currentPage===1">
-  <app-pollution-weather-one [downLoadUrl]="downLoadUrl" [emergencyRoomData]="emergencyData"
+  <app-environmental-emergency-one [downLoadUrl]="downLoadUrl" [emergencyRoomData]="emergencyData"
                              [responsibilityData]="responsibilityData"
                              [currentPage]="currentPage" [rowspanNum]="rowspanNum"
-                             [planId]="planId"></app-pollution-weather-one>
+                             [planId]="planId"></app-environmental-emergency-one>
 </ng-container>
 <ng-container *ngIf="currentPage===2">
   <app-pollution-weather-one [downLoadUrl]="downLoadUrl" [emergencyRoomData]="emergencyData"

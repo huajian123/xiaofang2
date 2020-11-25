@@ -33,6 +33,9 @@ import {GeologicalComponent} from './main/home/natural-disaster/geological/geolo
 import {GeologicalOneComponent} from './main/home/natural-disaster/geological/geological-one/geological-one.component';
 import {GeologicalThreeComponent} from './main/home/natural-disaster/geological/geological-three/geological-three.component';
 import { EnvironmentalEmergencyComponent } from './main/home/accident-disaster/environmental-emergency/environmental-emergency.component';
+import { EnvironmentalEmergencyOneComponent } from './main/home/accident-disaster/environmental-emergency/environmental-emergency-one/environmental-emergency-one.component';
+import { EnvironmentalEmergencyThreeComponent } from './main/home/accident-disaster/environmental-emergency/environmental-emergency-three/environmental-emergency-three.component';
+import { EnvironmentalEmergencyTableOneComponent } from './main/home/accident-disaster/environmental-emergency/environmental-emergency-table-one/environmental-emergency-table-one.component';
 
 
 
@@ -69,6 +72,9 @@ import { EnvironmentalEmergencyComponent } from './main/home/accident-disaster/e
     GeologicalOneComponent,
     GeologicalThreeComponent,
     EnvironmentalEmergencyComponent,
+    EnvironmentalEmergencyOneComponent,
+    EnvironmentalEmergencyThreeComponent,
+    EnvironmentalEmergencyTableOneComponent,
   ],
   imports: [
     CommonModule,

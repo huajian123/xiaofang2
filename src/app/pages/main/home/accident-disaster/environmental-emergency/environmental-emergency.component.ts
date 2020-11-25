@@ -71,21 +71,44 @@ export class EnvironmentalEmergencyComponent implements OnInit {
       {
         name: '疏散、转移人员人数',
         levelOne: '5万人以上',
-        levelTwo: '监测到设区市 SO 2 小时浓度达到 650 微克/立方米以上',
-        levelThree: '监测到设区市 SO 2 小时浓度达到 500 微克/立方米以上',
-        levelFour: '/'
+        levelTwo: '1万人以上5万人以下',
+        levelThree: '5000人以上1万人以下',
+        levelFour: '5000人以下'
+      },
+      {
+        name: '直接经济损失',
+        levelOne: '1亿元以上',
+        levelTwo: '2000万元以上1亿元以下',
+        levelThree: '500万元以上2000万元以下',
+        levelFour: '500万元以下'
       },
       {
         name: '/',
-        levelOne: '监测到设区市 SO 2 小时浓度达到 800 微克/立方米以上',
-        levelTwo: '/',
-        levelThree: '/',
+        levelOne: '因环境污染造成区域生态功能丧失或该区域国家重点保护物种灭绝的',
+        levelTwo: '因环境污染造成区域生态功能部分丧失或该区域国家重点保护野生动植物种群大批死亡的',
+        levelThree: '因环境污染造成国家重点保护的动植物物种受到破坏的',
+        levelFour: '因环境污染造成跨县级行政区域纠纷，引起一般性群体影响的'
+      },
+      {
+        name: '/',
+        levelOne: '因环境污染造成设区的市级以上城市集中式饮用水水源地取水中断的',
+        levelTwo: '因环境污染造成县级城市集中式饮用水水源地取水中断的',
+        levelThree: '因环境污染造成乡镇集中式饮用水水源地取水中断的',
+        levelFour: '对环境造成一定影响，尚未达到较大突发环境事件级别的'
+      },
+      {
+        name: '/',
+        levelOne: '/',
+        levelTwo: '造成跨省级行政区域影响的突发环境事件',
+        levelThree: '造成跨设区的市级行政区域影响的突发环境事件',
         levelFour: '/'
-      }
+      },
     ];
     this.backImage = {
       backgroundImage: 'url(../../assets/imgs/modal-box.png)',
+      backgroundSize: '100%,100%',
       height: '490px',
+      overflowY: 'auto'
     };
   }
 
