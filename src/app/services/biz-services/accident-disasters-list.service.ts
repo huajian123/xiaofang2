@@ -35,6 +35,7 @@ export interface ShowDecideGradeModel {
   additionalProp3?: TyphoonModel;
   additionalProp4?: ProductionSafetyModel;
   additionalProp5?: MajorFireModel;
+  additionalProp6?: GeologicalModel;
 }
 
 /*危化品*/
@@ -57,6 +58,12 @@ export interface MajorFireModel {
 export interface ProductionSafetyModel {
   peopleLossAndDie?: number;
   peopleInjury?: number;
+  propertyLoss?: number;
+}
+
+/*地质灾害*/
+export interface GeologicalModel {
+  peopleDie?: number;
   propertyLoss?: number;
 }
 

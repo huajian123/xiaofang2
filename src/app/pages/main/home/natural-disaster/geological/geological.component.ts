@@ -9,7 +9,6 @@ import {
 import {NzMessageService} from 'ng-zorro-antd';
 import {debounceTime, distinctUntilChanged} from 'rxjs/operators';
 import {forkJoin} from 'rxjs';
-import {MapPipe, MapSet} from '../../../../../share/directives/pipe/map.pipe';
 
 interface OptionsInterface {
   value: number;
@@ -27,14 +26,13 @@ export interface TableDatasModel {
 @Component({
   selector: 'app-geological',
   templateUrl: './geological.component.html',
-  styleUrls: ['./geological.component.less']
+  styleUrls: ['./geological.component.less'],
 })
 export class GeologicalComponent implements OnInit {
   isShowStandard: boolean; // 是否展开标准
   @Input() id: number;
   currentPage: number;
   validateForm: FormGroup;
-  earthquakeEconomicLevelOptions: OptionsInterface[];
   rowspanNum: number;
   responsibilityEntities: DepartInfoModel[];
   cityName: string;
@@ -56,32 +54,24 @@ export class GeologicalComponent implements OnInit {
     this.planId = 0;
     this.responsibilityEntities = [];
     this.cityName = '';
-    this.earthquakeEconomicLevelOptions = [];
     this.responsibilityData = [];
     this.emergencyData = [];
     this.rowspanNum = 0;
     this.downLoadUrl = '';
     this.tableStandard = [
       {
-        name: '死亡/失踪人数',
-        levelOne: '300人以上',
-        levelTwo: '50人以上、300人以下',
-        levelThree: '10人以上、50人以下',
-        levelFour: '10人以下'
+        name: '死亡人数',
+        levelOne: '30人以上',
+        levelTwo: '10人以上、30人以下',
+        levelThree: '3人以上、10人以下',
+        levelFour: '3人以下'
       },
       {
         name: '直接经济损失',
-        levelOne: '直接经济损失占我省上半年地区生产总值1%以上',
-        levelTwo: '严重经济损失',
-        levelThree: '较重经济损失',
-        levelFour: '一定经济损失'
-      },
-      {
-        name: '地震级别',
-        levelOne: '1、省陆地行政区域发生6.0级以上；2、近海海域50千米或我省陆地边界50千米以内的邻省（市）7.0级以上地震',
-        levelTwo: '1、省陆地行政区域发生5.0以上、6.0级以下；2、近海海域50千米或我省陆地边界50千米以内的邻省（市）6.0级以上、7.0级以下地震',
-        levelThree: '1、省陆地行政区域发生4.0以上、5.0级以下；2、近海海域50千米或我省陆地边界50千米以内的邻省（市）5.0级以上、6.0级以下地震',
-        levelFour: '省陆地行政区域发生4.0级以下有感地震；'
+        levelOne: '1000万元以上',
+        levelTwo: '500万元以上、1000万元以下',
+        levelThree: '100万元以上、500万元以下',
+        levelFour: '100万元以下'
       }
     ];
     this.backImage = {
@@ -108,10 +98,8 @@ export class GeologicalComponent implements OnInit {
 
   initForm() {
     this.validateForm = this.fb.group({
-      peopleLossAndDie: [null],
-      propertyLossGrade: [null],
-      earthquakeLand: [null],
-      earthquakeSea: [null],
+      peopleDie: [null],
+      propertyLoss: [null],
     });
   }
 
@@ -130,9 +118,6 @@ export class GeologicalComponent implements OnInit {
           this.emergencyData = result[1];
           this.downLoadUrl = result[0].downUrl;
           this.currentPage = grade.grade;
-          if (this.currentPage === 1 || this.currentPage === 2) {
-            this.rowspanNum = 25;
-          }
         });
       });
     });
@@ -141,7 +126,6 @@ export class GeologicalComponent implements OnInit {
   ngOnInit(): void {
     this.initForm();
     this.subForm();
-    this.earthquakeEconomicLevelOptions = [...MapPipe.transformMapToArray(MapSet.earthquakeEconomicLevel)];
   }
 }
 
