@@ -31,7 +31,6 @@ export interface TableDatasModel {
   styleUrls: ['./forest-fire.component.less']
 })
 export class ForestFireComponent implements OnInit {
-
   isShowStandard: boolean; // 是否展开标准
   @Input() id: number;
   currentPage: number;

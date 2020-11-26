@@ -46,6 +46,9 @@ import {MeteorologicalComponent} from './main/home/natural-disaster/meteorologic
 import {MeteorologicalOneComponent} from './main/home/natural-disaster/meteorological/meteorological-one/meteorological-one.component';
 // tslint:disable-next-line:max-line-length
 import {MeteorologicalThreeComponent} from './main/home/natural-disaster/meteorological/meteorological-three/meteorological-three.component';
+import {DisasterReliefComponent} from './main/home/natural-disaster/disaster-relief/disaster-relief.component';
+import {DisasterReliefOneComponent} from './main/home/natural-disaster/disaster-relief/disaster-relief-one/disaster-relief-one.component';
+import {DisasterReliefThreeComponent} from './main/home/natural-disaster/disaster-relief/disaster-relief-three/disaster-relief-three.component';
 
 
 @NgModule({
@@ -93,6 +96,9 @@ import {MeteorologicalThreeComponent} from './main/home/natural-disaster/meteoro
     MeteorologicalComponent,
     MeteorologicalOneComponent,
     MeteorologicalThreeComponent,
+    DisasterReliefComponent,
+    DisasterReliefOneComponent,
+    DisasterReliefThreeComponent,
   ],
   imports: [
     CommonModule,
