@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
 import {bounceInOnEnterAnimation, lightSpeedInOnEnterAnimation} from 'angular-animations';
 import {EmergencyModel, ResponsibilityModel} from '../../../../../../services/biz-services/accident-disasters-list.service';
 import {NewContentComponent} from '../../../../../../share/biz-component/new-content/new-content.component';
@@ -27,6 +27,11 @@ export class ProductionSafetyOneComponent implements OnInit {
   levels: number;
   rowspans: number;
   emergencyRoomNameArray: string[];
+  @ViewChild('distannce1') distannce1: ElementRef;
+  @ViewChild('distannce2') distannce2: ElementRef;
+  @ViewChild('distannce3') distannce3: ElementRef;
+  @ViewChild('distannce4') distannce4: ElementRef;
+  @ViewChild('distannce5') distannce5: ElementRef;
   @ViewChild(NewContentComponent) tableContent: NewContentComponent;
   leftNav: { name: string, index: number }[];
 
@@ -39,10 +44,9 @@ export class ProductionSafetyOneComponent implements OnInit {
     this.emergencyRoomNameArray = [];
     this.leftNav = [
       {name: '启动应急响应', index: 1},
-      {name: '成立指挥部', index: 2},
-      {name: '开展应急救援', index: 3},
-      {name: '事态控制', index: 4},
-      {name: '应急结束', index: 5},
+      {name: '分组开展应急救援工作', index: 2},
+      {name: '事态控制', index: 3},
+      {name: '应急结束', index: 4},
     ];
     this.isCurrProcess = true;
   }
@@ -56,7 +60,7 @@ export class ProductionSafetyOneComponent implements OnInit {
     const index = this.leftNav.find((item) => {
       return item.name === event;
     }).index;
-    this.tableContent.goDistance(index);
+    this.goDistance(index);
   }
 
   getEmergencyRoomNameArray() {
@@ -68,11 +72,17 @@ export class ProductionSafetyOneComponent implements OnInit {
     return temp;
   }
 
+  goDistance(index): void {
+    this['distannce' + index]?.nativeElement.scrollIntoView({
+      behavior: 'smooth', block: 'start', inline: 'start'
+    });
+    this.tableContent.goDistance(index);
+  }
+
   ngOnInit(): void {
     this.nameArray = [
       '启动应急响应',
-      '成立指挥部',
-      '开展应急救援',
+      '分组开展应急救援工作',
       '事态控制',
       '应急结束'
     ];
