@@ -30,7 +30,6 @@ export interface TableDatasModel {
   styleUrls: ['./pollution-weather.component.less']
 })
 export class PollutionWeatherComponent implements OnInit {
-
   isShowStandard: boolean; // 是否展开标准
   @Input() id: number;
   currentPage: number;
