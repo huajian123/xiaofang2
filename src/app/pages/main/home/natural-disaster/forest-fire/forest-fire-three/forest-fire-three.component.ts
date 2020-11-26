@@ -12,7 +12,6 @@ import {ResponsibilityModel} from '../../../../../../services/biz-services/accid
   ]
 })
 export class ForestFireThreeComponent implements OnInit {
-
   @Input() responsibilityData: ResponsibilityModel[];
   @Input() currentPage: number;
   @Input() downLoadUrl: string;

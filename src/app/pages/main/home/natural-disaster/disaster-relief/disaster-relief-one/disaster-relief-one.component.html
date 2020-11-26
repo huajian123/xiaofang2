@@ -1,1 +1,291 @@
-<p>disaster-relief-one works!</p>
+<div class="column-lay">
+  <app-btn-group [downLoadUrl]="downLoadUrl" [levels]="planId"></app-btn-group>
+  <app-left-hexagon (isClickLeft)="changeState($event)" [emergencyRoomNameArray]="emergencyRoomNameArray"
+                    (clickReturn)="getCurrentLeftName($event)"
+                    [nameArray]="nameArray"></app-left-hexagon>
+  <div [@bounceInOnEnter]="{ value: '', params: { duration: 1000 }}">
+    <div class="column-right">
+      <app-new-content *ngIf="!isCurrProcess" #tableContent [isCurrProcess]="isCurrProcess" [level]="currentPage"
+                       [TableDataModel]="tableObj" [EmergencyDataModel]="emergencyObj"
+                       [rowspanNum]="rowspans"></app-new-content>
+      <table *ngIf="isCurrProcess" cellpadding="0" cellspacing="0">
+        <thead>
+        <tr>
+          <td class="width_100">主要任务</td>
+          <td colspan="2" class="width_50">应急工作内容</td>
+          <td colspan="2" class="width_30">职能部门(单位)</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td align="center">启动应急响应</td>
+          <td colspan="2" class="height_93">1、省减灾委总指挥等相关领导赴指挥中心<br/>
+            2、组建现场应急指挥部<br/>
+            3、现场总指挥赴现场指挥协调应急工作<br/>
+            4、发布应急响应通知
+          </td>
+          <td class="height_93">省应急厅、省减灾委</td>
+          <td class="height_93">省减灾委总指挥：省长(特别重大)<br/>
+            省减灾委总指挥：分管副省长(重大)
+          </td>
+        </tr>
+        <tr>
+          <td align="center" rowspan="35">启动应急机制</td>
+          <td class="width_content nowrap" rowspan="4">启动应急机制</td>
+          <td class="height_93">1、指定的负责同志率有关部门赴灾区，指导灾害救助工作
+          </td>
+          <td class="height_93" colspan="2">省减灾委</td>
+        </tr>
+        <tr>
+          <td class="height_93">
+            2、实行24小时应急值班，及时掌握灾情和救灾工作动态
+          </td>
+          <td class="height_93" colspan="2">
+            省应急厅 、省自然资源厅、省水利厅、省农业农村厅、省气象局、省林业局、省地震局
+          </td>
+        </tr>
+        <tr>
+          <td class="height_93">
+            3、组织专业救援人员和装备立即赶赴受灾地区参与救灾
+          </td>
+          <td class="height_93" colspan="2">
+            省应急厅 、省消防救援总队
+          </td>
+        </tr>
+        <tr>
+          <td class="height_93">
+            4、根据省有关部门和地方政府商请，组织协调解放军、武警部队、民兵、预备役部队参与救灾
+          </td>
+          <td class="height_93" colspan="2">
+            省军区、武警江苏省总队
+          </td>
+        </tr>
+        <tr>
+          <td class="width_content nowrap" rowspan="16">受灾人员救助</td>
+          <td class="height_93">1、组织医疗卫生部门做好因灾伤病人员救治、受灾人员心理抚慰、卫生防疫等工作
+          </td>
+          <td class="height_93" colspan="2">省卫生健康委</td>
+        </tr>
+        <tr>
+          <td class="height_93">2、助受灾地区有关部门组织做好受灾人员应急救援、紧急转移安置等工作</td>
+          <td class="height_93" colspan="2">
+            省消防救援总队
+          </td>
+        </tr>
+        <tr>
+          <td class="height_93">3、根据需要协助有关部门做好受灾人员紧急转移安置等工作</td>
+          <td class="height_93" colspan="2">
+            省军区、武警江苏省总队
+          </td>
+        </tr>
+        <tr>
+          <td class="height_93">4、组织受灾地区公安部门维护灾区社会治安，协助组织受灾群众紧急转移安置等工作</td>
+          <td class="height_93" colspan="2">
+            省公安厅
+          </td>
+        </tr>
+        <tr>
+          <td class="height_93">5、组织做好道路交通运输保障，确保转移人员、救灾物资、救援装备等优先通行</td>
+          <td class="height_93" colspan="2">
+            省交通运输厅
+          </td>
+        </tr>
+        <tr>
+          <td class="height_93">6、按规定紧急下拨受灾人员生活救助资金</td>
+          <td class="height_93" colspan="2">
+            省财政厅、省应急厅
+          </td>
+        </tr>
+        <tr>
+          <td class="height_93">7、及时下达生活类救灾物资动用指令，省粮食和储备局12小时内调运到位。必要时，向国家有关部门请求救灾物资支援</td>
+          <td class="height_93" colspan="2">
+            省应急厅 、省粮食和储备局
+          </td>
+        </tr>
+        <tr>
+          <td class="height_93">8、组织受灾地区应急管理部门做好灾害应急救助、遇难人员家属抚慰等工作</td>
+          <td class="height_93" colspan="2">
+            省应急厅
+          </td>
+        </tr>
+        <tr>
+          <td class="height_93">9、组织受灾地区教育部门尽快恢复当地学校教育教学秩序，协助做好因灾伤病学生的救治和抚慰</td>
+          <td class="height_93" colspan="2">
+            省教育厅
+          </td>
+        </tr>
+        <tr>
+          <td class="height_93">10、组织做好水（海）上作业渔船、人员的因灾避险转移等工作</td>
+          <td class="height_93" colspan="2">
+            省农业农村厅
+          </td>
+        </tr>
+        <tr>
+          <td class="height_93">11、组织做好所辖水域受灾人员搜救与转移工作</td>
+          <td class="height_93" colspan="2">
+            江苏海事局、连云港海事局、江苏省地方海事局
+          </td>
+        </tr>
+        <tr>
+          <td class="height_93">12、根据有关部门请求，协调军队和民用航空部门做好受灾人员紧急转移等工作</td>
+          <td class="height_93" colspan="2">
+            省军区、民航江苏安全监管局
+          </td>
+        </tr>
+        <tr>
+          <td class="height_93">13、配合相关部门做好妇女儿童安置服务工作</td>
+          <td class="height_93" colspan="2">
+            省妇联组织受灾地区妇联
+          </td>
+        </tr>
+        <tr>
+          <td class="height_93">14、组织做好因灾遇难人员遗体处置工作</td>
+          <td class="height_93" colspan="2">
+            省民政厅
+          </td>
+        </tr>
+        <tr>
+          <td class="height_93">15、组织保险机构做好保险理赔工作</td>
+          <td class="height_93" colspan="2">
+            江苏银保监局
+          </td>
+        </tr>
+        <tr>
+          <td class="height_93">16、协助做好救灾和现场应急救护工作</td>
+          <td class="height_93" colspan="2">
+            省红十字会
+          </td>
+        </tr>
+
+        <tr>
+          <td class="width_content nowrap" rowspan="5">基础设施恢复</td>
+          <td class="height_93">1、组织做好受损交通设施的紧急抢修工作。
+          </td>
+          <td class="height_93" colspan="2">省交通运输厅</td>
+        </tr>
+        <tr>
+          <td class="height_93">2、组织协调电信运营企业、铁塔公司做好公用通信网应急通信保障，负责指导督促电信运营企业、铁塔公司及时做好受灾地区通信设施的恢复工作。</td>
+          <td class="height_93" colspan="2">
+            省通信管理局
+          </td>
+        </tr>
+        <tr>
+          <td class="height_93">3、组织做好受灾地区应急供电保障和供电设施恢复。</td>
+          <td class="height_93" colspan="2">
+            省电力公司
+          </td>
+        </tr>
+        <tr>
+          <td class="height_93">4、组织做好灾区水利工程修复、应急调水等工作。</td>
+          <td class="height_93" colspan="2">
+            省水利厅
+          </td>
+        </tr>
+        <tr>
+          <td class="height_93">5、指导灾后房屋应急评估和安全鉴定、市政公用基础设施抢修等工作。</td>
+          <td class="height_93" colspan="2">
+            省住房城乡建设厅
+          </td>
+        </tr>
+        <tr>
+          <td class="width_content nowrap" rowspan="3">灾情信息管理</td>
+          <td class="height_93">1、按照《国家自然灾害情况统计制度》规定，组织做好灾情信息收集、报送工作。
+          </td>
+          <td class="height_93" colspan="2">省应急厅</td>
+        </tr>
+        <tr>
+          <td class="height_93">
+            2、负责本系统灾情信息汇总、处理工作，并及时向省应急厅通报。
+          </td>
+          <td class="height_93" colspan="2">
+            省自然资源厅
+            省水利厅
+            省农业农村厅
+            省气象局
+            省地震局
+          </td>
+        </tr>
+        <tr>
+          <td class="height_93">
+            3、适时组织召开灾情会商会，按规定统一发布自然灾害损失情况。
+          </td>
+          <td class="height_93" colspan="2">
+            省应急厅
+          </td>
+        </tr>
+        <tr>
+          <td class="width_content nowrap" rowspan="3">组织社会力量参与救灾</td>
+          <td class="height_93">1、指导具有救援专业设备和技能的社会力量协同开展人员搜救、伤病员
+            紧急运送与救治、紧急救援物资运输、受灾人员紧急转移安置、救灾物资接收发放、灾害现场清理、后勤服务保障等灾害救助工作。
+          </td>
+          <td class="height_93" colspan="2">省应急厅、省民政厅等单位</td>
+        </tr>
+        <tr>
+          <td class="height_93">
+            2、开展全省性救灾捐赠活动，统一接收、管理、分配全省救灾捐赠款物。
+          </td>
+          <td class="height_93" colspan="2">
+            省应急厅
+            省民政厅
+          </td>
+        </tr>
+        <tr>
+          <td class="height_93">
+            3、织开展救灾募捐活动
+          </td>
+          <td class="height_93" colspan="2">
+            省慈善总会、省红十字会
+          </td>
+        </tr>
+        <tr>
+          <td class="width_content nowrap" rowspan="4">新闻宣传工作</td>
+          <td class="height_93">1、组织做好灾后新闻宣传工作，抓好正面宣传和舆论引导，避免负面报道影响灾区社会稳定。
+          </td>
+          <td class="height_93" colspan="2">省委宣传部、省委网信办</td>
+        </tr>
+        <tr>
+          <td class="height_93">
+            2、根据需要统一组织灾后新闻宣传工作。
+          </td>
+          <td class="height_93" colspan="2">
+            省政府新闻办
+          </td>
+        </tr>
+        <tr>
+          <td class="height_93">
+            3、组织广播、电视部门做好救灾宣传工作，宣传应急救灾工作中的先进事迹和典型人物。
+          </td>
+          <td class="height_93" colspan="2">
+            省广播电视局
+          </td>
+        </tr>
+        <tr>
+          <td class="height_93">
+            4、通过门户网站发布救灾相关信息。
+          </td>
+          <td class="height_93" colspan="2">
+            省应急厅等部门。
+          </td>
+        </tr>
+        <tr>
+          <td align="center">通信保障方案</td>
+          <td class="height_93" colspan="2">1、拟定通信保障建议方案。<br/>
+            2、联系相关厅局和军队等协调通信资源。
+          </td>
+          <td class="height_93" colspan="2">省应急厅</td>
+        </tr>
+        <tr>
+          <td align="center">现场信息采集</td>
+          <td class="height_93" colspan="2">1、与地方政府、应急管理部门保持联系。<br/>
+            2、持续跟踪灾情，保持与灾害信息员联系。<br/>
+            3、灾害现场视频信息。<br/>
+            4、现场指挥部音视频信息。<br/>
+          </td>
+          <td class="height_93" colspan="2">省应急厅</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+

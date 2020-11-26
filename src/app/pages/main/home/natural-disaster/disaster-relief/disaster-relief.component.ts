@@ -63,25 +63,32 @@ export class DisasterReliefComponent implements OnInit {
     this.downLoadUrl = '';
     this.tableStandard = [
       {
-        name: '受害森林面积',
-        levelOne: '在1000公顷(含)以上',
-        levelTwo: '100公顷(含)以上,1000公顷以下',
-        levelThree: '1公顷(含)以上，100公顷以下',
-        levelFour: '1公顷以下或者其他林地起火的'
-      },
-      {
         name: '死亡/失踪人数',
-        levelOne: '30人(含)以上',
-        levelTwo: '10人(含)以上，30人以下',
-        levelThree: '3人(含)以上，10人以下',
-        levelFour: '1人(含)以上，3人以下'
+        levelOne: '50人以上',
+        levelTwo: '30人以上、50人以下',
+        levelThree: '20人以上、30人以下',
+        levelFour: '5人以上、20人以下'
       },
       {
-        name: '重伤人数',
-        levelOne: '100人(含)以上',
-        levelTwo: '50人(含)以上100人以下',
-        levelThree: '10人(含)以上，50人以下',
-        levelFour: '1人(含)以上，10人以下'
+        name: '紧急转移安置或需紧急生活救助',
+        levelOne: '20万人以上',
+        levelTwo: '10万人以上、20万人以下',
+        levelThree: '5万人以上、10万人以下',
+        levelFour: '1万人以上、5万人以下'
+      },
+      {
+        name: '倒塌和严重损坏房屋',
+        levelOne: '1万间以上，或3000户以上',
+        levelTwo: '5000间以上、1万间以下或2000户以上、3000户以下',
+        levelThree: '3000间以上、5000间以下或1000户以上、2000户以下',
+        levelFour: '1000间以上、3000间以下或300户以上、1000户以下'
+      },
+      {
+        name: '干旱灾害造成缺粮或缺水等生活困难，需政府救助人数',
+        levelOne: '100万人以上',
+        levelTwo: '60万人以上、100万人以下',
+        levelThree: '30万人以上、60万人以下',
+        levelFour: '10万人以上、30万人以下'
       }
     ];
     this.backImage = {
@@ -108,28 +115,22 @@ export class DisasterReliefComponent implements OnInit {
 
   initForm() {
     this.validateForm = this.fb.group({
-      forestArea: [null],
-      peopleLossAndDie: [null],
-      peopleInjury: [null],
+      level: [null],
     });
   }
 
   async subForm() {
     this.validateForm.valueChanges.pipe(debounceTime(1000), distinctUntilChanged()).subscribe(res => {
       res.accidentId = this.id;
-      this.dataServicers.getDecideGrade(res).subscribe(grade => {
-        if (grade != null) {
-          this.plnId = grade.plnId;
-        }
-        const getResponsibility$ = this.dataServicers.getResponsibility({id: res.accidentId, planGrade: grade.grade});
-        const getEmergency$ = this.dataServicers.getEmergency({accidentId: res.accidentId, planGrade: grade.grade});
-        forkJoin(getResponsibility$, getEmergency$).subscribe(result => {
-          this.responsibilityData = result[0].selectResponsibility;
-          this.planId = result[0].planId;
-          this.emergencyData = result[1];
-          this.downLoadUrl = result[0].downUrl;
-          this.currentPage = grade.grade;
-        });
+      const getResponsibility$ = this.dataServicers.getResponsibility({id: res.accidentId, planGrade: res.level});
+      const getEmergency$ = this.dataServicers.getEmergency({accidentId: res.accidentId, planGrade: res.level});
+      forkJoin(getResponsibility$, getEmergency$).subscribe(result => {
+        this.responsibilityData = result[0].selectResponsibility;
+        this.planId = result[0].planId;
+        this.emergencyData = result[1];
+        this.downLoadUrl = result[0].downUrl;
+        this.currentPage = res.level;
+        this.rowspanNum = 3;
       });
     });
   }
@@ -137,7 +138,7 @@ export class DisasterReliefComponent implements OnInit {
   ngOnInit(): void {
     this.initForm();
     this.subForm();
-    this.earthquakeEconomicLevelOptions = [...MapPipe.transformMapToArray(MapSet.earthquakeEconomicLevel)];
+    this.earthquakeEconomicLevelOptions = [...MapPipe.transformMapToArray(MapSet.startLevel)];
   }
 
 }
