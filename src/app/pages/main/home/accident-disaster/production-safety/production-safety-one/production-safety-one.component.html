@@ -5,10 +5,10 @@
                     [nameArray]="nameArray"></app-left-hexagon>
   <div [@bounceInOnEnter]="{ value: '', params: { duration: 1000 }}">
     <div class="column-right">
-      <app-new-content *ngIf="!isCurrProcess" #tableContent [isCurrProcess]="isCurrProcess" [level]="currentPage"
+      <app-new-content [hidden]="isCurrProcess" #tableContent [isCurrProcess]="isCurrProcess" [level]="currentPage"
                        [TableDataModel]="tableObj" [EmergencyDataModel]="emergencyObj"
                        [rowspanNum]="rowspans"></app-new-content>
-      <table *ngIf="isCurrProcess" cellpadding="0" cellspacing="0">
+      <table [hidden]="!isCurrProcess" cellpadding="0" cellspacing="0">
         <thead>
         <tr>
           <td class="width_100">主要任务</td>
@@ -19,7 +19,7 @@
         </thead>
         <tbody>
         <tr>
-          <td align="center">启动应急响应</td>
+          <td align="center" #distannce1>启动应急响应</td>
           <td colspan="2" class="height_93">1、省指挥部总指挥等相关领导赴指挥中心。<br/>
             2、组建现场应急指挥部，任命现场总指挥。<br/>
             3、现场总指挥赴现场指挥协调应急工作。<br/>
@@ -29,7 +29,7 @@
           <td></td>
         </tr>
         <tr>
-          <td align="center" rowspan="10">分组开展应急救援工作</td>
+          <td align="center" rowspan="10" #distannce2>分组开展应急救援工作</td>
           <td colspan="2" class="height_93">成立现场指挥部，下设9个工作组，主要职责如下：<br/>
             1、负责组织指挥应急处置和救援工作。<br/>
             2、研判事故发展趋势以及可能造成的危害，组织制订并实施应急救援方案。<br/>
@@ -120,7 +120,7 @@
           <td class="height_93"></td>
         </tr>
         <tr>
-          <td rowspan="5" align="center">事态控制</td>
+          <td rowspan="5" align="center" #distannce3>事态控制</td>
           <td class="width_content">救援力量调度及保障</td>
           <td class="height_93">1、提请、衔接解放军和武警部队参与应急救援。<br/>
             2、协调危化品专业救援队伍参与应急救援。<br/>
@@ -167,7 +167,7 @@
           <td></td>
         </tr>
         <tr>
-          <td align="center">应急结束</td>
+          <td align="center" #distannce4>应急结束</td>
           <td class="height_93" colspan="2">1、对外发布事故及救援情况等信息。<br/>
             2、宣布应急结束。<br/>
             3、协调、组织事故调查和善后处理工作。
