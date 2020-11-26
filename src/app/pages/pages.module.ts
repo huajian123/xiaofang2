@@ -39,6 +39,9 @@ import { EnvironmentalEmergencyTableOneComponent } from './main/home/accident-di
 import { RailwayComponent } from './main/home/accident-disaster/railway/railway.component';
 import { RailwayOneComponent } from './main/home/accident-disaster/railway/railway-one/railway-one.component';
 import { RailwayTableComponent } from './main/home/accident-disaster/railway/railway-table/railway-table.component';
+import { SpecialEquipmentComponent } from './main/home/accident-disaster/special-equipment/special-equipment.component';
+import { SpecialEquipmentOneComponent } from './main/home/accident-disaster/special-equipment/special-equipment-one/special-equipment-one.component';
+import { SpecialEquipmentTableComponent } from './main/home/accident-disaster/special-equipment/special-equipment-table/special-equipment-table.component';
 
 
 
@@ -81,6 +84,9 @@ import { RailwayTableComponent } from './main/home/accident-disaster/railway/rai
     RailwayComponent,
     RailwayOneComponent,
     RailwayTableComponent,
+    SpecialEquipmentComponent,
+    SpecialEquipmentOneComponent,
+    SpecialEquipmentTableComponent,
   ],
   imports: [
     CommonModule,
