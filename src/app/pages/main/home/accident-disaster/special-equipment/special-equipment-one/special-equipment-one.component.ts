@@ -40,10 +40,10 @@ export class SpecialEquipmentOneComponent implements OnInit {
     this.emergencyRoomNameArray = [];
     this.leftNav = [
       {name: '启动应急响应', index: 1},
-      {name: '成立指挥部', index: 2},
-      {name: '开展应急救援', index: 3},
+      {name: '分组开展应急救援工作', index: 2},
+      {name: '保障方案', index: 3},
       {name: '事态控制', index: 4},
-      {name: '应急结束', index: 5},
+      {name: '善后处置及社会救助', index: 5},
     ];
     this.isCurrProcess = true;
   }

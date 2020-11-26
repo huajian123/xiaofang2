@@ -8,7 +8,7 @@
       <app-new-content *ngIf="!isCurrProcess" #tableContent [isCurrProcess]="isCurrProcess" [level]="currentPage"
                        [TableDataModel]="tableObj" [EmergencyDataModel]="emergencyObj"
                        [rowspanNum]="rowspans"></app-new-content>
-      <app-environmental-emergency-table-one *ngIf="isCurrProcess"></app-environmental-emergency-table-one>
+      <app-special-equipment-table *ngIf="isCurrProcess"></app-special-equipment-table>
     </div>
   </div>
 </div>
