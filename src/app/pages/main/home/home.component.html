@@ -24,6 +24,7 @@
     </ng-container>
     <!--气象-->
     <ng-container *ngIf="currentPage===3">
+      <app-meteorological [id]="accidentId"></app-meteorological>
     </ng-container>
     <!--自然灾害救助-->
     <ng-container *ngIf="currentPage===4">
@@ -66,11 +67,11 @@
     </ng-container>
     <!--特种设备-->
     <ng-container *ngIf="currentPage===14">
-      <app-special-equipment  [id]="accidentId"></app-special-equipment>
+      <app-special-equipment [id]="accidentId"></app-special-equipment>
     </ng-container>
     <!--铁路-->
     <ng-container *ngIf="currentPage===15">
-      <app-railway  [id]="accidentId"></app-railway>
+      <app-railway [id]="accidentId"></app-railway>
     </ng-container>
     <!--港口-->
     <ng-container *ngIf="currentPage===16">

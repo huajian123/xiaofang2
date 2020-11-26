@@ -17,9 +17,9 @@ import {TyphoonComponent} from './main/home/natural-disaster/typhoon/typhoon.com
 import {ForestFireComponent} from './main/home/natural-disaster/forest-fire/forest-fire.component';
 import {ForestFireOneComponent} from './main/home/natural-disaster/forest-fire/forest-fire-one/forest-fire-one.component';
 import {ForestFireThreeComponent} from './main/home/natural-disaster/forest-fire/forest-fire-three/forest-fire-three.component';
-import { PollutionWeatherComponent } from './main/home/accident-disaster/pollution-weather/pollution-weather.component';
-import { PollutionWeatherOneComponent } from './main/home/accident-disaster/pollution-weather/pollution-weather-one/pollution-weather-one.component';
-import { PollutionWeatherThreeComponent } from './main/home/accident-disaster/pollution-weather/pollution-weather-three/pollution-weather-three.component';
+import {PollutionWeatherComponent} from './main/home/accident-disaster/pollution-weather/pollution-weather.component';
+import {PollutionWeatherOneComponent} from './main/home/accident-disaster/pollution-weather/pollution-weather-one/pollution-weather-one.component';
+import {PollutionWeatherThreeComponent} from './main/home/accident-disaster/pollution-weather/pollution-weather-three/pollution-weather-three.component';
 import {ProductionSafetyOneComponent} from './main/home/accident-disaster/production-safety/production-safety-one/production-safety-one.component';
 import {ProductionSafetyThreeComponent} from './main/home/accident-disaster/production-safety/production-safety-three/production-safety-three.component';
 import {ProductionSafetyComponent} from './main/home/accident-disaster/production-safety/production-safety.component';
@@ -32,17 +32,20 @@ import {MajorFireThreeComponent} from './main/home/accident-disaster/major-fire/
 import {GeologicalComponent} from './main/home/natural-disaster/geological/geological.component';
 import {GeologicalOneComponent} from './main/home/natural-disaster/geological/geological-one/geological-one.component';
 import {GeologicalThreeComponent} from './main/home/natural-disaster/geological/geological-three/geological-three.component';
-import { EnvironmentalEmergencyComponent } from './main/home/accident-disaster/environmental-emergency/environmental-emergency.component';
-import { EnvironmentalEmergencyOneComponent } from './main/home/accident-disaster/environmental-emergency/environmental-emergency-one/environmental-emergency-one.component';
-import { EnvironmentalEmergencyThreeComponent } from './main/home/accident-disaster/environmental-emergency/environmental-emergency-three/environmental-emergency-three.component';
-import { EnvironmentalEmergencyTableOneComponent } from './main/home/accident-disaster/environmental-emergency/environmental-emergency-table-one/environmental-emergency-table-one.component';
-import { RailwayComponent } from './main/home/accident-disaster/railway/railway.component';
-import { RailwayOneComponent } from './main/home/accident-disaster/railway/railway-one/railway-one.component';
-import { RailwayTableComponent } from './main/home/accident-disaster/railway/railway-table/railway-table.component';
-import { SpecialEquipmentComponent } from './main/home/accident-disaster/special-equipment/special-equipment.component';
-import { SpecialEquipmentOneComponent } from './main/home/accident-disaster/special-equipment/special-equipment-one/special-equipment-one.component';
-import { SpecialEquipmentTableComponent } from './main/home/accident-disaster/special-equipment/special-equipment-table/special-equipment-table.component';
-
+import {EnvironmentalEmergencyComponent} from './main/home/accident-disaster/environmental-emergency/environmental-emergency.component';
+import {EnvironmentalEmergencyOneComponent} from './main/home/accident-disaster/environmental-emergency/environmental-emergency-one/environmental-emergency-one.component';
+import {EnvironmentalEmergencyThreeComponent} from './main/home/accident-disaster/environmental-emergency/environmental-emergency-three/environmental-emergency-three.component';
+import {EnvironmentalEmergencyTableOneComponent} from './main/home/accident-disaster/environmental-emergency/environmental-emergency-table-one/environmental-emergency-table-one.component';
+import {RailwayComponent} from './main/home/accident-disaster/railway/railway.component';
+import {RailwayOneComponent} from './main/home/accident-disaster/railway/railway-one/railway-one.component';
+import {RailwayTableComponent} from './main/home/accident-disaster/railway/railway-table/railway-table.component';
+import {SpecialEquipmentComponent} from './main/home/accident-disaster/special-equipment/special-equipment.component';
+import {SpecialEquipmentOneComponent} from './main/home/accident-disaster/special-equipment/special-equipment-one/special-equipment-one.component';
+import {SpecialEquipmentTableComponent} from './main/home/accident-disaster/special-equipment/special-equipment-table/special-equipment-table.component';
+import {MeteorologicalComponent} from './main/home/natural-disaster/meteorological/meteorological.component';
+import {MeteorologicalOneComponent} from './main/home/natural-disaster/meteorological/meteorological-one/meteorological-one.component';
+// tslint:disable-next-line:max-line-length
+import {MeteorologicalThreeComponent} from './main/home/natural-disaster/meteorological/meteorological-three/meteorological-three.component';
 
 
 @NgModule({
@@ -87,6 +90,9 @@ import { SpecialEquipmentTableComponent } from './main/home/accident-disaster/sp
     SpecialEquipmentComponent,
     SpecialEquipmentOneComponent,
     SpecialEquipmentTableComponent,
+    MeteorologicalComponent,
+    MeteorologicalOneComponent,
+    MeteorologicalThreeComponent,
   ],
   imports: [
     CommonModule,
