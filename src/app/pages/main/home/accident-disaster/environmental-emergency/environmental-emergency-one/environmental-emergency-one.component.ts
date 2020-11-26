@@ -30,6 +30,7 @@ export class EnvironmentalEmergencyOneComponent implements OnInit {
   emergencyRoomNameArray: string[];
   @ViewChild(NewContentComponent) tableContent: NewContentComponent;
   leftNav: { name: string, index: number }[];
+  isShows = true;
 
   constructor() {
     this.rowspans = 0;
