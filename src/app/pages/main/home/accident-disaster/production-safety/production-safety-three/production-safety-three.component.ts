@@ -38,7 +38,6 @@ export class ProductionSafetyThreeComponent implements OnInit {
     this.level = this.currentPage;
     this.levels = this.planId;
     this.tableObj = this.responsibilityData;
-    console.log(this.downLoadUrl);
   }
 
 }

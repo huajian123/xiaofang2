@@ -9,7 +9,6 @@ import {
 import {NzMessageService} from 'ng-zorro-antd';
 import {debounceTime, distinctUntilChanged} from 'rxjs/operators';
 import {forkJoin} from 'rxjs';
-import {MapPipe, MapSet} from '../../../../../share/directives/pipe/map.pipe';
 
 interface OptionsInterface {
   value: number;
@@ -126,11 +125,7 @@ export class MajorFireComponent implements OnInit {
           this.planId = result[0].planId;
           this.emergencyData = result[1];
           this.downLoadUrl = result[0].downUrl;
-          console.log(this.downLoadUrl);
           this.currentPage = grade.grade;
-          if (this.currentPage === 1 || this.currentPage === 2) {
-            this.rowspanNum = 25;
-          }
         });
       });
     });

@@ -193,9 +193,6 @@ export class FloodDroughtComponent implements OnInit {
           this.emergencyData = result[1];
           this.downLoadUrl = result[0].downUrl;
           this.currentPage = grade.grade;
-          if (this.currentPage === 1 || this.currentPage === 2) {
-            this.rowspanNum = 25;
-          }
         });
       });
     });

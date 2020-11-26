@@ -143,7 +143,6 @@ export class TyphoonComponent implements OnInit {
           this.planId = result[0].planId;
           this.emergencyData = result[1];
           this.downLoadUrl = result[0].downUrl;
-          console.log(this.downLoadUrl);
           this.currentPage = grade.grade;
           if (this.currentPage === 1 || this.currentPage === 2) {
             this.rowspanNum = 8;
