@@ -41,7 +41,6 @@ import {RailwayOneComponent} from './main/home/accident-disaster/railway/railway
 import {RailwayTableComponent} from './main/home/accident-disaster/railway/railway-table/railway-table.component';
 import {SpecialEquipmentComponent} from './main/home/accident-disaster/special-equipment/special-equipment.component';
 import {SpecialEquipmentOneComponent} from './main/home/accident-disaster/special-equipment/special-equipment-one/special-equipment-one.component';
-import {SpecialEquipmentTableComponent} from './main/home/accident-disaster/special-equipment/special-equipment-table/special-equipment-table.component';
 import {MeteorologicalComponent} from './main/home/natural-disaster/meteorological/meteorological.component';
 import {MeteorologicalOneComponent} from './main/home/natural-disaster/meteorological/meteorological-one/meteorological-one.component';
 // tslint:disable-next-line:max-line-length
@@ -92,7 +91,6 @@ import {DisasterReliefThreeComponent} from './main/home/natural-disaster/disaste
     RailwayTableComponent,
     SpecialEquipmentComponent,
     SpecialEquipmentOneComponent,
-    SpecialEquipmentTableComponent,
     MeteorologicalComponent,
     MeteorologicalOneComponent,
     MeteorologicalThreeComponent,

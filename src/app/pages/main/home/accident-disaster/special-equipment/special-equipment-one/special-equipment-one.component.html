@@ -8,7 +8,317 @@
       <app-new-content *ngIf="!isCurrProcess" #tableContent [isCurrProcess]="isCurrProcess" [level]="currentPage"
                        [TableDataModel]="tableObj" [EmergencyDataModel]="emergencyObj"
                        [rowspanNum]="rowspans"></app-new-content>
-      <app-special-equipment-table *ngIf="isCurrProcess"></app-special-equipment-table>
+      <table cellpadding="0" cellspacing="0" *ngIf="isCurrProcess">
+        <thead>
+        <tr>
+          <td class="width_100">主要任务</td>
+          <td colspan="2" class="width_50">应急工作内容</td>
+          <td class="width_30">职能部门(单位)</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td align="center" #distannce1>启动应急响应</td>
+          <td colspan="2" class="height_93">
+            1、分管副省长等相关领导赴指挥中心。<br>
+            2、组建现场应急指挥部，任命现场总指挥。<br>
+            3、现场总指挥赴现场指挥协调应急工作。<br>
+            4、发布应急响应通知。
+          </td>
+          <td class="height_93">
+            省市场监管局、
+            省特种设备重特大事故应急指挥中心、
+            省特种设备重特大事故应急指挥中心办公室
+          </td>
+        </tr>
+
+        <tr>
+          <td align="center" rowspan="13" #distannce2>分组开展应急救援工作</td>
+          <td class="height_93">现场指挥部</td>
+          <td class="height_93">负责现场决策和指挥，下设6个组<br>
+            现场指挥由省特种设备重特大事故应急指挥中心委派</td>
+          <td class="height_93">省特种设备重特大事故应急指挥中心</td>
+        </tr>
+
+        <tr>
+          <td class="height_93" rowspan="2">综合协调组</td>
+          <td class="height_93" rowspan="2">
+            1、组织协调现场应急救援的人员、交通、电力、通讯、救灾物资和装备等救援资源的调配<br>
+            2、组织生活后勤保障<br>
+            3、对事故进行调查分析并提出处理意见<br>
+            4、及时向本级人民政府和上级有关部门报送相关信息和应急处置进展情况
+          </td>
+          <td class="height_93">牵头单位：省市场监管局</td>
+        </tr>
+
+        <tr>
+          <td class="height_93">成员单位：<br>
+            省发展改革委、省应急厅、省工业和信息化厅、省财政厅、省公安厅、省交通运输厅、省通信管理局、
+            省电力公司、南京铁路办事处、徐州铁路办事处、事发地人民政府
+          </td>
+        </tr>
+
+        <tr>
+          <td class="height_93" rowspan="2">抢险救助组</td>
+          <td class="height_93" rowspan="2">
+            1、查明事故性质、影响范围及可能造成的后果<br>
+            2、拟定抢险救援方案<br>
+            3、组织有关人员实施经指挥部确定的抢险救援方案<br>
+            4、组织人员搜救
+          </td>
+          <td class="height_93">牵头单位：省应急厅</td>
+        </tr>
+        <tr>
+          <td class="height_93">成员单位：<br>
+            省市场监管局、省交通运输厅、省生态环境厅、省气象局等单位，事发地人民政府、事故应急救援专家、事故发生单位的专业技术人员
+          </td>
+        </tr>
+
+
+
+
+        <tr>
+          <td class="height_93" rowspan="2">警戒疏散组</td>
+          <td class="height_93" rowspan="2">
+            1、负责现场警戒保卫，维护治安和交通秩序<br>
+            2、疏散人员和物资<br>
+          </td>
+          <td class="height_93">牵头单位：省公安厅</td>
+        </tr>
+        <tr>
+          <td class="height_93">成员单位：<br>
+            武警江苏省总队、省交通运输厅、事故发生单位的安全保卫机构
+          </td>
+        </tr>
+
+
+
+
+        <tr>
+          <td class="height_93" rowspan="2">医疗救护组</td>
+          <td class="height_93" rowspan="2">
+            组织紧急医疗救护队伍，对事故中的受伤人员和抢险救援的受伤人员进行救治
+          </td>
+          <td class="height_93">牵头单位：省卫生健康委</td>
+        </tr>
+        <tr>
+          <td class="height_93">成员单位：<br>
+            事发地人民政府
+          </td>
+        </tr>
+
+
+
+
+
+        <tr>
+          <td class="height_93" rowspan="2">应急监测组</td>
+          <td class="height_93" rowspan="2">
+            1、对处在事故易发生环境污染、大气污染、水体污染等次生灾害的区域进行监测<br>
+            2、对相关设施采取紧急处置措施，防止事故危害扩大，确定需要疏散人群的范围
+          </td>
+          <td class="height_93">牵头单位：省生态环境厅</td>
+        </tr>
+        <tr>
+          <td class="height_93">成员单位：<br>
+            省住房城乡建设厅、省公安厅、省水利厅、省气象局、
+            省电力公司
+          </td>
+        </tr>
+
+
+
+
+        <tr>
+          <td class="height_93" rowspan="2">宣传报导组</td>
+          <td class="height_93" rowspan="2">
+            应急救援工作中的宣传报道，按规定向公众发布事故有关信息
+          </td>
+          <td class="height_93">牵头单位：省委宣传部</td>
+        </tr>
+        <tr>
+          <td class="height_93">成员单位：<br>
+            省委网信办、省市场监管局、省应急厅 、新闻媒体
+          </td>
+        </tr>
+
+
+
+        <tr>
+          <td align="center" rowspan="11" #distannce3>保障方案</td>
+          <td class="height_93">技术储备保障/专家组</td>
+          <td class="height_93">
+            1、参与特种设备事故应急工作<br>
+            2、指导特种设备事故应急处置工作<br>
+            3、负责为应急决策提供技术咨询和建议
+          </td>
+          <td class="height_93">省特种设备重特大事故应急指挥中心办公室</td>
+        </tr>
+
+
+        <tr>
+          <td class="height_93">应急队伍保障</td>
+          <td class="height_93">
+            1、负责全省特种设备事故应急力量的统一协调和指导<br>
+            2、协调区域内的应急队伍资源<br>
+            3、依法组建和完善专（兼）职应急队伍
+          </td>
+          <td class="height_93">
+            省特种设备重特大事故应急指挥中心、
+            地方各级人民政府、
+            使用单位
+          </td>
+        </tr>
+
+
+
+
+
+        <tr>
+          <td class="height_93">财力保障</td>
+          <td class="height_93">
+            1、负责安排本级特种设备事故处置工作所需的经费，保证及时足额到位，并对经费使用情况实施监督<br>
+            2、做好事故应急演练和救援的必要资金保障
+          </td>
+          <td class="height_93">
+            各级财政部门、
+            使用单位
+          </td>
+        </tr>
+
+
+
+
+
+        <tr>
+          <td class="height_93">装备和物资保障</td>
+          <td class="height_93">
+            1、建立应急物资、生活必需品和应急处置装备的储备制度<br>
+            2、建立应急物资、设施、设备等储备制度，储备必要的应急物资和装备
+          </td>
+          <td class="height_93">
+            县级以上人民政府、
+            使用单位
+          </td>
+        </tr>
+
+
+
+
+        <tr>
+          <td class="height_93">医疗卫生保障</td>
+          <td class="height_93">
+            加强急救医疗服务网络建设，配备相应的医疗救治人员、设备、技术、药物等，掌握本行政区域内医疗卫生资源信息，提高医疗卫生机构对事故伤员的救治能力
+          </td>
+          <td class="height_93">
+            县级以上人民政府
+          </td>
+        </tr>
+
+
+
+        <tr>
+          <td class="height_93">交通运输保障</td>
+          <td class="height_93">
+            1、负责组织协调水、陆交通保障 <br>
+            2、根据需要实施道路交通管制<br>
+            2、协助做好紧急交通保障工作
+          </td>
+          <td class="height_93">
+            交通管理部门、
+            公安部门、
+            县级以上人民政府
+          </td>
+        </tr>
+
+
+
+
+
+        <tr>
+          <td class="height_93">治安维护</td>
+          <td class="height_93">
+            负责应急处置工作中的治安维护
+          </td>
+          <td class="height_93">
+            公安部门
+          </td>
+        </tr>
+
+
+
+
+        <tr>
+          <td class="height_93">通信保障</td>
+          <td class="height_93">
+            负责组织、协调、指挥省内各基础电信运营企业、铁塔公司，为处置特种设备事故提供公众通信网应急通信保障，及时修复损坏的通信设施
+          </td>
+          <td class="height_93">
+            通信管理部门
+          </td>
+        </tr>
+
+
+        <tr>
+          <td class="height_93">生活保障</td>
+          <td class="height_93">
+            负责保障特种设备重特大事故中转移人员和应急人员饮食及其他生活必需品。超出事发地人民政府处置能力时，报请省政府同意，由相关部门提供支援
+          </td>
+          <td class="height_93">
+            事发地人民政府和事故单位
+          </td>
+        </tr>
+
+
+
+        <tr>
+          <td class="height_93">应急避难场所保障</td>
+          <td class="height_93">
+            负责提供人员避难需要的场所
+          </td>
+          <td class="height_93">
+            事发地人民政府
+          </td>
+        </tr>
+
+
+        <tr>
+          <td class="height_93">社会动员保障</td>
+          <td class="height_93">
+            调动本行政区域社会力量和志愿者配合应急工作
+          </td>
+          <td class="height_93">
+            现场指挥部
+          </td>
+        </tr>
+
+
+        <tr>
+          <td align="center" rowspan="2" #distannce4>事态控制</td>
+          <td class="height_93" colspan="2">信息发布</td>
+          <td class="height_93">省委宣传部、省特种设备重特大事故应急指挥中心办公室</td>
+        </tr>
+        <tr>
+          <td class="height_93" colspan="2" #distannce5>应急结束</td>
+          <td class="height_93">省特种设备重特大事故应急指挥中心</td>
+        </tr>
+
+
+
+        <tr>
+          <td align="center" rowspan="2">善后处置及社会救助</td>
+          <td class="height_93" colspan="2">人员安置、补偿，征用物资补偿，灾后重建，污染物收集、清理与处理等事项</td>
+          <td class="height_93">省特种设备重特大事故应急指挥中心、省市场监管局、省人力资源社会保障厅、省总工会、事发地人民政府、事故发生单位</td>
+        </tr>
+        <tr>
+          <td class="height_93" colspan="2">组织动员本行政区域社会力量参与救助工作，必要时报请省政府及省特种设备重特大事故应急指挥中心组织动员全省相关社会力量参与救助工作</td>
+          <td class="height_93">事发地人民政府、
+            省特种设备重特大事故应急指挥中心
+          </td>
+        </tr>
+        </tbody>
+      </table>
+
     </div>
   </div>
 </div>

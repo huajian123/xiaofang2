@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
 import {bounceInOnEnterAnimation, lightSpeedInOnEnterAnimation} from 'angular-animations';
 import {EmergencyModel, ResponsibilityModel} from '../../../../../../services/biz-services/accident-disasters-list.service';
 import {NewContentComponent} from '../../../../../../share/biz-component/new-content/new-content.component';
@@ -20,6 +20,11 @@ export class SpecialEquipmentOneComponent implements OnInit {
   @Input() emergencyRoomData: EmergencyModel[];
   @Input() rowspanNum: number;
   @Input() downLoadUrl: string;
+  @ViewChild('distannce1') distannce1: ElementRef;
+  @ViewChild('distannce2') distannce2: ElementRef;
+  @ViewChild('distannce3') distannce3: ElementRef;
+  @ViewChild('distannce4') distannce4: ElementRef;
+  @ViewChild('distannce5') distannce5: ElementRef;
   isCurrProcess: boolean;
   nameArray: string[];
   tableObj: ResponsibilityModel[];
@@ -57,8 +62,16 @@ export class SpecialEquipmentOneComponent implements OnInit {
     const index = this.leftNav.find((item) => {
       return item.name === event;
     }).index;
+    this.goDistance(index);
+  }
+
+  goDistance(index): void {
+    this['distannce' + index]?.nativeElement.scrollIntoView({
+      behavior: 'smooth', block: 'start', inline: 'start'
+    });
     this.tableContent.goDistance(index);
   }
+
 
   getEmergencyRoomNameArray() {
     const temp = [];
@@ -72,10 +85,10 @@ export class SpecialEquipmentOneComponent implements OnInit {
   ngOnInit(): void {
     this.nameArray = [
       '启动应急响应',
-      '成立指挥部',
-      '开展应急救援',
+      '分组开展应急救援工作',
+      '保障方案',
       '事态控制',
-      '应急结束'
+      '善后处置及社会救助'
     ];
     this.rowspans = this.rowspanNum;
     this.level = this.currentPage;
