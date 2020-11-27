@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
 import {bounceInOnEnterAnimation, lightSpeedInOnEnterAnimation} from 'angular-animations';
 import {
   EmergencyModel,
@@ -22,6 +22,11 @@ export class HazardousOneComponent implements OnInit {
   @Input() planId: number;
   @Input() emergencyRoomData: EmergencyModel[];
   @Input() downLoadUrl: string;
+  @ViewChild('distannce1') distannce1: ElementRef;
+  @ViewChild('distannce2') distannce2: ElementRef;
+  @ViewChild('distannce3') distannce3: ElementRef;
+  @ViewChild('distannce4') distannce4: ElementRef;
+  @ViewChild('distannce5') distannce5: ElementRef;
   isCurrProcess: boolean;
   nameArray: string[];
   tableObj: ResponsibilityModel[];
@@ -57,6 +62,13 @@ export class HazardousOneComponent implements OnInit {
     const index = this.leftNav.find((item) => {
       return item.name === event;
     }).index;
+    this.goDistance(index);
+  }
+
+  goDistance(index): void {
+    this['distannce' + index]?.nativeElement.scrollIntoView({
+      behavior: 'smooth', block: 'start', inline: 'start'
+    });
     this.tableContent.goDistance(index);
   }
 
