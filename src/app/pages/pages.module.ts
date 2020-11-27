@@ -49,6 +49,7 @@ import {DisasterReliefComponent} from './main/home/natural-disaster/disaster-rel
 import {DisasterReliefOneComponent} from './main/home/natural-disaster/disaster-relief/disaster-relief-one/disaster-relief-one.component';
 import {DisasterReliefThreeComponent} from './main/home/natural-disaster/disaster-relief/disaster-relief-three/disaster-relief-three.component';
 import { PollutionWeatherTwoComponent } from './main/home/accident-disaster/pollution-weather/pollution-weather-two/pollution-weather-two.component';
+import { ForestFireFourComponent } from './main/home/natural-disaster/forest-fire/forest-fire-four/forest-fire-four.component';
 
 
 @NgModule({
@@ -99,6 +100,7 @@ import { PollutionWeatherTwoComponent } from './main/home/accident-disaster/poll
     DisasterReliefOneComponent,
     DisasterReliefThreeComponent,
     PollutionWeatherTwoComponent,
+    ForestFireFourComponent,
   ],
   imports: [
     CommonModule,

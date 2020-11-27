@@ -5,9 +5,251 @@
                     [nameArray]="nameArray"></app-left-hexagon>
   <div [@bounceInOnEnter]="{ value: '', params: { duration: 1000 }}">
     <div class="column-right">
-      <app-new-content #tableContent [isCurrProcess]="isCurrProcess" [level]="currentPage"
+      <app-new-content *ngIf="!isCurrProcess" #tableContent [isCurrProcess]="isCurrProcess" [level]="currentPage"
                        [TableDataModel]="tableObj" [EmergencyDataModel]="emergencyObj"
                        [rowspanNum]="rowspans"></app-new-content>
+
+      <table *ngIf="isCurrProcess" cellspacing="0" cellpadding="0">
+        <thead>
+        <tr>
+          <td class="width_100">主要任务</td>
+          <td colspan="2" class="width_50">应急工作内容</td>
+          <td class="width_30">职能部门(单位)</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td align="center" rowspan="2">启动应急响应</td>
+          <td class="height_93">一级响应</td>
+          <td class="height_93">向国家森防指汇报，启动应急响应。</td>
+          <td class="height_93" rowspan="2">省人民政府、省应急厅</td>
+        </tr>
+        <tr>
+          <td class="height_93">二级响应</td>
+          <td class="height_93">向省人民政府汇报，启动应急响应，发布应急响应通知。</td>
+        </tr>
+
+        <tr>
+          <td align="center" rowspan="2">成立指挥部</td>
+          <td class="height_93" colspan="2">
+            成立省森林防灭火指挥部：<br>
+            1、负责组织、协调和指导全省森林防灭火工作，研究部署全省森林防灭火工作；<br>
+            2、指导协调较大以上森林火灾及其他需要省森林防灭火指挥部响应处置的火灾扑救工作；<br>
+            3、监督检查各地区各有关部门贯彻执行党中央国务院和省委省政府关于森林防灭火工作的决策部署以及其他重大事项的落实情况；<br>
+            4、组织指导有关森林火灾的调查评估处理和挂牌督办工作；<br>
+            5、完成省政府交办的其他森林防灭火工作。
+          </td>
+          <td class="height_93">总指挥：省政府分管副省长担任（发生特别重大森林火灾时，也可由省长担任）。<br>
+            副指挥：省政府分管副秘书长，省应急管理厅、省林业局、省军区、武警江苏省总队负责同志担任。
+          </td>
+        </tr>
+        <tr>
+          <td class="height_93" colspan="2">省森林防灭火指挥部下设办公室，作为日常办事机构，办公室设在省应急管理厅。
+          </td>
+          <td class="height_93">
+            主任由省应急管理厅厅长担任，各成员单位有关处室负责人为联络员。
+          </td>
+        </tr>
+
+        <tr>
+          <td align="center" rowspan="3">启动应急响应</td>
+          <td class="height_93" colspan="2">
+            启动Ⅱ级应急响应，设立现场指挥机构，人员由省森林防灭火指挥部有关成员单位和专家组成，负责现场指挥、组织、协调各成员单位按照各自职责开展火灾应急处置和救援工作，并根据工作需要设立综合调度、通讯保障、后勤运输保障、技术咨询、安全保卫、医疗救护、转移安置、新闻宣传等工作组。
+          </td>
+          <td class="height_93">
+            省森林防灭火指挥部
+          </td>
+        </tr>
+
+        <tr>
+          <td class="height_93" colspan="2">
+            （1）省森林防灭火指挥部组织有关成员单位召开会议联合会商，分析火险形势，研究扑救措施及保障工作；指挥部会同有关部门和专家组成工作组赶赴火场，协调、指导火灾扑救工作；<br>
+            （2）根据市级森林防灭火指挥部的请求，增派地方专业森林消防队伍、国家综合性消防救援队伍跨区域支援参加扑火；<br>
+            （3）协调调派解放军、武警、公安及民兵、预备役部队等跨区域参加火灾扑救工作；<br>
+            （4）根据火场气象条件，指导、督促当地开展人工影响天气作业；<br>
+            （5）根据市级森林防灭火指挥部的请求，协调做好扑火物资调拨运输、卫生应急队伍增援等工作；<br>
+            （6）协调相关媒体加强火灾及扑火救灾宣传报道。
+          </td>
+          <td class="height_93">
+            省森林防灭火指挥部
+          </td>
+        </tr>
+
+        <tr>
+          <td class="height_93" colspan="2">
+            发生特别重大森林火灾时，及时向国家森林防灭火指挥部报告，省森林防灭火指挥部立即启动Ｉ级应急响应，当出现超出省森林防灭火指挥部处置权限、救援能力范围时，及时向国家森林防灭火指挥部请求指导和救援，省森林防灭火指挥部按照国家森林防灭火指挥部要求做好相关森林火灾扑救工作。
+          </td>
+          <td class="height_93">
+            省森林防灭火指挥部
+          </td>
+        </tr>
+
+        <tr>
+          <td align="center" rowspan="5">开展应急救援</td>
+          <td class="height_93">
+            组织灭火行动
+          </td>
+          <td class="height_93">
+            指导协助组织扑明火、打火头、开隔离、清火线、守火场；协调解决地方政府在扑火工作中存在的实际困难。
+          </td>
+          <td class="height_93" rowspan="5">
+            省委宣传部、省发展和改革委员会、省教育厅、省工业和信息化厅、省公安厅、省民政厅、省财政厅、省住房和城乡建设厅、省交通运输厅、省农业农村厅、省文化和旅游厅、省卫生健康委员会、省应急管理厅、省广播电视局、省气象局、省林业局、省通信管理局、省军区、武警江苏省总队、省消防救援总队和国网江苏省电力有限公司。
+          </td>
+        </tr>
+
+        <tr>
+          <td class="height_93">
+            转移疏散人员
+          </td>
+          <td class="height_93">
+            指导协助组织开展解救、转移、疏散受威胁群众并及时进行妥善安置和必要的医疗救治。
+          </td>
+        </tr>
+
+        <tr>
+          <td class="height_93">
+            保护重要目标
+          </td>
+
+          <td class="height_93">
+            指导协助保护民生和重要军事目标以及重大危险源安全。
+          </td>
+        </tr>
+
+
+        <tr>
+          <td class="height_93">
+            转移重要物资
+          </td>
+
+          <td class="height_93">
+            指导协助组织抢救、运送、转移重要物资。
+          </td>
+        </tr>
+
+        <tr>
+          <td class="height_93">
+            维护社会稳定
+          </td>
+
+          <td class="height_93">
+            指导协助加强火灾发生地区社会治安工作，严密防范违法犯罪行为，加强重点目标守卫和治安巡逻，维护火灾发生地区社会秩序稳定。
+          </td>
+        </tr>
+
+        <tr>
+          <td align="center" rowspan="2">林火监测</td>
+          <td class="height_93" colspan="2">
+            制作全省24小时森林火险天气等级预报和高森林火险天气警报，并针对重点火险区的实际情况制定人工影响天气方案，适时实施人工增雨作业，为尽快扑灭森林火灾创造有利条件。发生森林火灾后，气象部门要全面监测火场天气实况，提供火场天气形势预报。
+          </td>
+          <td class="height_93">气象部门</td>
+        </tr>
+
+        <tr>
+          <td class="height_93" colspan="2">
+            利用国家应急管理部卫星林火监测中心或气象卫星提供的热点监测报告和火情图像对我省森林火灾发生进行预警，通过地面瞭望台、巡护人员密切监视火场现场动态，形成立体型林火监测网络。
+          </td>
+          <td class="height_93">
+            省应急厅
+          </td>
+        </tr>
+
+        <tr>
+          <td align="center" rowspan="6">综合保障</td>
+          <td class="height_93 nowrap">
+            运输保障
+          </td>
+          <td class="height_93">
+            增援扑火力量及携行装备的运输以摩托化输送方式为主。
+          </td>
+          <td class="height_93">
+            省森林防灭火指挥部、所在地森林防灭火指挥部、铁路、民航部门。
+          </td>
+        </tr>
+
+        <tr>
+          <td class="height_93 nowrap">
+            队伍保障
+          </td>
+          <td class="height_93">
+            以专业火灾扑救队伍为第一梯队，解放军、武警部队、国家综合性消防救援队伍为第二梯队，民兵、预备役等为第三梯队。各种扑火力量要在各级森林防灭火指挥部的统一组织协调下，相互支援、积极配合、协同作战。
+          </td>
+          <td class="height_93">
+            省森林防灭火指挥部、省军区、武警江苏省总队、东部战区
+          </td>
+        </tr>
+
+
+
+        <tr>
+          <td class="height_93 nowrap">
+            通讯保障
+          </td>
+          <td class="height_93">
+            建立省、市、县、乡镇（林场）与火场的森林防火通信网络和火场应急通信保障体系，配备与扑火需要相适应的通信设备和通信指挥车。
+          </td>
+
+          <td class="height_93">
+            省通信管理局、基础电信运营企业、铁塔公司
+          </td>
+        </tr>
+
+
+        <tr>
+          <td class="height_93 nowrap">
+            物资保障
+          </td>
+          <td class="height_93">
+            省、市、县、重点林业乡镇（林场）四级森林防灭火指挥部指根据各自辖区的森林防灭火任务，建立相应的森林防火物资储备库，储备足够的扑火机具、物资和装备。省森林防灭火指挥部在重点林区设立森林防灭火物资储备库，储备一定数量的扑火机具、物资和防护装备，用于各地扑救Ｉ、Ⅱ级或部分Ⅲ级森林火灾的补给。
+          </td>
+
+          <td class="height_93">
+            省、市、县、重点林业乡镇（林场）四级森林防灭火指挥部
+          </td>
+        </tr>
+
+
+        <tr>
+          <td class="height_93 nowrap">
+            资金保障
+          </td>
+          <td class="height_93">
+            将森林防灭火基础设施建设纳入本级国民经济和社会发展规划，保障森林防灭火所需支出
+          </td>
+
+          <td class="height_93">
+            县级以上人民政府
+          </td>
+        </tr>
+
+        <tr>
+          <td class="height_93 nowrap">
+            技术保障
+          </td>
+          <td class="height_93">
+            1、各级气象部门为扑火工作提供火场气象保障服务；<br>
+            2、各级森林防灭火指挥部根据工作需要会同有关部门和单位建立本级专家组，对森林火灾的预防、灭火组织指挥、力量调动使用、灭火措施、火灾调查评估等提出咨询意见；<br>
+            3、在省森林防灭火指挥部建立森林火灾处置所需的卫星林火监测接收系统、地理信息系统和指挥系统，随时投入应急的后续支援和技术支援。
+          </td>
+          <td class="height_93">
+            各级森林防灭火指挥部、各级气象部门
+          </td>
+        </tr>
+
+        <tr>
+          <td align="center">应急终止</td>
+          <td class="height_93" colspan="2">
+            1、对外事故及救援情况等信息发布。<br>
+            2、宣布应急结束。<br>
+            3、协调、组织事故调查和善后处理工作。
+          </td>
+          <td class="height_93">
+            县级以上人民政府森林防灭火指挥机构、所在地森林防灭火指挥部办公室
+          </td>
+        </tr>
+
+        </tbody>
+      </table>
     </div>
   </div>
 </div>
