@@ -30,11 +30,9 @@ export class HazardousComponent implements OnInit {
   currentPage: number;
   validateForm: FormGroup;
   responsibilityEntities: DepartInfoModel[];
-  cityName: string;
   plnId: number;
   responsibilityData: ResponsibilityModel[];
   emergencyData: EmergencyModel[];
-  rowspanNum: number;
   isVisible = false;
   isOkLoading = false;
   backImage: any;
@@ -49,10 +47,8 @@ export class HazardousComponent implements OnInit {
     this.plnId = 0;
     this.planId = 0;
     this.responsibilityEntities = [];
-    this.cityName = '';
     this.responsibilityData = [];
     this.emergencyData = [];
-    this.rowspanNum = 0;
     this.downLoadUrl = '';
     this.tableStandard = [
       {
@@ -131,9 +127,6 @@ export class HazardousComponent implements OnInit {
           this.emergencyData = result[1];
           this.downLoadUrl = result[0].downUrl;
           this.currentPage = grade.grade;
-          if (this.currentPage === 1 || this.currentPage === 2) {
-            this.rowspanNum = 19;
-          }
         });
       });
     });

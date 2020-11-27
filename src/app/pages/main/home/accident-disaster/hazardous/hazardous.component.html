@@ -66,13 +66,11 @@
 
 <ng-container *ngIf="currentPage===1">
   <app-hazardous-one [downLoadUrl]="downLoadUrl" [emergencyRoomData]="emergencyData"
-                     [responsibilityData]="responsibilityData"
-                     [currentPage]="currentPage" [rowspanNum]="rowspanNum" [planId]="planId"></app-hazardous-one>
+                     [currentPage]="currentPage" [planId]="planId"></app-hazardous-one>
 </ng-container>
 <ng-container *ngIf="currentPage===2">
   <app-hazardous-one [downLoadUrl]="downLoadUrl" [emergencyRoomData]="emergencyData"
-                     [responsibilityData]="responsibilityData"
-                     [currentPage]="currentPage" [rowspanNum]="rowspanNum" [planId]="planId"></app-hazardous-one>
+                     [currentPage]="currentPage" [planId]="planId"></app-hazardous-one>
 </ng-container>
 
 <ng-container *ngIf="currentPage===3">
