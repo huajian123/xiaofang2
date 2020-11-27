@@ -5,9 +5,9 @@
                     [nameArray]="nameArray"></app-left-hexagon>
   <div [@bounceInOnEnter]="{ value: '', params: { duration: 1000 }}">
     <div class="column-right">
-      <app-new-content *ngIf="!isCurrProcess" #tableContent [isCurrProcess]="isCurrProcess" [level]="currentPage"
+      <app-new-content [hidden]="isCurrProcess"  #tableContent [isCurrProcess]="isCurrProcess" [level]="currentPage"
                        [TableDataModel]="tableObj" [EmergencyDataModel]="emergencyObj"></app-new-content>
-      <table *ngIf="isCurrProcess" cellspacing="0" cellpadding="0">
+      <table [hidden]="!isCurrProcess"  cellspacing="0" cellpadding="0">
         <thead>
         <tr>
           <td class="width_100">主要任务</td>
