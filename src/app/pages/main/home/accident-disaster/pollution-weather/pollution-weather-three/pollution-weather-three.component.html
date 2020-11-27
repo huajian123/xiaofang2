@@ -2,60 +2,77 @@
   <app-btn-group [downLoadUrl]="downLoadUrl" [levels]="planId"></app-btn-group>
   <div [@bounceInOnEnter]="{ value: '', params: { duration: 1000 }}">
     <div class="column-right">
-      <!-- <app-new-content [TableDataModel]="tableObj" [level]="currentPage"></app-new-content>-->
       <table cellpadding="0" cellspacing="0">
-        <tbody>
+        <thead>
         <tr>
           <td class="width_100">主要任务</td>
-          <td colspan="2" class="width_content">应急工作内容</td>
-          <td colspan="2" class="width_50">职能部门</td>
+          <td class="width_50" colspan="2">应急工作内容</td>
+          <td class="width_30">职能部门(单位)</td>
         </tr>
-        <ng-container *ngFor="let trItem of TableDataModel">
-          <ng-container *ngIf="!trItem.isGroup;else grouptpl">
-            <tr #distannceTpl>
-              <td align="center">{{trItem.responsibility}}</td>
-              <td colspan="2" class="padding_22">
-                <ng-container *ngFor="let item of trItem.responsibilityDetail;let i= index;">
-                  {{i + 1}}.{{item}}<br/>
-                </ng-container>
-              </td>
-              <td colspan="2" class="padding_22">{{trItem.department}}</td>
-            </tr>
-          </ng-container>
+        </thead>
+        <tbody>
+        <tr>
+          <td align="center">启动应急响应</td>
+          <td class="height_93" colspan="2">
+            负责配合现场指挥、应急处置、督促指导等工作。
+          </td>
+          <td class="height_93">
+            事发地人民政府
+          </td>
+        </tr>
+        <tr>
+          <td align="center" rowspan="3">应急响应措施</td>
+          <td class="height_93 nowrap">
+            健康防护措施
+          </td>
+          <td class="height_93">
+            1、提醒儿童 、孕妇 、老年人和患有呼吸道疾病 、心脑血管疾病等易感人群留在室内。<br>
+            2、中小学和幼儿园停止体育课及户外活动。<br>
+            3、一般人群应避免户外活动 ，户外作业者应开展防护。
+          </td>
+          <td class="height_93">
+            省卫生健康委、省教育厅
+          </td>
+        </tr>
 
-          <ng-template #grouptpl>
-            <ng-container *ngFor="let groupItem of trItem.selectTeamResponsibilityDTO;let f=first;">
-              <!--重污染天气-->
-              <ng-container *ngIf="!groupItem.coordinateDepartment;else groupHasCoorTpl">
-                <tr>
-                  <td #distannceTpl *ngIf="f" [attr.rowspan]="rowspanNum" align="center">{{trItem.responsibility}}</td>
-                  <td class="height_93">{{groupItem.teamName}}</td>
-                  <td class="padding_22">
-                <span *ngFor="let groupStrItem of groupItem.teamResponsibility;let bi=index;let bl=last">
-                <span *ngIf="groupItem.teamResponsibility.length>1">{{bi + 1}}:</span>{{groupStrItem}}<br
-                  *ngIf="!bl&&groupItem.teamResponsibility.length>0">
-                </span>
-                  </td>
-                  <td align="center" colspan="2">{{groupItem.mainDepartment}}</td>
-                </tr>
-              </ng-container>
-              <ng-template #groupHasCoorTpl>
-                <tr>
-                  <td #distannceTpl *ngIf="f" [attr.rowspan]="rowspanNum" align="center">{{trItem.responsibility}}</td>
-                  <td class="height_93" rowspan="2">{{groupItem.teamName}}</td>
-                  <td class="padding_22" rowspan="2">{{groupItem.teamResponsibility}}</td>
-                  <td class="width_72" align="center">牵头部门(单位)</td>
-                  <td align="center">{{groupItem.mainDepartment}}</td>
-                </tr>
-                <tr>
-                  <td class="width_72" align="center">配合部门(单位)</td>
-                  <td align="center">{{groupItem.coordinateDepartment}}</td>
-                </tr>
-              </ng-template>
-            </ng-container>
-          </ng-template>
+        <tr>
+          <td class="height_93">
+            建议性污染减排措施
+          </td>
+          <td class="height_93">
+            1、尽量乘坐公共交通工具出行 ， 减少小汽车上路行驶。<br>
+            2、驻车时及时熄火，减少车辆原地怠速运行时间  。<br>
+            3、倡导公众节约用电。<br>
+            4、燃煤企业使用硫分低于 0.7% 、灰分低于 15% 的优质煤炭 ，削减大气污染物排放
+            5、积极利用区外来电 ， 严格执行绿色节能调度 ； 火电机组中 ，天然气电厂和超低排放燃煤电厂优先发电 ；超低排放燃煤电厂在满足区域供电平衡和热力供应的前提下，煤耗低的机组优先发电 。
+          </td>
+          <td class="height_93">
+            省生态环境厅、省工业和信息化厅、省应急厅、省公安厅、省住房城乡建设厅、省交通运输厅、省水利厅、省农业农村厅
+          </td>
+        </tr>
 
-        </ng-container>
+
+        <tr>
+          <td class="height_93 nowrap">
+            强制性污染减排措施
+          </td>
+          <td class="height_93">
+            1、在保障城市正常运转的前提下，加大对燃煤锅炉、施工场地 、机动车排放 、工业企业等重点大气污染源的执法检查频次，确保其大气污染物达标排放。<br>
+            2、根据各地的 Ⅲ 级应急减排项目清单， 在确保安全生产的前提下，对铸造 、水泥 、钢铁 、有色 、石化、化工等重点排污单位有计划地实施限产或停产，限产优先采用部分生产线停产的方式实现。<br>
+            3、工业企业不得开停车作业与检修放空作业 ，船舶修造企业暂停露天喷涂作业。<br>
+            4、停止爆破 、破碎、建筑物拆除 、无封闭混凝土搅拌作业 ，停止室外工地喷涂粉刷 、护坡喷浆作业。<br>
+            5、施工工地的土方开挖 、 路面开挖 、 路面洗刨 、土方运输 、楼层垃圾清扫作业以及粉碎 、切割 、锯刨等机械作业暂停。<br>
+            6、加大施工工地洒水降尘频次 ， 对施工工地出入口道路实施机械化冲洗 ，对裸露地面 、物料堆场以及停工工地等加强遮盖。<br>
+            7、易产生扬尘污染的干散货码头、堆场停止作业 ，并做好场地洒水降尘工作。<br>
+            8、散装建筑材料 、建筑垃圾 、渣土 、沙石运输车辆禁止上路行驶。<br>
+            9、加大道路机械化清扫 （ 冲洗 ） 保洁频次和作业范围。<br>
+            10、严格落实农作物秸秆及杂物禁烧措施；禁止露天烧烤。<br>
+            11、禁止燃放烟花爆竹。
+          </td>
+          <td class="height_93">
+            省生态环境厅、省工业和信息化厅、省应急厅、省公安厅、省住房城乡建设厅、省交通运输厅、省水利厅
+          </td>
+        </tr>
         </tbody>
       </table>
     </div>
