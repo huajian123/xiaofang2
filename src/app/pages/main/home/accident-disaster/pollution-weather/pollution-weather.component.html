@@ -35,10 +35,10 @@
                              [planId]="planId"></app-pollution-weather-one>
 </ng-container>
 <ng-container *ngIf="currentPage===2">
-  <app-pollution-weather-one [downLoadUrl]="downLoadUrl" [emergencyRoomData]="emergencyData"
+  <app-pollution-weather-two [downLoadUrl]="downLoadUrl" [emergencyRoomData]="emergencyData"
                              [responsibilityData]="responsibilityData"
                              [currentPage]="currentPage" [rowspanNum]="rowspanNum"
-                             [planId]="planId"></app-pollution-weather-one>
+                             [planId]="planId"></app-pollution-weather-two>
 </ng-container>
 <ng-container *ngIf="currentPage===3">
   <app-pollution-weather-three [downLoadUrl]="downLoadUrl" [emergencyRoomData]="emergencyData"

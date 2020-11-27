@@ -48,6 +48,7 @@ import {MeteorologicalThreeComponent} from './main/home/natural-disaster/meteoro
 import {DisasterReliefComponent} from './main/home/natural-disaster/disaster-relief/disaster-relief.component';
 import {DisasterReliefOneComponent} from './main/home/natural-disaster/disaster-relief/disaster-relief-one/disaster-relief-one.component';
 import {DisasterReliefThreeComponent} from './main/home/natural-disaster/disaster-relief/disaster-relief-three/disaster-relief-three.component';
+import { PollutionWeatherTwoComponent } from './main/home/accident-disaster/pollution-weather/pollution-weather-two/pollution-weather-two.component';
 
 
 @NgModule({
@@ -97,6 +98,7 @@ import {DisasterReliefThreeComponent} from './main/home/natural-disaster/disaste
     DisasterReliefComponent,
     DisasterReliefOneComponent,
     DisasterReliefThreeComponent,
+    PollutionWeatherTwoComponent,
   ],
   imports: [
     CommonModule,
