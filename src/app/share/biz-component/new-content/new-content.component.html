@@ -1,5 +1,5 @@
 <!--牵头、配合部门表格布局-->
-<ng-container *ngIf="(level===1||level===2)&& isCurrProcess">
+<!--<ng-container *ngIf="(level===1||level===2)&& isCurrProcess">
   <table cellpadding="0" cellspacing="0">
     <tbody>
     <tr>
@@ -22,7 +22,7 @@
 
       <ng-template #grouptpl>
         <ng-container *ngFor="let groupItem of trItem.selectTeamResponsibilityDTO;let f=first;">
-          <!--重污染天气-->
+          &lt;!&ndash;重污染天气&ndash;&gt;
           <ng-container *ngIf="!groupItem.coordinateDepartment;else groupHasCoorTpl">
             <tr>
               <td #distannceTpl *ngIf="f" [attr.rowspan]="rowspanNum" align="center">{{trItem.responsibility}}</td>
@@ -54,7 +54,7 @@
     </ng-container>
     </tbody>
   </table>
-</ng-container>
+</ng-container>-->
 
 <!--应急厅表格布局-->
 <ng-container *ngIf="(level===1||level===2)&& !isCurrProcess">
