@@ -17,7 +17,6 @@ export class TyphoonOneComponent implements OnInit {
   @Input() currentPage: number;
   @Input() planId: number;
   @Input() emergencyRoomData: EmergencyModel[];
-  @Input() rowspanNum: number;
   @Input() downLoadUrl: string;
   isCurrProcess: boolean;
   nameArray: string[];
@@ -25,13 +24,11 @@ export class TyphoonOneComponent implements OnInit {
   emergencyObj: EmergencyModel[];
   level: number;
   levels: number;
-  rowspans: number;
   emergencyRoomNameArray: string[];
   @ViewChild(NewContentComponent) tableContent: NewContentComponent;
   leftNav: { name: string, index: number }[];
 
   constructor() {
-    this.rowspans = 0;
     this.responsibilityData = [];
     this.nameArray = [];
     this.tableObj = [];
@@ -39,10 +36,9 @@ export class TyphoonOneComponent implements OnInit {
     this.emergencyRoomNameArray = [];
     this.leftNav = [
       {name: '启动应急响应', index: 1},
-      {name: '成立指挥部', index: 2},
-      {name: '开展应急救援', index: 3},
-      {name: '事态控制', index: 4},
-      {name: '应急结束', index: 5},
+      {name: '开展应急救援', index: 2},
+      {name: '事态控制', index: 3},
+      {name: '应急结束', index: 4},
     ];
     this.isCurrProcess = true;
   }
@@ -75,12 +71,10 @@ export class TyphoonOneComponent implements OnInit {
   ngOnInit(): void {
     this.nameArray = [
       '启动应急响应',
-      '成立指挥部',
       '开展应急救援',
       '事态控制',
       '应急结束'
     ];
-    this.rowspans = this.rowspanNum;
     this.level = this.currentPage;
     this.levels = this.planId;
     this.emergencyObj = this.emergencyRoomData;

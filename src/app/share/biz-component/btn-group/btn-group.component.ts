@@ -121,7 +121,6 @@ export class BtnGroupComponent implements OnInit, AfterViewInit, OnDestroy {
     this.downLoadUrl = this.downLoadUri + this.downLoadUrl;
     this.dataServicers.getEmergencyOrder({planId: this.levels}).subscribe(res => {
       this.selectEmergency = res.selectEmergencyOrder;
-      console.log(this.selectEmergency.length);
       this.selectEmergencyDeptNames.length = 0;
       this.selectEmergency.forEach(({department}) => {
         this.selectEmergencyDeptNames.push(department);

@@ -5,9 +5,84 @@
                     [nameArray]="nameArray"></app-left-hexagon>
   <div [@bounceInOnEnter]="{ value: '', params: { duration: 1000 }}">
     <div class="column-right">
-      <app-new-content #tableContent [isCurrProcess]="isCurrProcess" [level]="currentPage"
-                       [TableDataModel]="tableObj" [EmergencyDataModel]="emergencyObj"
-                       [rowspanNum]="rowspans"></app-new-content>
+      <app-new-content *ngIf="!isCurrProcess" #tableContent [isCurrProcess]="isCurrProcess" [level]="currentPage"
+                       [TableDataModel]="tableObj" [EmergencyDataModel]="emergencyObj"></app-new-content>
+      <table *ngIf="isCurrProcess" cellspacing="0" cellpadding="0">
+        <thead>
+        <tr>
+          <td class="width_100">主要任务</td>
+          <td colspan="2" class="width_50">应急工作内容</td>
+          <td colspan="2" class="width_30">职能部门(单位)</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td align="center">启动应急响应</td>
+          <td colspan="2" class="height_93">防汛防旱指挥部办公室向省人民政府汇报，启动应急，发布应急响应通知。</td>
+          <td class="height_93">
+            防汛防旱指挥部由指挥、常务副指挥、副指挥、秘书长及成员单位组成。成员单位：东部战区联合参谋部作战局、省军区、武警江苏省总队、省委宣传部、省发展改革委、省教育厅、省工业和信息化厅、省公安厅、省财政厅、省自然资源厅、省生态环境厅、省住房城乡建设厅、省交通运输厅、省水利厅、省农业农村厅、省文化和旅游厅、省卫生健康委、省应急厅、省粮食和储备局、省气象局、省通信管理局、省消防救援总队、省供销合作总社、中国安能建设集团总公司第二工程局、上海铁路局南京办事处、省电力公司、中国石化江苏石油分公司、江苏交通控股公司
+          </td>
+        </tr>
+        <tr>
+          <td align="center" rowspan="8">开展应急救援</td>
+          <td colspan="2" class="height_93">成立现场指挥部，负责台风灾害应急救援与处置的前沿指挥工作，组建以下工作组。</td>
+          <td>现场总指挥： 省防汛抗旱指挥部指派。</td>
+        </tr>
+        <tr>
+          <td class="height_93 nowrap">综合协调组</td>
+          <td class="height_93">负责协调处理抢险救灾相关事宜，协助省防指领导协调各工作组的处置工作。</td>
+          <td class="height_93">省应急厅、省水利厅、省农业农村厅。</td>
+        </tr>
+        <tr>
+          <td class="height_93 nowrap">信息发布组</td>
+          <td class="height_93">负责组织协调指导有关新闻单位及时报道台风灾情和抢险救灾工作情况。</td>
+          <td class="height_93">省应急厅、省水利厅、省委宣传部。</td>
+        </tr>
+        <tr>
+          <td class="height_93 nowrap">抢险救援组</td>
+          <td class="height_93">负责协调、组织抢险应急队伍开展现场处置，根据需要协调、调遣后续处置和增援力量。</td>
+          <td class="height_93">省应急厅、省消防救援总队、东部战区联合参谋部作战局、省军区、武警江苏省总队、中国安能建设集团总公司第二工程局。</td>
+        </tr>
+        <tr>
+          <td class="height_93 nowrap">通信保障组</td>
+          <td class="height_93">负责保障公用网通信畅通。</td>
+          <td class="height_93">省工业和信息化厅、省通信管理局。</td>
+        </tr>
+        <tr>
+          <td class="height_93 nowrap">后勤保障组</td>
+          <td class="height_93">负责落实抢险救灾资金，保障抢险救灾物资，确保应急需要。</td>
+          <td class="height_93">省发展改革委、省财政厅、省交通运输厅、省应急厅、省卫生健康委、省粮食和储备局、省供销合作总社、上海铁路局南京办事处、省电力公司、中石化江苏石油分公司、江苏交通控股公司。
+          </td>
+        </tr>
+        <tr>
+          <td class="height_93 nowrap">专家支持组</td>
+          <td class="height_93">负责参加防御和处置台风灾害和重大工程险情会商，为省防指提供决策咨询、工作建议和技术保障。</td>
+          <td class="height_93">省自然资源厅、省生态环境厅、省住房城乡建设厅、省水利厅、省农村农业厅、省应急厅、省气象局。</td>
+        </tr>
+        <tr>
+          <td class="height_93 nowrap">救灾核灾组</td>
+          <td class="height_93">负责有序开展台风灾害核灾工作，保障受灾群众的基本生活，制定救灾方案。</td>
+          <td class="height_93">省应急厅、省发展改革委、省财政厅、省自然资源厅、省生态环境厅、省住房城乡建设厅、省水利厅、省农村农业厅。</td>
+        </tr>
+        <tr>
+          <td align="center">事态控制</td>
+          <td colspan="2" class="height_93">1、提请、衔接武警部队和解放军、危化品专业救援队伍、社会救援力量等参与应急救援。<br/>
+            2、组织、协调重要应急物资的调拨和紧急配运。<br/>
+            3、保障事故所在地电力、通讯等资源保障工作。<br/>
+            4、保障现场与指挥部之间的联系，及时将事故救援情况、监测情况等传回省指挥中心
+          </td>
+          <td class="height_93">省应急厅、省通信管理局、江苏能源监管办、省电力公司、省气象局、省生态环境厅、省民政厅、省教育厅、江苏海事局、连云港海事局</td>
+        </tr>
+        <tr>
+          <td align="center">应急结束</td>
+          <td colspan="2" class="height_93">1、对外事故及救援情况等信息发布。<br/>
+            2、宣布应急结束。<br/>
+            3、协调、组织事故调查和善后处理工作
+          </td>
+          <td class="height_93">省人民政府、省省防汛抗旱指挥部、省委宣传部、省应急厅、设区市人民政府、省卫生健康委员会、省民政厅、省生态环境厅、保监部门</td>
+        </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>
