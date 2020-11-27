@@ -2,7 +2,32 @@
   <app-btn-group [downLoadUrl]="downLoadUrl" [levels]="planId"></app-btn-group>
   <div [@bounceInOnEnter]="{ value: '', params: { duration: 1000 }}">
     <div class="column-right">
-      <app-new-content [TableDataModel]="tableObj" [level]="currentPage"></app-new-content>
+      <table cellspacing="0" cellpadding="0">
+        <thead>
+        <tr>
+          <td class="width_100">主要任务</td>
+          <td class="width_50">应急工作内容</td>
+          <td class="width_30">职能部门(单位)</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td align="center" rowspan="2">启动应急响应</td>
+          <td class="height_93">发生一般森林火灾且有人员伤亡时，及时向省政府报告，并向省森林防灭火指挥部有关成员单位通报情况。</td>
+          <td class="height_93">所在地森林防灭火指挥部办公室、省应急厅火灾防治处</td>
+        </tr>
+        <tr>
+          <td class="height_93">
+            （1）省森林防灭火指挥部办公室进入应急状态，加强火情监测，及时连线调度火灾信息；<br>
+            （2）加强对火灾扑救工作的指导，根据需要通知相邻市（县、区）地方专业森林消防队伍、国家综合性消防救援队伍做好增援准备；<br>
+            （3）视情发布高森林火险预警信息。
+          </td>
+          <td class="height_93">
+            省森林防灭火指挥部
+          </td>
+        </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>
