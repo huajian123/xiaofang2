@@ -27,6 +27,7 @@ export class LeftHexagonComponent implements OnInit, AfterViewInit {
   @Input() emergencyRoomNameArray: string[]; // 应急厅的部门名称集合
   @Output() clickReturn: EventEmitter<string>;
   @Output() isClickLeft: EventEmitter<boolean>;
+  @Input() needRowLayer = false;
   isClickProess: boolean;
 
   constructor(public element: ElementRef, private renderer2: Renderer2) {
@@ -86,12 +87,31 @@ export class LeftHexagonComponent implements OnInit, AfterViewInit {
     }
   }
 
+
+  // 应急流程为应急厅模式下下每个选项卡点击
+  leftDeptLClick() {
+    const temp = this.element.nativeElement.querySelectorAll('.ul-item-l');
+    // tslint:disable-next-line:prefer-for-of
+    for (let i = 0; i < temp.length; i++) {
+      const mouseClick = fromEvent(temp[i], 'click');
+      const subscription = mouseClick.subscribe(() => {
+        // tslint:disable-next-line:prefer-for-of
+        for (let j = 0; j < temp.length; j++) {
+          this.renderer2.removeClass(temp[j], 'active');
+        }
+        this.renderer2.addClass(temp[i], 'active');
+        this.clickReturn.emit(this.nameArray[i]);
+      });
+    }
+  }
+
   ngOnInit(): void {
   }
 
   ngAfterViewInit(): void {
     this.leftDeptClick();
     this.leftBlockClick();
+    this.leftDeptLClick();
   }
 
 }

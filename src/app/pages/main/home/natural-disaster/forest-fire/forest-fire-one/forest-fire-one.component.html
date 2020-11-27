@@ -1,6 +1,6 @@
 <div class="column-lay">
   <app-btn-group [downLoadUrl]="downLoadUrl" [levels]="planId"></app-btn-group>
-  <app-left-hexagon (isClickLeft)="changeState($event)" [emergencyRoomNameArray]="emergencyRoomNameArray"
+  <app-left-hexagon [needRowLayer]="true" (isClickLeft)="changeState($event)" [emergencyRoomNameArray]="emergencyRoomNameArray"
                     (clickReturn)="getCurrentLeftName($event)"
                     [nameArray]="nameArray"></app-left-hexagon>
   <div [@bounceInOnEnter]="{ value: '', params: { duration: 1000 }}">
@@ -19,7 +19,7 @@
         </thead>
         <tbody>
         <tr>
-          <td align="center" rowspan="2">启动应急响应</td>
+          <td align="center" rowspan="2" #distannce1>发布响应通知</td>
           <td class="height_93">一级响应</td>
           <td class="height_93">向国家森防指汇报，启动应急响应。</td>
           <td class="height_93" rowspan="2">省人民政府、省应急厅</td>
@@ -30,7 +30,7 @@
         </tr>
 
         <tr>
-          <td align="center" rowspan="2">成立指挥部</td>
+          <td align="center" rowspan="2" #distannce2>成立指挥部</td>
           <td class="height_93" colspan="2">
             成立省森林防灭火指挥部：<br>
             1、负责组织、协调和指导全省森林防灭火工作，研究部署全省森林防灭火工作；<br>
@@ -52,7 +52,7 @@
         </tr>
 
         <tr>
-          <td align="center" rowspan="3">启动应急响应</td>
+          <td align="center" rowspan="3" #distannce3>启动应急响应</td>
           <td class="height_93" colspan="2">
             启动Ⅱ级应急响应，设立现场指挥机构，人员由省森林防灭火指挥部有关成员单位和专家组成，负责现场指挥、组织、协调各成员单位按照各自职责开展火灾应急处置和救援工作，并根据工作需要设立综合调度、通讯保障、后勤运输保障、技术咨询、安全保卫、医疗救护、转移安置、新闻宣传等工作组。
           </td>
@@ -85,7 +85,7 @@
         </tr>
 
         <tr>
-          <td align="center" rowspan="5">开展应急救援</td>
+          <td align="center" rowspan="5" #distannce4>开展应急救援</td>
           <td class="height_93">
             组织灭火行动
           </td>
@@ -138,7 +138,7 @@
         </tr>
 
         <tr>
-          <td align="center" rowspan="2">林火监测</td>
+          <td align="center" rowspan="2" #distannce5>林火监测</td>
           <td class="height_93" colspan="2">
             制作全省24小时森林火险天气等级预报和高森林火险天气警报，并针对重点火险区的实际情况制定人工影响天气方案，适时实施人工增雨作业，为尽快扑灭森林火灾创造有利条件。发生森林火灾后，气象部门要全面监测火场天气实况，提供火场天气形势预报。
           </td>
@@ -155,7 +155,7 @@
         </tr>
 
         <tr>
-          <td align="center" rowspan="6">综合保障</td>
+          <td align="center" rowspan="6" #distannce6>综合保障</td>
           <td class="height_93 nowrap">
             运输保障
           </td>
@@ -237,7 +237,7 @@
         </tr>
 
         <tr>
-          <td align="center">应急终止</td>
+          <td align="center" #distannce7>应急终止</td>
           <td class="height_93" colspan="2">
             1、对外事故及救援情况等信息发布。<br>
             2、宣布应急结束。<br>

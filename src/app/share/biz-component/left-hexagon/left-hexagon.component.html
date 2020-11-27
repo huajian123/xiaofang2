@@ -3,18 +3,31 @@
     <div class="tab" (click)="changeTab()" [ngClass]="{'active':isClickProess}">应急流程</div>
     <div class="tab" (click)="changeTab(false)" [ngClass]="{'active':!isClickProess}">应急厅</div>
   </div>
-  <div class="block-wrap" [hidden]="!isClickProess">
-    <div class="block"
-         *ngFor="let item of nameArray;let i=index;let f=first;let l=last;let e=even;let o=odd;trackBy:trackFunc"
-         [ngClass]="{'sub-right displacement' : o,'sub-left' : e,'move' : e,'column-div-left-clicked':f}">
-      <img class="block-img" src="{{'../../../../assets/imgs/new-img/left'+(i+1)+'.svg'}}" alt="">
-      <p [innerHTML]="item"></p></div>
-  </div>
+  <ng-container *ngIf="!needRowLayer">
+    <div class="block-wrap" [hidden]="!isClickProess">
+      <div class="block"
+           *ngFor="let item of nameArray;let i=index;let f=first;let l=last;let e=even;let o=odd;trackBy:trackFunc"
+           [ngClass]="{'sub-right displacement' : o,'sub-left' : e,'move' : e,'column-div-left-clicked':f}">
+        <img class="block-img" src="{{'../../../../assets/imgs/new-img/left'+(i+1)+'.svg'}}" alt="">
+        <p [innerHTML]="item"></p></div>
+    </div>
+  </ng-container>
+
   <div class="block-wrap" [hidden]="isClickProess">
     <ul class="ul-wrap">
       <li class="ul-item" [ngClass]="{'active':f}"
           *ngFor="let item of emergencyRoomNameArray;let f=first;">{{item}}</li>
     </ul>
   </div>
+
+  <ng-container *ngIf="needRowLayer">
+    <div class="block-wrap" [hidden]="!isClickProess">
+      <ul class="ul-wrap">
+        <li class="ul-item-l" [ngClass]="{'active':f}"
+            *ngFor="let item of nameArray;let f=first;">{{item}}</li>
+      </ul>
+    </div>
+  </ng-container>
+
 </div>
 
