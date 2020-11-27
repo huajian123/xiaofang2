@@ -59,13 +59,11 @@
 
 <ng-container *ngIf="currentPage===1">
   <app-earthquake-one [downLoadUrl]="downLoadUrl" [emergencyRoomData]="emergencyData"
-                      [responsibilityData]="responsibilityData"
-                      [currentPage]="currentPage" [rowspanNum]="rowspanNum" [planId]="planId"></app-earthquake-one>
+                      [currentPage]="currentPage" [planId]="planId"></app-earthquake-one>
 </ng-container>
 <ng-container *ngIf="currentPage===2">
   <app-earthquake-one [downLoadUrl]="downLoadUrl" [emergencyRoomData]="emergencyData"
-                      [responsibilityData]="responsibilityData"
-                      [currentPage]="currentPage" [rowspanNum]="rowspanNum" [planId]="planId"></app-earthquake-one>
+                      [currentPage]="currentPage" [planId]="planId"></app-earthquake-one>
 </ng-container>
 <ng-container *ngIf="currentPage===3">
   <app-earthquake-three [downLoadUrl]="downLoadUrl" [responsibilityData]="responsibilityData"

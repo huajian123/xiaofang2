@@ -37,9 +37,7 @@ export class EarthquakeComponent implements OnInit {
   currentPage: number;
   validateForm: FormGroup;
   earthquakeEconomicLevelOptions: OptionsInterface[];
-  rowspanNum: number;
   responsibilityEntities: DepartInfoModel[];
-  cityName: string;
   plnId: number;
   responsibilityData: ResponsibilityModel[];
   emergencyData: EmergencyModel[];
@@ -57,11 +55,9 @@ export class EarthquakeComponent implements OnInit {
     this.plnId = 0;
     this.planId = 0;
     this.responsibilityEntities = [];
-    this.cityName = '';
     this.earthquakeEconomicLevelOptions = [];
     this.responsibilityData = [];
     this.emergencyData = [];
-    this.rowspanNum = 0;
     this.downLoadUrl = '';
     this.tableStandard = [
       {
@@ -132,9 +128,6 @@ export class EarthquakeComponent implements OnInit {
           this.emergencyData = result[1];
           this.downLoadUrl = result[0].downUrl;
           this.currentPage = grade.grade;
-          if (this.currentPage === 1 || this.currentPage === 2) {
-            this.rowspanNum = 25;
-          }
         });
       });
     });

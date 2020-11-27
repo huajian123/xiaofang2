@@ -21,7 +21,6 @@ export class EarthquakeOneComponent implements OnInit {
   @Input() currentPage: number;
   @Input() planId: number;
   @Input() emergencyRoomData: EmergencyModel[];
-  @Input() rowspanNum: number;
   @Input() downLoadUrl: string;
   isCurrProcess: boolean;
   nameArray: string[];
@@ -29,13 +28,11 @@ export class EarthquakeOneComponent implements OnInit {
   emergencyObj: EmergencyModel[];
   level: number;
   levels: number;
-  rowspans: number;
   emergencyRoomNameArray: string[];
   @ViewChild(NewContentComponent) tableContent: NewContentComponent;
   leftNav: { name: string, index: number }[];
 
   constructor() {
-    this.rowspans = 0;
     this.responsibilityData = [];
     this.nameArray = [];
     this.tableObj = [];
@@ -84,7 +81,6 @@ export class EarthquakeOneComponent implements OnInit {
       '事态控制',
       '应急结束'
     ];
-    this.rowspans = this.rowspanNum;
     this.level = this.currentPage;
     this.levels = this.planId;
     this.emergencyObj = this.emergencyRoomData;
