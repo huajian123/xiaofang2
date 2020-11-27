@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {bounceInOnEnterAnimation, lightSpeedInOnEnterAnimation} from 'angular-animations';
 import {
   EmergencyModel,
@@ -6,6 +6,7 @@ import {
   TeamResponsibilityDTO
 } from '../../../../../../services/biz-services/accident-disasters-list.service';
 import {CitiesNameService} from '../../../../../../services/biz-services/earthquake-warning-list.service';
+import {NewContentComponent} from '../../../../../../share/biz-component/new-content/new-content.component';
 
 export interface TableDataModel {
   responsibility: string;
@@ -25,36 +26,25 @@ export interface TableDataModel {
   ]
 })
 export class PollutionWeatherThreeComponent implements OnInit {
-  @Input() emergencyRoomData: EmergencyModel[];
   @Input() responsibilityData: ResponsibilityModel[];
-  @Input() currentPage: number;
   @Input() planId: number;
-  @Input() rowspanNum: number;
+  @Input() emergencyRoomData: EmergencyModel[];
   @Input() downLoadUrl: string;
-  nameArray: string[];
-  TableDataModel: TableDataModel[];
-  level: number;
+  isShows: boolean;
+  emergencyObj: EmergencyModel[];
   levels: number;
+  emergencyRoomNameArray: string[];
+  @ViewChild(NewContentComponent) tableContent: NewContentComponent;
 
-  constructor(private dataService: CitiesNameService) {
-    this.nameArray = [];
+  constructor() {
+    this.responsibilityData = [];
+    this.emergencyObj = [];
+    this.emergencyRoomNameArray = [];
+    this.isShows = true;
   }
-
-  // 点击左侧六边形获取当前名字
-  getCurrentLeftName(event) {
-    /* this.tableObj = getHazardousThreeTabObj(event);*/
-  }
-
 
   ngOnInit(): void {
-    this.level = this.currentPage;
     this.levels = this.planId;
-    this.TableDataModel = this.responsibilityData;
-    this.TableDataModel.forEach(item => {
-      if (item.responsibilityDetail.length === 0 && item.selectTeamResponsibilityDTO !== null) {
-        item.isGroup = true;
-      }
-    });
+    this.emergencyObj = this.emergencyRoomData;
   }
-
 }

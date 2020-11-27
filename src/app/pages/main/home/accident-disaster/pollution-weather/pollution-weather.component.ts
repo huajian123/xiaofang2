@@ -35,7 +35,6 @@ export class PollutionWeatherComponent implements OnInit {
   currentPage: number;
   validateForm: FormGroup;
   earthquakeEconomicLevelOptions: OptionsInterface[];
-  rowspanNum: number;
   responsibilityEntities: DepartInfoModel[];
   cityName: string;
   plnId: number;
@@ -59,7 +58,6 @@ export class PollutionWeatherComponent implements OnInit {
     this.earthquakeEconomicLevelOptions = [];
     this.responsibilityData = [];
     this.emergencyData = [];
-    this.rowspanNum = 0;
     this.downLoadUrl = '';
     this.tableStandard = [
       {
@@ -123,7 +121,6 @@ export class PollutionWeatherComponent implements OnInit {
         this.emergencyData = result[1];
         this.downLoadUrl = result[0].downUrl;
         this.currentPage = res.level;
-        this.rowspanNum = 3;
       });
     });
   }
