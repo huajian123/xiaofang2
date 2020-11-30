@@ -29,7 +29,7 @@
       </div>
       <div nz-col [nzSpan]="8">
         <nz-form-item>
-          <nz-form-label [nzSpan]="12">直接财产损失</nz-form-label>
+          <nz-form-label [nzSpan]="12">直接财产损失(万元)</nz-form-label>
           <nz-form-control [nzSpan]="12">
             <nz-input-number [nzMax]="99999999" nzPlaceHolder="直接财产损失" formControlName="propertyLoss"
                              [nzMin]="1"></nz-input-number>
@@ -56,16 +56,10 @@
                       [currentPage]="currentPage" [rowspanNum]="rowspanNum"
                       [planId]="planId"></app-major-fire-one>
 </ng-container>
-<!--<ng-container *ngIf="currentPage===3">
-  <app-major-fire-three [downLoadUrl]="downLoadUrl" [emergencyRoomData]="emergencyData"
-                        [responsibilityData]="responsibilityData"
-                        [currentPage]="currentPage" [rowspanNum]="rowspanNum"
-                        [planId]="planId"></app-major-fire-three>
+<ng-container *ngIf="currentPage===3">
+  <app-major-fire-three></app-major-fire-three>
 </ng-container>
 <ng-container *ngIf="currentPage===4">
-  <app-major-fire-four [downLoadUrl]="downLoadUrl" [emergencyRoomData]="emergencyData"
-                       [responsibilityData]="responsibilityData"
-                       [currentPage]="currentPage" [rowspanNum]="rowspanNum"
-                       [planId]="planId"></app-major-fire-four>
-</ng-container>-->
+  <app-major-fire-three></app-major-fire-three>
+</ng-container>
 

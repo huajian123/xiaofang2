@@ -14,16 +14,16 @@
   </ng-container>
 
   <div class="block-wrap" [hidden]="isClickProess">
-    <ul class="ul-wrap">
-      <li class="ul-item" [ngClass]="{'active':f}"
+    <ul class="ul-wrap" [style]="{'justify-content':emergencyRoomNameArray.length>=12?'space-between':'flex-start'}">
+      <li class="ul-item" [style]="{'margin-top':emergencyRoomNameArray.length>=12?'':'10px'}"  [ngClass]="{'active':f}"
           *ngFor="let item of emergencyRoomNameArray;let f=first;">{{item}}</li>
     </ul>
   </div>
 
   <ng-container *ngIf="needRowLayer">
     <div class="block-wrap" [hidden]="!isClickProess">
-      <ul class="ul-wrap">
-        <li class="ul-item-l" [ngClass]="{'active':f}"
+      <ul class="ul-wrap" [style]="{'justify-content':nameArray.length>=12?'space-between':'flex-start'}">
+        <li class="ul-item-l" [style]="{'margin-top':nameArray.length>=12?'':'10px'}" [ngClass]="{'active':f}"
             *ngFor="let item of nameArray;let f=first;">{{item}}</li>
       </ul>
     </div>
