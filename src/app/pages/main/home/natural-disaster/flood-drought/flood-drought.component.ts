@@ -53,8 +53,6 @@ export class FloodDroughtComponent implements OnInit {
   formChange$: Observable<any>;
   formChangeSub$: Subscription;
 
-  /* radioValue = '0';*/
-
   constructor(private fb: FormBuilder, private dataServicers: AccidentDisastersListService,
               public message: NzMessageService) {
     this.floodAndDrought = '0';

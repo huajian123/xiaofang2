@@ -30,15 +30,11 @@
 
 <ng-container *ngIf="currentPage===1">
   <app-disaster-relief-one [downLoadUrl]="downLoadUrl" [emergencyRoomData]="emergencyData"
-                           [responsibilityData]="responsibilityData"
-                           [currentPage]="currentPage" [rowspanNum]="rowspanNum"
-                           [planId]="planId"></app-disaster-relief-one>
+                           [currentPage]="currentPage" [planId]="planId"></app-disaster-relief-one>
 </ng-container>
 <ng-container *ngIf="currentPage===2">
   <app-disaster-relief-one [downLoadUrl]="downLoadUrl" [emergencyRoomData]="emergencyData"
-                           [responsibilityData]="responsibilityData"
-                           [currentPage]="currentPage" [rowspanNum]="rowspanNum"
-                           [planId]="planId"></app-disaster-relief-one>
+                           [currentPage]="currentPage" [planId]="planId"></app-disaster-relief-one>
 </ng-container>
 <ng-container *ngIf="currentPage===3">
   <app-disaster-relief-three [downLoadUrl]="downLoadUrl" [responsibilityData]="responsibilityData"

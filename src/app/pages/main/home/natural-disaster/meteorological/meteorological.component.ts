@@ -35,11 +35,7 @@ export class MeteorologicalComponent implements OnInit {
   currentPage: number;
   validateForm: FormGroup;
   earthquakeEconomicLevelOptions: OptionsInterface[];
-  rowspanNum: number;
-  responsibilityEntities: DepartInfoModel[];
-  cityName: string;
   plnId: number;
-  responsibilityData: ResponsibilityModel[];
   emergencyData: EmergencyModel[];
   isVisible = false;
   isOkLoading = false;
@@ -54,12 +50,8 @@ export class MeteorologicalComponent implements OnInit {
     this.currentPage = 0;
     this.plnId = 0;
     this.planId = 0;
-    this.responsibilityEntities = [];
-    this.cityName = '';
     this.earthquakeEconomicLevelOptions = [];
-    this.responsibilityData = [];
     this.emergencyData = [];
-    this.rowspanNum = 0;
     this.downLoadUrl = '';
     this.tableStandard = [
       {
@@ -180,12 +172,10 @@ export class MeteorologicalComponent implements OnInit {
       const getResponsibility$ = this.dataServicers.getResponsibility({id: res.accidentId, planGrade: res.level});
       const getEmergency$ = this.dataServicers.getEmergency({accidentId: res.accidentId, planGrade: res.level});
       forkJoin(getResponsibility$, getEmergency$).subscribe(result => {
-        this.responsibilityData = result[0].selectResponsibility;
         this.planId = result[0].planId;
         this.emergencyData = result[1];
         this.downLoadUrl = result[0].downUrl;
         this.currentPage = res.level;
-        this.rowspanNum = 3;
       });
     });
   }

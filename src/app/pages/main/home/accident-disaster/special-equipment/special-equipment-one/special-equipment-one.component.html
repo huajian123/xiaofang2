@@ -6,8 +6,7 @@
   <div [@bounceInOnEnter]="{ value: '', params: { duration: 1000 }}">
     <div class="column-right">
       <app-new-content [hidden]="isCurrProcess" #tableContent [isCurrProcess]="isCurrProcess" [level]="currentPage"
-                       [TableDataModel]="tableObj" [EmergencyDataModel]="emergencyObj"
-                       [rowspanNum]="rowspans"></app-new-content>
+                       [TableDataModel]="tableObj" [EmergencyDataModel]="emergencyObj"></app-new-content>
       <table cellpadding="0" cellspacing="0" [hidden]="!isCurrProcess">
         <thead>
         <tr>

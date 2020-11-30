@@ -5,9 +5,8 @@
                     [nameArray]="nameArray"></app-left-hexagon>
   <div [@bounceInOnEnter]="{ value: '', params: { duration: 1000 }}">
     <div class="column-right">
-      <app-new-content [hidden]="isCurrProcess"  #tableContent [isCurrProcess]="isCurrProcess" [level]="currentPage"
-                       [TableDataModel]="tableObj" [EmergencyDataModel]="emergencyObj"
-                       [rowspanNum]="rowspans"></app-new-content>
+      <app-new-content [hidden]="isCurrProcess" #tableContent [isCurrProcess]="isCurrProcess" [level]="currentPage"
+                       [TableDataModel]="tableObj" [EmergencyDataModel]="emergencyObj"></app-new-content>
       <table  [hidden]="!isCurrProcess"  cellpadding="0" cellspacing="0">
         <thead>
         <tr>
