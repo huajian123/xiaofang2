@@ -83,20 +83,20 @@ export class TyphoonComponent implements OnInit {
         levelTwo: '橙色警报（即沿海受台风影响区域有1个或以上有代表性的验潮站的高潮位达到橙色警戒潮位）',
         levelThree: '黄色警报（即沿海受台风影响区域有1个或以上有代表性的验潮站的高潮位达到黄色警戒潮位）',
         levelFour: '蓝色警报（即沿海受台风影响区域有1个或以上有代表性的验潮站的高潮位达到蓝色警戒潮位）'
-      },
+      }/*,
       {
         name: '国家启动等级',
         levelOne: 'Ⅰ级',
         levelTwo: 'Ⅱ级',
         levelThree: 'Ⅲ级',
         levelFour: 'Ⅳ级'
-      }
+      }*/
     ];
     this.backImage = {
       backgroundImage: 'url(../../assets/imgs/modal-box.png)',
-      minHeight: '490px',
-      backgroundSize: '100% 100%',
-      backgroundRepeat: 'no-repeat'
+      height: '490px',
+      /* backgroundSize: '100% 100%',
+       backgroundRepeat: 'no-repeat'*/
     };
   }
 
@@ -121,7 +121,7 @@ export class TyphoonComponent implements OnInit {
       typhoonAlarm: [null],
       rainstormAlarm: [null],
       stormTide: [null],
-      countryStartGrade: [null],
+      /* countryStartGrade: [null],*/
     });
   }
 
