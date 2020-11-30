@@ -1,5 +1,5 @@
 <div class="btn-group">
-  <div class="download-btn"><a [href]="downLoadUrl" target="_blank">导出</a></div>
+  <div class="download-btn" *ngIf="showExportBtn"><a [href]="downLoadUrl" target="_blank">导出</a></div>
   <ng-container *ngIf="shows">
     <div class="instruction-btn" (click)="showEmergencyRoom()">应急厅</div>
   </ng-container>

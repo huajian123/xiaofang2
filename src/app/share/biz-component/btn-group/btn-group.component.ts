@@ -26,6 +26,7 @@ import {EmergencyDataModel} from '../new-content/new-content.component';
 export class BtnGroupComponent implements OnInit, AfterViewInit, OnDestroy {
   @Input() levels: number;
   @Input() shows: boolean;
+  @Input() showExportBtn = true;
   @Input() downLoadUrl: string;
   @Input() EmergencyDataModel: EmergencyDataModel[];
   @Input() emergencyRoomNameArray: string[]; // 应急厅的部门名称集合
