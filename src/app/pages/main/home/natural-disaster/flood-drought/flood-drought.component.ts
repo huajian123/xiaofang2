@@ -113,7 +113,7 @@ export class FloodDroughtComponent implements OnInit {
         levelOne: '红色',
         levelTwo: '橙色',
         levelThree: '黄色',
-        levelFour: '蓝色'
+        levelFour: '/'
       },
       {
         name: '长江（含太湖）流域受旱面积或淮河（含沂沭泗）流域受旱面积',

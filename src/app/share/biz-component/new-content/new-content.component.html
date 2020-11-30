@@ -94,17 +94,20 @@
   <table cellpadding="0" cellspacing="0">
     <tbody>
     <tr>
-      <td align="center" width="25%">应急响应流程</td>
-      <td align="center" width="50%">应急组织</td>
-      <td align="center" width="25%">职责</td>
+      <td align="center" width="20%">主要任务</td>
+      <td align="center" width="40%">应急工作内容</td>
+      <td align="center" width="40%">职能部门(单位)</td>
     </tr>
 
     <tr *ngFor="let item of TableDataModel;let i=index;let l=last;">
       <td align="center">{{item.responsibility}}</td>
+      <td align="center">
+        <ng-container *ngFor="let tdItem of item.responsibilityDetail;let ti=index;let tl=last">
+          <span *ngIf="item.responsibilityDetail.length>1">{{ti + 1}}:</span>{{tdItem}}<br
+          *ngIf="item.responsibilityDetail.length>1&&!tl">
+        </ng-container>
+      </td>
       <td align="center">{{item.department}}</td>
-      <td align="center"><ng-container *ngFor="let tdItem of item.responsibilityDetail;let ti=index;let tl=last">
-        <span *ngIf="item.responsibilityDetail.length>1">{{ti + 1}}:</span>{{tdItem}}<br *ngIf="item.responsibilityDetail.length>1&&!tl">
-      </ng-container></td>
     </tr>
     </tbody>
   </table>
