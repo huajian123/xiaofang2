@@ -41,14 +41,10 @@
                                      [currentPage]="currentPage" [planId]="planId"></app-railway-one>
 </ng-container>
 <ng-container *ngIf="currentPage===3">
-  <app-railway-one [downLoadUrl]="downLoadUrl" [responsibilityData]="responsibilityData"
-                   [emergencyRoomData]="emergencyData"
-                                     [currentPage]="currentPage" [planId]="planId"></app-railway-one>
+  <app-railway-three></app-railway-three>
 </ng-container>
 
 <ng-container *ngIf="currentPage===4">
-  <app-railway-one [downLoadUrl]="downLoadUrl" [responsibilityData]="responsibilityData"
-                   [emergencyRoomData]="emergencyData"
-                                     [currentPage]="currentPage" [planId]="planId"></app-railway-one>
+  <app-railway-three></app-railway-three>
 </ng-container>
 

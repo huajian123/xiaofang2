@@ -51,6 +51,7 @@ import {DisasterReliefThreeComponent} from './main/home/natural-disaster/disaste
 import { PollutionWeatherTwoComponent } from './main/home/accident-disaster/pollution-weather/pollution-weather-two/pollution-weather-two.component';
 import { ForestFireFourComponent } from './main/home/natural-disaster/forest-fire/forest-fire-four/forest-fire-four.component';
 import { SpecialEquipmentThreeComponent } from './main/home/accident-disaster/special-equipment/special-equipment-three/special-equipment-three.component';
+import { RailwayThreeComponent } from './main/home/accident-disaster/railway/railway-three/railway-three.component';
 
 
 @NgModule({
@@ -103,6 +104,7 @@ import { SpecialEquipmentThreeComponent } from './main/home/accident-disaster/sp
     PollutionWeatherTwoComponent,
     ForestFireFourComponent,
     SpecialEquipmentThreeComponent,
+    RailwayThreeComponent,
   ],
   imports: [
     CommonModule,
