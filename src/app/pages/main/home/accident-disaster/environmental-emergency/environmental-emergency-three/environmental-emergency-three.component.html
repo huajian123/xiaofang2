@@ -2,7 +2,34 @@
   <app-btn-group [downLoadUrl]="downLoadUrl" [levels]="planId"></app-btn-group>
   <div [@bounceInOnEnter]="{ value: '', params: { duration: 1000 }}">
     <div class="column-right">
-      <app-new-content [TableDataModel]="tableObj" [level]="currentPage"></app-new-content>
+      <table cellpadding="0" cellspacing="0">
+        <thead>
+        <tr>
+          <td class="width_100">主要任务</td>
+          <td class="width_50">应急工作内容</td>
+          <td class="width_30" align="center">职能部门(单位)</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td align="center">启动应急响应</td>
+          <td class="height_93">
+            1、负责指挥、组织、协调本辖区内一般和较大突发环境事件的应对工作。<br>
+            2、负责重大和特别重大突发环境事件的先期处置工作。
+          </td>
+          <td class="height_93">事发地人民政府</td>
+        </tr>
+        <tr>
+          <td align="center">应急终止</td>
+          <td class="height_93">
+            1、当事件条件已经排除，污染物质已降至规定限值内，所造成的危害基本消除时，终止应急响应。<br>
+            2、向上级人民政府报送突发环境事件处置情况报告。
+          </td>
+          <td class="height_93">启动应急响应的人民政府</td>
+        </tr>
+        </tbody>
+      </table>
+
     </div>
   </div>
 </div>
