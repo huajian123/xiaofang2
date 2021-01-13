@@ -9,6 +9,7 @@ import {
 import {NzMessageService} from 'ng-zorro-antd';
 import {debounceTime, distinctUntilChanged} from 'rxjs/operators';
 import {forkJoin} from 'rxjs';
+import {MapPipe, MapSet} from '../../../../../share/directives/pipe/map.pipe';
 
 export interface TableDatasModel {
   name: string;
@@ -16,6 +17,11 @@ export interface TableDatasModel {
   levelTwo: string;
   levelThree: string;
   levelFour: string;
+}
+
+interface OptionsInterface {
+  value: number;
+  label: string;
 }
 
 @Component({
@@ -30,6 +36,7 @@ export class ProductionSafetyComponent implements OnInit {
   validateForm: FormGroup;
   responsibilityEntities: DepartInfoModel[];
   plnId: number;
+  secLevelOptions: OptionsInterface[];
   responsibilityData: ResponsibilityModel[];
   emergencyData: EmergencyModel[];
   rowspanNum: number;
@@ -39,6 +46,7 @@ export class ProductionSafetyComponent implements OnInit {
   tableStandard: TableDatasModel[];
   downLoadUrl: string;
   planId: number;
+  level: number;
 
   constructor(private fb: FormBuilder, private dataServicers: AccidentDisastersListService,
               public message: NzMessageService, private cdr: ChangeDetectorRef) {
@@ -46,8 +54,10 @@ export class ProductionSafetyComponent implements OnInit {
     this.currentPage = 0;
     this.plnId = 0;
     this.planId = 0;
+    this.level = 2;
     this.responsibilityEntities = [];
     this.responsibilityData = [];
+    this.secLevelOptions = [];
     this.emergencyData = [];
     this.rowspanNum = 0;
     this.downLoadUrl = '';
@@ -104,24 +114,27 @@ export class ProductionSafetyComponent implements OnInit {
     });
   }
 
+  getLevelBySel(grade) {
+    if (grade != null) {
+      this.plnId = grade.plnId;
+    }
+    const getResponsibility$ = this.dataServicers.getResponsibility({id: this.id, planGrade: grade});
+    const getEmergency$ = this.dataServicers.getEmergency({accidentId: this.id, planGrade: grade});
+    forkJoin(getResponsibility$, getEmergency$).subscribe(result => {
+      this.responsibilityData = result[0].selectResponsibility;
+      this.planId = result[0].planId;
+      this.emergencyData = result[1];
+      this.downLoadUrl = result[0].downUrl;
+      this.currentPage = grade;
+    });
+  }
+
   async subForm() {
     this.validateForm.valueChanges.pipe(debounceTime(1000), distinctUntilChanged()).subscribe(res => {
       res.accidentId = this.id;
       this.dataServicers.getDecideGrade(res).subscribe(grade => {
-        console.log(grade);
-        if (grade != null) {
-          this.plnId = grade.plnId;
-        }
-        const getResponsibility$ = this.dataServicers.getResponsibility({id: res.accidentId, planGrade: grade.grade});
-        const getEmergency$ = this.dataServicers.getEmergency({accidentId: res.accidentId, planGrade: grade.grade});
-        forkJoin(getResponsibility$, getEmergency$).subscribe(result => {
-          console.log(result);
-          this.responsibilityData = result[0].selectResponsibility;
-          this.planId = result[0].planId;
-          this.emergencyData = result[1];
-          this.downLoadUrl = result[0].downUrl;
-          this.currentPage = grade.grade;
-        });
+        this.getLevelBySel(grade.grade);
+        this.level = grade.grade;
       });
     });
   }
@@ -130,6 +143,8 @@ export class ProductionSafetyComponent implements OnInit {
   ngOnInit(): void {
     this.initForm();
     this.subForm();
+    this.getLevelBySel(this.level);
+    this.secLevelOptions = [...MapPipe.transformMapToArray(MapSet.startLevel)];
   }
 
 }

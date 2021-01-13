@@ -11,6 +11,19 @@
     <div nz-row>
       <div nz-col [nzSpan]="8">
         <nz-form-item>
+          <nz-form-label [nzSpan]="12">灾害等级</nz-form-label>
+          <nz-form-control [nzSpan]="12">
+            <nz-select class="margin-none" nzPlaceHolder="下拉选择" [(ngModel)]="level"
+                       (ngModelChange)="getLevelBySel($event)"
+                       [ngModelOptions]="{standalone: true}">
+              <nz-option *ngFor="let item of secLevelOptions" [nzValue]="item.value"
+                         [nzLabel]="item.label"></nz-option>
+            </nz-select>
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+      <div nz-col [nzSpan]="8">
+        <nz-form-item>
           <nz-form-label [nzSpan]="12">受害森林面积(公顷)</nz-form-label>
           <nz-form-control [nzSpan]="12">
             <nz-input-number [nzMax]="99999999" nzPlaceHolder="受害森林面积" formControlName="forestArea"
@@ -56,7 +69,7 @@
 </ng-container>
 <ng-container *ngIf="currentPage===3">
   <app-forest-fire-three [downLoadUrl]="downLoadUrl" [responsibilityData]="responsibilityData"
-                        [currentPage]="currentPage" [planId]="planId"></app-forest-fire-three>
+                         [currentPage]="currentPage" [planId]="planId"></app-forest-fire-three>
 </ng-container>
 <ng-container *ngIf="currentPage===4">
   <app-forest-fire-four [downLoadUrl]="downLoadUrl" [responsibilityData]="responsibilityData"

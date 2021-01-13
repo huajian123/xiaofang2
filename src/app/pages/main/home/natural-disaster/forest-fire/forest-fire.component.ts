@@ -35,7 +35,7 @@ export class ForestFireComponent implements OnInit {
   @Input() id: number;
   currentPage: number;
   validateForm: FormGroup;
-  earthquakeEconomicLevelOptions: OptionsInterface[];
+  secLevelOptions: OptionsInterface[];
   rowspanNum: number;
   responsibilityEntities: DepartInfoModel[];
   plnId: number;
@@ -47,14 +47,17 @@ export class ForestFireComponent implements OnInit {
   tableStandard: TableDatasModel[];
   downLoadUrl: string;
   planId: number;
+  level: number;
+
   constructor(private fb: FormBuilder, private dataServicers: AccidentDisastersListService,
               public message: NzMessageService) {
     this.isShowStandard = true;
     this.currentPage = 0;
     this.plnId = 0;
     this.planId = 0;
+    this.level = 2;
     this.responsibilityEntities = [];
-    this.earthquakeEconomicLevelOptions = [];
+    this.secLevelOptions = [];
     this.responsibilityData = [];
     this.emergencyData = [];
     this.rowspanNum = 0;
@@ -112,25 +115,27 @@ export class ForestFireComponent implements OnInit {
     });
   }
 
+  getLevelBySel(grade) {
+    if (grade != null) {
+      this.plnId = grade.plnId;
+    }
+    const getResponsibility$ = this.dataServicers.getResponsibility({id: this.id, planGrade: grade});
+    const getEmergency$ = this.dataServicers.getEmergency({accidentId: this.id, planGrade: grade});
+    forkJoin(getResponsibility$, getEmergency$).subscribe(result => {
+      this.responsibilityData = result[0].selectResponsibility;
+      this.planId = result[0].planId;
+      this.emergencyData = result[1];
+      this.downLoadUrl = result[0].downUrl;
+      this.currentPage = grade;
+    });
+  }
+
   async subForm() {
     this.validateForm.valueChanges.pipe(debounceTime(1000), distinctUntilChanged()).subscribe(res => {
       res.accidentId = this.id;
       this.dataServicers.getDecideGrade(res).subscribe(grade => {
-        if (grade != null) {
-          this.plnId = grade.plnId;
-        }
-        const getResponsibility$ = this.dataServicers.getResponsibility({id: res.accidentId, planGrade: grade.grade});
-        const getEmergency$ = this.dataServicers.getEmergency({accidentId: res.accidentId, planGrade: grade.grade});
-        forkJoin(getResponsibility$, getEmergency$).subscribe(result => {
-          this.responsibilityData = result[0].selectResponsibility;
-          this.planId = result[0].planId;
-          this.emergencyData = result[1];
-          this.downLoadUrl = result[0].downUrl;
-          this.currentPage = grade.grade;
-          if (this.currentPage === 1 || this.currentPage === 2) {
-            this.rowspanNum = 9;
-          }
-        });
+        this.getLevelBySel(grade.grade);
+        this.level = grade.grade;
       });
     });
   }
@@ -138,7 +143,8 @@ export class ForestFireComponent implements OnInit {
   ngOnInit(): void {
     this.initForm();
     this.subForm();
-    this.earthquakeEconomicLevelOptions = [...MapPipe.transformMapToArray(MapSet.earthquakeEconomicLevel)];
+    this.getLevelBySel(this.level);
+    this.secLevelOptions = [...MapPipe.transformMapToArray(MapSet.startLevel)];
   }
 
 }
