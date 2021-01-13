@@ -11,6 +11,8 @@ import {
   zoomInUpOnEnterAnimation
 } from 'angular-animations';
 import {Router} from '@angular/router';
+import {EVENT_KEY} from '../../../environments/staticVariable';
+import {LoginService} from '../../services/biz-services/login.service';
 
 @Component({
   selector: 'app-welcome',
@@ -40,7 +42,7 @@ export class WelcomeComponent implements OnInit {
   hueState = false;
   flashState = false;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private dataService: LoginService) {
   }
 
   getDelay(index, lenght) {
@@ -63,9 +65,10 @@ export class WelcomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    /*  setTimeout(() => {
-        this.animate();
-      }, 7000);*/
+    const params = {account: 'admin', password: '123'};
+    this.dataService.UserLogin(params).subscribe((res) => {
+      window.sessionStorage.setItem(EVENT_KEY.loginInfo, JSON.stringify(res));
+    });
   }
 
 }

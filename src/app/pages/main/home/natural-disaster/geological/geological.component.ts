@@ -103,22 +103,26 @@ export class GeologicalComponent implements OnInit {
     });
   }
 
+  ceshi(grade, res) {
+    if (grade != null) {
+      this.plnId = grade.plnId;
+    }
+    const getResponsibility$ = this.dataServicers.getResponsibility({id: res.accidentId, planGrade: grade.grade});
+    const getEmergency$ = this.dataServicers.getEmergency({accidentId: res.accidentId, planGrade: grade.grade});
+    forkJoin(getResponsibility$, getEmergency$).subscribe(result => {
+      this.responsibilityData = result[0].selectResponsibility;
+      this.planId = result[0].planId;
+      this.emergencyData = result[1];
+      this.downLoadUrl = result[0].downUrl;
+      this.currentPage = grade.grade;
+    });
+  }
+
   async subForm() {
     this.validateForm.valueChanges.pipe(debounceTime(1000), distinctUntilChanged()).subscribe(res => {
       res.accidentId = this.id;
       this.dataServicers.getDecideGrade(res).subscribe(grade => {
-        if (grade != null) {
-          this.plnId = grade.plnId;
-        }
-        const getResponsibility$ = this.dataServicers.getResponsibility({id: res.accidentId, planGrade: grade.grade});
-        const getEmergency$ = this.dataServicers.getEmergency({accidentId: res.accidentId, planGrade: grade.grade});
-        forkJoin(getResponsibility$, getEmergency$).subscribe(result => {
-          this.responsibilityData = result[0].selectResponsibility;
-          this.planId = result[0].planId;
-          this.emergencyData = result[1];
-          this.downLoadUrl = result[0].downUrl;
-          this.currentPage = grade.grade;
-        });
+        this.ceshi(grade, res);
       });
     });
   }

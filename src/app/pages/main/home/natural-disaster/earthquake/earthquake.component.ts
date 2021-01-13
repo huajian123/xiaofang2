@@ -37,6 +37,7 @@ export class EarthquakeComponent implements OnInit {
   currentPage: number;
   validateForm: FormGroup;
   earthquakeEconomicLevelOptions: OptionsInterface[];
+  secLevelOptions: OptionsInterface[];
   responsibilityEntities: DepartInfoModel[];
   plnId: number;
   responsibilityData: ResponsibilityModel[];
@@ -47,6 +48,7 @@ export class EarthquakeComponent implements OnInit {
   tableStandard: TableDatasModel[];
   downLoadUrl: string;
   planId: number;
+  level: number;
 
   constructor(private fb: FormBuilder, private dataServicers: AccidentDisastersListService,
               public message: NzMessageService) {
@@ -54,7 +56,9 @@ export class EarthquakeComponent implements OnInit {
     this.currentPage = 0;
     this.plnId = 0;
     this.planId = 0;
+    this.level = 2;
     this.responsibilityEntities = [];
+    this.secLevelOptions = [];
     this.earthquakeEconomicLevelOptions = [];
     this.responsibilityData = [];
     this.emergencyData = [];
@@ -113,22 +117,27 @@ export class EarthquakeComponent implements OnInit {
     });
   }
 
+  getLevelBySel(grade) {
+    if (grade != null) {
+      this.plnId = grade.plnId;
+    }
+    const getResponsibility$ = this.dataServicers.getResponsibility({id: this.id, planGrade: grade});
+    const getEmergency$ = this.dataServicers.getEmergency({accidentId: this.id, planGrade: grade});
+    forkJoin(getResponsibility$, getEmergency$).subscribe(result => {
+      this.responsibilityData = result[0].selectResponsibility;
+      this.planId = result[0].planId;
+      this.emergencyData = result[1];
+      this.downLoadUrl = result[0].downUrl;
+      this.currentPage = grade;
+    });
+  }
+
   async subForm() {
     this.validateForm.valueChanges.pipe(debounceTime(1000), distinctUntilChanged()).subscribe(res => {
       res.accidentId = this.id;
       this.dataServicers.getDecideGrade(res).subscribe(grade => {
-        if (grade != null) {
-          this.plnId = grade.plnId;
-        }
-        const getResponsibility$ = this.dataServicers.getResponsibility({id: res.accidentId, planGrade: grade.grade});
-        const getEmergency$ = this.dataServicers.getEmergency({accidentId: res.accidentId, planGrade: grade.grade});
-        forkJoin(getResponsibility$, getEmergency$).subscribe(result => {
-          this.responsibilityData = result[0].selectResponsibility;
-          this.planId = result[0].planId;
-          this.emergencyData = result[1];
-          this.downLoadUrl = result[0].downUrl;
-          this.currentPage = grade.grade;
-        });
+        this.getLevelBySel(grade.grade);
+        this.level = grade.grade;
       });
     });
   }
@@ -136,6 +145,8 @@ export class EarthquakeComponent implements OnInit {
   ngOnInit(): void {
     this.initForm();
     this.subForm();
+    this.getLevelBySel(this.level);
     this.earthquakeEconomicLevelOptions = [...MapPipe.transformMapToArray(MapSet.earthquakeEconomicLevel)];
+    this.secLevelOptions = [...MapPipe.transformMapToArray(MapSet.startLevel)];
   }
 }

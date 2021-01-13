@@ -111,7 +111,7 @@ export class DisasterReliefComponent implements OnInit {
 
   initForm() {
     this.validateForm = this.fb.group({
-      level: [null],
+      level: [2],
     });
   }
 
@@ -130,9 +130,22 @@ export class DisasterReliefComponent implements OnInit {
     });
   }
 
+  getlevelChange(res) {
+    res.accidentId = this.id;
+    const getResponsibility$ = this.dataServicers.getResponsibility({id: res.accidentId, planGrade: res.level});
+    const getEmergency$ = this.dataServicers.getEmergency({accidentId: res.accidentId, planGrade: res.level});
+    forkJoin(getResponsibility$, getEmergency$).subscribe(result => {
+      this.planId = result[0].planId;
+      this.emergencyData = result[1];
+      this.downLoadUrl = result[0].downUrl;
+      this.currentPage = res.level;
+    });
+  }
+
   ngOnInit(): void {
     this.initForm();
     this.subForm();
+    this.getlevelChange({level: 2});
     this.earthquakeEconomicLevelOptions = [...MapPipe.transformMapToArray(MapSet.startLevel)];
   }
 

@@ -11,6 +11,19 @@
     <div nz-row>
       <div nz-col [nzSpan]="8">
         <nz-form-item>
+          <nz-form-label [nzSpan]="12">灾害等级</nz-form-label>
+          <nz-form-control [nzSpan]="12">
+            <nz-select class="margin-none" nzPlaceHolder="下拉选择" [(ngModel)]="level"
+                       (ngModelChange)="getLevelBySel($event)"
+                       [ngModelOptions]="{standalone: true}">
+              <nz-option *ngFor="let item of secLevelOptions" [nzValue]="item.value"
+                         [nzLabel]="item.label"></nz-option>
+            </nz-select>
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+      <div nz-col [nzSpan]="8">
+        <nz-form-item>
           <nz-form-label [nzSpan]="12">死亡人数（含失踪）</nz-form-label>
           <nz-form-control [nzSpan]="12">
             <nz-input-number [nzMax]="99999999" nzPlaceHolder="死亡人数（含失踪）" formControlName="peopleLossAndDie"
