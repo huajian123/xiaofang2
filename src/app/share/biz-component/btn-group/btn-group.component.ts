@@ -17,6 +17,7 @@ import {
 import {fromEvent, Observable, Subscription} from 'rxjs';
 import {debounceTime, distinctUntilChanged} from 'rxjs/operators';
 import {EmergencyDataModel} from '../new-content/new-content.component';
+import {NzMessageService} from 'ng-zorro-antd';
 
 @Component({
   selector: 'app-btn-group',
@@ -42,7 +43,8 @@ export class BtnGroupComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChildren('emergencyTable') emergencyTable: QueryList<ElementRef>;
 
 
-  constructor(@Inject(DOWNLOAD_CONFIT) public downLoadUri: string, private dataServicers: AccidentDisastersListService) {
+  constructor(@Inject(DOWNLOAD_CONFIT) public downLoadUri: string, private dataServicers: AccidentDisastersListService,
+              public message?: NzMessageService) {
     this.shows = false;
     this.selectEmergency = [];
     this.backImage = {
@@ -82,6 +84,10 @@ export class BtnGroupComponent implements OnInit, AfterViewInit, OnDestroy {
 
   handleCancels(): void {
     this.isVisibles = false;
+  }
+
+  sendMsg(msg) {
+    this.message.success(msg);
   }
 
   obInput() {

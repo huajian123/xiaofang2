@@ -1,5 +1,13 @@
 <div class="btn-group">
-  <div class="download-btn" *ngIf="showExportBtn"><a [href]="downLoadUrl" target="_blank">导出</a></div>
+  <div class="send-btn">
+    一键发送<span>&nbsp;<img src="../../../../assets/imgs/arrow.png" alt=""></span>
+    <ul>
+      <li (click)="sendMsg('信息上报')">信息上报</li>
+      <li (click)="sendMsg('级别调整')">级别调整</li>
+      <li (click)="sendMsg('应急终止')">应急终止</li>
+    </ul>
+  </div>
+  <div class="download-btn" *ngIf="showExportBtn"><a [href]="downLoadUrl" target="_blank">下载</a></div>
   <ng-container *ngIf="shows">
     <div class="instruction-btn" (click)="showEmergencyRoom()">应急厅</div>
   </ng-container>
