@@ -11,6 +11,19 @@
     <div nz-row>
       <div nz-col [nzSpan]="8">
         <nz-form-item>
+          <nz-form-label [nzSpan]="12">灾害等级</nz-form-label>
+          <nz-form-control [nzSpan]="12">
+            <nz-select class="margin-none" nzPlaceHolder="下拉选择" [(ngModel)]="level"
+                       (ngModelChange)="getLevelBySel($event)"
+                       [ngModelOptions]="{standalone: true}">
+              <nz-option *ngFor="let item of startLevelOptions" [nzValue]="item.value"
+                         [nzLabel]="item.label"></nz-option>
+            </nz-select>
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+      <div nz-col [nzSpan]="8">
+        <nz-form-item>
           <nz-form-label [nzSpan]="12">台风预警信号</nz-form-label>
           <nz-form-control [nzSpan]="12">
             <nz-select class="margin-none" nzPlaceHolder="下拉选择" formControlName="typhoonAlarm">
@@ -42,17 +55,6 @@
           </nz-form-control>
         </nz-form-item>
       </div>
-      <!--  <div nz-col [nzSpan]="8">
-          <nz-form-item>
-            <nz-form-label [nzSpan]="12">国家启动等级</nz-form-label>
-            <nz-form-control [nzSpan]="12">
-              <nz-select class="margin-none" nzPlaceHolder="下拉选择" formControlName="countryStartGrade">
-                <nz-option *ngFor="let item of startLevelOptions" [nzValue]="item.value"
-                           [nzLabel]="item.label"></nz-option>
-              </nz-select>
-            </nz-form-control>
-          </nz-form-item>
-        </div>-->
     </div>
   </form>
 </section>

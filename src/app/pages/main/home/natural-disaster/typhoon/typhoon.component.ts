@@ -48,6 +48,7 @@ export class TyphoonComponent implements OnInit {
   tableStandard: TableDatasModel[];
   downLoadUrl: string;
   planId: number;
+  level: number;
 
   constructor(private fb: FormBuilder, private dataServicers: AccidentDisastersListService,
               public message: NzMessageService) {
@@ -55,6 +56,7 @@ export class TyphoonComponent implements OnInit {
     this.currentPage = 0;
     this.plnId = 0;
     this.planId = 0;
+    this.level = 2;
     this.responsibilityEntities = [];
     this.warningLevelOptions = [];
     this.startLevelOptions = [];
@@ -83,14 +85,7 @@ export class TyphoonComponent implements OnInit {
         levelTwo: '橙色警报（即沿海受台风影响区域有1个或以上有代表性的验潮站的高潮位达到橙色警戒潮位）',
         levelThree: '黄色警报（即沿海受台风影响区域有1个或以上有代表性的验潮站的高潮位达到黄色警戒潮位）',
         levelFour: '蓝色警报（即沿海受台风影响区域有1个或以上有代表性的验潮站的高潮位达到蓝色警戒潮位）'
-      }/*,
-      {
-        name: '国家启动等级',
-        levelOne: 'Ⅰ级',
-        levelTwo: 'Ⅱ级',
-        levelThree: 'Ⅲ级',
-        levelFour: 'Ⅳ级'
-      }*/
+      }
     ];
     this.backImage = {
       backgroundImage: 'url(../../assets/imgs/modal-box.png)',
@@ -121,7 +116,21 @@ export class TyphoonComponent implements OnInit {
       typhoonAlarm: [null],
       rainstormAlarm: [null],
       stormTide: [null],
-      /* countryStartGrade: [null],*/
+    });
+  }
+
+  getLevelBySel(grade) {
+    if (grade != null) {
+      this.plnId = grade.plnId;
+    }
+    const getResponsibility$ = this.dataServicers.getResponsibility({id: this.id, planGrade: grade});
+    const getEmergency$ = this.dataServicers.getEmergency({accidentId: this.id, planGrade: grade});
+    forkJoin(getResponsibility$, getEmergency$).subscribe(result => {
+      this.responsibilityData = result[0].selectResponsibility;
+      this.planId = result[0].planId;
+      this.emergencyData = result[1];
+      this.downLoadUrl = result[0].downUrl;
+      this.currentPage = grade;
     });
   }
 
@@ -129,18 +138,8 @@ export class TyphoonComponent implements OnInit {
     this.validateForm.valueChanges.pipe(debounceTime(1000), distinctUntilChanged()).subscribe(res => {
       res.accidentId = this.id;
       this.dataServicers.getDecideGrade(res).subscribe(grade => {
-        if (grade != null) {
-          this.plnId = grade.plnId;
-        }
-        const getResponsibility$ = this.dataServicers.getResponsibility({id: res.accidentId, planGrade: grade.grade});
-        const getEmergency$ = this.dataServicers.getEmergency({accidentId: res.accidentId, planGrade: grade.grade});
-        forkJoin(getResponsibility$, getEmergency$).subscribe(result => {
-          this.responsibilityData = result[0].selectResponsibility;
-          this.planId = result[0].planId;
-          this.emergencyData = result[1];
-          this.downLoadUrl = result[0].downUrl;
-          this.currentPage = grade.grade;
-        });
+        this.getLevelBySel(grade.grade);
+        this.level = grade.grade;
       });
     });
   }
@@ -148,6 +147,7 @@ export class TyphoonComponent implements OnInit {
   ngOnInit(): void {
     this.initForm();
     this.subForm();
+    this.getLevelBySel(this.level);
     this.warningLevelOptions = [...MapPipe.transformMapToArray(MapSet.warningLevel)];
     this.startLevelOptions = [...MapPipe.transformMapToArray(MapSet.startLevel)];
     this.stormLevelOptions = [...MapPipe.transformMapToArray(MapSet.stormLevel)];

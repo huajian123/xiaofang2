@@ -20,7 +20,7 @@ export class EmergencyStandardComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.tableData);
+    /*console.log(this.tableData);*/
   }
 
 }
