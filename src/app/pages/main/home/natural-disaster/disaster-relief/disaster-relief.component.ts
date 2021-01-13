@@ -117,16 +117,7 @@ export class DisasterReliefComponent implements OnInit {
 
   async subForm() {
     this.validateForm.valueChanges.pipe(debounceTime(1000), distinctUntilChanged()).subscribe(res => {
-      res.accidentId = this.id;
-      const getResponsibility$ = this.dataServicers.getResponsibility({id: res.accidentId, planGrade: res.level});
-      const getEmergency$ = this.dataServicers.getEmergency({accidentId: res.accidentId, planGrade: res.level});
-      forkJoin(getResponsibility$, getEmergency$).subscribe(result => {
-        this.responsibilityData = result[0].selectResponsibility;
-        this.planId = result[0].planId;
-        this.emergencyData = result[1];
-        this.downLoadUrl = result[0].downUrl;
-        this.currentPage = res.level;
-      });
+      this.getlevelChange(res);
     });
   }
 

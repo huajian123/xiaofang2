@@ -30,13 +30,11 @@ export class GeologicalOneComponent implements OnInit {
   emergencyObj: EmergencyModel[];
   level: number;
   levels: number;
-  rowspans: number;
   emergencyRoomNameArray: string[];
   @ViewChild(NewContentComponent) tableContent: NewContentComponent;
   leftNav: { name: string, index: number }[];
 
   constructor() {
-    this.rowspans = 0;
     this.responsibilityData = [];
     this.nameArray = [];
     this.tableObj = [];
@@ -88,7 +86,6 @@ export class GeologicalOneComponent implements OnInit {
       '事态控制',
       '应急结束'
     ];
-    this.rowspans = this.rowspanNum;
     this.level = this.currentPage;
     this.levels = this.planId;
     this.emergencyObj = this.emergencyRoomData;

@@ -25,7 +25,6 @@ export class ProductionSafetyOneComponent implements OnInit {
   emergencyObj: EmergencyModel[];
   level: number;
   levels: number;
-  rowspans: number;
   emergencyRoomNameArray: string[];
   @ViewChild('distannce1') distannce1: ElementRef;
   @ViewChild('distannce2') distannce2: ElementRef;
@@ -36,7 +35,6 @@ export class ProductionSafetyOneComponent implements OnInit {
   leftNav: { name: string, index: number }[];
 
   constructor() {
-    this.rowspans = 0;
     this.responsibilityData = [];
     this.nameArray = [];
     this.tableObj = [];
@@ -86,7 +84,6 @@ export class ProductionSafetyOneComponent implements OnInit {
       '事态控制',
       '应急结束'
     ];
-    this.rowspans = this.rowspanNum;
     this.level = this.currentPage;
     this.levels = this.planId;
     this.emergencyObj = this.emergencyRoomData;

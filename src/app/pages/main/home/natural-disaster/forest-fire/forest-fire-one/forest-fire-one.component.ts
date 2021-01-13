@@ -33,13 +33,11 @@ export class ForestFireOneComponent implements OnInit {
   emergencyObj: EmergencyModel[];
   level: number;
   levels: number;
-  rowspans: number;
   emergencyRoomNameArray: string[];
   @ViewChild(NewContentComponent) tableContent: NewContentComponent;
   leftNav: { name: string, index: number }[];
 
   constructor() {
-    this.rowspans = 0;
     this.responsibilityData = [];
     this.nameArray = [];
     this.tableObj = [];
@@ -68,6 +66,7 @@ export class ForestFireOneComponent implements OnInit {
     }).index;
     this.goDistance(index);
   }
+
   goDistance(index): void {
     this['distannce' + index]?.nativeElement.scrollIntoView({
       behavior: 'smooth', block: 'start', inline: 'start'
@@ -96,7 +95,6 @@ export class ForestFireOneComponent implements OnInit {
       '综合保障',
       '应急终止',
     ];
-    this.rowspans = this.rowspanNum;
     this.level = this.currentPage;
     this.levels = this.planId;
     this.emergencyObj = this.emergencyRoomData;

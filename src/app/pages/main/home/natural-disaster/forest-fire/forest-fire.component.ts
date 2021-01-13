@@ -38,7 +38,6 @@ export class ForestFireComponent implements OnInit {
   earthquakeEconomicLevelOptions: OptionsInterface[];
   rowspanNum: number;
   responsibilityEntities: DepartInfoModel[];
-  cityName: string;
   plnId: number;
   responsibilityData: ResponsibilityModel[];
   emergencyData: EmergencyModel[];
@@ -55,7 +54,6 @@ export class ForestFireComponent implements OnInit {
     this.plnId = 0;
     this.planId = 0;
     this.responsibilityEntities = [];
-    this.cityName = '';
     this.earthquakeEconomicLevelOptions = [];
     this.responsibilityData = [];
     this.emergencyData = [];

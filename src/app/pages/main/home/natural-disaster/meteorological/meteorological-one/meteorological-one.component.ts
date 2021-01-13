@@ -26,13 +26,11 @@ export class MeteorologicalOneComponent implements OnInit {
   emergencyObj: EmergencyModel[];
   level: number;
   levels: number;
-  rowspans: number;
   emergencyRoomNameArray: string[];
   @ViewChild(NewContentComponent) tableContent: NewContentComponent;
   leftNav: { name: string, index: number }[];
 
   constructor() {
-    this.rowspans = 0;
     this.responsibilityData = [];
     this.nameArray = [];
     this.tableObj = [];
@@ -72,7 +70,6 @@ export class MeteorologicalOneComponent implements OnInit {
       '启动应急响应',
       '应急响应措施',
     ];
-    this.rowspans = this.rowspanNum;
     this.level = this.currentPage;
     this.levels = this.planId;
     this.emergencyObj = this.emergencyRoomData;

@@ -29,7 +29,6 @@ export class ProductionSafetyComponent implements OnInit {
   currentPage: number;
   validateForm: FormGroup;
   responsibilityEntities: DepartInfoModel[];
-  cityName: string;
   plnId: number;
   responsibilityData: ResponsibilityModel[];
   emergencyData: EmergencyModel[];
@@ -48,7 +47,6 @@ export class ProductionSafetyComponent implements OnInit {
     this.plnId = 0;
     this.planId = 0;
     this.responsibilityEntities = [];
-    this.cityName = '';
     this.responsibilityData = [];
     this.emergencyData = [];
     this.rowspanNum = 0;

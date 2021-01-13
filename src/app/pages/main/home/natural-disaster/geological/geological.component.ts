@@ -36,7 +36,6 @@ export class GeologicalComponent implements OnInit {
   validateForm: FormGroup;
   rowspanNum: number;
   responsibilityEntities: DepartInfoModel[];
-  cityName: string;
   plnId: number;
   responsibilityData: ResponsibilityModel[];
   secLevelOptions: OptionsInterface[];
@@ -57,7 +56,6 @@ export class GeologicalComponent implements OnInit {
     this.planId = 0;
     this.level = 2;
     this.responsibilityEntities = [];
-    this.cityName = '';
     this.secLevelOptions = [];
     this.responsibilityData = [];
     this.emergencyData = [];

@@ -38,7 +38,6 @@ export class FloodDroughtComponent implements OnInit {
   dangerLevelOptions: OptionsInterface[];
   rowspanNum: number;
   responsibilityEntities: DepartInfoModel[];
-  cityName: string;
   plnId: number;
   responsibilityData: ResponsibilityModel[];
   emergencyData: EmergencyModel[];
@@ -65,7 +64,6 @@ export class FloodDroughtComponent implements OnInit {
     this.level = 2;
     this.secLevelOptions = [];
     this.responsibilityEntities = [];
-    this.cityName = '';
     this.warningLevelOptions = [];
     this.dangerLevelOptions = [];
     this.responsibilityData = [];
